@@ -1,0 +1,2631 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inburgeringsexamen A2 Practice - Schrijven & Lezen</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .exam-info {
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-top: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .exam-info strong {
+            color: #ffd700;
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .mode-btn {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .mode-btn.schrijven {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .mode-btn.lezen {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .mode-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .mode-btn.active {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 4px rgba(255,255,255,0.5);
+        }
+
+        /* Exam Navigation Sidebar */
+        .exam-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .exam-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .exam-sidebar {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .exam-section {
+            margin-bottom: 15px;
+        }
+
+        .exam-section-title {
+            font-weight: 700;
+            color: #333;
+            padding: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .exam-section-title:hover {
+            opacity: 0.9;
+        }
+
+        .exam-section-title.original {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .exam-section-title.e2 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .exam-section-title.e3 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .exam-section-title.e4 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .exam-section-title.d1 {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+        }
+
+        .exam-section-title.d2 {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .exam-section-title.d3 {
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+        }
+
+        .exercise-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .exercise-item {
+            padding: 10px 12px;
+            margin: 4px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #444;
+            background: #f8f9fa;
+        }
+
+        .exercise-item:hover {
+            background: #e9ecef;
+        }
+
+        .exercise-item.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .exercise-item.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .exercise-item.completed.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .exercise-status {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .exercise-item.completed .exercise-status {
+            background: #28a745;
+            border-color: #28a745;
+            color: white;
+        }
+
+        .exercise-item.active .exercise-status {
+            border-color: white;
+        }
+
+        .back-to-menu {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            color: #666;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.2s;
+        }
+
+        .back-to-menu:hover {
+            background: #e9ecef;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .question-counter {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .question-type {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #f0f0f0;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .reading-text {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 10px 10px 0;
+            line-height: 1.8;
+        }
+
+        .reading-text h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .option.selected {
+            border-color: #667eea;
+            background: #f0f3ff;
+        }
+
+        .option.correct {
+            border-color: #4caf50;
+            background: #e8f5e9;
+        }
+
+        .option.incorrect {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .model-answer {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .model-answer h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .model-answer p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .feedback {
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .feedback.correct {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .feedback.incorrect {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .score-card {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .score-card h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .score-number {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .score-details {
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .tips {
+            background: #fff3e0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .tips h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .tips ul {
+            padding-left: 20px;
+            color: #333;
+        }
+
+        .tips li {
+            margin-bottom: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .rubric {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid #667eea;
+        }
+
+        .rubric h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .rubric-category {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .rubric-category:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .rubric-category h5 {
+            color: #333;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rubric-category h5 span {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: normal;
+        }
+
+        .rubric-options {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .rubric-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .rubric-option:hover {
+            background: #f0f3ff;
+        }
+
+        .rubric-option.selected {
+            background: #e8f0fe;
+            border-color: #667eea;
+        }
+
+        .rubric-option input {
+            margin-top: 3px;
+        }
+
+        .rubric-option label {
+            cursor: pointer;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .rubric-option .points {
+            font-weight: bold;
+            color: #667eea;
+            min-width: 20px;
+        }
+
+        .score-breakdown {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            color: white;
+        }
+
+        .score-breakdown h4 {
+            margin-bottom: 15px;
+        }
+
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .score-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding-top: 15px;
+        }
+
+        .score-row.total {
+            margin-top: 10px;
+            padding-top: 15px;
+            border-top: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .warning-note {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: #e65100;
+        }
+
+        .ai-grading-result {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .ai-grading-result h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ai-score-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .ai-score-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .ai-score-card h5 {
+            color: #333;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .ai-score-card .score {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .ai-score-card .max {
+            font-size: 1rem;
+            color: #999;
+        }
+
+        .ai-score-card .justification {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        .ai-total-score {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .ai-total-score .number {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .ai-total-score .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .ai-errors-section {
+            background: #fff5f5;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .ai-errors-section h5 {
+            color: #c62828;
+            margin-bottom: 10px;
+        }
+
+        .ai-error-item {
+            background: white;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            border-left: 3px solid #f44336;
+        }
+
+        .ai-error-item .error {
+            color: #c62828;
+            text-decoration: line-through;
+        }
+
+        .ai-error-item .correction {
+            color: #2e7d32;
+            font-weight: 500;
+        }
+
+        .ai-error-item .explanation {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .ai-strengths-section {
+            background: #e8f5e9;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .ai-strengths-section h5 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .ai-improvements-section {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .ai-improvements-section h5 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .ai-feedback-overall {
+            background: #f3e5f5;
+            border-radius: 10px;
+            padding: 15px;
+            font-style: italic;
+            color: #6a1b9a;
+            line-height: 1.6;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn-ai {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-ai:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-ai:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .mode-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Inburgeringsexamen A2</h1>
+            <p>Practice for Schrijven & Lezen</p>
+            <div class="exam-info">
+                <strong>Maandag 12 januari:</strong> Schrijven (11:10) & Lezen (13:05) @ Amsterdam Overamstel
+            </div>
+        </header>
+
+        <div class="mode-selector">
+            <button class="mode-btn schrijven" onclick="startMode('schrijven')">
+                Schrijven (Writing)
+            </button>
+            <button class="mode-btn lezen" onclick="startMode('lezen')">
+                Lezen (Reading)
+            </button>
+        </div>
+
+        <div id="practice-area" class="hidden">
+            <div class="exam-layout">
+                <div class="exam-sidebar" id="exam-sidebar">
+                    <!-- Sidebar content will be generated by JavaScript -->
+                </div>
+                <div class="card">
+                    <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+                    <div class="question-counter" id="counter"></div>
+                    <div class="question-type" id="question-type"></div>
+                    <div id="question-content"></div>
+                    <div class="buttons" id="buttons"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="welcome" class="card">
+            <h2 style="color: #333; margin-bottom: 15px;">Welkom! Succes met oefenen!</h2>
+            <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
+                Choose a practice mode above. This app includes real exam-style questions to help you prepare for your exams on Monday.
+            </p>
+            <div class="tips">
+                <h4>Exam Tips</h4>
+                <ul>
+                    <li><strong>Schrijven (40 min):</strong> 4 writing tasks - emails, forms, short texts</li>
+                    <li><strong>Lezen (65 min):</strong> 25 multiple choice questions based on texts</li>
+                    <li>Write short, clear sentences - simple and correct is better than complex and wrong</li>
+                    <li>Use signal words: eerst, daarna, dan, en, maar, omdat, want</li>
+                    <li>For reading: read the question first, then find the answer in the text</li>
+                </ul>
+            </div>
+            <div style="background: #e8f0fe; border-radius: 12px; padding: 15px; margin-top: 15px;">
+                <h4 style="color: #667eea; margin-bottom: 10px;">Official Writing Rubric (5 Categories, 10 pts max)</h4>
+                <ul style="padding-left: 20px; color: #333; font-size: 0.9rem;">
+                    <li><strong>Execution (0-3 pts):</strong> Did you address all parts of the task?</li>
+                    <li><strong>Grammar (0-2 pts):</strong> Correct verb placement and conjugation</li>
+                    <li><strong>Spelling (0-2 pts):</strong> Words spelled correctly</li>
+                    <li><strong>Clearness (0-1 pt):</strong> Structure with conjunctions (en, maar, want, omdat)</li>
+                    <li><strong>Vocabulary (0-2 pts):</strong> Varied word choice</li>
+                </ul>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 10px; font-style: italic;">
+                    Source: Official DUO "Grading document for Message and Text to everybody"
+                </p>
+            </div>
+        </div>
+
+        <div id="score-area" class="card hidden"></div>
+    </div>
+
+    <script>
+        // Writing questions with model answers
+        const schrijvenQuestions = [
+            {
+                type: "Email - Ziek melden",
+                prompt: "Je bent ziek en kunt niet naar je werk komen. Schrijf een e-mail aan je baas.\n\n• Schrijf dat je ziek bent\n• Schrijf wanneer je waarschijnlijk weer kunt werken\n• Vraag wat je moet doen met je taken",
+                modelAnswer: "Beste meneer Martin,\n\nIk ben vandaag ziek. Ik heb koorts en hoofdpijn. Ik kan niet naar mijn werk komen.\n\nIk denk dat ik morgen of overmorgen weer beter ben. Dan kom ik weer werken.\n\nWat moet ik doen met mijn werk van vandaag? Moet iemand anders mijn taken doen?\n\nVriendelijke groet,\n[Jouw naam]"
+            },
+            {
+                type: "Email - Afspraak verzetten",
+                prompt: "Je volgt een cursus. Morgen heb je een afspraak met Amber, een andere student. Je kunt niet komen en wilt de afspraak verzetten.\n\n• Schrijf dat je de afspraak wilt verzetten\n• Schrijf waarom\n• Stel een nieuwe datum voor",
+                modelAnswer: "Beste Amber,\n\nIk wil graag de afspraak verzetten. Ik kan helaas niet morgen. Ik heb een doktersafspraak.\n\nKan het volgende week woensdag 14 januari? Zullen we dan afspreken?\n\nGroetjes,\n[Jouw naam]"
+            },
+            {
+                type: "Formulier - Vrijwilligerswerk",
+                prompt: "Een verzorgingshuis zoekt vrijwilligers. Je bent geïnteresseerd. Vul het formulier in:\n\n• Voornaam:\n• Achternaam:\n• Telefoonnummer:\n• Hoe vaak bent u beschikbaar?\n• Waarom wilt u vrijwilligerswerk doen?\n• Wanneer kunt u beginnen?",
+                modelAnswer: "Voornaam: Maria\nAchternaam: de Jong\nTelefoonnummer: 06-12345678\nHoe vaak bent u beschikbaar: Twee dagen per week, op maandag en donderdag\nWaarom wilt u vrijwilligerswerk doen: Ik wil graag ouderen helpen. Ik vind het leuk om met mensen te praten.\nWanneer kunt u beginnen: Zo snel mogelijk, vanaf volgende week"
+            },
+            {
+                type: "Briefje - Huishouden",
+                prompt: "Je hebt zo rijles en moet weg. Later komt je partner thuis. Hij/zij moet een paar dingen doen.\n\nSchrijf een briefje voor je partner. Schrijf drie dingen die hij/zij moet doen:\n• De plantjes water geven\n• De was in de wasmachine doen\n• Het eten opwarmen",
+                modelAnswer: "Hoi schat,\n\nIk heb zo rijles en moet weg.\n\nWil jij een paar dingen doen als je thuis komt?\n1. Geef de plantjes water.\n2. Doe de was in de wasmachine.\n3. Warm het eten op in de magnetron.\n\nDankjewel!\n\nTot straks,\n[Jouw naam]"
+            },
+            {
+                type: "Email - Kapot product",
+                prompt: "Je hebt vorige week een telefoon gekocht maar hij werkt niet goed. Schrijf een e-mail aan de winkel.\n\n• Schrijf wat het probleem is\n• Schrijf wanneer je de telefoon hebt gekocht\n• Vraag om een oplossing",
+                modelAnswer: "Beste meneer of mevrouw,\n\nVorige week dinsdag heb ik een telefoon gekocht in uw winkel. De telefoon kost €200, maar de telefoon werkt niet goed.\n\nHet scherm is zwart en ik kan niet bellen.\n\nKunt u mij helpen? Ik wil graag mijn geld terug of een nieuwe telefoon.\n\nVriendelijke groet,\n[Jouw naam]"
+            },
+            {
+                type: "Email - Cursus informatie",
+                prompt: "Je wilt je inschrijven voor een Nederlandse cursus. Schrijf een e-mail naar de school.\n\n• Schrijf dat je je wilt inschrijven\n• Vraag naar de kosten en tijden\n• Vertel iets over je Nederlandse niveau",
+                modelAnswer: "Beste meneer of mevrouw,\n\nIk wil graag een Nederlandse cursus volgen bij uw school.\n\nIk spreek al een beetje Nederlands, maar ik wil beter worden. Ik ben nu op niveau A1.\n\nHoeveel kost de cursus? Wanneer zijn de lessen? Ik kan op maandag, woensdag en vrijdag.\n\nVriendelijke groet,\n[Jouw naam]"
+            },
+            {
+                type: "Briefje - Buren",
+                prompt: "Je buren hadden een feestje. Het was erg luid na 22.00 uur. Schrijf een briefje aan je buren.\n\n• Schrijf dat je buren een feestje hadden\n• Schrijf dat het geluid te hard was\n• Vraag of ze iets rustiger kunnen zijn",
+                modelAnswer: "Beste buren,\n\nUw feestje gisterenavond was gezellig, maar het geluid was na 22.00 uur erg hard.\n\nIk kon niet slapen omdat de muziek zo luid was.\n\nZou u de volgende keer iets rustiger kunnen zijn na 22.00 uur?\n\nDank u wel!\n\nVriendelijke groet,\nUw buurman/buurvrouw"
+            },
+            {
+                type: "Beschrijving - Huisdier",
+                prompt: "Beschrijf je huisdier of een dier dat je leuk vindt.\n\n• Schrijf hoe het eruitziet\n• Schrijf wat het doet\n• Schrijf waarom je het leuk vindt",
+                modelAnswer: "Mijn kat heet Simba. Hij is groot en heeft zwart-wit vacht. Hij heeft groene ogen.\n\nSimba speelt graag met een balletje. Hij slaapt veel, meestal op de bank. Hij eet drie keer per dag.\n\nIk vind hem leuk omdat hij grappig is. Hij maakt me blij als ik thuiskom."
+            },
+            {
+                type: "Email - Bibliotheek",
+                prompt: "Je wilt een boek reserveren in de bibliotheek. Schrijf een e-mail.\n\n• Schrijf welk boek je wilt\n• Vraag of het beschikbaar is\n• Vraag hoe lang je het kunt lenen",
+                modelAnswer: "Beste bibliotheek,\n\nIk wil graag het boek 'Nederlands voor beginners' reserveren.\n\nKunt u me vertellen of het boek beschikbaar is?\n\nEn hoe lang kan ik het boek lenen?\n\nAlvast bedankt!\n\nVriendelijke groet,\n[Jouw naam]"
+            },
+            {
+                type: "Verhaal - Iets nieuws geleerd",
+                prompt: "Vertel over een dag dat je iets nieuws hebt geleerd.\n\n• Schrijf wat je hebt geleerd\n• Schrijf hoe je het hebt gedaan\n• Schrijf wat moeilijk was\n• Schrijf hoe je je voelde",
+                modelAnswer: "Vorige week leerde ik fietsen in Amsterdam.\n\nEerst was het moeilijk. Er waren veel auto's en fietsen. Ik was bang.\n\nMijn vriend hielp mij. Hij gaf tips over de verkeerslichten en fietspaden.\n\nNa een paar dagen kon ik het zelf. Ik voelde me trots en blij. Nu fiets ik elke dag naar mijn cursus."
+            },
+            // E2 Questions from inburgeringonline.nl
+            {
+                type: "Bericht - Later op werk",
+                prompt: "U moet morgen werken maar u zult later komen. U moet naar de huisarts.\n\nSchrijf een email aan uw manager.\n\n• U schrijft waarom u mailt.\n• U schrijft hoe laat u ongeveer op uw werk komt.\n• U vraagt of dat goed is.",
+                modelAnswer: "Beste manager,\n\nIk zal morgen later op mijn werk komen want ik moet naar de huisarts.\n\nIk kom om 11:00 uur.\n\nIs dat goed?\n\nGroeten,\nEline"
+            },
+            {
+                type: "Tekst voor iedereen - De sportdag van de buurt",
+                prompt: "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over de sportdag van de buurt. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Wie komen er op de sportdag?\n• Wat kunnen mensen doen op de sportdag?\n• Op welke dag is de sportdag en hoe laat begint de sportdag?\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Iedereen uit de buurt kan naar de sportdag komen.\n\nMensen kunnen op de sportdag voetballen, tennissen en rennen.\n\nDe sportdag is op vrijdag 10 juli en hij begint om 10:00."
+            },
+            {
+                type: "Formulier - Sollicitatieformulier bloemenwinkel",
+                prompt: "U solliciteert voor de functie van verkoper bij bloemenwinkel DE TULP. U kunt alleen op weekdagen werken en u heeft geen rijbewijs. U kunt wel direct starten met werken.\n\nSommige gegevens moet u zelf bedenken.\n\nVul het formulier in:\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoon, geslacht, geboortedatum, email)\n• Kunt u in het weekend werken?\n• Kunt u direct starten?\n• Kunt u in de avond werken?\n• Heeft u een rijbewijs?\n• Wat is uw werkervaring?",
+                modelAnswer: "Persoonsgegevens:\nMichiel Pietersen\nAstrastraat 11\n6599 PE\nAbcoude\n06-4382937\nMan\n13-10-1987\n\nKunt u direct starten met werken? Ja\nKunt u in het weekend werken? Nee\nKunt u in de avond werken? Ja of Nee (beide correct)\nHeeft u een rijbewijs? Nee\n\nWat is uw werkervaring?\nIk heb bij een supermarkt gewerkt."
+            },
+            {
+                type: "Bericht - Afspraak bij de tandarts",
+                prompt: "U moet vrijdag werken maar u heeft in de middag een afspraak bij de tandarts.\n\nSchrijf een email aan uw manager.\n\n• U schrijft waarom u mailt.\n• U schrijft hoe laat u weg moet.\n• U schrijft dat u de rest van de dag thuis werkt.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Beste manager,\n\nIk heb vrijdagmiddag een afspraak bij de tandarts.\n\nIk moet om 14:00 weg.\n\nIk zal de rest van de dag thuis werken.\n\nGroeten,\nJesper"
+            },
+            // E3 Questions from inburgeringonline.nl
+            {
+                type: "Bericht - Lessen verzetten",
+                prompt: "U volgt een cursus Chinees. U hebt les in de avond. U kunt niet meer in de avond naar de lessen komen.\n\nSchrijf een email aan uw docent.\n\n• U schrijft waarom u mailt.\n• U schrijft waarom u niet meer in de avond naar de lessen kunt komen. Bedenk het zelf.\n• U vraagt of u de les in een andere groep kunt volgen.\n• Biedt uw excuses aan.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Beste docent,\n\nIk kan niet meer in de avond naar de lessen komen want ik moet mijn dochter ophalen bij de kinderopvang.\n\nKan ik een les in een andere groep volgen?\n\nMijn excuses voor het ongemak.\n\nGroeten,\nRobert"
+            },
+            {
+                type: "Tekst voor iedereen - Uw verjaardag",
+                prompt: "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over uw verjaardag. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Wat doet u graag op uw verjaardag?\n• Waar viert u uw verjaardag?\n• Wie komen op uw verjaardag?\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Ik eet graag taart op mijn verjaardag.\n\nIk vier mijn verjaardag in mijn huis.\n\nOp mijn verjaardag komen mijn beste vrienden en familie."
+            },
+            {
+                type: "Formulier - Beoordelingsformulier huurauto",
+                prompt: "U heeft een auto gehuurd bij autoverhuurbedrijf 'BESTE HUURAUTO'S'. U was niet blij met de auto. Het was een Opel met kentekennummer 21-KBB-7.\n\nU heeft twee klachten over de auto. Vul het beoordelingsformulier van het autoverhuurbedrijf in. Sommige gegevens moet u zelf bedenken.\n\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoon, email)\n• Informatie over de auto (Merk, Kentekennummer)\n• Wat zijn de klachten? (1. en 2.)",
+                modelAnswer: "Persoonsgegevens:\nMichiel Pietersen\nAstrastraat 11\n6599 PE\nAbcoude\n06-4382937\nmich@pietersen.nl\n\nInformatie over de auto:\nMerk: Opel\nKentekennummer: 21-KBB-7\n\nWat zijn de klachten?\n1. Vuilnis in de auto\n2. Kapotte stoel"
+            },
+            {
+                type: "Bericht - Briefje voor collega (kantine)",
+                prompt: "U werkt in een kantine. Straks komt uw collega Jesper. Hij moet een paar dingen doen.\n\nSchrijf een briefje voor Jesper. Vertel wat hij moet doen. Schrijf drie dingen op.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Hallo Jesper,\n\nJij moet vandaag een paar dingen doen.\n\nEerst moet jij de deur van de kantine openen.\n\nDan moet jij de broodjes in de oven doen.\n\nDaarna moet jij de borden afwassen.\n\nAlvast bedankt!\n\nGroeten,\nMichiel"
+            },
+            // E4 Questions (E1 from inburgeringonline.nl)
+            {
+                type: "Bericht - Meerijden naar bedrijfsuitje",
+                prompt: "U heeft volgende week een bedrijfsuitje. U heeft geen auto. U vraagt of uw collega Marianne u kan ophalen.\n\n• U schrijft dat u geen auto heeft.\n• U vraagt of uw collega u kan ophalen.\n• U schrijft waar u woont (bedenk zelf een adres).\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Hoi Marianne,\n\nWij hebben volgende week een bedrijfsuitje maar ik heb geen auto.\n\nKun jij mij komen ophalen?\n\nJij kunt mij bij mijn huis komen ophalen. Ik woon op de Rijnstraat 14.\n\nGroetjes,\nMichiel"
+            },
+            {
+                type: "Tekst voor iedereen - Mijn fiets",
+                prompt: "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over uw fiets. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Waar gaat u op de fiets naartoe?\n• Hoe ziet uw fiets eruit?\n• Met wie fietst u wel eens?\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Ik ga op mijn fiets naar mijn werk.\n\nMijn fiets is een blauwe herenfiets.\n\nIk fiets wel eens met mijn vrouw."
+            },
+            {
+                type: "Formulier - Inschrijven cursus Chinees",
+                prompt: "U wilt zich graag inschrijven voor een cursus Chinees bij Talenschool WERELDTALEN. U wilt twee keer per week les en u wilt groepslessen.\n\nSommige gegevens moet u zelf bedenken.\n\nVul het formulier in:\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoon, geslacht, geboortedatum, email)\n• Welke taal wilt u leren?\n• Hoe vaak wilt u les?\n• Wat voor soort lessen wilt u?\n• Wat is uw niveau?\n• Waarom wilt u deze taal leren?",
+                modelAnswer: "Persoonsgegevens:\nMichiel Pietersen\nAstrastraat 11\n6599 PE\nAbcoude\n06-4382937\nMan\n13-10-1987\nmich@pietersen.nl\n\nWelke taal wilt u leren? Chinees\n\nHoe vaak wilt u les? 2x per week\n\nWat voor soort lessen wilt u? Groepslessen\n\nWat is uw niveau? Beginner (or whatever applies to you)\n\nWaarom wilt u deze taal leren? Ik ga in China werken / Ik heb Chinese collega's"
+            },
+            {
+                type: "Bericht - Planten water geven",
+                prompt: "U gaat volgende week op vakantie. U wilt aan uw buurman, Mark, vragen of hij de planten water kan geven. U schrijft hem een e-mail.\n\n• U schrijft waarom u de email stuurt.\n• U vraagt of uw buurman volgende week de planten water kan geven.\n• U vertelt hem waar de sleutel van de voordeur ligt. Bedenk het zelf.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Hoi Mark,\n\nIk ga volgende week op vakantie.\n\nKun jij mijn planten water geven?\n\nKun jij de planten twee keer per week water geven?\n\nDe sleutel van de voordeur ligt onder de deurmat.\n\nGroetjes,\nMichelle"
+            },
+            // D1 - Messages (Berichten) from inburgeringonline.nl
+            {
+                type: "D1 Bericht - Spelletjesavond",
+                prompt: "U organiseert volgende week een spelletjesavond bij u thuis. U nodigt uw vrienden uit.\n\nSchrijf een e-mail aan uw vrienden.\n\n• U schrijft waarom u mailt.\n• U schrijft welke dag en hoe laat de spelletjesavond is.\n• U vraagt of uw vrienden iets willen meenemen (bijvoorbeeld drinken of een spelletje).\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Hoi allemaal,\n\nVolgende week organiseer ik een spelletjesavond bij mij thuis.\n\nDe avond is op zaterdag om 20:00 uur.\n\nKunnen jullie iets te drinken of een leuk spelletje meenemen?\n\nIk hoop jullie te zien!\n\nGroetjes,\n[Naam]"
+            },
+            {
+                type: "D1 Bericht - Cursus Spaans klacht",
+                prompt: "U volgt een cursus Spaans bij een school. U bent niet tevreden over de cursus.\n\nSchrijf een e-mail aan de school.\n\n• U schrijft waarom u mailt.\n• U schrijft waarom u niet tevreden bent. Bedenk het zelf.\n• U vraagt of u kunt stoppen met de cursus en uw geld terug kunt krijgen.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Beste meneer of mevrouw,\n\nIk volg de cursus Spaans bij uw school, maar ik ben niet tevreden.\n\nDe lessen zijn te moeilijk en de docent spreekt te snel.\n\nKan ik stoppen met de cursus? En kan ik mijn geld terugkrijgen?\n\nVriendelijke groet,\n[Naam]"
+            },
+            {
+                type: "D1 Bericht - Opdracht inleveren",
+                prompt: "U volgt een cursus. U moet een opdracht inleveren, maar u bent niet klaar.\n\nSchrijf een e-mail aan uw docent.\n\n• U schrijft waarom u mailt.\n• U schrijft waarom u niet klaar bent. Bedenk het zelf.\n• U vraagt of u de opdracht later kunt inleveren.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Beste docent,\n\nIk schrijf u over de opdracht die ik moet inleveren.\n\nIk ben helaas nog niet klaar met de opdracht omdat ik ziek was.\n\nKan ik de opdracht later inleveren? Misschien volgende week?\n\nVriendelijke groet,\n[Naam]"
+            },
+            {
+                type: "D1 Bericht - Weekend werken bibliotheek",
+                prompt: "U werkt bij een bibliotheek. U wilt graag in het weekend werken.\n\nSchrijf een e-mail naar uw manager.\n\n• U schrijft waarom u mailt.\n• U schrijft waarom u in het weekend wilt werken. Bedenk het zelf.\n• U vraagt of u in het weekend kunt werken.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Beste manager,\n\nIk zou graag in het weekend willen werken.\n\nIk wil extra geld verdienen voor mijn vakantie.\n\nKan ik in het weekend werken? Ik ben beschikbaar op zaterdag en zondag.\n\nVriendelijke groet,\n[Naam]"
+            },
+            {
+                type: "D1 Bericht - Portemonnee gestolen",
+                prompt: "Uw portemonnee is gestolen. U schrijft een e-mail aan de politie.\n\nSchrijf een e-mail aan de politie.\n\n• U schrijft waarom u mailt.\n• U schrijft wat er is gestolen en waar.\n• U vraagt wat u moet doen.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Beste politie,\n\nIk wil aangifte doen. Mijn portemonnee is gestolen.\n\nDe portemonnee is gisteren gestolen in de supermarkt. In de portemonnee zaten mijn pinpas en 50 euro.\n\nWat moet ik nu doen? Kan ik langskomen?\n\nVriendelijke groet,\n[Naam]"
+            },
+            {
+                type: "D1 Bericht - Fiets kopen",
+                prompt: "U wilt een fiets kopen. U heeft een advertentie gezien.\n\nSchrijf een e-mail aan de verkoper.\n\n• U schrijft waarom u mailt.\n• U stelt een vraag over de fiets. Bedenk het zelf.\n• U vraagt wanneer u de fiets kunt bekijken.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Beste verkoper,\n\nIk zag uw advertentie voor de fiets. Ik ben geïnteresseerd.\n\nHoe oud is de fiets? En werken de remmen goed?\n\nWanneer kan ik de fiets komen bekijken?\n\nVriendelijke groet,\n[Naam]"
+            },
+            {
+                type: "D1 Bericht - Fiets reparatie",
+                prompt: "Uw fiets is kapot. U brengt de fiets naar de fietsenmaker.\n\nSchrijf een briefje voor de fietsenmaker.\n\n• U schrijft wat er kapot is.\n• U vraagt hoeveel de reparatie kost.\n• U schrijft wanneer u de fiets wilt ophalen.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Beste fietsenmaker,\n\nMijn fiets is kapot. De band is lek en de lamp doet het niet.\n\nKunt u de fiets repareren? Hoeveel kost dat?\n\nIk wil de fiets graag morgen ophalen.\n\nVriendelijke groet,\n[Naam]"
+            },
+            {
+                type: "D1 Bericht - Kat verzorgen",
+                prompt: "U gaat op vakantie. U vraagt aan uw vriend of hij/zij op uw kat kan passen.\n\nSchrijf een e-mail aan uw vriend.\n\n• U schrijft waarom u mailt.\n• U schrijft wanneer u op vakantie gaat.\n• U vraagt of uw vriend op de kat kan passen.\n• U schrijft wat uw vriend moet doen voor de kat.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Hoi,\n\nIk ga volgende week op vakantie, van maandag tot vrijdag.\n\nKun jij op mijn kat passen?\n\nJe moet de kat elke dag eten en water geven. En kun je ook even met haar spelen?\n\nDe sleutel ligt onder de mat.\n\nAlvast bedankt!\n\nGroetjes,\n[Naam]"
+            },
+            {
+                type: "D1 Bericht - E-mail aan collega",
+                prompt: "U werkt vandaag niet, maar u heeft een vraag voor uw collega.\n\nSchrijf een e-mail aan uw collega.\n\n• U schrijft waarom u mailt.\n• U stelt een vraag over het werk. Bedenk het zelf.\n• U bedankt uw collega.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Hoi collega,\n\nIk werk vandaag niet, maar ik heb een vraag.\n\nWeet jij waar het verslag van de vergadering is? Ik kan het niet vinden.\n\nAlvast bedankt voor je hulp!\n\nGroetjes,\n[Naam]"
+            },
+            {
+                type: "D1 Bericht - Uitnodiging collega",
+                prompt: "U organiseert een feestje voor uw verjaardag. U nodigt uw collega uit.\n\nSchrijf een e-mail aan uw collega.\n\n• U schrijft waarom u mailt.\n• U schrijft wanneer en waar het feestje is.\n• U vraagt of uw collega kan komen.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Hoi collega,\n\nIk word volgende week 30 jaar en ik geef een feestje.\n\nHet feestje is op zaterdag 15 januari om 20:00 uur bij mij thuis.\n\nKun je komen? Ik hoop je te zien!\n\nGroetjes,\n[Naam]"
+            },
+            {
+                type: "D1 Bericht - Dienst ruilen",
+                prompt: "U kunt volgende week niet werken op woensdag. U wilt met uw collega van dienst ruilen.\n\nSchrijf een e-mail aan uw collega.\n\n• U schrijft waarom u mailt.\n• U schrijft waarom u niet kunt werken. Bedenk het zelf.\n• U vraagt of uw collega met u wil ruilen.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Hoi collega,\n\nIk kan volgende week woensdag niet werken.\n\nIk heb een afspraak bij de tandarts.\n\nKun jij mijn dienst overnemen? Dan werk ik voor jou op een andere dag.\n\nLaat je het me weten?\n\nGroetjes,\n[Naam]"
+            },
+            {
+                type: "D1 Bericht - Kinderopvang",
+                prompt: "Uw kind is ziek en kan niet naar de kinderopvang.\n\nSchrijf een e-mail aan de kinderopvang.\n\n• U schrijft waarom u mailt.\n• U schrijft wat uw kind heeft.\n• U schrijft wanneer uw kind weer kan komen.\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Beste kinderopvang,\n\nMijn kind kan vandaag niet komen. Hij/zij is ziek.\n\nMijn kind heeft koorts en buikpijn.\n\nIk denk dat hij/zij over twee dagen weer beter is. Dan komt hij/zij weer.\n\nVriendelijke groet,\n[Naam]"
+            },
+            // D2 - Text to everybody (Tekst voor iedereen) from inburgeringonline.nl
+            {
+                type: "D2 Tekst - Vakantie",
+                prompt: "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over uw vakantie. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Waar ging u op vakantie?\n• Wat deed u op vakantie?\n• Hoe was het weer?\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Vorige maand ging ik op vakantie naar Spanje.\n\nIk ging naar het strand en ik zwom in de zee. Ik bezocht ook een mooie stad.\n\nHet weer was heel warm en zonnig."
+            },
+            {
+                type: "D2 Tekst - Favoriete muziek",
+                prompt: "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over uw favoriete muziek. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Welke muziek vindt u mooi?\n• Wanneer luistert u naar muziek?\n• Waarom vindt u deze muziek mooi?\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Mijn favoriete muziek is popmuziek.\n\nIk luister naar muziek als ik in de auto zit of als ik kook.\n\nIk vind popmuziek mooi omdat het vrolijk is. Het maakt me blij."
+            },
+            {
+                type: "D2 Tekst - Nederland",
+                prompt: "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over Nederland. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Wat vindt u mooi aan Nederland?\n• Wat vindt u niet zo leuk aan Nederland?\n• Wat is anders dan in uw land?\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Ik vind Nederland een mooi land. De parken en de fietspaden zijn heel fijn.\n\nIk vind het weer niet zo leuk. Het regent vaak.\n\nIn Nederland fietsen veel mensen. Dat is anders dan in mijn land."
+            },
+            {
+                type: "D2 Tekst - Goede vriend",
+                prompt: "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over een goede vriend. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Wie is uw goede vriend?\n• Hoe kent u deze vriend?\n• Wat doet u samen met uw vriend?\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Mijn goede vriend heet Ahmed.\n\nIk ken Ahmed van mijn werk. We werken samen op kantoor.\n\nWij sporten samen en we gaan soms uit eten. Hij is een hele leuke vriend."
+            },
+            {
+                type: "D2 Tekst - Favoriete eten",
+                prompt: "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over uw favoriete eten. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Wat is uw favoriete eten?\n• Wanneer eet u dit?\n• Waarom vindt u dit lekker?\n\nSchrijf in hele zinnen.",
+                modelAnswer: "Mijn favoriete eten is couscous met groenten en vlees.\n\nIk eet dit vaak in het weekend, op zondag.\n\nIk vind het lekker omdat het me aan thuis doet denken. Mijn moeder maakte dit ook altijd."
+            },
+            {
+                type: "D2 Tekst - Leukste dag",
+                prompt: "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over de leukste dag van de week. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Welke dag vindt u het leukst?\n• Wat doet u op die dag?\n• Waarom vindt u die dag leuk?\n\nSchrijf in hele zinnen.",
+                modelAnswer: "De leukste dag van de week vind ik zaterdag.\n\nOp zaterdag hoef ik niet te werken. Ik ga naar de markt en ik zie mijn vrienden.\n\nIk vind zaterdag leuk omdat ik dan vrij ben en kan doen wat ik wil."
+            },
+            // D3 - Forms (Formulieren) from inburgeringonline.nl
+            {
+                type: "D3 Formulier - Meldingsformulier politie",
+                prompt: "Uw fiets is gestolen. U doet aangifte bij de politie.\n\nVul het meldingsformulier in:\n\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoonnummer, e-mail)\n• Wat is er gestolen?\n• Waar is het gestolen?\n• Wanneer is het gestolen?\n• Heeft u nog andere informatie?\n\nSommige gegevens moet u zelf bedenken.",
+                modelAnswer: "Persoonsgegevens:\nJan de Vries\nKerkstraat 12\n1234 AB\nAmsterdam\n06-12345678\njan@email.nl\n\nWat is er gestolen?\nMijn fiets, een blauwe damesfiets\n\nWaar is het gestolen?\nBij het station Amsterdam Centraal\n\nWanneer is het gestolen?\nGisteren, 10 januari, rond 14:00 uur\n\nHeeft u nog andere informatie?\nDe fiets stond op slot. Het slot is kapotgemaakt."
+            },
+            {
+                type: "D3 Formulier - Sportschool Rico",
+                prompt: "U wilt lid worden van Sportschool Rico. U kunt alleen in de ochtend sporten.\n\nVul het inschrijfformulier in:\n\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoonnummer, geboortedatum, e-mail)\n• Wanneer wilt u sporten? (ochtend/middag/avond)\n• Welke sporten wilt u doen?\n• Hoe heeft u over ons gehoord?\n\nSommige gegevens moet u zelf bedenken.",
+                modelAnswer: "Persoonsgegevens:\nMaria Jansen\nHoofdweg 45\n5678 CD\nRotterdam\n06-98765432\n15-03-1990\nmaria@email.nl\n\nWanneer wilt u sporten?\nIn de ochtend\n\nWelke sporten wilt u doen?\nFitness en yoga\n\nHoe heeft u over ons gehoord?\nVia een vriend"
+            },
+            {
+                type: "D3 Formulier - Supermarkt sollicitatie",
+                prompt: "U solliciteert voor een baan bij een supermarkt. U wilt fulltime werken.\n\nVul het sollicitatieformulier in:\n\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoonnummer, geboortedatum, e-mail)\n• Wilt u fulltime of parttime werken?\n• Kunt u in het weekend werken?\n• Wat is uw werkervaring?\n• Waarom wilt u bij ons werken?\n\nSommige gegevens moet u zelf bedenken.",
+                modelAnswer: "Persoonsgegevens:\nPeter Bakker\nLangestraat 78\n9012 EF\nUtrecht\n06-11223344\n20-08-1995\npeter@email.nl\n\nWilt u fulltime of parttime werken?\nFulltime\n\nKunt u in het weekend werken?\nJa, ik kan in het weekend werken.\n\nWat is uw werkervaring?\nIk heb 2 jaar bij een andere supermarkt gewerkt.\n\nWaarom wilt u bij ons werken?\nIk vind het leuk om met klanten te werken en uw supermarkt is dicht bij mijn huis."
+            },
+            {
+                type: "D3 Formulier - Wasmachine beoordeling",
+                prompt: "U heeft een wasmachine gekocht. De winkel vraagt u om een beoordeling.\n\nVul het beoordelingsformulier in:\n\n• Persoonsgegevens (naam, e-mail)\n• Welk product heeft u gekocht?\n• Hoe tevreden bent u? (heel tevreden/tevreden/niet tevreden)\n• Wat vindt u goed aan het product?\n• Wat kan beter aan het product?\n\nSommige gegevens moet u zelf bedenken.",
+                modelAnswer: "Persoonsgegevens:\nSarah Visser\nsarah@email.nl\n\nWelk product heeft u gekocht?\nEen wasmachine, merk Samsung\n\nHoe tevreden bent u?\nTevreden\n\nWat vindt u goed aan het product?\nDe wasmachine is stil en wast goed. Hij is ook makkelijk te gebruiken.\n\nWat kan beter aan het product?\nDe handleiding is moeilijk te lezen. Er zijn te veel knoppen."
+            }
+        ];
+
+        // Reading questions with texts and multiple choice
+        // Official DUO A2 Lezen Practice Exam 1 - 25 Questions organized by passage
+        const lezenQuestions = [
+            // Passage 1: Tips om goed te leren (Questions 1-3)
+            {
+                passage: "tips_leren",
+                passageTitle: "Tips om goed te leren",
+                text: "Tips om goed te leren\n\nIedereen leert op zijn eigen manier. Toch geven we u een paar tips om beter te kunnen leren.\n\n1. Begin met het maken van een planning: wat gaat u wanneer doen? Elke dag een beetje leren is beter dan alles op één dag leren. Lees op verschillende dagen dezelfde bladzijdes een paar keer opnieuw. U onthoudt de informatie dan beter.\n\n2. Zoek uit wanneer u het beste kan leren: 's morgens, 's middags of 's avonds.\n\n3. Leer niet langer dan een half uur. Neem daarna een pauze of ga even iets heel anders doen.\n\n4. Leer in een rustige omgeving. Denk niet teveel aan andere dingen.\n\n5. Lees eerst een stuk tekst. Denk daarna even na over de inhoud. Lees dan een nieuw stuk tekst en denk weer na over die inhoud. Ga zo verder tot het einde van de tekst.\n\n6. Leg aan iemand anders uit wat u hebt gelezen. Als u dat kunt, weet u zeker dat u het hebt begrepen. U onthoudt informatie beter als u het aan iemand hebt verteld.",
+                question: "Jamie heeft volgende week een belangrijk examen. Wat moet hij volgens de tekst het eerste doen?",
+                options: ["nadenken over de inhoud", "een planning maken", "een rustige plek zoeken"],
+                correct: 1
+            },
+            {
+                passage: "tips_leren",
+                passageTitle: "Tips om goed te leren",
+                text: "Tips om goed te leren\n\nIedereen leert op zijn eigen manier. Toch geven we u een paar tips om beter te kunnen leren.\n\n1. Begin met het maken van een planning: wat gaat u wanneer doen? Elke dag een beetje leren is beter dan alles op één dag leren. Lees op verschillende dagen dezelfde bladzijdes een paar keer opnieuw. U onthoudt de informatie dan beter.\n\n2. Zoek uit wanneer u het beste kan leren: 's morgens, 's middags of 's avonds.\n\n3. Leer niet langer dan een half uur. Neem daarna een pauze of ga even iets heel anders doen.\n\n4. Leer in een rustige omgeving. Denk niet teveel aan andere dingen.\n\n5. Lees eerst een stuk tekst. Denk daarna even na over de inhoud. Lees dan een nieuw stuk tekst en denk weer na over die inhoud. Ga zo verder tot het einde van de tekst.\n\n6. Leg aan iemand anders uit wat u hebt gelezen. Als u dat kunt, weet u zeker dat u het hebt begrepen. U onthoudt informatie beter als u het aan iemand hebt verteld.",
+                question: "Wanneer kan je volgens de tekst het beste leren?",
+                options: ["'s ochtends", "'s middags", "'s avonds", "Dat moet je zelf bepalen."],
+                correct: 3
+            },
+            {
+                passage: "tips_leren",
+                passageTitle: "Tips om goed te leren",
+                text: "Tips om goed te leren\n\nIedereen leert op zijn eigen manier. Toch geven we u een paar tips om beter te kunnen leren.\n\n1. Begin met het maken van een planning: wat gaat u wanneer doen? Elke dag een beetje leren is beter dan alles op één dag leren. Lees op verschillende dagen dezelfde bladzijdes een paar keer opnieuw. U onthoudt de informatie dan beter.\n\n2. Zoek uit wanneer u het beste kan leren: 's morgens, 's middags of 's avonds.\n\n3. Leer niet langer dan een half uur. Neem daarna een pauze of ga even iets heel anders doen.\n\n4. Leer in een rustige omgeving. Denk niet teveel aan andere dingen.\n\n5. Lees eerst een stuk tekst. Denk daarna even na over de inhoud. Lees dan een nieuw stuk tekst en denk weer na over die inhoud. Ga zo verder tot het einde van de tekst.\n\n6. Leg aan iemand anders uit wat u hebt gelezen. Als u dat kunt, weet u zeker dat u het hebt begrepen. U onthoudt informatie beter als u het aan iemand hebt verteld.",
+                question: "Noa weet niet hoe hij het beste kan leren. Welk advies kan je hem geven?",
+                options: ["Leer eerst de hele tekst en lees daarna elk stukje opnieuw.", "Leer elke dag een beetje en vertel aan iemand wat je hebt gelezen.", "Leer lang achter elkaar door en lees elk stuk tekst twee keer.", "Leer met andere mensen en lees elke dag samen hetzelfde stuk tekst."],
+                correct: 1
+            },
+            // Passage 2: Hardloopwedstrijd (Questions 4-5)
+            {
+                passage: "hardloopwedstrijd",
+                passageTitle: "Brief: Hardloopwedstrijd",
+                text: "Aan de bewoners van het dorp\n\nOnderwerp: Jaarlijkse hardloopwedstrijd\n\nWij willen u met deze brief informatie geven over de jaarlijkse hardloopwedstrijd in ons dorp. Ook willen wij u vertellen wat er die dag anders is voor het verkeer. We willen dat alles zo goed mogelijk gaat en we hopen dat u weinig last hebt van de wedstrijd.\n\nOngeveer 500 hardlopers doen mee aan de hardloopwedstrijd. De start en de finish zijn op het Dorpsplein. U kunt naar de hardlopers komen kijken, als u daar zin in heeft.\n\nDatum: zaterdag 13 juni\nTijd: van 11.00 uur tot 16.00 uur\nRoute: Dorpsplein – Dorpsstraat – Bergsebaan – Flamingostraat – Dorpsplein\n\nWe willen dat alles veilig is voor de hardlopers, het verkeer en het publiek. Daarom sluiten wij een aantal straten en wegen af. Op de route mogen tot 17.00 uur geen auto's staan. Wij vragen u daarom uw auto vóór zaterdagmorgen 13 juni 10.00 uur weg te halen. Auto's die er daarna nog staan zal de politie wegslepen.\n\nWij bieden u onze excuses aan voor de overlast en wij danken u voor uw medewerking.\n\nMet vriendelijke groet,\nPiet Jansen\nOrganisator hardloopwedstrijd",
+                question: "Waarom krijgen de dorpsbewoners deze brief van Piet Jansen?",
+                options: ["Hij wil ze uitnodigen om mee te doen aan de hardloopwedstrijd.", "Hij wil ze informatie geven over alles rondom de hardloopwedstrijd.", "Hij wil ze oproepen met z'n allen naar de hardlopers te komen kijken."],
+                correct: 1
+            },
+            {
+                passage: "hardloopwedstrijd",
+                passageTitle: "Brief: Hardloopwedstrijd",
+                text: "Aan de bewoners van het dorp\n\nOnderwerp: Jaarlijkse hardloopwedstrijd\n\nWij willen u met deze brief informatie geven over de jaarlijkse hardloopwedstrijd in ons dorp. Ook willen wij u vertellen wat er die dag anders is voor het verkeer. We willen dat alles zo goed mogelijk gaat en we hopen dat u weinig last hebt van de wedstrijd.\n\nOngeveer 500 hardlopers doen mee aan de hardloopwedstrijd. De start en de finish zijn op het Dorpsplein. U kunt naar de hardlopers komen kijken, als u daar zin in heeft.\n\nDatum: zaterdag 13 juni\nTijd: van 11.00 uur tot 16.00 uur\nRoute: Dorpsplein – Dorpsstraat – Bergsebaan – Flamingostraat – Dorpsplein\n\nWe willen dat alles veilig is voor de hardlopers, het verkeer en het publiek. Daarom sluiten wij een aantal straten en wegen af. Op de route mogen tot 17.00 uur geen auto's staan. Wij vragen u daarom uw auto vóór zaterdagmorgen 13 juni 10.00 uur weg te halen. Auto's die er daarna nog staan zal de politie wegslepen.\n\nWij bieden u onze excuses aan voor de overlast en wij danken u voor uw medewerking.\n\nMet vriendelijke groet,\nPiet Jansen\nOrganisator hardloopwedstrijd",
+                question: "Gaston woont in de Flamingostraat. Wanneer moet hij zijn auto weghalen op zaterdag 13 juni?",
+                options: ["voor 10.00 uur", "voor 11.00 uur", "voor 16.00 uur", "voor 17.00 uur"],
+                correct: 0
+            },
+            // Passage 3: Transportservice (Questions 6-7)
+            {
+                passage: "transportservice",
+                passageTitle: "Folder: Transportservice",
+                text: "Verzamel- en transportservice\n\nHebt u meubels gezien die u wilt kopen? En wilt u dat wij deze meubels bij u thuisbezorgen? Dan kunt u gebruikmaken van onze transportservice.\n\nHoe werkt het? U maakt een lijstje met de meubels, op internet of in onze winkel. Wij verzamelen deze meubels en bezorgen alles bij u thuis. Dit alles voor een klein bedrag. De prijzen voor het bezorgen ziet u hieronder.\n\nTarieven:\nHoeveel weegt uw bestelling?\n0-199 kg: Bezorging begane grond €54,- | 1e, 2e, 3e etc. verdieping €64,-\n200 kg of meer: Bezorging begane grond €104,- | 1e, 2e, 3e etc. verdieping €144,-\n\nDeze prijzen zijn geldig voor één adres. Wilt u de meubels op meer adressen laten bezorgen? Ga dan voor meer informatie naar de informatiebalie in onze winkel.\n\nBezorging:\n- De levertijd van de meubels is ten minste twee weken.\n- U kunt op onze website zien op welke dagen wij meubels thuisbezorgen.\n- Wilt u weten hoe laat wij de meubels bezorgen? Bel dan naar onze klantenservice. Dit kan alleen op de dag van de bezorging, vanaf 8 uur 's ochtends.\n- Woont u op de vijfde verdieping of hoger? Wij bezorgen alleen als er een lift is.",
+                question: "Modibo woont in een flat, op de tweede verdieping. Hij heeft een tafel van 20 kilo gekocht. Hij wil deze tafel thuis laten bezorgen. Wat moet hij hiervoor betalen?",
+                options: ["€54,-", "€64,-", "€104,-", "€144,-"],
+                correct: 1
+            },
+            {
+                passage: "transportservice",
+                passageTitle: "Folder: Transportservice",
+                text: "Verzamel- en transportservice\n\nHebt u meubels gezien die u wilt kopen? En wilt u dat wij deze meubels bij u thuisbezorgen? Dan kunt u gebruikmaken van onze transportservice.\n\nHoe werkt het? U maakt een lijstje met de meubels, op internet of in onze winkel. Wij verzamelen deze meubels en bezorgen alles bij u thuis. Dit alles voor een klein bedrag. De prijzen voor het bezorgen ziet u hieronder.\n\nTarieven:\nHoeveel weegt uw bestelling?\n0-199 kg: Bezorging begane grond €54,- | 1e, 2e, 3e etc. verdieping €64,-\n200 kg of meer: Bezorging begane grond €104,- | 1e, 2e, 3e etc. verdieping €144,-\n\nDeze prijzen zijn geldig voor één adres. Wilt u de meubels op meer adressen laten bezorgen? Ga dan voor meer informatie naar de informatiebalie in onze winkel.\n\nBezorging:\n- De levertijd van de meubels is ten minste twee weken.\n- U kunt op onze website zien op welke dagen wij meubels thuisbezorgen.\n- Wilt u weten hoe laat wij de meubels bezorgen? Bel dan naar onze klantenservice. Dit kan alleen op de dag van de bezorging, vanaf 8 uur 's ochtends.\n- Woont u op de vijfde verdieping of hoger? Wij bezorgen alleen als er een lift is.",
+                question: "Thérèse wil meubels thuis laten bezorgen. Ze wil weten hoe laat de meubels bezorgd worden. Wanneer kan zij dat vragen?",
+                options: ["twee weken voor de bezorging", "op het moment dat zij de meubels koopt", "op de dag van de bezorging"],
+                correct: 2
+            },
+            // Passage 4: Bedrijfsuitje kanovaren (Questions 8-9)
+            {
+                passage: "kanovaren",
+                passageTitle: "Brief: Bedrijfsuitje",
+                text: "Beste collega,\n\nOp vrijdag 9 mei gaan we met het bedrijf kanovaren!\n\nJan van 'Botenverhuur de Rijnstroom' wacht op ons om half 11 in Utrecht. Adres: Rhijnauwen 2. Om half 12 is er lunch met een kop koffie of thee. Om half 8 eten we een pannenkoek bij het pannenkoekenhuis. Je hoeft zelf dus geen eten mee te nemen. Het programma eindigt om half 9.\n\nWat moet je meenemen? We raden aan om extra kleding mee te nemen, voor als je kleding nat wordt op de boot. Wij zullen handdoeken meenemen. Je hoeft geen zwemkleding mee te nemen, het water is nog te koud om in te zwemmen.\n\nLaat je weten of je erbij kunt zijn? Je kunt je tot 2 mei bij Ingmar aanmelden. Als je nog vragen hebt, kun je bellen met Charlotte, tel. 030 - 2521312.\n\nWij hopen op een gezellige dag!\n\nNamens de feestcommissie,\nHenk de Groot",
+                question: "Wat moet Sabrina meenemen naar het personeelsuitje?",
+                options: ["zwemkleding", "een handdoek", "eten en drinken", "extra kleding"],
+                correct: 3
+            },
+            {
+                passage: "kanovaren",
+                passageTitle: "Brief: Bedrijfsuitje",
+                text: "Beste collega,\n\nOp vrijdag 9 mei gaan we met het bedrijf kanovaren!\n\nJan van 'Botenverhuur de Rijnstroom' wacht op ons om half 11 in Utrecht. Adres: Rhijnauwen 2. Om half 12 is er lunch met een kop koffie of thee. Om half 8 eten we een pannenkoek bij het pannenkoekenhuis. Je hoeft zelf dus geen eten mee te nemen. Het programma eindigt om half 9.\n\nWat moet je meenemen? We raden aan om extra kleding mee te nemen, voor als je kleding nat wordt op de boot. Wij zullen handdoeken meenemen. Je hoeft geen zwemkleding mee te nemen, het water is nog te koud om in te zwemmen.\n\nLaat je weten of je erbij kunt zijn? Je kunt je tot 2 mei bij Ingmar aanmelden. Als je nog vragen hebt, kun je bellen met Charlotte, tel. 030 - 2521312.\n\nWij hopen op een gezellige dag!\n\nNamens de feestcommissie,\nHenk de Groot",
+                question: "Sabrina wil weten of haar man ook mee mag. Aan wie moet ze dat vragen?",
+                options: ["aan Henk", "aan Charlotte", "aan Jan", "aan Ingmar"],
+                correct: 1
+            },
+            // Passage 5: Tas vergeten (Questions 10-11)
+            {
+                passage: "tas_vergeten",
+                passageTitle: "Email: Tas vergeten",
+                text: "Aan: j.degraaf@werk.nl\nOnderwerp: Tas vergeten\n\nHoi Jasper,\n\nIk zit nu in de trein van mijn werk naar huis en merk dat ik mijn tas ben vergeten! Hij staat nog op mijn bureau. Wil jij hem misschien ophalen en naar de portier brengen? Dan haal ik mijn tas daar morgen op.\n\nHet is een gele rugtas met een rits. In de tas zit mijn laptop. Er zitten ook een boek en een bril in de tas. Gelukkig heb ik mijn telefoon en portemonnee wel bij me!\n\nWil je me een bericht sturen als je de tas gevonden hebt?\n\nAlvast bedankt!\n\nGroetjes,\nSuzanne",
+                question: "Waar is de tas van Suzanne?",
+                options: ["Op haar bureau.", "Bij de portier.", "In de trein."],
+                correct: 0
+            },
+            {
+                passage: "tas_vergeten",
+                passageTitle: "Email: Tas vergeten",
+                text: "Aan: j.degraaf@werk.nl\nOnderwerp: Tas vergeten\n\nHoi Jasper,\n\nIk zit nu in de trein van mijn werk naar huis en merk dat ik mijn tas ben vergeten! Hij staat nog op mijn bureau. Wil jij hem misschien ophalen en naar de portier brengen? Dan haal ik mijn tas daar morgen op.\n\nHet is een gele rugtas met een rits. In de tas zit mijn laptop. Er zitten ook een boek en een bril in de tas. Gelukkig heb ik mijn telefoon en portemonnee wel bij me!\n\nWil je me een bericht sturen als je de tas gevonden hebt?\n\nAlvast bedankt!\n\nGroetjes,\nSuzanne",
+                question: "Wat zit er in de tas van Suzanne?",
+                options: ["Laptop, boek en bril", "Laptop, telefoon en portemonnee", "Boek, bril en portemonnee", "Telefoon, boek en bril"],
+                correct: 0
+            },
+            // Passage 6: Sportdag (Questions 12-14)
+            {
+                passage: "sportdag",
+                passageTitle: "Brief: Sportdag",
+                text: "Beste buurtbewoners,\n\nOp 9 juli is onze sportdag in het Sportpark in Amsterdam. Wilt u om 9 uur op het veld zijn? Dan kunnen we op tijd beginnen.\n\nWe beginnen om half 10 met een tennistoernooi. U kunt 's ochtends ook kiezen voor basketbal. Daarna hebben we lunchpauze. U moet zelf uw brood meenemen, wij zorgen voor koffie en thee. Na de pauze is er een voetbaltoernooi. Voor de kinderen is er dan een volleybalwedstrijd. Om half 7 is de sportdag afgelopen. We gaan dan barbecueën. Als u geen vlees eet, wilt u dit dan doorgeven aan Marie? Zij doet samen met Mo de boodschappen.\n\nLet op! Wij kunnen de kleedkamers van het Sportpark niet gebruiken. De kleedkamers worden verbouwd. U moet dus thuis uw sportkleren aantrekken.\n\nDe sportdag (met barbecue en drankjes) kost €15,- per persoon. Kinderen betalen €8,50. U moet betalen als u zich aanmeldt. U kunt zich aanmelden tot 25 juni bij Jan (Vissersplein 45A).\n\nVorig jaar was de barbecue alleen voor de deelnemers van de sportdag. Dit jaar is dat anders: ook mensen die niet meedoen mogen mee barbecueën. Zij betalen dan €10,-. Als u niet meedoet aan de sportdag, kunt u zich tot 1 juli voor de barbecue aanmelden bij Mo (Abrahamslaan 2).\n\nWij hopen op een zonnige sportdag!\n\nMet vriendelijke groeten,\nJan, Marie, Bas en Mo",
+                question: "Vandaag is de sportdag. Halima doet mee. Wat moet ze meenemen?",
+                options: ["haar lunch voor de pauze", "haar sportkleding", "wat te drinken voor de pauze", "geld voor de barbecue"],
+                correct: 0
+            },
+            {
+                passage: "sportdag",
+                passageTitle: "Brief: Sportdag",
+                text: "Beste buurtbewoners,\n\nOp 9 juli is onze sportdag in het Sportpark in Amsterdam. Wilt u om 9 uur op het veld zijn? Dan kunnen we op tijd beginnen.\n\nWe beginnen om half 10 met een tennistoernooi. U kunt 's ochtends ook kiezen voor basketbal. Daarna hebben we lunchpauze. U moet zelf uw brood meenemen, wij zorgen voor koffie en thee. Na de pauze is er een voetbaltoernooi. Voor de kinderen is er dan een volleybalwedstrijd. Om half 7 is de sportdag afgelopen. We gaan dan barbecueën. Als u geen vlees eet, wilt u dit dan doorgeven aan Marie? Zij doet samen met Mo de boodschappen.\n\nLet op! Wij kunnen de kleedkamers van het Sportpark niet gebruiken. De kleedkamers worden verbouwd. U moet dus thuis uw sportkleren aantrekken.\n\nDe sportdag (met barbecue en drankjes) kost €15,- per persoon. Kinderen betalen €8,50. U moet betalen als u zich aanmeldt. U kunt zich aanmelden tot 25 juni bij Jan (Vissersplein 45A).\n\nVorig jaar was de barbecue alleen voor de deelnemers van de sportdag. Dit jaar is dat anders: ook mensen die niet meedoen mogen mee barbecueën. Zij betalen dan €10,-. Als u niet meedoet aan de sportdag, kunt u zich tot 1 juli voor de barbecue aanmelden bij Mo (Abrahamslaan 2).\n\nWij hopen op een zonnige sportdag!\n\nMet vriendelijke groeten,\nJan, Marie, Bas en Mo",
+                question: "De kinderen van Halima doen 's middags mee met de sportdag. Welke sport gaan ze doen?",
+                options: ["tennis", "volleybal", "voetbal", "basketbal"],
+                correct: 1
+            },
+            {
+                passage: "sportdag",
+                passageTitle: "Brief: Sportdag",
+                text: "Beste buurtbewoners,\n\nOp 9 juli is onze sportdag in het Sportpark in Amsterdam. Wilt u om 9 uur op het veld zijn? Dan kunnen we op tijd beginnen.\n\nWe beginnen om half 10 met een tennistoernooi. U kunt 's ochtends ook kiezen voor basketbal. Daarna hebben we lunchpauze. U moet zelf uw brood meenemen, wij zorgen voor koffie en thee. Na de pauze is er een voetbaltoernooi. Voor de kinderen is er dan een volleybalwedstrijd. Om half 7 is de sportdag afgelopen. We gaan dan barbecueën. Als u geen vlees eet, wilt u dit dan doorgeven aan Marie? Zij doet samen met Mo de boodschappen.\n\nLet op! Wij kunnen de kleedkamers van het Sportpark niet gebruiken. De kleedkamers worden verbouwd. U moet dus thuis uw sportkleren aantrekken.\n\nDe sportdag (met barbecue en drankjes) kost €15,- per persoon. Kinderen betalen €8,50. U moet betalen als u zich aanmeldt. U kunt zich aanmelden tot 25 juni bij Jan (Vissersplein 45A).\n\nVorig jaar was de barbecue alleen voor de deelnemers van de sportdag. Dit jaar is dat anders: ook mensen die niet meedoen mogen mee barbecueën. Zij betalen dan €10,-. Als u niet meedoet aan de sportdag, kunt u zich tot 1 juli voor de barbecue aanmelden bij Mo (Abrahamslaan 2).\n\nWij hopen op een zonnige sportdag!\n\nMet vriendelijke groeten,\nJan, Marie, Bas en Mo",
+                question: "De man van Halima kan niet meedoen met de sportdag. Hij wil wel mee barbecueën. Wat moet hij doen?",
+                options: ["zich aanmelden bij Jan", "zich aanmelden bij Marie", "zich aanmelden bij Mo", "Niets, hij mag niet mee barbecueën."],
+                correct: 2
+            },
+            // Passage 7: Bruiloft (Questions 15-17)
+            {
+                passage: "bruiloft",
+                passageTitle: "Email: Bruiloft",
+                text: "Bruiloft Nadia en Richard\n\nBeste collega's,\n\nVolgende week vrijdag is de bruiloft van Nadia en Richard! Daarom hebben we een feestcommissie opgericht. De feestcommissie bestaat uit William, David en Elise. We hebben alle drie een taak, zodat we er een leuke dag van kunnen maken!\n\nWij willen een bus huren om samen met collega's naar de bruiloft te gaan. Wil je mee met de bus? Geef je dan op bij David.\n\nWe willen met de collega's een cadeau geven aan het bruidspaar. Als je wilt, kun je ook meedoen. Je kunt geld aan William geven. We weten nog niet precies wat we gaan geven. Op het bureau van Elise ligt een lijstje met cadeaus. Kruis op het lijstje aan wat je het leukste cadeau vindt: een cadeaubon of een weekendje weg. We gaan het cadeau geven dat het meest gekozen is door jullie.\n\nNadia is deze week nog gewoon aan het werk. Ons cadeau moet natuurlijk wel een verrassing blijven. Let er dus op dat je niets zegt tegen Nadia!\n\nGroeten, de feestcommissie\nDavid, William en Elise",
+                question: "Michael wil met de bus mee naar de bruiloft. Bij wie moet hij zich opgeven?",
+                options: ["bij Elise", "bij David", "bij William"],
+                correct: 1
+            },
+            {
+                passage: "bruiloft",
+                passageTitle: "Email: Bruiloft",
+                text: "Bruiloft Nadia en Richard\n\nBeste collega's,\n\nVolgende week vrijdag is de bruiloft van Nadia en Richard! Daarom hebben we een feestcommissie opgericht. De feestcommissie bestaat uit William, David en Elise. We hebben alle drie een taak, zodat we er een leuke dag van kunnen maken!\n\nWij willen een bus huren om samen met collega's naar de bruiloft te gaan. Wil je mee met de bus? Geef je dan op bij David.\n\nWe willen met de collega's een cadeau geven aan het bruidspaar. Als je wilt, kun je ook meedoen. Je kunt geld aan William geven. We weten nog niet precies wat we gaan geven. Op het bureau van Elise ligt een lijstje met cadeaus. Kruis op het lijstje aan wat je het leukste cadeau vindt: een cadeaubon of een weekendje weg. We gaan het cadeau geven dat het meest gekozen is door jullie.\n\nNadia is deze week nog gewoon aan het werk. Ons cadeau moet natuurlijk wel een verrassing blijven. Let er dus op dat je niets zegt tegen Nadia!\n\nGroeten, de feestcommissie\nDavid, William en Elise",
+                question: "Welk cadeau gaan de collega's samen geven aan Nadia en Richard?",
+                options: ["een cadeaubon voor een weekendje weg", "geld", "Dat moeten ze nog kiezen."],
+                correct: 2
+            },
+            {
+                passage: "bruiloft",
+                passageTitle: "Email: Bruiloft",
+                text: "Bruiloft Nadia en Richard\n\nBeste collega's,\n\nVolgende week vrijdag is de bruiloft van Nadia en Richard! Daarom hebben we een feestcommissie opgericht. De feestcommissie bestaat uit William, David en Elise. We hebben alle drie een taak, zodat we er een leuke dag van kunnen maken!\n\nWij willen een bus huren om samen met collega's naar de bruiloft te gaan. Wil je mee met de bus? Geef je dan op bij David.\n\nWe willen met de collega's een cadeau geven aan het bruidspaar. Als je wilt, kun je ook meedoen. Je kunt geld aan William geven. We weten nog niet precies wat we gaan geven. Op het bureau van Elise ligt een lijstje met cadeaus. Kruis op het lijstje aan wat je het leukste cadeau vindt: een cadeaubon of een weekendje weg. We gaan het cadeau geven dat het meest gekozen is door jullie.\n\nNadia is deze week nog gewoon aan het werk. Ons cadeau moet natuurlijk wel een verrassing blijven. Let er dus op dat je niets zegt tegen Nadia!\n\nGroeten, de feestcommissie\nDavid, William en Elise",
+                question: "Waarom stuurt de feestcommissie deze e-mail vooral?",
+                options: ["om te vertellen wat zij geregeld hebben", "om nog wat taken te verdelen", "om te vragen wie er nog meer bij de feestcommissie wil"],
+                correct: 0
+            },
+            // Passage 8: EHBO cursussen (Questions 18-20)
+            {
+                passage: "ehbo",
+                passageTitle: "Folder: EHBO Cursussen",
+                text: "EHBO De Groene Cirkel\n\nEHBO betekent: Eerste Hulp Bij Ongelukken. Als EHBO'er kunt u helpen als er een ongeluk gebeurt. Bijvoorbeeld als uw buurjongen valt en zijn arm breekt. Of als iemand zich snijdt bij het eten maken. U kunt bij ons verschillende EHBO-cursussen volgen. U haalt uw diploma bij ons altijd in korte tijd.\n\nCursus EHBO I\nDit is de algemene cursus 'EHBO'. U leert om te helpen bij allerlei ongelukken. Bijvoorbeeld als iemand z'n been breekt. Maar u leert ook wat u moet doen bij andere problemen, zoals een bloedneus of brandwond.\nDe cursus bestaat uit zes bijeenkomsten. U krijgt er een online cursusboek bij. Aan het einde van de cursus doet u examen in de praktijk.\nKosten: €124,50\n\nCursus EHBO II\nDit is de cursus 'Reanimeren'. Deze cursus kan u helpen om levens te redden! U leert mensen met een hartstilstand of ademstilstand te helpen. U weet na de cursus precies wat u dan moet doen.\nDe cursus bestaat uit één bijeenkomst van drie uur. U krijgt de gids 'Reanimatie' mee naar huis.\nKosten: €72,50\n\nCursus EHBO III\nDit is de cursus 'EHBO voor ouders'. Deze cursus is zeer geschikt voor ouders en verzorgers. Is een kind bijvoorbeeld gewond of ziek? Of moet een kind ineens erg hoesten? Deze cursus leert u hoe u dan kunt helpen. De cursus is ook erg handig als u in het onderwijs werkt.\nDe cursus bestaat uit vier bijeenkomsten. U krijgt het cursusboek bij de eerste bijeenkomst.\nKosten: €105,-",
+                question: "Myra geeft les op een basisschool. Ze wil een EHBO-cursus volgen die past bij haar werk. Welke cursus is het meest geschikt voor Myra?",
+                options: ["cursus EHBO I", "cursus EHBO II", "cursus EHBO III"],
+                correct: 2
+            },
+            {
+                passage: "ehbo",
+                passageTitle: "Folder: EHBO Cursussen",
+                text: "EHBO De Groene Cirkel\n\nEHBO betekent: Eerste Hulp Bij Ongelukken. Als EHBO'er kunt u helpen als er een ongeluk gebeurt. Bijvoorbeeld als uw buurjongen valt en zijn arm breekt. Of als iemand zich snijdt bij het eten maken. U kunt bij ons verschillende EHBO-cursussen volgen. U haalt uw diploma bij ons altijd in korte tijd.\n\nCursus EHBO I\nDit is de algemene cursus 'EHBO'. U leert om te helpen bij allerlei ongelukken. Bijvoorbeeld als iemand z'n been breekt. Maar u leert ook wat u moet doen bij andere problemen, zoals een bloedneus of brandwond.\nDe cursus bestaat uit zes bijeenkomsten. U krijgt er een online cursusboek bij. Aan het einde van de cursus doet u examen in de praktijk.\nKosten: €124,50\n\nCursus EHBO II\nDit is de cursus 'Reanimeren'. Deze cursus kan u helpen om levens te redden! U leert mensen met een hartstilstand of ademstilstand te helpen. U weet na de cursus precies wat u dan moet doen.\nDe cursus bestaat uit één bijeenkomst van drie uur. U krijgt de gids 'Reanimatie' mee naar huis.\nKosten: €72,50\n\nCursus EHBO III\nDit is de cursus 'EHBO voor ouders'. Deze cursus is zeer geschikt voor ouders en verzorgers. Is een kind bijvoorbeeld gewond of ziek? Of moet een kind ineens erg hoesten? Deze cursus leert u hoe u dan kunt helpen. De cursus is ook erg handig als u in het onderwijs werkt.\nDe cursus bestaat uit vier bijeenkomsten. U krijgt het cursusboek bij de eerste bijeenkomst.\nKosten: €105,-",
+                question: "Aylin wil leren reanimeren. In hoeveel bijeenkomsten leert zij dat?",
+                options: ["één", "drie", "vier", "zes"],
+                correct: 0
+            },
+            {
+                passage: "ehbo",
+                passageTitle: "Folder: EHBO Cursussen",
+                text: "EHBO De Groene Cirkel\n\nEHBO betekent: Eerste Hulp Bij Ongelukken. Als EHBO'er kunt u helpen als er een ongeluk gebeurt. Bijvoorbeeld als uw buurjongen valt en zijn arm breekt. Of als iemand zich snijdt bij het eten maken. U kunt bij ons verschillende EHBO-cursussen volgen. U haalt uw diploma bij ons altijd in korte tijd.\n\nCursus EHBO I\nDit is de algemene cursus 'EHBO'. U leert om te helpen bij allerlei ongelukken. Bijvoorbeeld als iemand z'n been breekt. Maar u leert ook wat u moet doen bij andere problemen, zoals een bloedneus of brandwond.\nDe cursus bestaat uit zes bijeenkomsten. U krijgt er een online cursusboek bij. Aan het einde van de cursus doet u examen in de praktijk.\nKosten: €124,50\n\nCursus EHBO II\nDit is de cursus 'Reanimeren'. Deze cursus kan u helpen om levens te redden! U leert mensen met een hartstilstand of ademstilstand te helpen. U weet na de cursus precies wat u dan moet doen.\nDe cursus bestaat uit één bijeenkomst van drie uur. U krijgt de gids 'Reanimatie' mee naar huis.\nKosten: €72,50\n\nCursus EHBO III\nDit is de cursus 'EHBO voor ouders'. Deze cursus is zeer geschikt voor ouders en verzorgers. Is een kind bijvoorbeeld gewond of ziek? Of moet een kind ineens erg hoesten? Deze cursus leert u hoe u dan kunt helpen. De cursus is ook erg handig als u in het onderwijs werkt.\nDe cursus bestaat uit vier bijeenkomsten. U krijgt het cursusboek bij de eerste bijeenkomst.\nKosten: €105,-",
+                question: "Ronald wil zoveel mogelijk verschillende dingen leren over EHBO. Welke cursus kan hij het beste kiezen?",
+                options: ["cursus EHBO I", "cursus EHBO II", "cursus EHBO III"],
+                correct: 0
+            },
+            // Passage 9: Kringloopcentrum (Questions 21-23)
+            {
+                passage: "kringloop",
+                passageTitle: "Tekst: Kringloopcentrum",
+                text: "Bartjes Kringloopcentrum\n\nIn Bartjes Kringloopcentrum is veel te koop. Gebruikte spullen of nieuwe spullen, altijd goed en goedkoop. Kom regelmatig kijken. Er is altijd weer iets anders te koop.\n\nWat hebben we te koop?\n- Kleding en schoenen voor dames, heren en kinderen\n- Boeken en tijdschriften voor volwassenen en jeugd\n- Elektrische apparaten, meubels, speelgoed, enzovoorts…\n\nHoe werken we?\nU brengt uw spullen naar ons. Wij kunnen ze ook gratis bij u thuis ophalen. We nemen niet alles mee, alleen wat we kunnen verkopen in onze winkel. Wij controleren en testen alle spullen. Wat kapot is, proberen we te maken. Ook maken we alles schoon. Daarna zetten we de spullen te koop in onze winkel. Als u spullen bij ons koopt, kunnen we ze bij u thuis afleveren. Daarvoor betaalt u 5 euro.\n\nWat doen we met onze winst?\nU krijgt geen geld voor uw spullen. De medewerkers van Bartjes zijn allemaal vrijwilligers. Het geld dat we verdienen met de verkoop gaat naar een goed doel. Elk jaar kiezen we een ander goed doel. Het goede doel is dit jaar kinderboerderij 'Het bokje'.\n\nDus…\nHebt u spullen die u niet meer gebruikt? Hebt u kleren die u niet meer draagt? Gooi ze niet weg! Geef de spullen aan ons! Hebt u iets nodig voor weinig geld? Koop het bij ons!",
+                question: "Bartjes krijgt vaak kapotte spullen. Wat doet Bartjes met de kapotte spullen?",
+                options: ["die brengen ze terug naar de eigenaar", "die proberen ze te repareren", "die gooien ze weg"],
+                correct: 1
+            },
+            {
+                passage: "kringloop",
+                passageTitle: "Tekst: Kringloopcentrum",
+                text: "Bartjes Kringloopcentrum\n\nIn Bartjes Kringloopcentrum is veel te koop. Gebruikte spullen of nieuwe spullen, altijd goed en goedkoop. Kom regelmatig kijken. Er is altijd weer iets anders te koop.\n\nWat hebben we te koop?\n- Kleding en schoenen voor dames, heren en kinderen\n- Boeken en tijdschriften voor volwassenen en jeugd\n- Elektrische apparaten, meubels, speelgoed, enzovoorts…\n\nHoe werken we?\nU brengt uw spullen naar ons. Wij kunnen ze ook gratis bij u thuis ophalen. We nemen niet alles mee, alleen wat we kunnen verkopen in onze winkel. Wij controleren en testen alle spullen. Wat kapot is, proberen we te maken. Ook maken we alles schoon. Daarna zetten we de spullen te koop in onze winkel. Als u spullen bij ons koopt, kunnen we ze bij u thuis afleveren. Daarvoor betaalt u 5 euro.\n\nWat doen we met onze winst?\nU krijgt geen geld voor uw spullen. De medewerkers van Bartjes zijn allemaal vrijwilligers. Het geld dat we verdienen met de verkoop gaat naar een goed doel. Elk jaar kiezen we een ander goed doel. Het goede doel is dit jaar kinderboerderij 'Het bokje'.\n\nDus…\nHebt u spullen die u niet meer gebruikt? Hebt u kleren die u niet meer draagt? Gooi ze niet weg! Geef de spullen aan ons! Hebt u iets nodig voor weinig geld? Koop het bij ons!",
+                question: "John heeft spullen voor Bartjes. Bartjes moet de spullen bij hem op komen halen. Hoeveel moet hij dan betalen aan Bartjes?",
+                options: ["5 euro", "niets", "Dat ligt aan het soort spullen."],
+                correct: 1
+            },
+            {
+                passage: "kringloop",
+                passageTitle: "Tekst: Kringloopcentrum",
+                text: "Bartjes Kringloopcentrum\n\nIn Bartjes Kringloopcentrum is veel te koop. Gebruikte spullen of nieuwe spullen, altijd goed en goedkoop. Kom regelmatig kijken. Er is altijd weer iets anders te koop.\n\nWat hebben we te koop?\n- Kleding en schoenen voor dames, heren en kinderen\n- Boeken en tijdschriften voor volwassenen en jeugd\n- Elektrische apparaten, meubels, speelgoed, enzovoorts…\n\nHoe werken we?\nU brengt uw spullen naar ons. Wij kunnen ze ook gratis bij u thuis ophalen. We nemen niet alles mee, alleen wat we kunnen verkopen in onze winkel. Wij controleren en testen alle spullen. Wat kapot is, proberen we te maken. Ook maken we alles schoon. Daarna zetten we de spullen te koop in onze winkel. Als u spullen bij ons koopt, kunnen we ze bij u thuis afleveren. Daarvoor betaalt u 5 euro.\n\nWat doen we met onze winst?\nU krijgt geen geld voor uw spullen. De medewerkers van Bartjes zijn allemaal vrijwilligers. Het geld dat we verdienen met de verkoop gaat naar een goed doel. Elk jaar kiezen we een ander goed doel. Het goede doel is dit jaar kinderboerderij 'Het bokje'.\n\nDus…\nHebt u spullen die u niet meer gebruikt? Hebt u kleren die u niet meer draagt? Gooi ze niet weg! Geef de spullen aan ons! Hebt u iets nodig voor weinig geld? Koop het bij ons!",
+                question: "Waar gaat de winst van Bartjes dit jaar naartoe?",
+                options: ["naar de medewerkers van Bartjes", "naar verschillende goede doelen", "naar kinderboerderij 'Het bokje'"],
+                correct: 2
+            },
+            // Passage 10: Ziekmelding (Questions 24-25)
+            {
+                passage: "ziekmelding",
+                passageTitle: "Tekst: Ziekmelding",
+                text: "Ziekmelding\n\nHoe meld ik mij ziek?\nU meldt u telefonisch ziek bij uw werkgever. Dit doet u zo snel mogelijk, maar uiterlijk op het tijdstip dat uw werkdag begint. Als uw werkdag normaal bijvoorbeeld om 9 uur begint, meldt u zich uiterlijk om 9 uur ziek. Wordt u onder werktijd ziek, dan meldt u dit meteen. In ieder geval voordat u naar huis gaat.\n\nWat vertel ik tijdens een ziekmelding?\nWaar hebt u last van? Wat gaat u doen om zo snel mogelijk beter te worden? Wanneer kunt u weer werken, denkt u? Moeten uw collega's werk van u overnemen? Dit zijn allemaal dingen die uw werkgever moet weten. Ook is het belangrijk dat uw werkgever u kan bereiken. U spreekt tijdens het gesprek ook af wanneer u elkaar weer spreekt.\n\nMoet ik alle klachten aan mijn werkgever vertellen?\nU hebt recht op uw privacy. U hoeft geen medische gegevens te geven. Als u privéproblemen hebt, hoeft u daar niets over te vertellen. U moet wél vertellen waarom u niet kunt komen werken. U kunt zeggen dat u om medische redenen of privéredenen niet kunt komen werken. Meer hoeft u niet te zeggen.",
+                question: "Felicity is aan het werk en voelt zich ziek. Het is drie uur 's middags. Wat moet ze doen?",
+                options: ["Ze moet naar huis gaan en zich dan meteen ziek melden.", "Ze moet naar huis gaan en zich de volgende werkdag ziek melden.", "Ze moet zich ziek melden en dan naar huis gaan."],
+                correct: 2
+            },
+            {
+                passage: "ziekmelding",
+                passageTitle: "Tekst: Ziekmelding",
+                text: "Ziekmelding\n\nHoe meld ik mij ziek?\nU meldt u telefonisch ziek bij uw werkgever. Dit doet u zo snel mogelijk, maar uiterlijk op het tijdstip dat uw werkdag begint. Als uw werkdag normaal bijvoorbeeld om 9 uur begint, meldt u zich uiterlijk om 9 uur ziek. Wordt u onder werktijd ziek, dan meldt u dit meteen. In ieder geval voordat u naar huis gaat.\n\nWat vertel ik tijdens een ziekmelding?\nWaar hebt u last van? Wat gaat u doen om zo snel mogelijk beter te worden? Wanneer kunt u weer werken, denkt u? Moeten uw collega's werk van u overnemen? Dit zijn allemaal dingen die uw werkgever moet weten. Ook is het belangrijk dat uw werkgever u kan bereiken. U spreekt tijdens het gesprek ook af wanneer u elkaar weer spreekt.\n\nMoet ik alle klachten aan mijn werkgever vertellen?\nU hebt recht op uw privacy. U hoeft geen medische gegevens te geven. Als u privéproblemen hebt, hoeft u daar niets over te vertellen. U moet wél vertellen waarom u niet kunt komen werken. U kunt zeggen dat u om medische redenen of privéredenen niet kunt komen werken. Meer hoeft u niet te zeggen.",
+                question: "Jaime meldt zich ziek. Wat moet hij vertellen tijdens zijn ziekmelding?",
+                options: ["wanneer hij ziek geworden is", "wanneer hij denkt dat hij weer kan werken", "wat voor werk hij misschien nog wel kan doen"],
+                correct: 1
+            }
+        ];
+
+        // DUO Lezen Exam 2 - Official Questions
+        const lezenQuestions2 = [
+            // Passage 1: Tandartspraktijk (Q1-2)
+            {
+                passage: "tandarts",
+                passageTitle: "Tandartspraktijk Oud Zwaluwen",
+                text: "Welkom bij de tandartspraktijk Oud Zwaluwen\n\nOns team / Werkdagen:\n- Javier Barnet, tandarts: maandag en donderdag\n- Marie de Klop, tandarts: dinsdag en woensdag\n- Peter de Vries, kindertandarts: woensdag en donderdag\n- Salah Ben Ali, mondhygiënist: maandag, dinsdag en donderdag\n\nOnze openingstijden\nDe praktijk is elke dag geopend van 8.30 tot 17.00 uur. Op vrijdag en in het weekend zijn wij gesloten.\n\nAfspraak maken\nU kunt onze receptie bellen van maandag tot en met donderdag van 9.00 tot 12.00 uur. Op vrijdag zijn wij gesloten. Ons telefoonnummer is 070 - 3609916.\n\nSpoedbehandeling tijdens openingstijden\nHeeft u zoveel pijn dat u direct geholpen moet worden? U kunt dan een spoedafspraak maken met de assistente op 06-35571209. U kunt dan altijd dezelfde dag nog bij onze praktijk terecht. Let op: Dit kan niet op vrijdag of in het weekend!\n\nSpoedbehandeling op vrijdag en in het weekend\nOp vrijdag en in het weekend is de praktijk gesloten. Heeft u veel pijn en kunt u niet wachten tot maandag? U kunt dan bellen met het noodnummer: 070 – 3608814.",
+                question: "Het is woensdag. Sergio heeft kiespijn en wil zo snel mogelijk naar de tandarts. Wat moet hij doen?",
+                options: ["bellen naar de assistente", "bellen naar de receptie", "bellen naar het noodnummer", "direct naar de praktijk gaan"],
+                correct: 0
+            },
+            {
+                passage: "tandarts",
+                passageTitle: "Tandartspraktijk Oud Zwaluwen",
+                text: "Welkom bij de tandartspraktijk Oud Zwaluwen\n\nOns team / Werkdagen:\n- Javier Barnet, tandarts: maandag en donderdag\n- Marie de Klop, tandarts: dinsdag en woensdag\n- Peter de Vries, kindertandarts: woensdag en donderdag\n- Salah Ben Ali, mondhygiënist: maandag, dinsdag en donderdag\n\nOnze openingstijden\nDe praktijk is elke dag geopend van 8.30 tot 17.00 uur. Op vrijdag en in het weekend zijn wij gesloten.\n\nAfspraak maken\nU kunt onze receptie bellen van maandag tot en met donderdag van 9.00 tot 12.00 uur. Op vrijdag zijn wij gesloten. Ons telefoonnummer is 070 - 3609916.",
+                question: "Soumia wil op maandag een afspraak maken bij de tandarts. Bij wie kan dat?",
+                options: ["Marie de Klop", "Salah Ben Ali", "Javier Barnet", "Peter de Vries"],
+                correct: 2
+            },
+            // Passage 2: CV maken (Q3-5)
+            {
+                passage: "cv",
+                passageTitle: "Wat is een cv?",
+                text: "Wat is een cv?\nUw curriculum vitae (cv) stuurt u op als u solliciteert naar een baan. In uw cv staat wie u bent en wat u kunt.\n\nHoe maakt u een cv?\nEen cv bestaat uit de volgende punten:\n\n- persoonlijke gegevens: Hier zet u uw naam, adres, telefoon, e-mailadres, geboortedatum.\n- opleiding: Hier zet u alle opleidingen en cursussen die u hebt gedaan.\n- werkervaring: Hier schrijft u het werk dat u gedaan heeft. Dus ook vrijwilligerswerk en stages. Schrijf hier ook wat u allemaal op uw werk moest doen.\n- overig: Hier zet u alle andere dingen die belangrijk zijn. Zoals: talenkennis, computerkennis, rijbewijs.",
+                question: "Waarom maakt Anna een cv?",
+                options: ["Omdat zij een nieuwe baan wil.", "Omdat zij al een baan heeft.", "Omdat zij geen baan heeft."],
+                correct: 0
+            },
+            {
+                passage: "cv",
+                passageTitle: "Wat is een cv?",
+                text: "Wat is een cv?\nUw curriculum vitae (cv) stuurt u op als u solliciteert naar een baan. In uw cv staat wie u bent en wat u kunt.\n\nHoe maakt u een cv?\nEen cv bestaat uit de volgende punten:\n\n- persoonlijke gegevens: Hier zet u uw naam, adres, telefoon, e-mailadres, geboortedatum.\n- opleiding: Hier zet u alle opleidingen en cursussen die u hebt gedaan.\n- werkervaring: Hier schrijft u het werk dat u gedaan heeft. Dus ook vrijwilligerswerk en stages. Schrijf hier ook wat u allemaal op uw werk moest doen.\n- overig: Hier zet u alle andere dingen die belangrijk zijn. Zoals: talenkennis, computerkennis, rijbewijs.",
+                question: "Anna heeft in een buurthuis vrijwillig klusjes gedaan. Waar moet ze dat op haar cv zetten?",
+                options: ["Bij overig.", "Bij werkervaring.", "Bij persoonlijke gegevens."],
+                correct: 1
+            },
+            {
+                passage: "cv",
+                passageTitle: "Wat is een cv?",
+                text: "Wat is een cv?\nUw curriculum vitae (cv) stuurt u op als u solliciteert naar een baan. In uw cv staat wie u bent en wat u kunt.\n\nHoe maakt u een cv?\nEen cv bestaat uit de volgende punten:\n\n- persoonlijke gegevens: Hier zet u uw naam, adres, telefoon, e-mailadres, geboortedatum.\n- opleiding: Hier zet u alle opleidingen en cursussen die u hebt gedaan.\n- werkervaring: Hier schrijft u het werk dat u gedaan heeft. Dus ook vrijwilligerswerk en stages. Schrijf hier ook wat u allemaal op uw werk moest doen.\n- overig: Hier zet u alle andere dingen die belangrijk zijn. Zoals: talenkennis, computerkennis, rijbewijs.",
+                question: "Anna heeft vorig jaar haar scooterrijbewijs gehaald. Waar moet ze dat op haar cv zetten?",
+                options: ["Bij persoonlijke gegevens.", "Bij overig.", "Bij werkervaring."],
+                correct: 1
+            },
+            // Passage 3: Talenschool (Q6-8)
+            {
+                passage: "talenschool",
+                passageTitle: "Talenschool Het Palet - Praktische zaken",
+                text: "Vakanties:\n- Herfstvakantie: Maandag 17 oktober t/m vrijdag 21 oktober\n- Kerstvakantie: Maandag 26 december t/m vrijdag 6 januari\n- Voorjaarsvakantie: Maandag 27 februari t/m vrijdag 2 maart\n- Meivakantie: Dinsdag 1 mei t/m vrijdag 4 mei\n- Zomervakantie: Maandag 16 juli t/m vrijdag 31 augustus\n\nOp vakantie?\nGaat u buiten de vakantieperiode om op vakantie? Vertel dit dan aan uw docent. Dit moet u uiterlijk 2 weken vóór uw vakantie schriftelijk doen.\n\nZiek?\nBent u ziek en kunt u niet naar de les komen, bel dan met de administratie van de talenschool. U moet dit zo snel mogelijk doen, uiterlijk een uur voordat de les begint.\n\nOpen dagen:\n- Donderdag 26 januari 17.30 uur – 21.00 uur\n- Zaterdag 28 januari 10.00 uur – 13.00 uur\n- Vrijdag 20 april 18.30 uur – 21.00 uur\n\nOp deze dagen zijn er geen lessen op de talenschool. Als u het leuk vindt, kunt u helpen tijdens de open dagen. Wilt u helpen? Zeg dit dan tegen uw docent of tegen de administratie.",
+                question: "Joy gaat in juni een week naar het buitenland. Wat moet zij doen?",
+                options: ["Zij moet de administratie van de school bellen.", "Zij moet dit laten weten aan haar docent.", "Zij moet dit tegen de administratie en de docent vertellen."],
+                correct: 1
+            },
+            {
+                passage: "talenschool",
+                passageTitle: "Talenschool Het Palet - Praktische zaken",
+                text: "Vakanties:\n- Herfstvakantie: Maandag 17 oktober t/m vrijdag 21 oktober\n- Kerstvakantie: Maandag 26 december t/m vrijdag 6 januari\n- Voorjaarsvakantie: Maandag 27 februari t/m vrijdag 2 maart\n- Meivakantie: Dinsdag 1 mei t/m vrijdag 4 mei\n- Zomervakantie: Maandag 16 juli t/m vrijdag 31 augustus\n\nOp vakantie?\nGaat u buiten de vakantieperiode om op vakantie? Vertel dit dan aan uw docent. Dit moet u uiterlijk 2 weken vóór uw vakantie schriftelijk doen.\n\nZiek?\nBent u ziek en kunt u niet naar de les komen, bel dan met de administratie van de talenschool. U moet dit zo snel mogelijk doen, uiterlijk een uur voordat de les begint.\n\nOpen dagen:\n- Donderdag 26 januari 17.30 uur – 21.00 uur\n- Zaterdag 28 januari 10.00 uur – 13.00 uur\n- Vrijdag 20 april 18.30 uur – 21.00 uur\n\nOp deze dagen zijn er geen lessen op de talenschool. Als u het leuk vindt, kunt u helpen tijdens de open dagen. Wilt u helpen? Zeg dit dan tegen uw docent of tegen de administratie.",
+                question: "Samad heeft elke donderdag Nederlandse les. Wat kan hij donderdag 26 januari op de talenschool doen?",
+                options: ["Hij kan gewoon naar de les gaan.", "Hij kan meehelpen op de open dag.", "Niets, want de school is die dag gesloten.", "Niets, want die dag is alleen voor nieuwe cursisten."],
+                correct: 1
+            },
+            {
+                passage: "talenschool",
+                passageTitle: "Talenschool Het Palet - Praktische zaken",
+                text: "Open dagen:\n- Donderdag 26 januari 17.30 uur – 21.00 uur\n- Zaterdag 28 januari 10.00 uur – 13.00 uur\n- Vrijdag 20 april 18.30 uur – 21.00 uur\n\nOp deze dagen zijn er geen lessen op de talenschool.",
+                question: "Yolande wil graag naar een open dag van talenschool Het Palet. Zij werkt van dinsdag tot en met zaterdag van 16:00 tot 22.00 uur. Wanneer kan zij naar een open dag?",
+                options: ["op donderdag 26 januari", "op zaterdag 28 januari", "op vrijdag 20 april"],
+                correct: 1
+            },
+            // Passage 4: Ziekmelding werk (Q9-10)
+            {
+                passage: "ziekmelding_werk",
+                passageTitle: "Ziekmelding op het werk",
+                text: "Ziekmelding\nAls u ziek bent en niet kunt komen werken, moet u dit bij uw leidinggevende melden. U hoeft niet te vertellen waar u last van heeft. Wel moet u zeggen hoe lang u denkt ziek te zijn.\n\nUw leidinggevende is Chantal Miedema. U kunt haar bellen vanaf 7:00 uur. Haar telefoonnummer is 06-12563490. U moet Chantal altijd voor 9:30 uur bellen. Als u Chantal niet kunt bereiken, dan kunt u bellen met Jaap van Bommel. Hij werkt bij het secretariaat. Het secretariaat is bereikbaar tussen 8:00 en 12:00 uur op 030-5452343.\n\nDe bedrijfsarts\nU kunt altijd een afspraak maken met de bedrijfsarts. Zijn telefoonnummer is 030-3448015. Als u langer dan zes weken ziek bent, krijgt u een uitnodiging van onze bedrijfsarts. Zijn naam is Cees Zwaan. Hij gaat samen met u kijken hoe u weer beter kunt worden.",
+                question: "Anya moet zich ziek melden bij Jaap van Bommel. Hoe laat kan ze bellen?",
+                options: ["tussen 7:00 uur en 9:30 uur", "tussen 7:00 uur en 12:00 uur", "tussen 8:00 uur en 9:30 uur", "tussen 8:00 uur en 12:00 uur"],
+                correct: 3
+            },
+            {
+                passage: "ziekmelding_werk",
+                passageTitle: "Ziekmelding op het werk",
+                text: "Ziekmelding\nAls u ziek bent en niet kunt komen werken, moet u dit bij uw leidinggevende melden. U hoeft niet te vertellen waar u last van heeft. Wel moet u zeggen hoe lang u denkt ziek te zijn.\n\nDe bedrijfsarts\nU kunt altijd een afspraak maken met de bedrijfsarts. Zijn telefoonnummer is 030-3448015. Als u langer dan zes weken ziek bent, krijgt u een uitnodiging van onze bedrijfsarts. Zijn naam is Cees Zwaan. Hij gaat samen met u kijken hoe u weer beter kunt worden.",
+                question: "Antonio wil een afspraak maken met de bedrijfsarts. Wanneer kan dat?",
+                options: ["Dat kan alleen als Chantal dat goed vindt.", "Dat kan op elk moment dat hij dat wil.", "Dat kan alleen als hij een uitnodiging krijgt.", "Dat kan alleen als hij langer dan zes weken ziek is."],
+                correct: 1
+            },
+            // Passage 5: Buurtbijeenkomst (Q11-12)
+            {
+                passage: "buurt",
+                passageTitle: "Uitnodiging buurtbijeenkomst Oranjebuurt",
+                text: "Uitnodiging buurtbijeenkomst\nWe hebben de afgelopen jaren veel gedaan in de Oranjebuurt. Er is nu een speeltuin voor de kinderen. En we hebben met alle bewoners een paar bomen geplant. Maar we willen meer. We nodigen u daarom van harte uit voor de buurtbijeenkomst op woensdagavond 24 november.\n\nProgramma:\n19:30 uur: Ontvangst en welkomstdrankje\n19:45 uur: Muzikaal optreden Milan & Zelina\n20:15 uur: Film over wat we gedaan hebben in de wijk\n21:00 uur: Themagroepen (zie hieronder)\n22:00 uur: Hapjes, drankjes en muziek\n\nThemagroepen:\n- Activiteiten voor kinderen\n- Winkels\n- Werkgelegenheid\n- Veiligheid\n- Groen en schoon\n\nOpgeven: Wilt u komen? Laat dat dan vóór 23 november weten aan het buurtcomité.",
+                question: "Allan wil meer sportlessen voor kinderen. Hij wil graag naar de buurtbijeenkomst komen, maar hij heeft weinig tijd. Hoe laat kan hij het beste komen om over de sportlessen te praten?",
+                options: ["om 19:30 uur", "om 20:15 uur", "om 21:00 uur", "om 22:00 uur"],
+                correct: 2
+            },
+            {
+                passage: "buurt",
+                passageTitle: "Uitnodiging buurtbijeenkomst Oranjebuurt",
+                text: "Uitnodiging buurtbijeenkomst\nWe nodigen u van harte uit voor de buurtbijeenkomst op woensdagavond 24 november.\n\nOpgeven: Wilt u komen? Laat dat dan vóór 23 november weten aan het buurtcomité. We zien u graag op 24 november in het buurthuis!",
+                question: "Mirja wil naar de buurtbijeenkomst komen. Wanneer moet ze zich opgeven?",
+                options: ["uiterlijk 22 november", "op 23 november", "op de avond zelf", "Ze hoeft zich niet op te geven."],
+                correct: 0
+            },
+            // Passage 6: Sportcentrum (Q13-14)
+            {
+                passage: "sport",
+                passageTitle: "Sportcentrum - Abonnementen",
+                text: "Het sportcentrum is geopend op:\n- Werkdagen van 08.00 uur tot 22.00 uur.\n- Zaterdag en zondag van 09.00 uur tot 17.00 uur.\n\nEr zijn drie soorten abonnementen:\n- Basis: €14,- per maand - zoveel sporten als u maar wilt\n- Daluren: €12,95 per maand - op werkdagen sporten tot 17.00 uur\n- Weekend: €10,- per maand - vanaf vrijdagmiddag 17.00 uur\n\nU kunt zich aanmelden bij het sportcentrum.",
+                question: "Mohammed heeft een basisabonnement. Tot hoe laat kan hij op dinsdag sporten?",
+                options: ["Tot 17.00 uur.", "Tot 20.00 uur.", "Tot 22.00 uur."],
+                correct: 2
+            },
+            {
+                passage: "sport",
+                passageTitle: "Sportcentrum - Abonnementen",
+                text: "Het sportcentrum is geopend op:\n- Werkdagen van 08.00 uur tot 22.00 uur.\n- Zaterdag en zondag van 09.00 uur tot 17.00 uur.\n\nEr zijn drie soorten abonnementen:\n- Basis: €14,- per maand - zoveel sporten als u maar wilt\n- Daluren: €12,95 per maand - op werkdagen sporten tot 17.00 uur\n- Weekend: €10,- per maand - vanaf vrijdagmiddag 17.00 uur",
+                question: "Ali heeft een weekendabonnement. Hij krijgt een baan in het weekend, dan moet hij van 9 tot 5 uur werken. Wanneer kan Ali nog sporten?",
+                options: ["Vrijdagavond.", "Zaterdagavond.", "Zondagavond."],
+                correct: 0
+            },
+            // Passage 7: Brief Samira (Q15-16)
+            {
+                passage: "brief_samira",
+                passageTitle: "Brief van Samira aan haar docent",
+                text: "Dag Yvonne,\n\nIk wil je graag bedanken voor de geweldige taalcursus. Ik heb geleerd om de Nederlandse taal echt te gebruiken. Ik durf nu meer in het Nederlands te praten en te schrijven. En ik kan het nu ook veel beter. Ik praatte eigenlijk nooit met Nederlanders. Ik vind het nog steeds moeilijk en maak nog steeds fouten, maar ik doe het nu wel. Mijn man heeft me wel geholpen bij deze brief.\n\nHet is belangrijk dat ik blijf oefenen. Dat doe ik door de taal gewoon te gebruiken. Soms willen mijn man of mijn kinderen me helpen. Maar ik wil het zelf proberen. Als ik hun hulp nodig heb, dan vraag ik het wel.\n\nHet is jammer dat ik alles in één jaar moest leren. Het is echt heel veel. Maar ik heb de cursus afgemaakt. En ik ben geslaagd voor mijn examen.\n\nNogmaals heel veel dank voor al je hulp. Jij bent een fantastische docent!\n\nGroetjes,\nSamira",
+                question: "Wat heeft Samira van Yvonne geleerd?",
+                options: ["zonden fouten Nederlands te praten en te schrijven", "te schrijven zonder hulp van anderen", "hoe ze haar familie met de taal kan helpen", "de Nederlandse taal beter en vaker te gebruiken"],
+                correct: 3
+            },
+            {
+                passage: "brief_samira",
+                passageTitle: "Brief van Samira aan haar docent",
+                text: "Dag Yvonne,\n\nIk wil je graag bedanken voor de geweldige taalcursus. Ik heb geleerd om de Nederlandse taal echt te gebruiken.\n\nHet is jammer dat ik alles in één jaar moest leren. Het is echt heel veel. Maar ik heb de cursus afgemaakt. En ik ben geslaagd voor mijn examen.\n\nNogmaals heel veel dank voor al je hulp. Jij bent een fantastische docent!\n\nGroetjes,\nSamira",
+                question: "Samira is blij met de cursus van Yvonne. Toch vindt ze niet alles goed. Wat vindt ze niet zo goed?",
+                options: ["Ze vindt dat ze te weinig tijd had.", "Ze vindt dat ze te weinig oefeningen kreeg.", "Ze vindt dat de lessen te moeilijk waren.", "Ze vindt dat de cursus te lang duurde."],
+                correct: 0
+            },
+            // Passage 8: Huisarts (Q17-18)
+            {
+                passage: "huisarts",
+                passageTitle: "Informatie huisarts",
+                text: "Informatie huisarts\n\nOpeningstijden\nWij zijn open van maandag tot en met donderdag van 08:00 tot 17:00 uur en op vrijdag van 08:00 tot 12:30 uur.\n\n's Avonds, in het weekend en tijdens de vakantie\nOp avonden, in het weekend en op vrijdagmiddag kunt u de centrale huisartsenpost bellen (0900 2233333). Zij geven u telefonisch advies. Als het nodig is, kunt u een afspraak maken voor een bezoek. Deze informatie staat ook op onze website: www.uwhuisarts.nl. Hier kunt u ook vinden wie uw huisarts vervangt tijdens vakanties.\n\nNoodgevallen\nAls u bij een noodgeval niemand direct kunt bereiken, belt u dan het alarmnummer (112).\n\nAfspraak maken\nEen afspraak voor het spreekuur van de huisarts kunt u maken bij de assistente. U kunt dat bij ons aan de balie doen of telefonisch: 031 2850127. Belt u het liefst tussen 08:00 en 10:30 uur.\n\nTelefonisch spreekuur\nVoor kort overleg en uitslagen kunt u de assistente bellen. Dat kan van maandag tot en met donderdag van 13:30 tot 14:30 uur.",
+                question: "Het is vrijdag. Mouna wil een afspraak met haar huisarts. Ze wil vandaag naar de assistente bellen. Wanneer kan ze dat het beste doen?",
+                options: ["tussen 08:00 en 10:30 uur", "tussen 10:30 en 12:30 uur", "tussen 13:30 en 14:30 uur", "vóór 13:30 uur of ná 14:30 uur"],
+                correct: 0
+            },
+            {
+                passage: "huisarts",
+                passageTitle: "Informatie huisarts",
+                text: "'s Avonds, in het weekend en tijdens de vakantie\nOp avonden, in het weekend en op vrijdagmiddag kunt u de centrale huisartsenpost bellen (0900 2233333). Deze informatie staat ook op onze website: www.uwhuisarts.nl. Hier kunt u ook vinden wie uw huisarts vervangt tijdens vakanties.\n\nNoodgevallen\nAls u bij een noodgeval niemand direct kunt bereiken, belt u dan het alarmnummer (112).",
+                question: "Mouna heeft een huisarts nodig. Haar eigen huisarts heeft vakantie. Wat moet Mouna doen?",
+                options: ["op www.uwhuisarts.nl opzoeken bij wie ze moet zijn", "in het weekblad opzoeken bij wie ze moet zijn", "naar de centrale huisartsenpost bellen", "naar het alarmnummer voor noodgevallen bellen"],
+                correct: 0
+            },
+            // Passage 9: Woorden leren (Q19-20)
+            {
+                passage: "woorden",
+                passageTitle: "Woorden leren - Methodes",
+                text: "Woorden leren\n\n1. De kaartjesmethode\nKent u nog bijna geen woorden in de taal die u wilt leren? Dan is dit een goede manier. U schrijft op elk kaartje een woord dat u moet leren. Op de achterkant schrijft u wat het woord in uw eigen taal betekent.\n\n2. De schuifmethode\nHeeft u het altijd druk? De schuifmethode is een snelle manier om woorden te leren. U legt een papier op de woordenlijst die u moet leren. U schuift dit papier naar beneden, zodat u alleen het woord ziet dat u wilt leren. U spreekt het vreemde woord eerst hardop uit. U schrijft daarna het woord op. Leer ze niet alleen van boven naar beneden, maar ook van beneden naar boven en door elkaar.\n\n3. Het woordnet\nKent u al veel woorden? Maar vergeet u altijd een paar moeilijke woorden? Maak dan een 'woordnet' voor elk moeilijk woord. U schrijft het moeilijke woord in het midden van een blad papier. U zet daaromheen allemaal woorden die iets te maken hebben met het moeilijke woord.",
+                question: "Karima gebruikt de schuifmethode om woorden te leren. In welke volgorde moet zij de woorden leren?",
+                options: ["alleen door elkaar", "alleen van beneden naar boven", "alleen van boven naar beneden", "in allerlei verschillende volgordes"],
+                correct: 3
+            },
+            {
+                passage: "woorden",
+                passageTitle: "Woorden leren - Methodes",
+                text: "1. De kaartjesmethode\nKent u nog bijna geen woorden in de taal die u wilt leren? Dan is dit een goede manier.\n\n2. De schuifmethode\nHeeft u het altijd druk? De schuifmethode is een snelle manier om woorden te leren.\n\n3. Het woordnet\nKent u al veel woorden? Maar vergeet u altijd een paar moeilijke woorden? Maak dan een 'woordnet' voor elk moeilijk woord.",
+                question: "Noa leert al een paar maanden Nederlandse woorden. Ze kent de meeste woorden al goed. Ze heeft moeite met sommige woorden. Ze wil die ook graag leren. Welke manier is dan het beste?",
+                options: ["de schuifmethode", "de kaartjesmethode", "het woordnet"],
+                correct: 2
+            },
+            // Passage 10: Werkrooster hotel (Q21-22)
+            {
+                passage: "rooster",
+                passageTitle: "Werkrooster Hotel 'Chez Janou'",
+                text: "WERKROOSTER HOTEL 'CHEZ JANOU'\n\nN nachtdienst van 23.00 uur tot 07.30 uur\nO ochtenddienst van 7.30 uur tot 14.00 uur\nM middagdienst van 14.00 uur tot 18.30 uur\nA avonddienst van 18.30 uur tot 23.00 uur\n\nWil je een dienst ruilen met een collega? Dan moet je dat zelf regelen. Kijk eerst op het rooster wie van je collega's kan.\n\nLet op:\n- Je mag altijd twee diensten achter elkaar werken.\n- Let op: als je nachtdienst hebt (gehad), mag dat niet\n- Je mag per weekend maximaal twee nachtdiensten draaien.\n\n(Xavier heeft vrijdag M+A dienst)",
+                question: "Hoe lang moet Xavier vrijdag werken?",
+                options: ["van 07.30 uur tot 18.30 uur", "van 14.00 uur tot 18.30 uur", "van 14.00 uur tot 23.00 uur", "van 18.30 uur tot 23.00 uur"],
+                correct: 2
+            },
+            {
+                passage: "rooster",
+                passageTitle: "Werkrooster Hotel 'Chez Janou'",
+                text: "WERKROOSTER HOTEL 'CHEZ JANOU'\n\nN nachtdienst van 23.00 uur tot 07.30 uur\nO ochtenddienst van 7.30 uur tot 14.00 uur\nM middagdienst van 14.00 uur tot 18.30 uur\nA avonddienst van 18.30 uur tot 23.00 uur\n\nWil je een dienst ruilen met een collega? Dan moet je dat zelf regelen.\n\n(Xavier heeft zaterdag M dienst. Casper, Ersin en Juul zijn collega's.)",
+                question: "Xavier moet op zaterdagmiddag werken. Hij wil dan graag vrij. Met wie kan Xavier ruilen?",
+                options: ["met Casper", "met Ersin", "met Juul", "met niemand"],
+                correct: 0
+            },
+            // Passage 11: Bloemenwinkel (Q23-25)
+            {
+                passage: "bloemen",
+                passageTitle: "E-mail bloemenwinkel",
+                text: "Beste collega's,\n\nWe hebben vanmorgen met zijn allen gepraat. Dat was goed om te doen. We hebben duidelijke afspraken gemaakt over het werk in de winkel. Iedereen moet zich aan deze afspraken houden. De afspraken staan hieronder:\n\n1. De winkel is vanaf nu elke eerste en derde zondag van de maand open. Jantine werkt dan altijd. Elke eerste zondag helpt Ricardo haar. Nadia werkt op elke derde zondag van de maand met Jantine. Op de andere zondagen is de winkel dicht. Omar en Moniek werken niet op zondag.\n\n2. We hebben vanaf 1 maart een nieuwe klantenkaart. Klanten mogen hun oude klantenkaart dan niet meer gebruiken. De oude kaart kostte €5,-, maar de nieuwe klantenkaart is gratis! We vertellen de klant ook over het sparen met de nieuwe kaart. Bij elke €10,- krijgt de klant één punt. Bij tien punten krijgt de klant €15,- korting.\n\n3. We dweilen de winkel twee keer per week: op dinsdag en op zaterdag. We deden dit tot nu toe altijd één keer per week, maar het is nu wel erg vaak vies. Is het druk geweest in de winkel? Dan dweilen we nog een derde keer. We willen de winkel graag schoonhouden.\n\nGroeten,\nRemco",
+                question: "Wie werken op de eerste zondag van april?",
+                options: ["Jantine en Nadia", "Jantine en Ricardo", "Omar en Moniek"],
+                correct: 1
+            },
+            {
+                passage: "bloemen",
+                passageTitle: "E-mail bloemenwinkel",
+                text: "We hebben vanaf 1 maart een nieuwe klantenkaart. Klanten mogen hun oude klantenkaart dan niet meer gebruiken. De oude kaart kostte €5,-, maar de nieuwe klantenkaart is gratis! We vertellen de klant ook over het sparen met de nieuwe kaart. Bij elke €10,- krijgt de klant één punt. Bij tien punten krijgt de klant €15,- korting.",
+                question: "Hoeveel kost de nieuwe klantenkaart?",
+                options: ["Die is gratis.", "€5,-", "€10,-", "€15,-"],
+                correct: 0
+            },
+            {
+                passage: "bloemen",
+                passageTitle: "E-mail bloemenwinkel",
+                text: "We dweilen de winkel twee keer per week: op dinsdag en op zaterdag. We deden dit tot nu toe altijd één keer per week, maar het is nu wel erg vaak vies. Is het druk geweest in de winkel? Dan dweilen we nog een derde keer. We willen de winkel graag schoonhouden.",
+                question: "Hoe vaak moeten Omar en zijn collega's dweilen?",
+                options: ["altijd één keer per week", "altijd twee keer per week", "twee of drie keer per week"],
+                correct: 2
+            }
+        ];
+
+        // All exams data
+        const lezenExams = {
+            exam1: {
+                name: "DUO Lezen Exam 1",
+                questions: lezenQuestions,
+                sections: {
+                    tips_leren: lezenQuestions.filter(q => q.passage === 'tips_leren'),
+                    hardloopwedstrijd: lezenQuestions.filter(q => q.passage === 'hardloopwedstrijd'),
+                    transportservice: lezenQuestions.filter(q => q.passage === 'transportservice'),
+                    kanovaren: lezenQuestions.filter(q => q.passage === 'kanovaren'),
+                    tas_vergeten: lezenQuestions.filter(q => q.passage === 'tas_vergeten'),
+                    sportdag: lezenQuestions.filter(q => q.passage === 'sportdag'),
+                    bruiloft: lezenQuestions.filter(q => q.passage === 'bruiloft'),
+                    ehbo: lezenQuestions.filter(q => q.passage === 'ehbo'),
+                    kringloop: lezenQuestions.filter(q => q.passage === 'kringloop'),
+                    ziekmelding: lezenQuestions.filter(q => q.passage === 'ziekmelding')
+                },
+                sectionNames: {
+                    tips_leren: '1. Tips om te leren',
+                    hardloopwedstrijd: '2. Hardloopwedstrijd',
+                    transportservice: '3. Transportservice',
+                    kanovaren: '4. Bedrijfsuitje',
+                    tas_vergeten: '5. Tas vergeten',
+                    sportdag: '6. Sportdag',
+                    bruiloft: '7. Bruiloft',
+                    ehbo: '8. EHBO Cursussen',
+                    kringloop: '9. Kringloopcentrum',
+                    ziekmelding: '10. Ziekmelding'
+                }
+            },
+            exam2: {
+                name: "DUO Lezen Exam 2",
+                questions: lezenQuestions2,
+                sections: {
+                    tandarts: lezenQuestions2.filter(q => q.passage === 'tandarts'),
+                    cv: lezenQuestions2.filter(q => q.passage === 'cv'),
+                    talenschool: lezenQuestions2.filter(q => q.passage === 'talenschool'),
+                    ziekmelding_werk: lezenQuestions2.filter(q => q.passage === 'ziekmelding_werk'),
+                    buurt: lezenQuestions2.filter(q => q.passage === 'buurt'),
+                    sport: lezenQuestions2.filter(q => q.passage === 'sport'),
+                    brief_samira: lezenQuestions2.filter(q => q.passage === 'brief_samira'),
+                    huisarts: lezenQuestions2.filter(q => q.passage === 'huisarts'),
+                    woorden: lezenQuestions2.filter(q => q.passage === 'woorden'),
+                    rooster: lezenQuestions2.filter(q => q.passage === 'rooster'),
+                    bloemen: lezenQuestions2.filter(q => q.passage === 'bloemen')
+                },
+                sectionNames: {
+                    tandarts: '1. Tandartspraktijk',
+                    cv: '2. CV maken',
+                    talenschool: '3. Talenschool',
+                    ziekmelding_werk: '4. Ziekmelding werk',
+                    buurt: '5. Buurtbijeenkomst',
+                    sport: '6. Sportcentrum',
+                    brief_samira: '7. Brief aan docent',
+                    huisarts: '8. Huisarts',
+                    woorden: '9. Woorden leren',
+                    rooster: '10. Werkrooster',
+                    bloemen: '11. Bloemenwinkel'
+                }
+            }
+        };
+
+        // Current exam selection
+        let currentLezenExam = 'exam1';
+
+        // Organize reading questions into sections by passage for sidebar navigation
+        const lezenSections = {
+            tips_leren: lezenQuestions.filter(q => q.passage === 'tips_leren'),
+            hardloopwedstrijd: lezenQuestions.filter(q => q.passage === 'hardloopwedstrijd'),
+            transportservice: lezenQuestions.filter(q => q.passage === 'transportservice'),
+            kanovaren: lezenQuestions.filter(q => q.passage === 'kanovaren'),
+            tas_vergeten: lezenQuestions.filter(q => q.passage === 'tas_vergeten'),
+            sportdag: lezenQuestions.filter(q => q.passage === 'sportdag'),
+            bruiloft: lezenQuestions.filter(q => q.passage === 'bruiloft'),
+            ehbo: lezenQuestions.filter(q => q.passage === 'ehbo'),
+            kringloop: lezenQuestions.filter(q => q.passage === 'kringloop'),
+            ziekmelding: lezenQuestions.filter(q => q.passage === 'ziekmelding')
+        };
+
+        const lezenSectionNames = {
+            tips_leren: '1. Tips om te leren',
+            hardloopwedstrijd: '2. Hardloopwedstrijd',
+            transportservice: '3. Transportservice',
+            kanovaren: '4. Bedrijfsuitje',
+            tas_vergeten: '5. Tas vergeten',
+            sportdag: '6. Sportdag',
+            bruiloft: '7. Bruiloft',
+            ehbo: '8. EHBO Cursussen',
+            kringloop: '9. Kringloopcentrum',
+            ziekmelding: '10. Ziekmelding'
+        };
+
+        let currentLezenSection = 'tips_leren';
+        let currentLezenIndex = 0;
+        let completedLezenExercises = {
+            exam1: { tips_leren: [], hardloopwedstrijd: [], transportservice: [], kanovaren: [], tas_vergeten: [], sportdag: [], bruiloft: [], ehbo: [], kringloop: [], ziekmelding: [] },
+            exam2: { tandarts: [], cv: [], talenschool: [], ziekmelding_werk: [], buurtbijeenkomst: [], sportcentrum: [], brief_samira: [], huisarts: [], woorden_leren: [], werkrooster: [], bloemenwinkel: [] }
+        };
+
+        function switchLezenExam(examKey) {
+            currentLezenExam = examKey;
+            const sections = Object.keys(lezenExams[examKey].sections);
+            currentLezenSection = sections[0];
+            currentLezenIndex = 0;
+            showingAnswer = false;
+            selectedLezenOption = null;
+            renderSidebar();
+            showCurrentLezenQuestion();
+        }
+
+        let currentMode = null;
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+        let showingAnswer = false;
+
+        // Organized exam sections for schrijven
+        const examSections = {
+            original: schrijvenQuestions.slice(0, 10),
+            e2: schrijvenQuestions.slice(10, 14),
+            e3: schrijvenQuestions.slice(14, 18),
+            e4: schrijvenQuestions.slice(18, 22),
+            d1: schrijvenQuestions.slice(22, 34),
+            d2: schrijvenQuestions.slice(34, 40),
+            d3: schrijvenQuestions.slice(40, 44)
+        };
+
+        let currentSection = 'original';
+        let currentExerciseIndex = 0;
+        let completedExercises = { original: [], e2: [], e3: [], e4: [], d1: [], d2: [], d3: [] };
+
+        function renderSidebar() {
+            const sidebar = document.getElementById('exam-sidebar');
+
+            if (currentMode === 'lezen') {
+                // Render Lezen sidebar with exam dropdown and passage navigation
+                const currentExamData = lezenExams[currentLezenExam];
+
+                let html = `
+                    <div style="padding: 10px; border-bottom: 1px solid #ddd;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 5px;">📖 Select Exam:</label>
+                        <select id="exam-selector" onchange="switchLezenExam(this.value)" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px;">
+                            <option value="exam1" ${currentLezenExam === 'exam1' ? 'selected' : ''}>DUO Lezen Exam 1 (25 questions)</option>
+                            <option value="exam2" ${currentLezenExam === 'exam2' ? 'selected' : ''}>DUO Lezen Exam 2 (25 questions)</option>
+                        </select>
+                    </div>
+                `;
+
+                for (const [sectionKey, questions] of Object.entries(currentExamData.sections)) {
+                    const sectionName = currentExamData.sectionNames[sectionKey];
+                    html += `
+                        <div class="exam-section">
+                            <div class="exam-section-title ${currentLezenSection === sectionKey ? 'active' : ''}">${sectionName} <span>(${questions.length})</span></div>
+                            <ul class="exercise-list">
+                    `;
+                    questions.forEach((q, i) => {
+                        const isActive = currentLezenSection === sectionKey && currentLezenIndex === i;
+                        const isCompleted = completedLezenExercises[currentLezenExam] && completedLezenExercises[currentLezenExam][sectionKey] && completedLezenExercises[currentLezenExam][sectionKey].includes(i);
+                        const truncatedQuestion = q.question.length > 30 ? q.question.substring(0, 27) + '...' : q.question;
+
+                        html += `
+                            <li class="exercise-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}"
+                                onclick="selectLezenQuestion('${sectionKey}', ${i})">
+                                <span class="exercise-status">${isCompleted ? '✓' : (i + 1)}</span>
+                                <span title="${q.question}">${truncatedQuestion}</span>
+                            </li>
+                        `;
+                    });
+                    html += '</ul></div>';
+                }
+                html += `<div class="back-to-menu" onclick="backToMenu()">← Back to Menu</div>`;
+                sidebar.innerHTML = html;
+                return;
+            }
+
+            if (currentMode !== 'schrijven') {
+                sidebar.innerHTML = '<p style="text-align: center; color: #666;">Select a mode to start</p>';
+                return;
+            }
+
+            const sectionNames = {
+                original: 'Original Exercises',
+                e2: 'E2 - Exam Set 2',
+                e3: 'E3 - Exam Set 3',
+                e4: 'E4 - Exam Set 4 (E1)',
+                d1: 'D1 - Messages (Berichten)',
+                d2: 'D2 - Text for Everyone',
+                d3: 'D3 - Forms (Formulieren)'
+            };
+
+            let html = '<h3 style="padding: 10px; margin: 0; border-bottom: 1px solid #ddd;">✍️ Schrijven Exercises</h3>';
+            for (const [sectionKey, questions] of Object.entries(examSections)) {
+                html += `
+                    <div class="exam-section">
+                        <div class="exam-section-title ${sectionKey}">${sectionNames[sectionKey]} <span>(${questions.length})</span></div>
+                        <ul class="exercise-list">
+                `;
+                questions.forEach((q, i) => {
+                    const isActive = currentSection === sectionKey && currentExerciseIndex === i;
+                    const isCompleted = completedExercises[sectionKey].includes(i);
+                    const shortType = q.type.split(' - ')[1] || q.type;
+                    const truncatedType = shortType.length > 25 ? shortType.substring(0, 22) + '...' : shortType;
+
+                    html += `
+                        <li class="exercise-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}"
+                            onclick="selectExercise('${sectionKey}', ${i})">
+                            <span class="exercise-status">${isCompleted ? '✓' : (i + 1)}</span>
+                            <span title="${shortType}">${truncatedType}</span>
+                        </li>
+                    `;
+                });
+                html += '</ul></div>';
+            }
+
+            html += `<div class="back-to-menu" onclick="backToMenu()">← Back to Menu</div>`;
+            sidebar.innerHTML = html;
+        }
+
+        function selectExercise(section, index) {
+            currentSection = section;
+            currentExerciseIndex = index;
+            showingAnswer = false;
+            renderSidebar();
+            showCurrentExercise();
+        }
+
+        // Lezen-specific navigation functions
+        function selectLezenQuestion(section, index) {
+            currentLezenSection = section;
+            currentLezenIndex = index;
+            showingAnswer = false;
+            renderSidebar();
+            showCurrentLezenQuestion();
+        }
+
+        function showCurrentLezenQuestion() {
+            const currentExamData = lezenExams[currentLezenExam];
+            const q = currentExamData.sections[currentLezenSection][currentLezenIndex];
+            const totalInSection = currentExamData.sections[currentLezenSection].length;
+
+            document.getElementById('counter').textContent = `${currentExamData.sectionNames[currentLezenSection]} - Question ${currentLezenIndex + 1} of ${totalInSection}`;
+            document.getElementById('question-type').textContent = 'Lezen - Multiple Choice';
+
+            const content = `
+                <div class="reading-text">
+                    <h4>${q.passageTitle}</h4>
+                    ${q.text.replace(/\n/g, '<br>')}
+                </div>
+                <div class="question-text">${q.question}</div>
+                <div class="options" id="options">
+                    ${q.options.map((opt, i) => `
+                        <div class="option" onclick="selectLezenOption(${i})" data-index="${i}">
+                            ${String.fromCharCode(65 + i)}. ${opt}
+                        </div>
+                    `).join('')}
+                </div>
+                <div id="feedback-area"></div>
+            `;
+
+            const buttons = `
+                <button class="btn btn-primary" id="check-btn" onclick="checkLezenAnswer()" disabled>Check Answer</button>
+                <button class="btn btn-secondary" id="next-btn" onclick="nextLezenQuestion()" style="display:none;">Next Question</button>
+            `;
+
+            document.getElementById('question-content').innerHTML = content;
+            document.getElementById('buttons').innerHTML = buttons;
+        }
+
+        let selectedLezenOption = null;
+
+        function selectLezenOption(index) {
+            if (showingAnswer) return;
+
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelector(`.option[data-index="${index}"]`).classList.add('selected');
+            selectedLezenOption = index;
+            document.getElementById('check-btn').disabled = false;
+        }
+
+        function checkLezenAnswer() {
+            if (showingAnswer) return;
+            showingAnswer = true;
+
+            const currentExamData = lezenExams[currentLezenExam];
+            const q = currentExamData.sections[currentLezenSection][currentLezenIndex];
+            const isCorrect = selectedLezenOption === q.correct;
+
+            document.querySelectorAll('.option').forEach((opt, i) => {
+                if (i === q.correct) {
+                    opt.classList.add('correct');
+                } else if (i === selectedLezenOption && !isCorrect) {
+                    opt.classList.add('incorrect');
+                }
+            });
+
+            const feedbackArea = document.getElementById('feedback-area');
+            feedbackArea.innerHTML = `
+                <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                    ${isCorrect ? '✅ Correct!' : `❌ Incorrect. The correct answer is ${String.fromCharCode(65 + q.correct)}: ${q.options[q.correct]}`}
+                </div>
+            `;
+
+            // Mark as completed
+            if (!completedLezenExercises[currentLezenExam][currentLezenSection].includes(currentLezenIndex)) {
+                completedLezenExercises[currentLezenExam][currentLezenSection].push(currentLezenIndex);
+            }
+
+            document.getElementById('check-btn').style.display = 'none';
+            document.getElementById('next-btn').style.display = 'inline-block';
+            renderSidebar();
+        }
+
+        function nextLezenQuestion() {
+            const currentExamData = lezenExams[currentLezenExam];
+            const sections = Object.keys(currentExamData.sections);
+            const currentSectionIdx = sections.indexOf(currentLezenSection);
+
+            if (currentLezenIndex < currentExamData.sections[currentLezenSection].length - 1) {
+                currentLezenIndex++;
+            } else if (currentSectionIdx < sections.length - 1) {
+                // Move to next section
+                currentLezenSection = sections[currentSectionIdx + 1];
+                currentLezenIndex = 0;
+            } else {
+                // All questions completed - show summary
+                showLezenSummary();
+                return;
+            }
+            showingAnswer = false;
+            selectedLezenOption = null;
+            renderSidebar();
+            showCurrentLezenQuestion();
+        }
+
+        function prevLezenQuestion() {
+            const currentExamData = lezenExams[currentLezenExam];
+            if (currentLezenIndex > 0) {
+                currentLezenIndex--;
+            } else {
+                const sections = Object.keys(currentExamData.sections);
+                const currentIdx = sections.indexOf(currentLezenSection);
+                if (currentIdx > 0) {
+                    currentLezenSection = sections[currentIdx - 1];
+                    currentLezenIndex = currentExamData.sections[currentLezenSection].length - 1;
+                }
+            }
+            showingAnswer = false;
+            selectedLezenOption = null;
+            renderSidebar();
+            showCurrentLezenQuestion();
+        }
+
+        function showLezenSummary() {
+            const currentExamData = lezenExams[currentLezenExam];
+            let totalCompleted = 0;
+            for (const section of Object.keys(completedLezenExercises[currentLezenExam])) {
+                totalCompleted += completedLezenExercises[currentLezenExam][section].length;
+            }
+            const totalQuestions = currentExamData.questions.length;
+
+            document.getElementById('question-content').innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <h2>🎉 Exam Complete!</h2>
+                    <p>You have completed ${totalCompleted} of ${totalQuestions} questions in ${currentExamData.name}.</p>
+                    <p>Use the sidebar to review any questions or try another exam from the dropdown.</p>
+                </div>
+            `;
+            document.getElementById('buttons').innerHTML = `
+                <button class="btn" onclick="backToMenu()">← Back to Menu</button>
+            `;
+        }
+
+        function showCurrentExercise() {
+            const q = examSections[currentSection][currentExerciseIndex];
+            const totalInSection = examSections[currentSection].length;
+
+            document.getElementById('counter').textContent = `${currentSection.toUpperCase()} - Exercise ${currentExerciseIndex + 1} of ${totalInSection}`;
+            document.getElementById('question-type').textContent = q.type;
+
+            let html = `
+                <div class="prompt">${q.prompt.replace(/\n/g, '<br>')}</div>
+                <textarea class="writing-area" id="user-answer" placeholder="Schrijf hier je antwoord...">${userAnswers[`${currentSection}_${currentExerciseIndex}`] || ''}</textarea>
+                <div id="ai-grading-area"></div>
+                <div id="model-answer-area"></div>
+            `;
+            document.getElementById('question-content').innerHTML = html;
+
+            const buttons = `
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                    <button class="btn btn-ai" id="ai-grade-btn" onclick="gradeWithAI()">🤖 AI Grade</button>
+                    <button class="btn" onclick="showModelAnswer()">Show Model Answer</button>
+                    ${currentExerciseIndex > 0 ? '<button class="btn" onclick="prevExercise()">← Previous</button>' : ''}
+                    <button class="btn btn-next" onclick="nextExercise()">Next →</button>
+                </div>
+            `;
+            document.getElementById('buttons').innerHTML = buttons;
+        }
+
+        function prevExercise() {
+            saveCurrentAnswer();
+            if (currentExerciseIndex > 0) {
+                currentExerciseIndex--;
+            } else {
+                // Go to previous section
+                const sections = Object.keys(examSections);
+                const currentIdx = sections.indexOf(currentSection);
+                if (currentIdx > 0) {
+                    currentSection = sections[currentIdx - 1];
+                    currentExerciseIndex = examSections[currentSection].length - 1;
+                }
+            }
+            showingAnswer = false;
+            renderSidebar();
+            showCurrentExercise();
+        }
+
+        function nextExercise() {
+            saveCurrentAnswer();
+            markCurrentCompleted();
+
+            const sections = Object.keys(examSections);
+            const currentSectionIdx = sections.indexOf(currentSection);
+
+            if (currentExerciseIndex < examSections[currentSection].length - 1) {
+                currentExerciseIndex++;
+            } else if (currentSectionIdx < sections.length - 1) {
+                // Move to next section
+                currentSection = sections[currentSectionIdx + 1];
+                currentExerciseIndex = 0;
+            }
+            showingAnswer = false;
+            renderSidebar();
+            showCurrentExercise();
+        }
+
+        function saveCurrentAnswer() {
+            const textarea = document.getElementById('user-answer');
+            if (textarea) {
+                userAnswers[`${currentSection}_${currentExerciseIndex}`] = textarea.value;
+            }
+        }
+
+        function markCurrentCompleted() {
+            if (!completedExercises[currentSection].includes(currentExerciseIndex)) {
+                completedExercises[currentSection].push(currentExerciseIndex);
+            }
+        }
+
+        function backToMenu() {
+            document.getElementById('practice-area').classList.add('hidden');
+            document.getElementById('welcome').classList.remove('hidden');
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+        }
+
+        function startMode(mode) {
+            currentMode = mode;
+            currentIndex = 0;
+            score = 0;
+            showingAnswer = false;
+            taskScores = []; // Reset task scores for writing
+            currentTaskRubricScores = {};
+
+            // Update button states
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.mode-btn.${mode}`).classList.add('active');
+
+            document.getElementById('welcome').classList.add('hidden');
+            document.getElementById('score-area').classList.add('hidden');
+            document.getElementById('practice-area').classList.remove('hidden');
+
+            if (mode === 'schrijven') {
+                // Start with first exercise of first section
+                currentSection = 'original';
+                currentExerciseIndex = 0;
+                renderSidebar();
+                showCurrentExercise();
+            } else {
+                // For lezen, use sidebar navigation with passage sections
+                const sections = Object.keys(lezenExams[currentLezenExam].sections);
+                currentLezenSection = sections[0];
+                currentLezenIndex = 0;
+                selectedLezenOption = null;
+                renderSidebar();
+                showCurrentLezenQuestion();
+            }
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function showQuestion() {
+            const q = currentQuestions[currentIndex];
+            const total = currentQuestions.length;
+            const progress = ((currentIndex) / total) * 100;
+
+            document.getElementById('progress').style.width = `${progress}%`;
+            document.getElementById('counter').textContent = `Question ${currentIndex + 1} of ${total}`;
+            document.getElementById('question-type').textContent = currentMode === 'schrijven' ? q.type : 'Lezen - Multiple Choice';
+
+            let content = '';
+            let buttons = '';
+
+            if (currentMode === 'schrijven') {
+                content = `
+                    <div class="question-text">${q.prompt.replace(/\n/g, '<br>')}</div>
+                    <textarea id="user-answer" placeholder="Schrijf je antwoord hier..."></textarea>
+                    <div id="ai-grading-area"></div>
+                    <div id="model-answer-area"></div>
+                `;
+                buttons = `
+                    <button class="btn btn-ai" id="ai-grade-btn" onclick="gradeWithAI()">
+                        <span>🤖</span> Grade My Answer (AI Examiner)
+                    </button>
+                    <button class="btn btn-success" onclick="showModelAnswer()">Show Model Answer</button>
+                    <button class="btn btn-primary" onclick="nextQuestion()">Next Question</button>
+                `;
+            } else {
+                content = `
+                    <div class="reading-text">
+                        <h4>Lees de tekst:</h4>
+                        ${q.text.replace(/\n/g, '<br>')}
+                    </div>
+                    <div class="question-text">${q.question}</div>
+                    <div class="options" id="options">
+                        ${q.options.map((opt, i) => `
+                            <div class="option" onclick="selectOption(${i})" data-index="${i}">
+                                ${String.fromCharCode(65 + i)}. ${opt}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div id="feedback-area"></div>
+                `;
+                buttons = `
+                    <button class="btn btn-primary" id="check-btn" onclick="checkAnswer()" disabled>Check Answer</button>
+                    <button class="btn btn-secondary" id="next-btn" onclick="nextQuestion()" style="display:none;">Next Question</button>
+                `;
+            }
+
+            document.getElementById('question-content').innerHTML = content;
+            document.getElementById('buttons').innerHTML = buttons;
+            showingAnswer = false;
+        }
+
+        function selectOption(index) {
+            if (showingAnswer) return;
+
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelector(`.option[data-index="${index}"]`).classList.add('selected');
+            userAnswers[currentIndex] = index;
+            document.getElementById('check-btn').disabled = false;
+        }
+
+        function checkAnswer() {
+            if (showingAnswer) return;
+            showingAnswer = true;
+
+            const q = currentQuestions[currentIndex];
+            const selected = userAnswers[currentIndex];
+            const isCorrect = selected === q.correct;
+
+            if (isCorrect) score++;
+
+            document.querySelectorAll('.option').forEach((opt, i) => {
+                if (i === q.correct) {
+                    opt.classList.add('correct');
+                } else if (i === selected && !isCorrect) {
+                    opt.classList.add('incorrect');
+                }
+            });
+
+            const feedbackArea = document.getElementById('feedback-area');
+            feedbackArea.innerHTML = `
+                <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                    ${isCorrect ? 'Correct! Goed gedaan!' : `Incorrect. The correct answer is: ${String.fromCharCode(65 + q.correct)}. ${q.options[q.correct]}`}
+                </div>
+            `;
+
+            document.getElementById('check-btn').style.display = 'none';
+            document.getElementById('next-btn').style.display = 'inline-block';
+        }
+
+        // Official grading rubric from DUO
+        const officialRubric = {
+            execution: {
+                name: "Execution of Exercise (Uitvoering)",
+                maxPoints: 3,
+                options: [
+                    { points: 0, text: "Text is not readable/recognizable as an execution of the exercise" },
+                    { points: 1, text: "Hardly acceptable, with effort recognizable, doesn't completely meet description" },
+                    { points: 2, text: "Acceptable and recognizable as an execution of the exercise" },
+                    { points: 3, text: "Completely acceptable and a good execution of the exercise" }
+                ]
+            },
+            grammar: {
+                name: "Grammar (Grammatica)",
+                maxPoints: 2,
+                options: [
+                    { points: 0, text: "A lot of grammar mistakes" },
+                    { points: 1, text: "Quite some grammar mistakes" },
+                    { points: 2, text: "Hardly any or no grammar mistakes" }
+                ]
+            },
+            spelling: {
+                name: "Spelling",
+                maxPoints: 2,
+                options: [
+                    { points: 0, text: "Many spelling mistakes" },
+                    { points: 1, text: "Frequent words phonetically spelled reasonably correctly" },
+                    { points: 2, text: "Reasonably correct spelling, mistakes don't affect understandability" }
+                ]
+            },
+            clearness: {
+                name: "Clearness/Structure (Duidelijkheid)",
+                maxPoints: 1,
+                options: [
+                    { points: 0, text: "Hardly any structure" },
+                    { points: 1, text: "Shows structure using conjunctions (en, maar, want, omdat) and/or reference words (hij, zij, die, dat)" }
+                ]
+            },
+            vocabulary: {
+                name: "Vocabulary (Woordenschat)",
+                maxPoints: 2,
+                options: [
+                    { points: 0, text: "Does not use standard patterns or expressions" },
+                    { points: 1, text: "Standard patterns, expressions, small groups of words transferring limited information" },
+                    { points: 2, text: "Reasonably diverse vocabulary" }
+                ]
+            }
+        };
+
+        let taskScores = []; // Store scores for each writing task
+
+        function showModelAnswer() {
+            const q = currentMode === 'schrijven'
+                ? examSections[currentSection][currentExerciseIndex]
+                : currentQuestions[currentIndex];
+            const userAnswer = document.getElementById('user-answer').value;
+
+            let rubricHtml = `
+                <div class="model-answer">
+                    <h4>Model Answer (Voorbeeldantwoord):</h4>
+                    <p>${q.modelAnswer.replace(/\n/g, '<br>')}</p>
+                </div>
+                <div class="rubric">
+                    <h4>📋 Official Grading Rubric - Rate Your Answer</h4>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">
+                        Compare your answer to the model and rate yourself honestly using the official DUO criteria.
+                    </p>
+                    <div class="warning-note">
+                        <strong>Important:</strong> If "Execution" = 0 points, all other categories automatically = 0 (official rule)
+                    </div>
+            `;
+
+            for (const [key, category] of Object.entries(officialRubric)) {
+                rubricHtml += `
+                    <div class="rubric-category" data-category="${key}">
+                        <h5>${category.name} <span>(max ${category.maxPoints} pts)</span></h5>
+                        <div class="rubric-options">
+                `;
+                for (const option of category.options) {
+                    rubricHtml += `
+                        <div class="rubric-option" onclick="selectRubricOption('${key}', ${option.points}, this)">
+                            <span class="points">${option.points}</span>
+                            <label>${option.text}</label>
+                        </div>
+                    `;
+                }
+                rubricHtml += `
+                        </div>
+                    </div>
+                `;
+            }
+
+            rubricHtml += `
+                    <div id="score-breakdown" class="hidden"></div>
+                    <button class="btn btn-success" onclick="calculateTaskScore()" style="margin-top: 15px; width: 100%;">
+                        Calculate My Score
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('model-answer-area').innerHTML = rubricHtml;
+        }
+
+        let currentTaskRubricScores = {};
+
+        function selectRubricOption(category, points, element) {
+            // Remove selected from siblings
+            const parent = element.closest('.rubric-category');
+            parent.querySelectorAll('.rubric-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+
+            currentTaskRubricScores[category] = points;
+
+            // If execution is 0, disable other categories visually
+            if (category === 'execution' && points === 0) {
+                document.querySelectorAll('.rubric-category:not([data-category="execution"])').forEach(cat => {
+                    cat.style.opacity = '0.5';
+                    cat.querySelectorAll('.rubric-option').forEach(opt => opt.classList.remove('selected'));
+                });
+                // Auto-set all other scores to 0
+                currentTaskRubricScores.grammar = 0;
+                currentTaskRubricScores.spelling = 0;
+                currentTaskRubricScores.clearness = 0;
+                currentTaskRubricScores.vocabulary = 0;
+            } else if (category === 'execution' && points > 0) {
+                document.querySelectorAll('.rubric-category').forEach(cat => {
+                    cat.style.opacity = '1';
+                });
+            }
+        }
+
+        function calculateTaskScore() {
+            // Check if all categories are rated
+            const categories = Object.keys(officialRubric);
+            const allRated = categories.every(cat => currentTaskRubricScores[cat] !== undefined);
+
+            if (!allRated) {
+                alert('Please rate all categories before calculating your score.');
+                return;
+            }
+
+            // Apply the rule: if execution = 0, all others = 0
+            if (currentTaskRubricScores.execution === 0) {
+                currentTaskRubricScores.grammar = 0;
+                currentTaskRubricScores.spelling = 0;
+                currentTaskRubricScores.clearness = 0;
+                currentTaskRubricScores.vocabulary = 0;
+            }
+
+            const total = Object.values(currentTaskRubricScores).reduce((a, b) => a + b, 0);
+            const maxTotal = 10; // 3+2+2+1+2
+
+            // Store for final summary
+            taskScores[currentIndex] = { ...currentTaskRubricScores, total };
+
+            let breakdownHtml = `
+                <div class="score-breakdown">
+                    <h4>Your Score for This Task</h4>
+                    <div class="score-row">
+                        <span>Execution</span>
+                        <span>${currentTaskRubricScores.execution}/3</span>
+                    </div>
+                    <div class="score-row">
+                        <span>Grammar</span>
+                        <span>${currentTaskRubricScores.grammar}/2</span>
+                    </div>
+                    <div class="score-row">
+                        <span>Spelling</span>
+                        <span>${currentTaskRubricScores.spelling}/2</span>
+                    </div>
+                    <div class="score-row">
+                        <span>Clearness</span>
+                        <span>${currentTaskRubricScores.clearness}/1</span>
+                    </div>
+                    <div class="score-row">
+                        <span>Vocabulary</span>
+                        <span>${currentTaskRubricScores.vocabulary}/2</span>
+                    </div>
+                    <div class="score-row total">
+                        <span>Total</span>
+                        <span>${total}/${maxTotal}</span>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('score-breakdown').innerHTML = breakdownHtml;
+            document.getElementById('score-breakdown').classList.remove('hidden');
+
+            // Reset for next task
+            currentTaskRubricScores = {};
+        }
+
+        // AI Grading function
+        async function gradeWithAI() {
+            const q = currentMode === 'schrijven'
+                ? examSections[currentSection][currentExerciseIndex]
+                : currentQuestions[currentIndex];
+            const userAnswer = document.getElementById('user-answer').value.trim();
+
+            if (!userAnswer) {
+                alert('Please write your answer first!');
+                return;
+            }
+
+            const btn = document.getElementById('ai-grade-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading-spinner"></span> Grading...';
+
+            const gradingArea = document.getElementById('ai-grading-area');
+            gradingArea.innerHTML = `
+                <div style="text-align: center; padding: 30px; color: #666;">
+                    <div class="loading-spinner" style="width: 40px; height: 40px; margin: 0 auto 15px;"></div>
+                    <p>AI Examiner is grading your answer using the official DUO rubric...</p>
+                </div>
+            `;
+
+            try {
+                const response = await fetch('/api/grade-writing', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        userText: userAnswer,
+                        prompt: q.prompt,
+                        modelAnswer: q.modelAnswer
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!data.success) {
+                    throw new Error(data.error || 'Failed to grade');
+                }
+
+                if (data.parseError) {
+                    // Show raw feedback if JSON parsing failed
+                    gradingArea.innerHTML = `
+                        <div class="ai-grading-result">
+                            <h4>🤖 AI Examiner Feedback</h4>
+                            <div style="white-space: pre-wrap; line-height: 1.6;">${data.rawFeedback}</div>
+                        </div>
+                    `;
+                } else {
+                    displayAIGrading(data.grading);
+                }
+
+            } catch (error) {
+                console.error('Grading error:', error);
+                gradingArea.innerHTML = `
+                    <div class="warning-note" style="margin-top: 20px;">
+                        <strong>Error:</strong> ${error.message || 'Could not grade your answer. Make sure the server is running.'}
+                    </div>
+                `;
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = '<span>🤖</span> Grade Again';
+        }
+
+        function displayAIGrading(grading) {
+            const gradingArea = document.getElementById('ai-grading-area');
+
+            // Store scores for final summary
+            taskScores[currentIndex] = {
+                execution: grading.scores.execution.score,
+                grammar: grading.scores.grammar.score,
+                spelling: grading.scores.spelling.score,
+                clearness: grading.scores.clearness.score,
+                vocabulary: grading.scores.vocabulary.score,
+                total: grading.total
+            };
+
+            let html = `
+                <div class="ai-grading-result">
+                    <h4>🤖 AI Examiner Grade (Official DUO Rubric)</h4>
+
+                    <div class="ai-total-score">
+                        <div class="number">${grading.total}/10</div>
+                        <div class="label">Total Score</div>
+                    </div>
+
+                    <div class="ai-score-grid">
+                        <div class="ai-score-card">
+                            <h5>Execution</h5>
+                            <div class="score">${grading.scores.execution.score}<span class="max">/3</span></div>
+                            <div class="justification">${grading.scores.execution.justification}</div>
+                        </div>
+                        <div class="ai-score-card">
+                            <h5>Grammar</h5>
+                            <div class="score">${grading.scores.grammar.score}<span class="max">/2</span></div>
+                            <div class="justification">${grading.scores.grammar.justification}</div>
+                        </div>
+                        <div class="ai-score-card">
+                            <h5>Spelling</h5>
+                            <div class="score">${grading.scores.spelling.score}<span class="max">/2</span></div>
+                            <div class="justification">${grading.scores.spelling.justification}</div>
+                        </div>
+                        <div class="ai-score-card">
+                            <h5>Clearness</h5>
+                            <div class="score">${grading.scores.clearness.score}<span class="max">/1</span></div>
+                            <div class="justification">${grading.scores.clearness.justification}</div>
+                        </div>
+                        <div class="ai-score-card">
+                            <h5>Vocabulary</h5>
+                            <div class="score">${grading.scores.vocabulary.score}<span class="max">/2</span></div>
+                            <div class="justification">${grading.scores.vocabulary.justification}</div>
+                        </div>
+                    </div>
+            `;
+
+            // Grammar errors
+            if (grading.grammarErrors && grading.grammarErrors.length > 0) {
+                html += `
+                    <div class="ai-errors-section">
+                        <h5>Grammar Corrections</h5>
+                        ${grading.grammarErrors.map(e => `
+                            <div class="ai-error-item">
+                                <span class="error">${e.error}</span> → <span class="correction">${e.correction}</span>
+                                ${e.explanation ? `<div class="explanation">${e.explanation}</div>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            // Spelling errors
+            if (grading.spellingErrors && grading.spellingErrors.length > 0) {
+                html += `
+                    <div class="ai-errors-section">
+                        <h5>Spelling Corrections</h5>
+                        ${grading.spellingErrors.map(e => `
+                            <div class="ai-error-item">
+                                <span class="error">${e.error}</span> → <span class="correction">${e.correction}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            // Strengths
+            if (grading.strengths && grading.strengths.length > 0) {
+                html += `
+                    <div class="ai-strengths-section">
+                        <h5>✓ What You Did Well</h5>
+                        <ul>${grading.strengths.map(s => `<li>${s}</li>`).join('')}</ul>
+                    </div>
+                `;
+            }
+
+            // Improvements
+            if (grading.improvements && grading.improvements.length > 0) {
+                html += `
+                    <div class="ai-improvements-section">
+                        <h5>💡 Tips to Improve</h5>
+                        <ul>${grading.improvements.map(i => `<li>${i}</li>`).join('')}</ul>
+                    </div>
+                `;
+            }
+
+            // Overall feedback
+            if (grading.overallFeedback) {
+                html += `
+                    <div class="ai-feedback-overall">
+                        "${grading.overallFeedback}"
+                    </div>
+                `;
+            }
+
+            html += `</div>`;
+
+            gradingArea.innerHTML = html;
+        }
+
+        function nextQuestion() {
+            currentIndex++;
+
+            if (currentIndex >= currentQuestions.length) {
+                showScore();
+            } else {
+                showQuestion();
+            }
+        }
+
+        function showScore() {
+            document.getElementById('practice-area').classList.add('hidden');
+
+            const total = currentQuestions.length;
+            const percentage = currentMode === 'lezen' ? Math.round((score / total) * 100) : null;
+
+            let scoreHtml = '';
+
+            if (currentMode === 'lezen') {
+                const passed = percentage >= 60;
+                scoreHtml = `
+                    <div class="score-card">
+                        <h2>Lezen Practice Complete!</h2>
+                        <div class="score-number">${score}/${total}</div>
+                        <div class="score-details">
+                            <p>${percentage}% correct</p>
+                            <p style="margin-top: 10px; font-size: 1.2rem; color: ${passed ? '#4caf50' : '#f44336'}">
+                                ${passed ? 'You would pass! (60% needed)' : 'Keep practicing! (60% needed to pass)'}
+                            </p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Calculate overall writing scores from taskScores
+                const scoredTasks = taskScores.filter(t => t !== undefined);
+                const hasScores = scoredTasks.length > 0;
+
+                let overallTotal = 0;
+                let overallMax = 0;
+                let categoryTotals = { execution: 0, grammar: 0, spelling: 0, clearness: 0, vocabulary: 0 };
+
+                if (hasScores) {
+                    scoredTasks.forEach(t => {
+                        overallTotal += t.total;
+                        categoryTotals.execution += t.execution;
+                        categoryTotals.grammar += t.grammar;
+                        categoryTotals.spelling += t.spelling;
+                        categoryTotals.clearness += t.clearness;
+                        categoryTotals.vocabulary += t.vocabulary;
+                    });
+                    overallMax = scoredTasks.length * 10;
+                }
+
+                const overallPercentage = hasScores ? Math.round((overallTotal / overallMax) * 100) : null;
+
+                scoreHtml = `
+                    <div class="score-card">
+                        <h2>Schrijven Practice Complete!</h2>
+                        <p style="color: #666; margin-bottom: 20px;">
+                            You practiced ${total} writing tasks using the <strong>official DUO grading rubric</strong>.
+                        </p>
+                `;
+
+                if (hasScores) {
+                    scoreHtml += `
+                        <div class="score-number">${overallTotal}/${overallMax}</div>
+                        <p style="color: #666; margin-bottom: 20px;">${overallPercentage}% overall (${scoredTasks.length} tasks scored)</p>
+
+                        <div style="background: #f8f9fa; border-radius: 12px; padding: 20px; margin: 20px 0; text-align: left;">
+                            <h4 style="color: #667eea; margin-bottom: 15px;">Category Breakdown (Official DUO Criteria)</h4>
+                            <div style="display: grid; gap: 10px;">
+                                <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 8px;">
+                                    <span><strong>Execution</strong> (task completion)</span>
+                                    <span>${categoryTotals.execution}/${scoredTasks.length * 3}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 8px;">
+                                    <span><strong>Grammar</strong> (verb placement, conjugation)</span>
+                                    <span>${categoryTotals.grammar}/${scoredTasks.length * 2}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 8px;">
+                                    <span><strong>Spelling</strong></span>
+                                    <span>${categoryTotals.spelling}/${scoredTasks.length * 2}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 8px;">
+                                    <span><strong>Clearness</strong> (structure, conjunctions)</span>
+                                    <span>${categoryTotals.clearness}/${scoredTasks.length * 1}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 8px;">
+                                    <span><strong>Vocabulary</strong> (word variety)</span>
+                                    <span>${categoryTotals.vocabulary}/${scoredTasks.length * 2}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    scoreHtml += `
+                        <div class="warning-note" style="margin: 20px 0;">
+                            You didn't score any tasks. Next time, use the rubric to self-assess your writing!
+                        </div>
+                    `;
+                }
+
+                scoreHtml += `
+                        <div class="tips">
+                            <h4>Official Grading Criteria Summary</h4>
+                            <ul>
+                                <li><strong>Execution (3 pts):</strong> Address ALL parts of the task - this is most important!</li>
+                                <li><strong>Grammar (2 pts):</strong> Verb in second position, correct conjugation</li>
+                                <li><strong>Spelling (2 pts):</strong> Correct spelling, especially common words</li>
+                                <li><strong>Clearness (1 pt):</strong> Use conjunctions: en, maar, want, omdat + reference words: hij, zij, die, dat</li>
+                                <li><strong>Vocabulary (2 pts):</strong> Use varied words and standard expressions</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+
+            scoreHtml += `
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="startMode('${currentMode}')">Practice Again</button>
+                    <button class="btn btn-secondary" onclick="goHome()">Choose Different Mode</button>
+                </div>
+            `;
+
+            document.getElementById('score-area').innerHTML = scoreHtml;
+            document.getElementById('score-area').classList.remove('hidden');
+        }
+
+        function goHome() {
+            document.getElementById('practice-area').classList.add('hidden');
+            document.getElementById('score-area').classList.add('hidden');
+            document.getElementById('welcome').classList.remove('hidden');
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+        }
+    </script>
+</body>
+</html>

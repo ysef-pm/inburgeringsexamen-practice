@@ -1,0 +1,13 @@
+{
+  "name": "inburgeringsexamen-practice",
+  "version": "1.0.0",
+  "description": "A2 Dutch exam practice with AI grammar feedback",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "openai": "^4.20.0"
+  }
+}
