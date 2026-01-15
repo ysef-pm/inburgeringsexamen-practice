@@ -167,9 +167,11 @@
             color: var(--cream);
         }
 
+        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: var(--space-lg);
         }
 
 /* App Header */
@@ -248,11 +250,11 @@
             background: none;
         }
 
-        /* Exam Navigation Sidebar */
+        /* Exam Layout */
         .exam-layout {
             display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 20px;
+            grid-template-columns: 260px 1fr;
+            gap: var(--space-xl);
         }
 
         @media (max-width: 900px) {
@@ -368,6 +370,42 @@
 
         .exercise-item.active .exercise-status {
             display: none;
+        }
+
+        /* Exercise Card */
+        .exercise-card,
+        .exam-content {
+            background: var(--warm-white);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(26,35,50,0.06);
+        }
+
+        .exercise-title {
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            color: var(--navy-deep);
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.01em;
+        }
+
+        .exercise-instructions {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            color: var(--navy-mid);
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+        }
+
+        .exercise-prompt {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            color: var(--navy-deep);
+            line-height: 1.8;
+            padding: var(--space-md);
+            background: var(--cream);
+            border-left: 3px solid var(--soft-gold);
+            margin-bottom: var(--space-lg);
         }
 
         .back-to-menu {
