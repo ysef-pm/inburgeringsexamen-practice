@@ -3,8 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>Inburgeringsexamen A2 Practice - Schrijven & Lezen</title>
     <style>
+    :root {
+        /* Colors */
+        --navy-deep: #1a2332;
+        --navy-mid: #2d3a4f;
+        --cream: #f8f5f0;
+        --cream-dark: #ebe6df;
+        --warm-white: #fdfcfa;
+        --dutch-orange: #d4652a;
+        --soft-gold: #c9a962;
+        --error-red: #a63d2f;
+        --text-muted: #6b7280;
+
+        /* Typography */
+        --font-display: 'Libre Baskerville', Georgia, serif;
+        --font-body: 'Crimson Pro', 'Times New Roman', serif;
+        --font-ui: 'Cormorant Garamond', serif;
+
+        /* Type Scale */
+        --text-hero: clamp(3rem, 8vw, 5.5rem);
+        --text-h1: clamp(2rem, 4vw, 3rem);
+        --text-h2: clamp(1.5rem, 3vw, 2rem);
+        --text-body: clamp(1rem, 1.5vw, 1.125rem);
+        --text-small: 0.875rem;
+
+        /* Spacing */
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 1.5rem;
+        --space-lg: 2rem;
+        --space-xl: 3rem;
+
+        /* Shadows */
+        --shadow-card: 0 2px 8px rgba(26,35,50,0.08);
+        --shadow-elevated: 0 4px 16px rgba(26,35,50,0.12);
+    }
         * {
             box-sizing: border-box;
             margin: 0;
