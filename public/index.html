@@ -58,6 +58,115 @@
             min-height: 100vh;
         }
 
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--navy-deep);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-lg);
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: var(--text-hero);
+            color: var(--cream);
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-md);
+            animation: fadeUp 0.6s ease-out;
+        }
+
+        .hero-tagline {
+            font-family: var(--font-body);
+            font-size: var(--text-h2);
+            color: var(--cream);
+            opacity: 0.85;
+            margin-bottom: var(--space-xl);
+            animation: fadeUp 0.6s ease-out 0.2s both;
+        }
+
+        .hero-cta {
+            animation: fadeUp 0.6s ease-out 0.4s both;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--space-lg);
+            color: var(--cream);
+            opacity: 0.6;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--cream);
+            color: var(--navy-deep);
+            padding: 0.875rem 2rem;
+            border: none;
+            font-family: var(--font-ui);
+            font-size: var(--text-small);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--warm-white);
+            box-shadow: var(--shadow-elevated);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy-deep);
+            padding: 0.875rem 2rem;
+            border: 1px solid var(--navy-deep);
+            font-family: var(--font-ui);
+            font-size: var(--text-small);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--navy-deep);
+            color: var(--cream);
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -846,7 +955,22 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">RateMY Dutch</h1>
+            <p class="hero-tagline">Master your Dutch. Prepare with precision.</p>
+            <button class="btn-primary hero-cta" onclick="document.getElementById('main-content').scrollIntoView({behavior: 'smooth'})">
+                Begin Practice
+            </button>
+        </div>
+        <div class="scroll-indicator">
+            <span>↓</span>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div id="main-content" class="container">
         <header>
             <h1>Inburgeringsexamen A2</h1>
             <p>Practice for Schrijven & Lezen</p>
