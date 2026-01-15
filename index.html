@@ -197,59 +197,49 @@
             letter-spacing: -0.01em;
         }
 
-        /* Mode Tabs */
+        /* Mode Tabs - Sticky & Prominent */
         .mode-selector {
             display: flex;
-            gap: var(--space-lg);
+            gap: var(--space-md);
             justify-content: center;
-            margin-bottom: var(--space-xl);
-            padding: var(--space-md) 0;
-            border-bottom: 1px solid var(--cream-dark);
+            padding: var(--space-md) var(--space-lg);
+            background: var(--navy-deep);
+            position: sticky;
+            top: 52px; /* Below the header */
+            z-index: 90;
+            box-shadow: 0 4px 12px rgba(26,35,50,0.15);
         }
 
         .mode-btn {
-            background: none;
-            border: none;
-            padding: var(--space-sm) 0;
+            background: transparent;
+            border: 2px solid var(--cream);
+            border-radius: 4px;
+            padding: var(--space-sm) var(--space-lg);
             font-family: var(--font-ui);
             font-size: 1rem;
+            font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--cream);
             cursor: pointer;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .mode-btn::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--navy-deep);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .mode-btn:hover {
-            color: var(--navy-deep);
+            background: rgba(248,245,240,0.15);
         }
 
         .mode-btn.active {
+            background: var(--cream);
             color: var(--navy-deep);
             font-weight: 600;
-        }
-
-        .mode-btn.active::after {
-            transform: scaleX(1);
+            border-color: var(--cream);
         }
 
         /* Remove old gradient classes */
         .mode-btn.schrijven,
         .mode-btn.lezen {
-            background: none;
+            /* Styles handled above */
         }
 
         /* Exam Layout */
@@ -1224,24 +1214,16 @@
             }
 
             .mode-selector {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0;
+                flex-direction: row;
+                gap: var(--space-sm);
+                padding: var(--space-sm);
             }
 
             .mode-btn {
-                padding: var(--space-md);
+                padding: var(--space-sm) var(--space-md);
+                font-size: 0.85rem;
+                flex: 1;
                 text-align: center;
-                border-bottom: 1px solid var(--cream-dark);
-                width: 100%;
-            }
-
-            .mode-btn::after {
-                display: none;
-            }
-
-            .mode-btn.active {
-                background: var(--cream);
             }
 
             .exercise-card,
