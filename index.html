@@ -621,6 +621,66 @@
             padding: 0.1em 0.3em;
         }
 
+        /* Multiple Choice */
+        .answer-options {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin: var(--space-lg) 0;
+        }
+
+        .answer-option {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-md);
+            background: var(--cream);
+            border: 1px solid var(--cream-dark);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .answer-option:hover {
+            background: var(--warm-white);
+            border-color: var(--navy-mid);
+        }
+
+        .answer-option.selected {
+            background: var(--warm-white);
+            border-color: var(--navy-deep);
+        }
+
+        .answer-option.correct {
+            background: rgba(212,101,42,0.08);
+            border-color: var(--dutch-orange);
+        }
+
+        .answer-option.incorrect {
+            background: rgba(166,61,47,0.08);
+            border-color: var(--error-red);
+        }
+
+        .option-letter {
+            font-family: var(--font-ui);
+            font-size: var(--text-small);
+            font-weight: 600;
+            color: var(--navy-deep);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--navy-mid);
+            flex-shrink: 0;
+        }
+
+        .option-text {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            color: var(--navy-deep);
+            line-height: 1.6;
+        }
+
         .options {
             display: flex;
             flex-direction: column;
