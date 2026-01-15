@@ -261,64 +261,55 @@
             }
         }
 
+        /* Sidebar */
         .exam-sidebar {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            background: var(--warm-white);
+            border-radius: 0;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-card);
+            border-left: 3px solid var(--navy-deep);
             height: fit-content;
             position: sticky;
-            top: 20px;
+            top: 80px;
         }
 
         .exam-section {
-            margin-bottom: 15px;
+            margin-bottom: var(--space-md);
         }
 
         .exam-section-title {
-            font-weight: 700;
-            color: #333;
-            padding: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 10px;
-            margin-bottom: 8px;
+            font-family: var(--font-ui);
+            font-size: var(--text-small);
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--navy-deep);
+            padding: var(--space-sm);
+            background: none;
+            border-radius: 0;
+            margin-bottom: var(--space-xs);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid var(--cream-dark);
+            transition: all 0.2s ease;
         }
 
         .exam-section-title:hover {
-            opacity: 0.9;
+            background: var(--cream);
         }
 
-        .exam-section-title.original {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .exam-section-title.e2 {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        .exam-section-title.e3 {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-        }
-
-        .exam-section-title.e4 {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-        }
-
-        .exam-section-title.d1 {
-            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
-        }
-
-        .exam-section-title.d2 {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-        }
-
+        /* Remove old gradient classes from section titles */
+        .exam-section-title.original,
+        .exam-section-title.e2,
+        .exam-section-title.e3,
+        .exam-section-title.e4,
+        .exam-section-title.d1,
+        .exam-section-title.d2,
         .exam-section-title.d3 {
-            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+            background: none;
+            color: var(--navy-deep);
         }
 
         .exercise-list {
@@ -328,58 +319,55 @@
         }
 
         .exercise-item {
-            padding: 10px 12px;
-            margin: 4px 0;
-            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: var(--text-small);
+            padding: var(--space-xs) var(--space-sm);
             cursor: pointer;
+            color: var(--text-muted);
+            border-left: 2px solid transparent;
             transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-            color: #444;
-            background: #f8f9fa;
+            margin-left: var(--space-sm);
         }
 
         .exercise-item:hover {
-            background: #e9ecef;
+            color: var(--navy-deep);
+            background: var(--cream);
+            border-left-color: var(--navy-mid);
         }
 
         .exercise-item.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            color: var(--navy-deep);
+            background: var(--cream);
+            border-left-color: var(--navy-deep);
+            font-weight: 500;
         }
 
         .exercise-item.completed {
-            background: #d4edda;
-            color: #155724;
+            color: var(--text-muted);
+        }
+
+        .exercise-item.completed::after {
+            content: ' ✓';
+            color: var(--dutch-orange);
         }
 
         .exercise-item.completed.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            color: var(--navy-deep);
+            background: var(--cream);
+            border-left-color: var(--navy-deep);
+            font-weight: 500;
         }
 
         .exercise-status {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 2px solid #dee2e6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            flex-shrink: 0;
+            display: none;
         }
 
         .exercise-item.completed .exercise-status {
-            background: #28a745;
-            border-color: #28a745;
-            color: white;
+            display: none;
         }
 
         .exercise-item.active .exercise-status {
-            border-color: white;
+            display: none;
         }
 
         .back-to-menu {
