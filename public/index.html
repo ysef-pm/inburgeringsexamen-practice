@@ -520,6 +520,107 @@
             font-style: italic;
         }
 
+        /* AI Grading Display */
+        .grading-result,
+        .ai-feedback {
+            background: var(--warm-white);
+            border: 1px solid rgba(26,35,50,0.06);
+            margin-top: var(--space-lg);
+        }
+
+        .grading-header {
+            background: var(--navy-deep);
+            color: var(--cream);
+            padding: var(--space-md) var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .grading-title {
+            font-family: var(--font-ui);
+            font-size: var(--text-small);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .grading-score-total {
+            font-family: var(--font-display);
+            font-size: var(--text-h2);
+            color: var(--soft-gold);
+        }
+
+        .grading-body {
+            padding: var(--space-lg);
+        }
+
+        /* Score Bars */
+        .score-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+            gap: var(--space-md);
+        }
+
+        .score-label {
+            font-family: var(--font-ui);
+            font-size: var(--text-small);
+            color: var(--navy-mid);
+            width: 100px;
+            flex-shrink: 0;
+        }
+
+        .score-bar {
+            flex: 1;
+            height: 4px;
+            background: var(--cream-dark);
+            position: relative;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            background: var(--soft-gold);
+            transition: width 0.6s ease-out;
+        }
+
+        .score-value {
+            font-family: var(--font-ui);
+            font-size: var(--text-small);
+            color: var(--navy-deep);
+            width: 40px;
+            text-align: right;
+        }
+
+        /* Feedback Text */
+        .feedback-section {
+            margin-top: var(--space-lg);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--cream-dark);
+        }
+
+        .feedback-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--navy-deep);
+            margin-bottom: var(--space-sm);
+        }
+
+        .feedback-text {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            color: var(--navy-mid);
+            line-height: 1.7;
+        }
+
+        .feedback-text strong {
+            color: var(--navy-deep);
+        }
+
+        .feedback-text .correction {
+            background: var(--cream);
+            padding: 0.1em 0.3em;
+        }
+
         .options {
             display: flex;
             flex-direction: column;
