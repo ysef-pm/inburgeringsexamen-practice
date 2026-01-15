@@ -455,7 +455,7 @@
         }
 
         .progress-fill {
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: var(--soft-gold);
             height: 100%;
             border-radius: 4px;
             transition: width 0.3s ease;
@@ -485,8 +485,8 @@
         }
 
         .reading-text {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
+            background: var(--cream);
+            border-left: 4px solid var(--soft-gold);
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 0 10px 10px 0;
@@ -494,7 +494,7 @@
         }
 
         .reading-text h4 {
-            color: #667eea;
+            color: var(--navy-deep);
             margin-bottom: 10px;
         }
 
@@ -711,13 +711,13 @@
         }
 
         .option:hover {
-            border-color: #667eea;
-            background: #f8f9ff;
+            border-color: var(--navy-mid);
+            background: var(--cream);
         }
 
         .option.selected {
-            border-color: #667eea;
-            background: #f0f3ff;
+            border-color: var(--navy-deep);
+            background: var(--cream);
         }
 
         .option.correct {
@@ -748,8 +748,8 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--navy-deep);
+            color: var(--cream);
         }
 
         .btn-secondary {
@@ -822,10 +822,7 @@
         .score-number {
             font-size: 4rem;
             font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--navy-deep);
         }
 
         .score-details {
@@ -859,15 +856,15 @@
         }
 
         .rubric {
-            background: #f8f9fa;
+            background: var(--cream);
             border-radius: 12px;
             padding: 20px;
             margin-top: 20px;
-            border: 2px solid #667eea;
+            border: 2px solid var(--navy-deep);
         }
 
         .rubric h4 {
-            color: #667eea;
+            color: var(--navy-deep);
             margin-bottom: 15px;
             font-size: 1.1rem;
         }
@@ -916,12 +913,12 @@
         }
 
         .rubric-option:hover {
-            background: #f0f3ff;
+            background: var(--cream);
         }
 
         .rubric-option.selected {
-            background: #e8f0fe;
-            border-color: #667eea;
+            background: var(--cream);
+            border-color: var(--navy-deep);
         }
 
         .rubric-option input {
@@ -936,16 +933,16 @@
 
         .rubric-option .points {
             font-weight: bold;
-            color: #667eea;
+            color: var(--dutch-orange);
             min-width: 20px;
         }
 
         .score-breakdown {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--navy-deep);
             border-radius: 12px;
             padding: 20px;
             margin-top: 20px;
-            color: white;
+            color: var(--cream);
         }
 
         .score-breakdown h4 {
@@ -983,16 +980,16 @@
         }
 
         .ai-grading-result {
-            background: white;
+            background: var(--warm-white);
             border-radius: 12px;
             padding: 20px;
             margin-top: 20px;
-            border: 2px solid #667eea;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+            border: 2px solid var(--navy-deep);
+            box-shadow: var(--shadow-card);
         }
 
         .ai-grading-result h4 {
-            color: #667eea;
+            color: var(--navy-deep);
             margin-bottom: 15px;
             display: flex;
             align-items: center;
@@ -1022,7 +1019,7 @@
         .ai-score-card .score {
             font-size: 1.8rem;
             font-weight: bold;
-            color: #667eea;
+            color: var(--dutch-orange);
         }
 
         .ai-score-card .max {
@@ -1038,11 +1035,11 @@
         }
 
         .ai-total-score {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--navy-deep);
             border-radius: 12px;
             padding: 20px;
             text-align: center;
-            color: white;
+            color: var(--cream);
             margin-bottom: 20px;
         }
 
@@ -1117,11 +1114,11 @@
         }
 
         .ai-feedback-overall {
-            background: #f3e5f5;
+            background: var(--cream);
             border-radius: 10px;
             padding: 15px;
             font-style: italic;
-            color: #6a1b9a;
+            color: var(--navy-mid);
             line-height: 1.6;
         }
 
@@ -1130,7 +1127,7 @@
             width: 20px;
             height: 20px;
             border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
+            border-top: 3px solid var(--navy-deep);
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin-right: 10px;
@@ -1184,8 +1181,8 @@
         }
 
         .btn-ai {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--dutch-orange);
+            color: var(--cream);
             border: none;
             padding: 12px 25px;
             border-radius: 10px;
@@ -1201,7 +1198,7 @@
 
         .btn-ai:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 5px 20px rgba(212, 101, 42, 0.4);
         }
 
         .btn-ai:disabled {
@@ -1287,8 +1284,8 @@
                     <li>For reading: read the question first, then find the answer in the text</li>
                 </ul>
             </div>
-            <div style="background: #e8f0fe; border-radius: 12px; padding: 15px; margin-top: 15px;">
-                <h4 style="color: #667eea; margin-bottom: 10px;">Official Writing Rubric (5 Categories, 10 pts max)</h4>
+            <div style="background: var(--cream); border-radius: 12px; padding: 15px; margin-top: 15px;">
+                <h4 style="color: var(--navy-deep); margin-bottom: 10px;">Official Writing Rubric (5 Categories, 10 pts max)</h4>
                 <ul style="padding-left: 20px; color: #333; font-size: 0.9rem;">
                     <li><strong>Execution (0-3 pts):</strong> Did you address all parts of the task?</li>
                     <li><strong>Grammar (0-2 pts):</strong> Correct verb placement and conjugation</li>
@@ -2993,8 +2990,8 @@
                         <div class="score-number">${overallTotal}/${overallMax}</div>
                         <p style="color: #666; margin-bottom: 20px;">${overallPercentage}% overall (${scoredTasks.length} tasks scored)</p>
 
-                        <div style="background: #f8f9fa; border-radius: 12px; padding: 20px; margin: 20px 0; text-align: left;">
-                            <h4 style="color: #667eea; margin-bottom: 15px;">Category Breakdown (Official DUO Criteria)</h4>
+                        <div style="background: #f8f5f0; border-radius: 12px; padding: 20px; margin: 20px 0; text-align: left;">
+                            <h4 style="color: #1a2332; margin-bottom: 15px;">Category Breakdown (Official DUO Criteria)</h4>
                             <div style="display: grid; gap: 10px;">
                                 <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 8px;">
                                     <span><strong>Execution</strong> (task completion)</span>
