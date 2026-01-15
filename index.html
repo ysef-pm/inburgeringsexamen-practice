@@ -172,33 +172,25 @@
             margin: 0 auto;
         }
 
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 30px;
+/* App Header */
+        .app-header {
+            background: var(--navy-deep);
+            padding: var(--space-sm) var(--space-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        .header-brand {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .exam-info {
-            background: rgba(255,255,255,0.15);
-            border-radius: 12px;
-            padding: 15px 20px;
-            margin-top: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .exam-info strong {
-            color: #ffd700;
+        .header-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--cream);
+            letter-spacing: -0.01em;
         }
 
         .mode-selector {
@@ -971,13 +963,11 @@
 
     <!-- Main Content -->
     <div id="main-content" class="container">
-        <header>
-            <h1>Inburgeringsexamen A2</h1>
-            <p>Practice for Schrijven & Lezen</p>
-            <div class="exam-info">
-                <strong>Maandag 12 januari:</strong> Schrijven (11:10) & Lezen (13:05) @ Amsterdam Overamstel
-            </div>
-        </header>
+<header class="app-header">
+    <div class="header-brand">
+        <span class="header-logo">RateMY Dutch</span>
+    </div>
+</header>
 
         <div class="mode-selector">
             <button class="mode-btn schrijven" onclick="startMode('schrijven')">
