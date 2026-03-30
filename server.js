@@ -4,7 +4,7 @@ const multer = require('multer');
 const fs = require('fs');
 const OpenAI = require('openai');
 
-const upload = multer({ dest: '/tmp/uploads/' });
+const upload = multer({ storage: multer.memoryStorage() });
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const app = express();
@@ -224,19 +224,19 @@ app.post('/api/transcribe-speech', upload.single('audio'), async (req, res) => {
 
     try {
         const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
+
+        // Create a File object from the in-memory buffer (works on Vercel serverless)
+        const file = new File([req.file.buffer], 'recording.webm', { type: req.file.mimetype || 'audio/webm' });
+
         const transcription = await openai.audio.transcriptions.create({
-            file: fs.createReadStream(req.file.path),
+            file: file,
             model: 'whisper-1',
             language: 'nl',
         });
 
-        // Clean up uploaded file
-        fs.unlinkSync(req.file.path);
-
         res.json({ success: true, transcription: transcription.text });
     } catch (error) {
         console.error('Transcription error:', error.message || error);
-        try { if (req.file) fs.unlinkSync(req.file.path); } catch(e) {}
         res.json({ success: false, error: `Transcription failed: ${error.message || 'Unknown error'}` });
     }
 });
