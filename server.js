@@ -1,10 +1,5 @@
 const express = require('express');
 const path = require('path');
-const multer = require('multer');
-const fs = require('fs');
-const OpenAI = require('openai');
-
-const upload = multer({ storage: multer.memoryStorage() });
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const app = express();
@@ -213,28 +208,51 @@ app.post('/api/check-grammar', async (req, res) => {
     app.handle(req, res);
 });
 
-// Speech transcription endpoint (Whisper)
-app.post('/api/transcribe-speech', upload.single('audio'), async (req, res) => {
+// Speech transcription endpoint (Whisper) - uses base64 JSON body, no multer
+app.post('/api/transcribe-speech', async (req, res) => {
     if (!OPENAI_API_KEY) {
         return res.json({ success: false, error: 'OPENAI_API_KEY not configured.' });
     }
-    if (!req.file) {
-        return res.json({ success: false, error: 'No audio file received.' });
+
+    const { audio, mimeType } = req.body;
+    if (!audio) {
+        return res.json({ success: false, error: 'No audio data received.' });
     }
 
     try {
-        const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
+        // Decode base64 to buffer
+        const audioBuffer = Buffer.from(audio, 'base64');
 
-        // Create a File object from the in-memory buffer (works on Vercel serverless)
-        const file = new File([req.file.buffer], 'recording.webm', { type: req.file.mimetype || 'audio/webm' });
+        // Build multipart form manually for OpenAI Whisper API
+        const boundary = '----FormBoundary' + Math.random().toString(36).substring(2);
+        const ext = (mimeType || 'audio/webm').includes('mp4') ? 'mp4' : 'webm';
 
-        const transcription = await openai.audio.transcriptions.create({
-            file: file,
-            model: 'whisper-1',
-            language: 'nl',
+        const formParts = [];
+        formParts.push(`--${boundary}\r\nContent-Disposition: form-data; name="file"; filename="recording.${ext}"\r\nContent-Type: ${mimeType || 'audio/webm'}\r\n\r\n`);
+        formParts.push(audioBuffer);
+        formParts.push(`\r\n--${boundary}\r\nContent-Disposition: form-data; name="model"\r\n\r\nwhisper-1`);
+        formParts.push(`\r\n--${boundary}\r\nContent-Disposition: form-data; name="language"\r\n\r\nnl`);
+        formParts.push(`\r\n--${boundary}--\r\n`);
+
+        const body = Buffer.concat(formParts.map(p => typeof p === 'string' ? Buffer.from(p) : p));
+
+        const whisperResp = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${OPENAI_API_KEY}`,
+                'Content-Type': `multipart/form-data; boundary=${boundary}`,
+            },
+            body: body,
         });
 
-        res.json({ success: true, transcription: transcription.text });
+        if (!whisperResp.ok) {
+            const errText = await whisperResp.text();
+            console.error('Whisper API error:', whisperResp.status, errText);
+            return res.json({ success: false, error: `Whisper API error ${whisperResp.status}: ${errText}` });
+        }
+
+        const result = await whisperResp.json();
+        res.json({ success: true, transcription: result.text });
     } catch (error) {
         console.error('Transcription error:', error.message || error);
         res.json({ success: false, error: `Transcription failed: ${error.message || 'Unknown error'}` });

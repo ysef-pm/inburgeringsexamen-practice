@@ -129,14 +129,18 @@ async function stopAndGrade() {
     recorder.cleanup();
     recorder = null;
 
-    // Transcribe
-    const formData = new FormData();
-    formData.append('audio', audioBlob, 'recording.webm');
+    // Convert blob to base64 and send as JSON
+    const arrayBuffer = await audioBlob.arrayBuffer();
+    const base64Audio = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
 
     const resultArea = document.getElementById('result-area');
 
     try {
-        const transcribeResp = await fetch('/api/transcribe-speech', { method: 'POST', body: formData });
+        const transcribeResp = await fetch('/api/transcribe-speech', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ audio: base64Audio, mimeType: audioBlob.type || 'audio/webm' })
+        });
         const transcribeData = await transcribeResp.json();
 
         if (!transcribeData.success) {
