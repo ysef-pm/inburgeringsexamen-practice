@@ -242,6 +242,129 @@
             /* Styles handled above */
         }
 
+        .mode-btn.spreken {
+            border-color: #e74c3c;
+        }
+        .mode-btn.spreken:hover, .mode-btn.spreken.active {
+            background: #e74c3c;
+            color: white;
+        }
+        .mode-btn.luisteren {
+            border-color: #3498db;
+        }
+        .mode-btn.luisteren:hover, .mode-btn.luisteren.active {
+            background: #3498db;
+            color: white;
+        }
+        .mode-btn.knm {
+            border-color: #9b59b6;
+        }
+        .mode-btn.knm:hover, .mode-btn.knm.active {
+            background: #9b59b6;
+            color: white;
+        }
+
+        /* Shared new module styles */
+        .exercise-list { max-width: 800px; margin: 0 auto; }
+        .exercise-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 8px; margin: var(--space-sm) 0; }
+        .exercise-card { padding: 12px; border: 1px solid var(--cream-dark); border-radius: 8px; background: var(--warm-white); cursor: pointer; text-align: center; font-family: var(--font-ui); font-size: 1.1rem; position: relative; transition: all 0.2s; }
+        .exercise-card:hover { background: var(--cream-dark); transform: translateY(-1px); }
+        .exercise-card.completed { background: #f0faf0; border-color: #2ecc71; }
+        .exercise-card .check-mark { position: absolute; top: 2px; right: 4px; color: #2ecc71; font-size: 0.8rem; }
+        .exercise-section { margin-bottom: var(--space-lg); }
+        .section-title { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: var(--space-xs); }
+        .section-desc { color: var(--text-muted); font-size: var(--text-small); margin-bottom: var(--space-sm); }
+        .exercise-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md); flex-wrap: wrap; gap: 8px; }
+        .exercise-label { font-family: var(--font-ui); font-weight: 600; }
+        .btn-back { background: none; border: 1px solid var(--cream-dark); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: var(--font-ui); }
+        .btn-back:hover { background: var(--cream-dark); }
+        .progress-summary { text-align: center; margin-top: var(--space-md); color: var(--text-muted); }
+
+        /* Countdown timer */
+        .countdown-timer { text-align: center; margin: var(--space-md) 0; }
+        .countdown-label { font-family: var(--font-ui); font-size: var(--text-small); color: var(--text-muted); margin-bottom: 4px; }
+        .countdown-bar { height: 6px; background: var(--cream-dark); border-radius: 3px; overflow: hidden; }
+        .countdown-fill { height: 100%; border-radius: 3px; transition: width 1s linear; }
+        .countdown-text { font-family: var(--font-ui); font-size: 1.5rem; font-weight: 600; margin-top: 4px; }
+
+        /* Audio recorder */
+        .recorder-active { display: flex; align-items: center; gap: 12px; justify-content: center; padding: var(--space-md); background: #fff5f5; border-radius: 8px; margin: var(--space-md) 0; }
+        .recording-indicator { width: 12px; height: 12px; border-radius: 50%; background: #e74c3c; animation: pulse-red 1s infinite; }
+        @keyframes pulse-red { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .recorder-done { text-align: center; padding: var(--space-sm); color: #2ecc71; font-weight: 600; }
+        .pulse { animation: pulse-btn 1s infinite; }
+        @keyframes pulse-btn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+        /* Audio player */
+        .audio-player { display: flex; align-items: center; gap: 12px; padding: var(--space-md); background: var(--warm-white); border: 1px solid var(--cream-dark); border-radius: 8px; margin: var(--space-md) 0; }
+        .audio-icon { font-size: 1.5rem; }
+        .audio-icon.playing { animation: pulse-red 1s infinite; }
+        .audio-progress-bar { flex: 1; height: 6px; background: var(--cream-dark); border-radius: 3px; overflow: hidden; }
+        .audio-progress-fill { height: 100%; background: var(--dutch-orange); border-radius: 3px; transition: width 0.2s; }
+        .audio-status { font-size: var(--text-small); color: var(--text-muted); white-space: nowrap; }
+
+        /* Transcript fallback */
+        .transcript-fallback { padding: var(--space-md); background: #f8f9fa; border-radius: 8px; margin: var(--space-md) 0; border-left: 3px solid var(--dutch-orange); }
+        .transcript-label { font-size: var(--text-small); color: var(--text-muted); margin-bottom: 4px; }
+        .transcript-text { font-style: italic; line-height: 1.8; }
+
+        /* Option buttons (luisteren + knm) */
+        .luisteren-options, .knm-options { display: flex; flex-direction: column; gap: 8px; margin: var(--space-md) 0; }
+        .option-btn { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 2px solid var(--cream-dark); border-radius: 8px; background: var(--warm-white); cursor: pointer; text-align: left; font-family: var(--font-body); font-size: var(--text-body); transition: all 0.2s; }
+        .option-btn:hover:not(:disabled) { border-color: var(--dutch-orange); background: #fff8f4; }
+        .option-btn.selected { border-color: var(--dutch-orange); background: #fff8f4; }
+        .option-btn.correct { border-color: #2ecc71; background: #f0faf0; }
+        .option-btn.incorrect { border-color: var(--error-red); background: #fdf0ef; }
+        .option-btn:disabled { cursor: default; opacity: 0.8; }
+        .option-letter { font-family: var(--font-ui); font-weight: 600; font-size: 1.1rem; color: var(--dutch-orange); min-width: 24px; }
+
+        /* Feedback */
+        .feedback { padding: var(--space-md); border-radius: 8px; margin: var(--space-md) 0; }
+        .feedback.correct { background: #f0faf0; border-left: 4px solid #2ecc71; }
+        .feedback.incorrect { background: #fdf0ef; border-left: 4px solid var(--error-red); }
+        .feedback-verdict { font-family: var(--font-ui); font-weight: 600; font-size: 1.1rem; margin-bottom: 4px; }
+        .feedback-explanation { color: var(--navy-mid); }
+
+        /* Grading result */
+        .grading-result { margin-top: var(--space-md); }
+        .transcription-block { margin-bottom: var(--space-md); }
+        .transcription-block blockquote { padding: var(--space-sm) var(--space-md); background: var(--warm-white); border-left: 3px solid var(--dutch-orange); border-radius: 4px; font-style: italic; }
+        .total-score { display: flex; justify-content: space-between; align-items: center; padding: var(--space-md); background: var(--navy-deep); color: var(--cream); border-radius: 8px; margin-bottom: var(--space-md); }
+        .total-label { font-family: var(--font-ui); font-size: 1.1rem; }
+        .total-value { font-family: var(--font-display); font-size: 1.5rem; }
+        .scores-grid { display: grid; gap: 12px; margin-bottom: var(--space-md); }
+        .rubric-score { padding: var(--space-sm); background: var(--warm-white); border-radius: 8px; }
+        .score-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .score-label { font-family: var(--font-ui); font-weight: 600; }
+        .score-value { font-family: var(--font-ui); color: var(--dutch-orange); }
+        .score-bar { height: 4px; background: var(--cream-dark); border-radius: 2px; overflow: hidden; }
+        .score-fill { height: 100%; background: var(--dutch-orange); border-radius: 2px; }
+        .score-justification { font-size: var(--text-small); color: var(--text-muted); margin-top: 4px; }
+        .errors-section { margin-bottom: var(--space-md); }
+        .error-item { padding: 8px; background: #fdf0ef; border-radius: 6px; margin-bottom: 6px; }
+        .error-wrong { color: var(--error-red); text-decoration: line-through; }
+        .error-arrow { margin: 0 8px; }
+        .error-correct { color: #2ecc71; font-weight: 600; }
+        .error-explanation { font-size: var(--text-small); color: var(--text-muted); margin-top: 2px; }
+        .strengths h5, .improvements h5 { font-family: var(--font-ui); margin-bottom: 4px; }
+        .strengths ul, .improvements ul { padding-left: 20px; }
+        .strengths li, .improvements li { margin-bottom: 2px; }
+
+        /* KNM-specific */
+        .scenario-block { padding: var(--space-md); background: var(--warm-white); border-radius: 8px; margin-bottom: var(--space-md); border: 1px solid var(--cream-dark); }
+        .scenario-image { max-width: 100%; border-radius: 8px; margin-bottom: var(--space-sm); }
+        .scenario-text { font-size: 1.05rem; line-height: 1.8; }
+        .cat-badge { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: var(--text-small); font-family: var(--font-ui); background: color-mix(in srgb, var(--cat-color) 15%, transparent); color: var(--cat-color); border: 1px solid color-mix(in srgb, var(--cat-color) 30%, transparent); }
+        .category-legend { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--space-md); }
+
+        /* Speaking images */
+        .exercise-images { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin: var(--space-md) 0; }
+        .exercise-image { flex: 1; min-width: 150px; }
+        .exercise-image img { width: 100%; border-radius: 8px; }
+        .image-placeholder { padding: var(--space-md); background: var(--cream-dark); border-radius: 8px; text-align: center; color: var(--text-muted); font-style: italic; }
+        .tip-text { color: var(--text-muted); margin-top: var(--space-sm); }
+        .question-prompt h3 { font-family: var(--font-display); margin-bottom: var(--space-sm); }
+
         /* Exam Layout */
         .exam-layout {
             display: grid;
@@ -1270,6 +1393,15 @@
             </button>
             <button class="mode-btn lezen" onclick="startMode('lezen')">
                 Lezen (Reading)
+            </button>
+            <button class="mode-btn spreken" onclick="startMode('spreken')">
+                <span class="mode-icon">&#127908;</span>Spreken
+            </button>
+            <button class="mode-btn luisteren" onclick="startMode('luisteren')">
+                <span class="mode-icon">&#128266;</span>Luisteren
+            </button>
+            <button class="mode-btn knm" onclick="startMode('knm')">
+                <span class="mode-icon">&#127475;&#127473;</span>KNM
             </button>
         </div>
 
@@ -3075,6 +3207,59 @@
             document.getElementById('welcome').classList.remove('hidden');
             document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
         }
+    </script>
+    <script type="module">
+        import * as spreken from '/js/spreken.js';
+        import * as luisteren from '/js/luisteren.js';
+        import * as knm from '/js/knm.js';
+
+        const contentArea = document.getElementById('practice-area') || document.getElementById('question-content');
+
+        function getContentArea() {
+            return document.getElementById('question-content') || document.getElementById('practice-area');
+        }
+
+        // Spreken global bindings
+        window.sprekenStart = (pi, ei) => spreken.startExercise(getContentArea(), pi, ei);
+        window.sprekenBack = () => spreken.renderExerciseList(getContentArea());
+        window.sprekenRecord = () => spreken.startRecording();
+        window.sprekenStopEarly = () => spreken.stopEarly();
+        window.sprekenNext = () => spreken.nextExercise(getContentArea());
+
+        // Luisteren global bindings
+        window.luisterenStart = (i) => luisteren.startQuestion(getContentArea(), i);
+        window.luisterenBack = () => luisteren.renderQuestionList(getContentArea());
+        window.luisterenSelect = (i) => luisteren.selectOption(i);
+        window.luisterenCheck = () => luisteren.checkAnswer(getContentArea());
+        window.luisterenNext = () => luisteren.nextQuestion(getContentArea());
+
+        // KNM global bindings
+        window.knmStart = (i) => knm.startQuestion(getContentArea(), i);
+        window.knmBack = () => knm.renderQuestionList(getContentArea());
+        window.knmSelect = (i) => knm.selectOption(i);
+        window.knmCheck = () => knm.checkAnswer(getContentArea());
+        window.knmNext = () => knm.nextQuestion(getContentArea());
+
+        // Extend startMode to handle new modes
+        const originalStartMode = window.startMode;
+        window.startMode = function(mode) {
+            if (mode === 'spreken' || mode === 'luisteren' || mode === 'knm') {
+                // Update button states
+                document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`.mode-btn.${mode}`).classList.add('active');
+
+                document.getElementById('welcome').classList.add('hidden');
+                document.getElementById('score-area').classList.add('hidden');
+                document.getElementById('practice-area').classList.remove('hidden');
+
+                const area = getContentArea();
+                if (mode === 'spreken') spreken.init(area);
+                else if (mode === 'luisteren') luisteren.init(area);
+                else if (mode === 'knm') knm.init(area);
+            } else if (originalStartMode) {
+                originalStartMode(mode);
+            }
+        };
     </script>
 </body>
 </html>
