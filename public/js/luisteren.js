@@ -88,6 +88,7 @@ function playAudio(question) {
     const audio = new Audio(`/audio/${question.audioFile}`);
     audio.onerror = () => {
         // Fallback: show transcript with TTS-style reveal
+        if (!playerArea) return;
         playerArea.innerHTML = `
             <div class="transcript-fallback">
                 <div class="audio-icon playing">&#128266;</div>
