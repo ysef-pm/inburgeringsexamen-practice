@@ -1,0 +1,190 @@
+{
+    "exams": {
+        "exam1": {
+            "title": "KNM Oefenexamen 1",
+            "questions": [
+                {
+                    "id": "k1-q1",
+                    "category": "Gezondheid",
+                    "scenario": "Uw kind heeft koorts (39 graden) en hoest al twee dagen. U maakt zich zorgen.",
+                    "image": "knm/gezondheid-1.jpg",
+                    "questionText": "Wat doet u eerst?",
+                    "options": ["U belt 112", "U belt de huisarts", "U gaat naar de Eerste Hulp in het ziekenhuis"],
+                    "correctAnswer": 1,
+                    "explanation": "Bij koorts belt u eerst de huisarts. De huisarts beslist of uw kind naar het ziekenhuis moet. 112 is alleen voor levensbedreigende situaties."
+                },
+                {
+                    "id": "k1-q2",
+                    "category": "Gezondheid",
+                    "scenario": "U bent ziek en kunt niet naar uw werk. U wilt medicijnen kopen.",
+                    "questionText": "Waar kunt u medicijnen kopen zonder recept?",
+                    "options": ["Bij de huisarts", "Bij de drogist of apotheek", "Bij het ziekenhuis"],
+                    "correctAnswer": 1,
+                    "explanation": "Medicijnen zonder recept (zoals paracetamol) kunt u kopen bij de drogist of apotheek. Voor sterke medicijnen heeft u een recept van de huisarts nodig."
+                },
+                {
+                    "id": "k1-q3",
+                    "category": "Werk & Inkomen",
+                    "scenario": "U heeft een baan gevonden. Uw werkgever geeft u een arbeidscontract.",
+                    "questionText": "Wat staat er NIET in een arbeidscontract?",
+                    "options": ["Uw salaris", "Hoeveel uur u werkt", "De naam van uw huisarts"],
+                    "correctAnswer": 2,
+                    "explanation": "In een arbeidscontract staan uw salaris, werktijden, vakantiedagen en functie. De naam van uw huisarts staat daar niet in."
+                },
+                {
+                    "id": "k1-q4",
+                    "category": "Werk & Inkomen",
+                    "scenario": "U werkt in een winkel. U bent al twee weken ziek thuis.",
+                    "questionText": "Wie betaalt uw salaris als u ziek bent?",
+                    "options": ["De gemeente", "Uw werkgever", "U betaalt zelf"],
+                    "correctAnswer": 1,
+                    "explanation": "Als u ziek bent, betaalt uw werkgever uw salaris door. Dit is maximaal twee jaar lang (minimaal 70% van uw loon)."
+                },
+                {
+                    "id": "k1-q5",
+                    "category": "Wonen",
+                    "scenario": "U wilt een huurwoning. U heeft niet veel geld.",
+                    "questionText": "Waar schrijft u zich in voor een sociale huurwoning?",
+                    "options": ["Bij de gemeente", "Bij een woningcorporatie", "Bij de politie"],
+                    "correctAnswer": 1,
+                    "explanation": "Voor een sociale huurwoning schrijft u zich in bij een woningcorporatie. De wachttijden kunnen lang zijn, vooral in grote steden."
+                },
+                {
+                    "id": "k1-q6",
+                    "category": "Wonen",
+                    "scenario": "Het is 23:00 uur. Uw buurman speelt heel harde muziek.",
+                    "questionText": "Wat doet u het beste eerst?",
+                    "options": ["U belt de politie", "U praat met uw buurman", "U verhuist"],
+                    "correctAnswer": 1,
+                    "explanation": "In Nederland praat u eerst met uw buurman. Als dat niet helpt, kunt u de wijkagent of een mediator inschakelen."
+                },
+                {
+                    "id": "k1-q7",
+                    "category": "Onderwijs",
+                    "scenario": "Uw kind is 5 jaar oud.",
+                    "questionText": "Moet uw kind naar school?",
+                    "options": ["Nee, pas als het kind 6 is", "Ja, de leerplicht begint op 5 jaar", "Alleen als u dat wilt"],
+                    "correctAnswer": 1,
+                    "explanation": "In Nederland is er leerplicht vanaf 5 jaar. Kinderen moeten naar school tot ze 16 zijn (en deels tot 18)."
+                },
+                {
+                    "id": "k1-q8",
+                    "category": "Onderwijs",
+                    "scenario": "Uw kind zit op de basisschool. De school organiseert een oudergesprek.",
+                    "questionText": "Waarom is het oudergesprek belangrijk?",
+                    "options": ["Om eten te brengen voor de leraar", "Om te horen hoe uw kind het doet op school", "Om de school schoon te maken"],
+                    "correctAnswer": 1,
+                    "explanation": "Bij een oudergesprek bespreekt de leraar hoe uw kind het doet op school. In Nederland vinden ze het belangrijk dat ouders betrokken zijn bij de school."
+                },
+                {
+                    "id": "k1-q9",
+                    "category": "Overheid & Recht",
+                    "scenario": "U woont in Nederland en u bent 18 jaar of ouder.",
+                    "questionText": "Wat MOET u altijd bij u hebben?",
+                    "options": ["Uw diploma", "Een geldig identiteitsbewijs", "Uw huurcontract"],
+                    "correctAnswer": 1,
+                    "explanation": "In Nederland geldt de identificatieplicht. Iedereen van 14 jaar en ouder moet een geldig identiteitsbewijs bij zich hebben (paspoort, ID-kaart of rijbewijs)."
+                },
+                {
+                    "id": "k1-q10",
+                    "category": "Overheid & Recht",
+                    "scenario": "U verhuist naar een andere stad in Nederland.",
+                    "questionText": "Wat moet u doen binnen 5 dagen na uw verhuizing?",
+                    "options": ["Een nieuw paspoort aanvragen", "U inschrijven bij de gemeente", "Een brief schrijven naar de koning"],
+                    "correctAnswer": 1,
+                    "explanation": "Na een verhuizing moet u zich binnen 5 dagen inschrijven bij de nieuwe gemeente. Dit heet 'aangifte van verhuizing'."
+                },
+                {
+                    "id": "k1-q11",
+                    "category": "Normen & Waarden",
+                    "scenario": "U heeft een afspraak om 14:00 uur bij de tandarts.",
+                    "questionText": "Hoe laat komt u het beste?",
+                    "options": ["Precies om 14:00 of een paar minuten eerder", "Om 14:30, dat is normaal", "Wanneer u klaar bent met uw werk"],
+                    "correctAnswer": 0,
+                    "explanation": "In Nederland is op tijd komen heel belangrijk. U komt op tijd of een paar minuten eerder. Te laat komen is onbeleefd."
+                },
+                {
+                    "id": "k1-q12",
+                    "category": "Normen & Waarden",
+                    "scenario": "Uw collega vraagt: 'Hoe vind je mijn nieuwe kapsel?' U vindt het niet mooi.",
+                    "questionText": "Wat past het beste bij de Nederlandse cultuur?",
+                    "options": ["U zegt niets en loopt weg", "U zegt eerlijk dat het niet uw smaak is, maar wel vriendelijk", "U zegt dat het heel mooi is (ook al vindt u dat niet)"],
+                    "correctAnswer": 1,
+                    "explanation": "Nederlanders staan bekend om hun directheid. Ze zeggen eerlijk wat ze vinden, maar wel op een vriendelijke manier."
+                },
+                {
+                    "id": "k1-q13",
+                    "category": "Gezondheid",
+                    "scenario": "U wilt naar een specialist in het ziekenhuis.",
+                    "questionText": "Wat heeft u nodig om naar een specialist te gaan?",
+                    "options": ["Een verwijsbrief van de huisarts", "Toestemming van de gemeente", "Niets, u kunt direct gaan"],
+                    "correctAnswer": 0,
+                    "explanation": "In Nederland gaat u eerst naar de huisarts. De huisarts geeft u een verwijsbrief als u naar een specialist moet. Zonder verwijsbrief betaalt de verzekering niet."
+                },
+                {
+                    "id": "k1-q14",
+                    "category": "Werk & Inkomen",
+                    "scenario": "U heeft geen werk en zoekt een baan.",
+                    "questionText": "Waar kunt u zich inschrijven als werkzoekende?",
+                    "options": ["Bij de politie", "Bij het UWV", "Bij de school"],
+                    "correctAnswer": 1,
+                    "explanation": "Als u werkloos bent, schrijft u zich in bij het UWV (Uitvoeringsinstituut Werknemersverzekeringen). Het UWV kan u helpen met het vinden van werk en een uitkering."
+                },
+                {
+                    "id": "k1-q15",
+                    "category": "Wonen",
+                    "scenario": "U woont in een flat. Er is een vergadering van de Vereniging van Eigenaren (VvE).",
+                    "questionText": "Waarom is het belangrijk om naar de VvE-vergadering te gaan?",
+                    "options": ["Om gratis eten te krijgen", "Om mee te beslissen over onderhoud en kosten van het gebouw", "Omdat het verplicht is van de politie"],
+                    "correctAnswer": 1,
+                    "explanation": "Bij de VvE-vergadering beslist u samen met andere bewoners over onderhoud, schoonmaak en kosten van het gebouw."
+                },
+                {
+                    "id": "k1-q16",
+                    "category": "Overheid & Recht",
+                    "scenario": "Er zijn gemeenteraadsverkiezingen in uw stad.",
+                    "questionText": "Wie mag stemmen bij de gemeenteraadsverkiezingen?",
+                    "options": ["Alleen Nederlanders", "Alle inwoners van 18 jaar en ouder die minstens 5 jaar in Nederland wonen", "Alle inwoners van 18 jaar en ouder"],
+                    "correctAnswer": 2,
+                    "explanation": "Bij gemeenteraadsverkiezingen mogen alle inwoners van 18 jaar en ouder stemmen, ook als ze geen Nederlandse nationaliteit hebben."
+                },
+                {
+                    "id": "k1-q17",
+                    "category": "Normen & Waarden",
+                    "scenario": "U bent uitgenodigd voor een verjaardagsfeest bij een Nederlandse collega thuis.",
+                    "questionText": "Wat is gebruikelijk in Nederland?",
+                    "options": ["U feliciteert de jarige en alle familieleden", "U brengt een duur cadeau mee", "U komt zonder iets mee te nemen"],
+                    "correctAnswer": 0,
+                    "explanation": "In Nederland is het gebruikelijk om op een verjaardag niet alleen de jarige te feliciteren, maar ook de familie en vrienden: 'Gefeliciteerd met je moeder/vader/vriend!'"
+                },
+                {
+                    "id": "k1-q18",
+                    "category": "Onderwijs",
+                    "scenario": "Uw kind is ziek en kan niet naar school.",
+                    "questionText": "Wat moet u doen?",
+                    "options": ["Niets, het kind gaat morgen weer", "De school bellen om uw kind ziek te melden", "Een brief schrijven aan de burgemeester"],
+                    "correctAnswer": 1,
+                    "explanation": "Als uw kind ziek is, moet u de school bellen om het kind ziek te melden. Dit is verplicht vanwege de leerplicht."
+                },
+                {
+                    "id": "k1-q19",
+                    "category": "Normen & Waarden",
+                    "scenario": "U ziet dat een vrouw een leidinggevende positie heeft op uw werk.",
+                    "questionText": "Wat is normaal in Nederland?",
+                    "options": ["Dit is ongewoon in Nederland", "In Nederland kunnen mannen en vrouwen dezelfde functies hebben", "Vrouwen werken alleen parttime in Nederland"],
+                    "correctAnswer": 1,
+                    "explanation": "In Nederland is gelijkheid tussen mannen en vrouwen een belangrijke waarde. Vrouwen en mannen kunnen dezelfde functies en posities hebben."
+                },
+                {
+                    "id": "k1-q20",
+                    "category": "Overheid & Recht",
+                    "scenario": "U krijgt een boete omdat u door rood licht fietste.",
+                    "questionText": "Wat moet u doen met de boete?",
+                    "options": ["U gooit de brief weg", "U betaalt de boete op tijd", "U belt de burgemeester"],
+                    "correctAnswer": 1,
+                    "explanation": "Als u een boete krijgt, moet u deze op tijd betalen. Als u het niet eens bent met de boete, kunt u bezwaar maken. Niet betalen leidt tot hogere kosten."
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,101 @@
+{
+    "exam": "Spreken Oefenexamen 1",
+    "parts": [
+        {
+            "partNumber": 1,
+            "title": "Vragen beantwoorden",
+            "description": "Beantwoord de vraag. Je hebt 20 seconden.",
+            "prepTime": 10,
+            "responseTime": 20,
+            "exercises": [
+                {
+                    "id": "s1-p1-q1",
+                    "prompt": "Iemand vraagt: 'Waar woont u?' Beantwoord de vraag.",
+                    "images": [],
+                    "tipText": "Zeg waar u woont. Noem de stad of het dorp."
+                },
+                {
+                    "id": "s1-p1-q2",
+                    "prompt": "Iemand vraagt: 'Wat doet u in het weekend?' Beantwoord de vraag.",
+                    "images": [],
+                    "tipText": "Vertel wat u in het weekend doet. Noem minstens twee dingen."
+                },
+                {
+                    "id": "s1-p1-q3",
+                    "prompt": "Iemand vraagt: 'Hoe gaat u naar uw werk of school?' Beantwoord de vraag.",
+                    "images": [],
+                    "tipText": "Vertel hoe u reist. Met de bus, fiets, auto, of te voet?"
+                },
+                {
+                    "id": "s1-p1-q4",
+                    "prompt": "Iemand vraagt: 'Heeft u broers of zussen?' Beantwoord de vraag.",
+                    "images": [],
+                    "tipText": "Vertel over uw familie. Hoeveel broers en zussen heeft u?"
+                }
+            ]
+        },
+        {
+            "partNumber": 2,
+            "title": "Eén afbeelding beschrijven",
+            "description": "Bekijk de afbeelding en beschrijf wat je ziet. Je hebt 60 seconden.",
+            "prepTime": 25,
+            "responseTime": 60,
+            "exercises": [
+                {
+                    "id": "s1-p2-q1",
+                    "prompt": "Bekijk de afbeelding. Beschrijf wat je ziet. Wat doen de mensen? Waar zijn ze?",
+                    "images": ["spreken/markt.jpg"],
+                    "tipText": "Beschrijf de markt. Wat kun je kopen? Hoeveel mensen zijn er? Wat is het weer?"
+                },
+                {
+                    "id": "s1-p2-q2",
+                    "prompt": "Bekijk de afbeelding. Beschrijf wat je ziet. Wat gebeurt er?",
+                    "images": ["spreken/park.jpg"],
+                    "tipText": "Beschrijf het park. Wat doen de mensen? Zijn er kinderen? Dieren?"
+                }
+            ]
+        },
+        {
+            "partNumber": 3,
+            "title": "Twee afbeeldingen vergelijken",
+            "description": "Bekijk de twee afbeeldingen. Vergelijk ze. Wat is hetzelfde? Wat is anders? Je hebt 60 seconden.",
+            "prepTime": 25,
+            "responseTime": 60,
+            "exercises": [
+                {
+                    "id": "s1-p3-q1",
+                    "prompt": "Bekijk de twee afbeeldingen. De ene toont een drukke stad, de andere een rustig dorp. Vergelijk de twee plekken. Wat is hetzelfde? Wat is anders?",
+                    "images": ["spreken/stad.jpg", "spreken/dorp.jpg"],
+                    "tipText": "Vergelijk stad en dorp. Denk aan: mensen, gebouwen, verkeer, natuur."
+                },
+                {
+                    "id": "s1-p3-q2",
+                    "prompt": "Bekijk de twee afbeeldingen. De ene toont een zomer dag, de andere een winter dag. Vergelijk de twee. Wat is hetzelfde? Wat is anders?",
+                    "images": ["spreken/zomer.jpg", "spreken/winter.jpg"],
+                    "tipText": "Vergelijk de seizoenen. Denk aan: weer, kleding, activiteiten."
+                }
+            ]
+        },
+        {
+            "partNumber": 4,
+            "title": "Een verhaal vertellen",
+            "description": "Bekijk de drie afbeeldingen. Vertel een verhaal. Wat gebeurt er? Je hebt 60 seconden.",
+            "prepTime": 25,
+            "responseTime": 60,
+            "exercises": [
+                {
+                    "id": "s1-p4-q1",
+                    "prompt": "Bekijk de drie afbeeldingen. Vertel een verhaal over wat er gebeurt. Gebruik de afbeeldingen in de juiste volgorde.",
+                    "images": ["spreken/story1-a.jpg", "spreken/story1-b.jpg", "spreken/story1-c.jpg"],
+                    "tipText": "Afbeelding 1: Een man kijkt naar zijn fiets. Afbeelding 2: De band is lek. Afbeelding 3: Hij repareert de fiets. Vertel het verhaal."
+                },
+                {
+                    "id": "s1-p4-q2",
+                    "prompt": "Bekijk de drie afbeeldingen. Vertel een verhaal over wat er gebeurt.",
+                    "images": ["spreken/story2-a.jpg", "spreken/story2-b.jpg", "spreken/story2-c.jpg"],
+                    "tipText": "Afbeelding 1: Een vrouw gaat naar de supermarkt. Afbeelding 2: Ze doet boodschappen. Afbeelding 3: Ze kookt thuis. Vertel het verhaal."
+                }
+            ]
+        }
+    ]
+}
