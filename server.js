@@ -1,8 +1,14 @@
 const express = require('express');
 const path = require('path');
+const multer = require('multer');
+const fs = require('fs');
+const OpenAI = require('openai');
+
+const upload = multer({ dest: 'uploads/' });
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const app = express();
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve index.html from root
@@ -207,6 +213,145 @@ app.post('/api/check-grammar', async (req, res) => {
     app.handle(req, res);
 });
 
+// Speech transcription endpoint (Whisper)
+app.post('/api/transcribe-speech', upload.single('audio'), async (req, res) => {
+    if (!OPENAI_API_KEY) {
+        return res.json({ success: false, error: 'OPENAI_API_KEY not configured.' });
+    }
+    if (!req.file) {
+        return res.json({ success: false, error: 'No audio file received.' });
+    }
+
+    try {
+        const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
+        const transcription = await openai.audio.transcriptions.create({
+            file: fs.createReadStream(req.file.path),
+            model: 'whisper-1',
+            language: 'nl',
+        });
+
+        // Clean up uploaded file
+        fs.unlinkSync(req.file.path);
+
+        res.json({ success: true, transcription: transcription.text });
+    } catch (error) {
+        console.error('Transcription error:', error);
+        if (req.file) fs.unlinkSync(req.file.path);
+        res.json({ success: false, error: 'Failed to transcribe audio.' });
+    }
+});
+
+// Speaking grading endpoint
+const SPEAKING_RUBRIC = `
+## Official Speaking Grading Rubric for Inburgeringsexamen Spreken (A2)
+
+Grade the candidate's spoken response (transcribed) on these 5 categories:
+
+### 1. ADEQUACY (Taakuitvoering) - Maximum 2 points
+- 0: Response does not address the task/question at all
+- 1: Response partially addresses the task
+- 2: Response fully and appropriately addresses the task
+
+### 2. VOCABULARY (Woordenschat) - Maximum 2 points
+- 0: Very limited vocabulary, cannot express basic ideas
+- 1: Basic vocabulary, can express simple ideas with limitations
+- 2: Adequate vocabulary for A2 level communication
+
+### 3. GRAMMAR (Grammatica) - Maximum 2 points
+- 0: Frequent grammar errors that impede understanding
+- 1: Some grammar errors but meaning is usually clear
+- 2: Grammar is mostly correct for A2 level
+
+### 4. FLUENCY (Vloeiendheid) - Maximum 2 points
+- 0: Very hesitant, many long pauses, very fragmented
+- 1: Some hesitation but can maintain basic communication
+- 2: Reasonably fluent for A2 level
+
+### 5. PRONUNCIATION (Uitspraak) - Maximum 2 points
+- 0: Pronunciation makes speech very difficult to understand
+- 1: Some pronunciation issues but generally understandable
+- 2: Clear pronunciation, easily understood
+
+TOTAL MAXIMUM: 10 points (2+2+2+2+2)
+`;
+
+app.post('/api/grade-speaking', async (req, res) => {
+    const { transcription, prompt, partType } = req.body;
+
+    if (!transcription || transcription.trim().length === 0) {
+        return res.json({ success: false, error: 'No transcription to grade.' });
+    }
+    if (!PERPLEXITY_API_KEY) {
+        return res.json({ success: false, error: 'PERPLEXITY_API_KEY not configured.' });
+    }
+
+    try {
+        const systemPrompt = `You are an official examiner for the Dutch Inburgeringsexamen A2 speaking test.
+Grade the transcribed spoken response using the rubric EXACTLY as specified.
+
+${SPEAKING_RUBRIC}
+
+You MUST respond with ONLY a valid JSON object (no markdown, no extra text):
+{
+    "scores": {
+        "adequacy": { "score": <0-2>, "justification": "<IN ENGLISH>" },
+        "vocabulary": { "score": <0-2>, "justification": "<IN ENGLISH>" },
+        "grammar": { "score": <0-2>, "justification": "<IN ENGLISH>" },
+        "fluency": { "score": <0-2>, "justification": "<IN ENGLISH: Note - since this is transcribed, assess sentence completeness and coherence as proxy>" },
+        "pronunciation": { "score": <0-2>, "justification": "<IN ENGLISH: Note - since this is transcribed, assess based on spelling/word patterns suggesting pronunciation issues>" }
+    },
+    "total": <sum, max 10>,
+    "grammarErrors": [{"error": "<Dutch text>", "correction": "<correct>", "explanation": "<IN ENGLISH>"}],
+    "strengths": ["<IN ENGLISH>"],
+    "improvements": ["<IN ENGLISH>"],
+    "overallFeedback": "<IN ENGLISH: 2-3 sentences>"
+}
+
+IMPORTANT: This is a TRANSCRIPTION of speech. Assess fluency by sentence completeness/coherence. For pronunciation, note any patterns suggesting mispronunciation but be lenient since Whisper may normalize pronunciation.`;
+
+        const userMessage = `Grade this speaking response:
+
+**TASK:** ${prompt}
+**PART TYPE:** ${partType}
+**CANDIDATE'S TRANSCRIBED RESPONSE:** ${transcription}
+
+Evaluate and respond with ONLY the JSON object.`;
+
+        const response = await fetch(PERPLEXITY_API_URL, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${PERPLEXITY_API_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                model: 'sonar',
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    { role: 'user', content: userMessage }
+                ],
+                temperature: 0.2,
+                max_tokens: 2000
+            })
+        });
+
+        if (!response.ok) throw new Error(`API request failed: ${response.status}`);
+
+        const data = await response.json();
+        let feedback = data.choices[0].message.content;
+        feedback = feedback.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+
+        try {
+            const gradingResult = JSON.parse(feedback);
+            res.json({ success: true, grading: gradingResult });
+        } catch (parseError) {
+            res.json({ success: true, rawFeedback: feedback, parseError: true });
+        }
+    } catch (error) {
+        console.error('Speaking grading error:', error);
+        res.json({ success: false, error: 'Failed to grade speaking.' });
+    }
+});
+
 const PORT = process.env.PORT || 3456;
 app.listen(PORT, () => {
     console.log(`\n🇳🇱 Inburgeringsexamen Practice App running at http://localhost:${PORT}\n`);
@@ -215,5 +360,11 @@ app.listen(PORT, () => {
         console.log('   Run with: PERPLEXITY_API_KEY=your_key npm start\n');
     } else {
         console.log('✅ Perplexity API key configured. AI grading enabled.\n');
+    }
+    if (!OPENAI_API_KEY) {
+        console.log('⚠️  Warning: OPENAI_API_KEY not set. Speech transcription will not work.');
+        console.log('   Run with: OPENAI_API_KEY=your_key npm start\n');
+    } else {
+        console.log('✅ OpenAI API key configured. Speech transcription enabled.\n');
     }
 });
