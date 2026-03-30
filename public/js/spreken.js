@@ -129,9 +129,12 @@ async function stopAndGrade() {
     recorder.cleanup();
     recorder = null;
 
-    // Convert blob to base64 and send as JSON
-    const arrayBuffer = await audioBlob.arrayBuffer();
-    const base64Audio = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
+    // Convert blob to base64 using FileReader (handles large blobs without stack overflow)
+    const base64Audio = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result.split(',')[1]); // strip data:...;base64, prefix
+        reader.readAsDataURL(audioBlob);
+    });
 
     const resultArea = document.getElementById('result-area');
 
