@@ -8,7 +8,7 @@
                     "questionText": "Waar gaat de vrouw naartoe?",
                     "audioFile": "luisteren/exam1/q1.mp3",
                     "transcript": "Man: Ga je mee naar de markt?\nVrouw: Nee, ik moet eerst naar de apotheek. Ik heb medicijnen nodig.\nMan: Oké, dan zie ik je later.",
-                    "readingTime": 25,
+                    "readingTime": 5,
                     "options": ["Naar de markt", "Naar de apotheek", "Naar huis"],
                     "correctAnswer": 1,
                     "explanation": "De vrouw zegt: 'Ik moet eerst naar de apotheek. Ik heb medicijnen nodig.'"
@@ -18,7 +18,7 @@
                     "questionText": "Hoe laat begint de les?",
                     "audioFile": "luisteren/exam1/q2.mp3",
                     "transcript": "Vrouw: Wanneer begint de Nederlandse les?\nMan: De les begint om half tien. Maar je moet er om kwart over negen zijn.\nVrouw: Oké, dan kom ik vroeg.",
-                    "readingTime": 25,
+                    "readingTime": 5,
                     "options": ["Om kwart over negen", "Om half tien", "Om tien uur"],
                     "correctAnswer": 1,
                     "explanation": "De man zegt: 'De les begint om half tien.'"
@@ -28,7 +28,7 @@
                     "questionText": "Wat is het probleem?",
                     "audioFile": "luisteren/exam1/q3.mp3",
                     "transcript": "Vrouw: Goedemorgen, ik bel over mijn bestelling. Ik heb vorige week een tafel besteld, maar ik heb een stoel gekregen.\nMan: Oh, dat spijt me. Ik zoek het voor u uit.",
-                    "readingTime": 25,
+                    "readingTime": 5,
                     "options": ["De tafel is kapot", "Ze heeft het verkeerde product gekregen", "De bestelling is te laat"],
                     "correctAnswer": 1,
                     "explanation": "De vrouw zegt dat ze een tafel heeft besteld maar een stoel heeft gekregen — het verkeerde product."
@@ -38,7 +38,7 @@
                     "questionText": "Wat moet de man doen?",
                     "audioFile": "luisteren/exam1/q4.mp3",
                     "transcript": "Vrouw: Je hebt morgen een afspraak bij de tandarts om twee uur.\nMan: Oh, ik was het vergeten. Moet ik iets meenemen?\nVrouw: Ja, neem je paspoort en je verzekeringspas mee.",
-                    "readingTime": 25,
+                    "readingTime": 5,
                     "options": ["Naar de dokter gaan", "Zijn paspoort en verzekeringspas meenemen", "Een afspraak maken"],
                     "correctAnswer": 1,
                     "explanation": "De vrouw zegt: 'Neem je paspoort en je verzekeringspas mee.'"
@@ -48,7 +48,7 @@
                     "questionText": "Waarom kan de man niet komen?",
                     "audioFile": "luisteren/exam1/q5.mp3",
                     "transcript": "Vrouw: Kom je zaterdag naar het feest?\nMan: Nee, helaas niet. Ik moet werken dit weekend.\nVrouw: Jammer! Volgende keer dan.",
-                    "readingTime": 25,
+                    "readingTime": 5,
                     "options": ["Hij is ziek", "Hij moet werken", "Hij is op vakantie"],
                     "correctAnswer": 1,
                     "explanation": "De man zegt: 'Ik moet werken dit weekend.'"
@@ -58,7 +58,7 @@
                     "questionText": "Wat wil de vrouw kopen?",
                     "audioFile": "luisteren/exam1/q6.mp3",
                     "transcript": "Man: Kan ik u helpen?\nVrouw: Ja, ik zoek een winterjas. Heeft u iets in maat 40?\nMan: Ja, hier hangen een paar jassen. Deze blauwe is in de aanbieding.",
-                    "readingTime": 25,
+                    "readingTime": 5,
                     "options": ["Een trui", "Een winterjas", "Een blauwe broek"],
                     "correctAnswer": 1,
                     "explanation": "De vrouw zegt: 'Ik zoek een winterjas.'"
@@ -68,7 +68,7 @@
                     "questionText": "Hoe gaat de vrouw naar haar werk?",
                     "audioFile": "luisteren/exam1/q7.mp3",
                     "transcript": "Man: Ga je met de auto naar je werk?\nVrouw: Nee, ik pak altijd de trein. Het is sneller en beter voor het milieu.\nMan: Dat is waar.",
-                    "readingTime": 25,
+                    "readingTime": 5,
                     "options": ["Met de auto", "Met de trein", "Met de bus"],
                     "correctAnswer": 1,
                     "explanation": "De vrouw zegt: 'Ik pak altijd de trein.'"
@@ -78,7 +78,7 @@
                     "questionText": "Wat is het weer vandaag?",
                     "audioFile": "luisteren/exam1/q8.mp3",
                     "transcript": "Man: Zullen we naar het strand gaan?\nVrouw: Vandaag niet. Het regent de hele dag. Misschien morgen, dan wordt het zonnig.\nMan: Oké, dan gaan we morgen.",
-                    "readingTime": 25,
+                    "readingTime": 5,
                     "options": ["Het is zonnig", "Het regent", "Het sneeuwt"],
                     "correctAnswer": 1,
                     "explanation": "De vrouw zegt: 'Het regent de hele dag.'"
@@ -88,7 +88,7 @@
                     "questionText": "Hoeveel kinderen heeft de vrouw?",
                     "audioFile": "luisteren/exam1/q9.mp3",
                     "transcript": "Man: Heeft u kinderen?\nVrouw: Ja, ik heb drie kinderen. Twee jongens en een meisje.\nMan: Leuk! Hoe oud zijn ze?\nVrouw: Vijf, acht en twaalf.",
-                    "readingTime": 25,
+                    "readingTime": 5,
                     "options": ["Twee", "Drie", "Vier"],
                     "correctAnswer": 1,
                     "explanation": "De vrouw zegt: 'Ik heb drie kinderen.'"
@@ -98,7 +98,7 @@
                     "questionText": "Wanneer is de winkel open?",
                     "audioFile": "luisteren/exam1/q10.mp3",
                     "transcript": "Dit is een bericht van Albert Heijn. Wij zijn geopend van maandag tot en met zaterdag van acht uur 's ochtends tot negen uur 's avonds. Op zondag zijn wij gesloten.",
-                    "readingTime": 25,
+                    "readingTime": 5,
                     "options": ["Elke dag", "Maandag tot en met zaterdag", "Alleen doordeweeks"],
                     "correctAnswer": 1,
                     "explanation": "Het bericht zegt: 'Van maandag tot en met zaterdag.' Op zondag gesloten."
