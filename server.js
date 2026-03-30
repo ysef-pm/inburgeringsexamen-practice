@@ -4,7 +4,7 @@ const multer = require('multer');
 const fs = require('fs');
 const OpenAI = require('openai');
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: '/tmp/uploads/' });
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const app = express();
@@ -352,19 +352,25 @@ Evaluate and respond with ONLY the JSON object.`;
     }
 });
 
-const PORT = process.env.PORT || 3456;
-app.listen(PORT, () => {
-    console.log(`\n🇳🇱 Inburgeringsexamen Practice App running at http://localhost:${PORT}\n`);
-    if (!PERPLEXITY_API_KEY) {
-        console.log('⚠️  Warning: PERPLEXITY_API_KEY not set. AI grading will not work.');
-        console.log('   Run with: PERPLEXITY_API_KEY=your_key npm start\n');
-    } else {
-        console.log('✅ Perplexity API key configured. AI grading enabled.\n');
-    }
-    if (!OPENAI_API_KEY) {
-        console.log('⚠️  Warning: OPENAI_API_KEY not set. Speech transcription will not work.');
-        console.log('   Run with: OPENAI_API_KEY=your_key npm start\n');
-    } else {
-        console.log('✅ OpenAI API key configured. Speech transcription enabled.\n');
-    }
-});
+// Export for Vercel serverless
+module.exports = app;
+
+// Start server when running locally (not on Vercel)
+if (!process.env.VERCEL) {
+    const PORT = process.env.PORT || 3456;
+    app.listen(PORT, () => {
+        console.log(`\n🇳🇱 Inburgeringsexamen Practice App running at http://localhost:${PORT}\n`);
+        if (!PERPLEXITY_API_KEY) {
+            console.log('⚠️  Warning: PERPLEXITY_API_KEY not set. AI grading will not work.');
+            console.log('   Run with: PERPLEXITY_API_KEY=your_key npm start\n');
+        } else {
+            console.log('✅ Perplexity API key configured. AI grading enabled.\n');
+        }
+        if (!OPENAI_API_KEY) {
+            console.log('⚠️  Warning: OPENAI_API_KEY not set. Speech transcription will not work.');
+            console.log('   Run with: OPENAI_API_KEY=your_key npm start\n');
+        } else {
+            console.log('✅ OpenAI API key configured. Speech transcription enabled.\n');
+        }
+    });
+}
