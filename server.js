@@ -235,9 +235,9 @@ app.post('/api/transcribe-speech', upload.single('audio'), async (req, res) => {
 
         res.json({ success: true, transcription: transcription.text });
     } catch (error) {
-        console.error('Transcription error:', error);
-        if (req.file) fs.unlinkSync(req.file.path);
-        res.json({ success: false, error: 'Failed to transcribe audio.' });
+        console.error('Transcription error:', error.message || error);
+        try { if (req.file) fs.unlinkSync(req.file.path); } catch(e) {}
+        res.json({ success: false, error: `Transcription failed: ${error.message || 'Unknown error'}` });
     }
 });
 
