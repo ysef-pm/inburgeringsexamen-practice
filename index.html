@@ -236,32 +236,13 @@
             border-color: var(--cream);
         }
 
-        /* Remove old gradient classes */
+        /* All mode buttons use the same cream/navy styling */
         .mode-btn.schrijven,
-        .mode-btn.lezen {
-            /* Styles handled above */
-        }
-
-        .mode-btn.spreken {
-            border-color: #e74c3c;
-        }
-        .mode-btn.spreken:hover, .mode-btn.spreken.active {
-            background: #e74c3c;
-            color: white;
-        }
-        .mode-btn.luisteren {
-            border-color: #3498db;
-        }
-        .mode-btn.luisteren:hover, .mode-btn.luisteren.active {
-            background: #3498db;
-            color: white;
-        }
+        .mode-btn.lezen,
+        .mode-btn.spreken,
+        .mode-btn.luisteren,
         .mode-btn.knm {
-            border-color: #9b59b6;
-        }
-        .mode-btn.knm:hover, .mode-btn.knm.active {
-            background: #9b59b6;
-            color: white;
+            /* Uniform styling — handled by base .mode-btn rules */
         }
 
         /* Shared new module styles */
