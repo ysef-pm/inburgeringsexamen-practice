@@ -6,41 +6,62 @@ let currentExam = 'exam1';
 let currentQuestionIndex = 0;
 let selectedOption = null;
 let answered = false;
+let inQuestion = false;
 
 export async function init(contentArea) {
     const resp = await fetch('/data/luisteren-exercises.json');
     exerciseData = await resp.json();
     currentQuestionIndex = 0;
-    renderQuestionList(contentArea);
+    inQuestion = false;
+    showOverviewContent(contentArea);
+    renderSidebar();
+}
+
+export function renderSidebar() {
+    const sidebar = document.getElementById('exam-sidebar');
+    if (!sidebar || !exerciseData) return;
+
+    const exam = exerciseData.exams[currentExam];
+    let html = '<h3 style="padding: 10px; margin: 0; border-bottom: 1px solid #ddd;">Luisteren Vragen</h3>';
+    html += `<div class="exam-section">
+        <div class="exam-section-title">${exam.title} <span>(${exam.questions.length})</span></div>
+        <ul class="exercise-list">`;
+    exam.questions.forEach((q, i) => {
+        const isActive = inQuestion && currentQuestionIndex === i;
+        const isCompleted = progress.isCompleted(q.id);
+        const truncated = q.questionText.length > 28 ? q.questionText.substring(0, 25) + '...' : q.questionText;
+        html += `<li class="exercise-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}"
+            onclick="window.luisterenStart(${i})">
+            <span title="${q.questionText}">${i + 1}. ${truncated}</span>
+        </li>`;
+    });
+    html += '</ul></div>';
+    html += `<div class="back-to-menu" onclick="window.backToMenu()">← Back to Menu</div>`;
+    sidebar.innerHTML = html;
+}
+
+function showOverviewContent(contentArea) {
+    const exam = exerciseData.exams[currentExam];
+    const done = progress.getCount();
+    contentArea.innerHTML = `
+        <div class="exercise-title">${exam.title}</div>
+        <p class="exercise-instructions">Kies een vraag in de zijbalk om te beginnen. Elke audiofragment wordt maar één keer afgespeeld.</p>
+        <p style="margin-bottom: var(--space-md); color: var(--text-muted);">${done} / ${exam.questions.length} voltooid</p>
+    `;
 }
 
 export function renderQuestionList(contentArea) {
-    const exam = exerciseData.exams[currentExam];
-    let html = `<div class="exercise-list">
-        <h2 style="font-family: var(--font-display); margin-bottom: var(--space-md);">${exam.title}</h2>
-        <p style="margin-bottom: var(--space-md); color: var(--text-muted);">25 vragen - Elke audiofragment wordt maar één keer afgespeeld.</p>
-        <div class="exercise-grid">`;
-
-    exam.questions.forEach((q, i) => {
-        const done = progress.isCompleted(q.id);
-        html += `<button class="exercise-card ${done ? 'completed' : ''}" onclick="window.luisterenStart(${i})">
-            <span class="exercise-num">${i + 1}</span>
-            ${done ? '<span class="check-mark">&#10003;</span>' : ''}
-        </button>`;
-    });
-
-    html += `</div>
-        <div class="progress-summary">
-            <p>${progress.getCount()} / ${exam.questions.length} voltooid</p>
-        </div>
-    </div>`;
-    contentArea.innerHTML = html;
+    inQuestion = false;
+    showOverviewContent(contentArea);
+    renderSidebar();
 }
 
 export function startQuestion(contentArea, questionIndex) {
     currentQuestionIndex = questionIndex;
     selectedOption = null;
     answered = false;
+    inQuestion = true;
+    renderSidebar();
 
     const exam = exerciseData.exams[currentExam];
     const q = exam.questions[questionIndex];
@@ -49,7 +70,6 @@ export function startQuestion(contentArea, questionIndex) {
         <div class="luisteren-exercise">
             <div class="exercise-header">
                 <span class="exercise-label">Vraag ${questionIndex + 1} / ${exam.questions.length}</span>
-                <button class="btn-back" onclick="window.luisterenBack()">&#8592; Terug</button>
             </div>
             <div class="question-prompt">
                 <h3>${q.questionText}</h3>
@@ -152,11 +172,11 @@ export function checkAnswer(contentArea) {
     `;
 
     progress.markCompleted(q.id);
+    renderSidebar();
 
     const actionArea = document.getElementById('action-area');
     actionArea.innerHTML = `
         <button class="btn btn-primary" onclick="window.luisterenNext()">Volgende vraag</button>
-        <button class="btn btn-secondary" onclick="window.luisterenBack()">Terug naar overzicht</button>
     `;
 }
 

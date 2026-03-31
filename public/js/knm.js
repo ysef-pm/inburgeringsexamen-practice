@@ -6,6 +6,7 @@ let currentExam = 'exam1';
 let currentQuestionIndex = 0;
 let selectedOption = null;
 let answered = false;
+let inQuestion = false;
 
 // Category colors for visual grouping
 const categoryColors = {
@@ -21,42 +22,66 @@ export async function init(contentArea) {
     const resp = await fetch('/data/knm-exercises.json');
     exerciseData = await resp.json();
     currentQuestionIndex = 0;
-    renderQuestionList(contentArea);
+    inQuestion = false;
+    showOverviewContent(contentArea);
+    renderSidebar();
+}
+
+export function renderSidebar() {
+    const sidebar = document.getElementById('exam-sidebar');
+    if (!sidebar || !exerciseData) return;
+
+    const exam = exerciseData.exams[currentExam];
+    // Group by category
+    const categories = [...new Set(exam.questions.map(q => q.category))];
+
+    let html = '<h3 style="padding: 10px; margin: 0; border-bottom: 1px solid #ddd;">KNM Vragen</h3>';
+    categories.forEach(cat => {
+        const catQuestions = exam.questions.map((q, i) => ({ ...q, globalIndex: i })).filter(q => q.category === cat);
+        const color = categoryColors[cat] || '#888';
+        html += `<div class="exam-section">
+            <div class="exam-section-title" style="border-left: 3px solid ${color}; padding-left: 8px;">${cat} <span>(${catQuestions.length})</span></div>
+            <ul class="exercise-list">`;
+        catQuestions.forEach(q => {
+            const isActive = inQuestion && currentQuestionIndex === q.globalIndex;
+            const isCompleted = progress.isCompleted(q.id);
+            html += `<li class="exercise-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}"
+                onclick="window.knmStart(${q.globalIndex})">
+                <span>Vraag ${q.globalIndex + 1}</span>
+            </li>`;
+        });
+        html += '</ul></div>';
+    });
+    html += `<div class="back-to-menu" onclick="window.backToMenu()">← Back to Menu</div>`;
+    sidebar.innerHTML = html;
+}
+
+function showOverviewContent(contentArea) {
+    const exam = exerciseData.exams[currentExam];
+    const categories = [...new Set(exam.questions.map(q => q.category))];
+    const done = progress.getCount();
+    contentArea.innerHTML = `
+        <div class="exercise-title">${exam.title}</div>
+        <p class="exercise-instructions">Kennis van de Nederlandse Maatschappij — Kies een vraag in de zijbalk.</p>
+        <div class="category-legend" style="margin: var(--space-md) 0;">
+            ${categories.map(cat => `<span class="cat-badge" style="--cat-color: ${categoryColors[cat] || '#888'}">${cat}</span>`).join('')}
+        </div>
+        <p style="color: var(--text-muted);">${done} / ${exam.questions.length} voltooid</p>
+    `;
 }
 
 export function renderQuestionList(contentArea) {
-    const exam = exerciseData.exams[currentExam];
-    const categories = [...new Set(exam.questions.map(q => q.category))];
-
-    let html = `<div class="exercise-list">
-        <h2 style="font-family: var(--font-display); margin-bottom: var(--space-md);">${exam.title}</h2>
-        <p style="margin-bottom: var(--space-md); color: var(--text-muted);">Kennis van de Nederlandse Maatschappij - ${exam.questions.length} vragen</p>
-        <div class="category-legend">
-            ${categories.map(cat => `<span class="cat-badge" style="--cat-color: ${categoryColors[cat] || '#888'}">${cat}</span>`).join('')}
-        </div>
-        <div class="exercise-grid">`;
-
-    exam.questions.forEach((q, i) => {
-        const done = progress.isCompleted(q.id);
-        html += `<button class="exercise-card ${done ? 'completed' : ''}" onclick="window.knmStart(${i})"
-                    style="border-left: 3px solid ${categoryColors[q.category] || '#888'}">
-            <span class="exercise-num">${i + 1}</span>
-            ${done ? '<span class="check-mark">&#10003;</span>' : ''}
-        </button>`;
-    });
-
-    html += `</div>
-        <div class="progress-summary">
-            <p>${progress.getCount()} / ${exam.questions.length} voltooid</p>
-        </div>
-    </div>`;
-    contentArea.innerHTML = html;
+    inQuestion = false;
+    showOverviewContent(contentArea);
+    renderSidebar();
 }
 
 export function startQuestion(contentArea, questionIndex) {
     currentQuestionIndex = questionIndex;
     selectedOption = null;
     answered = false;
+    inQuestion = true;
+    renderSidebar();
 
     const exam = exerciseData.exams[currentExam];
     const q = exam.questions[questionIndex];
@@ -66,7 +91,6 @@ export function startQuestion(contentArea, questionIndex) {
             <div class="exercise-header">
                 <span class="exercise-label">Vraag ${questionIndex + 1} / ${exam.questions.length}</span>
                 <span class="cat-badge" style="--cat-color: ${categoryColors[q.category] || '#888'}">${q.category}</span>
-                <button class="btn-back" onclick="window.knmBack()">&#8592; Terug</button>
             </div>
             <div class="scenario-block">
                 ${q.image ? `<img src="/images/${q.image}" alt="Scenario" class="scenario-image"
@@ -123,11 +147,11 @@ export function checkAnswer(contentArea) {
     `;
 
     progress.markCompleted(q.id);
+    renderSidebar();
 
     const actionArea = document.getElementById('action-area');
     actionArea.innerHTML = `
         <button class="btn btn-primary" onclick="window.knmNext()">Volgende vraag</button>
-        <button class="btn btn-secondary" onclick="window.knmBack()">Terug naar overzicht</button>
     `;
 }
 

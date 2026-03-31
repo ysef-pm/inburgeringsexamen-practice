@@ -5,49 +5,79 @@ let exerciseData = null;
 let currentPartIndex = 0;
 let currentExerciseIndex = 0;
 let recorder = null;
+let inExercise = false;
 
 export async function init(contentArea) {
     const resp = await fetch('/data/spreken-exercises.json');
     exerciseData = await resp.json();
     currentPartIndex = 0;
     currentExerciseIndex = 0;
-    renderExerciseList(contentArea);
+    inExercise = false;
+    showExerciseContent(contentArea);
+    renderSidebar();
+}
+
+export function getState() {
+    return { exerciseData, currentPartIndex, currentExerciseIndex, inExercise, progress };
+}
+
+export function renderSidebar() {
+    const sidebar = document.getElementById('exam-sidebar');
+    if (!sidebar || !exerciseData) return;
+
+    let html = '<h3 style="padding: 10px; margin: 0; border-bottom: 1px solid #ddd;">Spreken Exercises</h3>';
+    exerciseData.parts.forEach((part, pi) => {
+        html += `<div class="exam-section">
+            <div class="exam-section-title">Deel ${part.partNumber}: ${part.title} <span>(${part.exercises.length})</span></div>
+            <ul class="exercise-list">`;
+        part.exercises.forEach((ex, ei) => {
+            const isActive = inExercise && currentPartIndex === pi && currentExerciseIndex === ei;
+            const isCompleted = progress.isCompleted(ex.id);
+            html += `<li class="exercise-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}"
+                onclick="window.sprekenStart(${pi}, ${ei})">
+                <span>${ei + 1}. Oefening</span>
+            </li>`;
+        });
+        html += '</ul></div>';
+    });
+    html += `<div class="back-to-menu" onclick="window.backToMenu()">← Back to Menu</div>`;
+    sidebar.innerHTML = html;
+}
+
+function showExerciseContent(contentArea) {
+    const parts = exerciseData.parts;
+    let totalDone = 0;
+    let totalExercises = 0;
+    parts.forEach(p => {
+        totalExercises += p.exercises.length;
+        p.exercises.forEach(ex => { if (progress.isCompleted(ex.id)) totalDone++; });
+    });
+
+    contentArea.innerHTML = `
+        <div class="exercise-title">${exerciseData.exam}</div>
+        <p class="exercise-instructions">Kies een oefening in de zijbalk om te beginnen, of klik hieronder.</p>
+        <p style="margin-bottom: var(--space-md); color: var(--text-muted);">${totalDone} / ${totalExercises} voltooid</p>
+    `;
 }
 
 export function renderExerciseList(contentArea) {
-    const parts = exerciseData.parts;
-    let html = `<div class="exercise-list">
-        <h2 style="font-family: var(--font-display); margin-bottom: var(--space-md);">${exerciseData.exam}</h2>`;
-
-    parts.forEach((part, pi) => {
-        html += `<div class="exercise-section">
-            <h3 class="section-title">Deel ${part.partNumber}: ${part.title}</h3>
-            <p class="section-desc">${part.description}</p>
-            <div class="exercise-grid">`;
-        part.exercises.forEach((ex, ei) => {
-            const done = progress.isCompleted(ex.id);
-            html += `<button class="exercise-card ${done ? 'completed' : ''}" onclick="window.sprekenStart(${pi}, ${ei})">
-                <span class="exercise-num">${ei + 1}</span>
-                ${done ? '<span class="check-mark">&#10003;</span>' : ''}
-            </button>`;
-        });
-        html += `</div></div>`;
-    });
-    html += `</div>`;
-    contentArea.innerHTML = html;
+    inExercise = false;
+    showExerciseContent(contentArea);
+    renderSidebar();
 }
 
 export async function startExercise(contentArea, partIndex, exerciseIndex) {
     currentPartIndex = partIndex;
     currentExerciseIndex = exerciseIndex;
+    inExercise = true;
+    renderSidebar();
     const part = exerciseData.parts[partIndex];
     const exercise = part.exercises[exerciseIndex];
 
     contentArea.innerHTML = `
         <div class="spreken-exercise">
             <div class="exercise-header">
-                <span class="exercise-label">Deel ${part.partNumber}: ${part.title}</span>
-                <button class="btn-back" onclick="window.sprekenBack()">&#8592; Terug</button>
+                <span class="exercise-label">Deel ${part.partNumber}: ${part.title} — Oefening ${exerciseIndex + 1}</span>
             </div>
             <div class="exercise-prompt">
                 <p>${exercise.prompt}</p>
@@ -180,10 +210,10 @@ async function stopAndGrade() {
         }
 
         progress.markCompleted(exercise.id);
+        renderSidebar();
         displayGrading(resultArea, gradeData.grading, transcribeData.transcription);
         actionArea.innerHTML = `
             <button class="btn btn-primary" onclick="window.sprekenNext()">Volgende oefening</button>
-            <button class="btn btn-secondary" onclick="window.sprekenBack()">Terug naar overzicht</button>
         `;
     } catch (e) {
         resultArea.innerHTML = `<p class="error">Er ging iets mis: ${e.message}</p>`;

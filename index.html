@@ -2291,7 +2291,7 @@
             }
 
             if (currentMode !== 'schrijven') {
-                sidebar.innerHTML = '<p style="text-align: center; color: #666;">Select a mode to start</p>';
+                // spreken/luisteren/knm handle their own sidebar rendering via modules
                 return;
             }
 
@@ -3244,6 +3244,8 @@
         const originalStartMode = window.startMode;
         window.startMode = function(mode) {
             if (mode === 'spreken' || mode === 'luisteren' || mode === 'knm') {
+                currentMode = mode;
+
                 // Update button states
                 document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
                 document.querySelector(`.mode-btn.${mode}`).classList.add('active');
@@ -3252,7 +3254,13 @@
                 document.getElementById('score-area').classList.add('hidden');
                 document.getElementById('practice-area').classList.remove('hidden');
 
-                const area = getContentArea();
+                // Clear progress bar and counters (not used by these modes)
+                document.getElementById('progress').style.width = '0%';
+                document.getElementById('counter').textContent = '';
+                document.getElementById('question-type').textContent = '';
+                document.getElementById('buttons').innerHTML = '';
+
+                const area = document.getElementById('question-content');
                 if (mode === 'spreken') spreken.init(area);
                 else if (mode === 'luisteren') luisteren.init(area);
                 else if (mode === 'knm') knm.init(area);
