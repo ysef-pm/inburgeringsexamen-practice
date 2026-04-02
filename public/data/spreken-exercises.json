@@ -1,101 +1,307 @@
 {
-    "exam": "Spreken Oefenexamen 1",
-    "parts": [
-        {
-            "partNumber": 1,
-            "title": "Vragen beantwoorden",
-            "description": "Beantwoord de vraag. Je hebt 20 seconden.",
-            "prepTime": 10,
-            "responseTime": 20,
-            "exercises": [
+    "exams": {
+        "exam1": {
+            "title": "Spreken Oefenexamen 1",
+            "parts": [
                 {
-                    "id": "s1-p1-q1",
-                    "prompt": "Iemand vraagt: 'Waar woont u?' Beantwoord de vraag.",
-                    "images": [],
-                    "tipText": "Zeg waar u woont. Noem de stad of het dorp."
+                    "partNumber": 1,
+                    "title": "Vragen beantwoorden",
+                    "description": "Beantwoord de vraag. Je hebt 20 seconden.",
+                    "prepTime": 10,
+                    "responseTime": 20,
+                    "exercises": [
+                        {
+                            "id": "s1-p1-q1",
+                            "prompt": "Veel Nederlanders eten om 18.00 uur 's avonds. Wat vindt u daarvan?",
+                            "images": [],
+                            "tipText": "Vertel wat u ervan vindt. Zeg ook hoe laat u zelf eet."
+                        },
+                        {
+                            "id": "s1-p1-q2",
+                            "prompt": "Naar welke muziek luistert u graag? Zeg ook hoe vaak u daar naar luistert.",
+                            "images": [],
+                            "tipText": "Noem het soort muziek en vertel hoe vaak u luistert."
+                        },
+                        {
+                            "id": "s1-p1-q3",
+                            "prompt": "Wat vindt u van het weer in Nederland? Vertel ook hoe het weer is in uw eigen land.",
+                            "images": [],
+                            "tipText": "Vergelijk het weer in Nederland met het weer in uw land."
+                        },
+                        {
+                            "id": "s1-p1-q4",
+                            "prompt": "Ik wandel vaak naar mijn werk. Wat vindt u van wandelen?",
+                            "images": [],
+                            "tipText": "Vertel of u van wandelen houdt en waarom."
+                        }
+                    ]
                 },
                 {
-                    "id": "s1-p1-q2",
-                    "prompt": "Iemand vraagt: 'Wat doet u in het weekend?' Beantwoord de vraag.",
-                    "images": [],
-                    "tipText": "Vertel wat u in het weekend doet. Noem minstens twee dingen."
+                    "partNumber": 2,
+                    "title": "Eén afbeelding beschrijven",
+                    "description": "Bekijk de afbeelding en beschrijf wat je ziet. Je hebt 60 seconden.",
+                    "prepTime": 25,
+                    "responseTime": 60,
+                    "exercises": [
+                        {
+                            "id": "s1-p2-q1",
+                            "prompt": "Bekijk de afbeelding. Beschrijf wat je ziet. Wat doen de mensen? Waar zijn ze?",
+                            "images": ["spreken/markt.jpg"],
+                            "tipText": "Beschrijf de markt. Wat kun je kopen? Hoeveel mensen zijn er? Wat is het weer?"
+                        },
+                        {
+                            "id": "s1-p2-q2",
+                            "prompt": "Bekijk de afbeelding. Beschrijf wat je ziet. Wat gebeurt er?",
+                            "images": ["spreken/park.jpg"],
+                            "tipText": "Beschrijf het park. Wat doen de mensen? Zijn er kinderen? Dieren?"
+                        }
+                    ]
                 },
                 {
-                    "id": "s1-p1-q3",
-                    "prompt": "Iemand vraagt: 'Hoe gaat u naar uw werk of school?' Beantwoord de vraag.",
-                    "images": [],
-                    "tipText": "Vertel hoe u reist. Met de bus, fiets, auto, of te voet?"
+                    "partNumber": 3,
+                    "title": "Twee afbeeldingen vergelijken",
+                    "description": "Bekijk de twee afbeeldingen. Vergelijk ze. Wat is hetzelfde? Wat is anders? Je hebt 60 seconden.",
+                    "prepTime": 25,
+                    "responseTime": 60,
+                    "exercises": [
+                        {
+                            "id": "s1-p3-q1",
+                            "prompt": "Bekijk de twee afbeeldingen. De ene toont een drukke stad, de andere een rustig dorp. Vergelijk de twee plekken. Wat is hetzelfde? Wat is anders?",
+                            "images": ["spreken/stad.jpg", "spreken/dorp.jpg"],
+                            "tipText": "Vergelijk stad en dorp. Denk aan: mensen, gebouwen, verkeer, natuur."
+                        },
+                        {
+                            "id": "s1-p3-q2",
+                            "prompt": "Bekijk de twee afbeeldingen. De ene toont een zomer dag, de andere een winter dag. Vergelijk de twee. Wat is hetzelfde? Wat is anders?",
+                            "images": ["spreken/zomer.jpg", "spreken/winter.jpg"],
+                            "tipText": "Vergelijk de seizoenen. Denk aan: weer, kleding, activiteiten."
+                        }
+                    ]
                 },
                 {
-                    "id": "s1-p1-q4",
-                    "prompt": "Iemand vraagt: 'Heeft u broers of zussen?' Beantwoord de vraag.",
-                    "images": [],
-                    "tipText": "Vertel over uw familie. Hoeveel broers en zussen heeft u?"
+                    "partNumber": 4,
+                    "title": "Een verhaal vertellen",
+                    "description": "Bekijk de drie afbeeldingen. Vertel een verhaal. Wat gebeurt er? Je hebt 60 seconden.",
+                    "prepTime": 25,
+                    "responseTime": 60,
+                    "exercises": [
+                        {
+                            "id": "s1-p4-q1",
+                            "prompt": "Bekijk de drie afbeeldingen. Vertel een verhaal over wat er gebeurt. Gebruik de afbeeldingen in de juiste volgorde.",
+                            "images": ["spreken/story1-a.jpg", "spreken/story1-b.jpg", "spreken/story1-c.jpg"],
+                            "tipText": "Afbeelding 1: Een man kijkt naar zijn fiets. Afbeelding 2: De band is lek. Afbeelding 3: Hij repareert de fiets. Vertel het verhaal."
+                        },
+                        {
+                            "id": "s1-p4-q2",
+                            "prompt": "Bekijk de drie afbeeldingen. Vertel een verhaal over wat er gebeurt.",
+                            "images": ["spreken/story2-a.jpg", "spreken/story2-b.jpg", "spreken/story2-c.jpg"],
+                            "tipText": "Afbeelding 1: Een vrouw gaat naar de supermarkt. Afbeelding 2: Ze doet boodschappen. Afbeelding 3: Ze kookt thuis. Vertel het verhaal."
+                        }
+                    ]
                 }
             ]
         },
-        {
-            "partNumber": 2,
-            "title": "Eén afbeelding beschrijven",
-            "description": "Bekijk de afbeelding en beschrijf wat je ziet. Je hebt 60 seconden.",
-            "prepTime": 25,
-            "responseTime": 60,
-            "exercises": [
+        "exam2": {
+            "title": "Spreken Oefenexamen 2",
+            "parts": [
                 {
-                    "id": "s1-p2-q1",
-                    "prompt": "Bekijk de afbeelding. Beschrijf wat je ziet. Wat doen de mensen? Waar zijn ze?",
-                    "images": ["spreken/markt.jpg"],
-                    "tipText": "Beschrijf de markt. Wat kun je kopen? Hoeveel mensen zijn er? Wat is het weer?"
+                    "partNumber": 1,
+                    "title": "Vragen beantwoorden",
+                    "description": "Beantwoord de vraag. Je hebt 20 seconden.",
+                    "prepTime": 10,
+                    "responseTime": 20,
+                    "exercises": [
+                        {
+                            "id": "s2-p1-q1",
+                            "prompt": "Wat voor eten eet u het liefst? Vertel ook waarom.",
+                            "images": [],
+                            "tipText": "Noem uw favoriete eten en leg uit waarom u dat lekker vindt."
+                        },
+                        {
+                            "id": "s2-p1-q2",
+                            "prompt": "Wat doet u graag in uw vrije tijd? Vertel ook hoe vaak u dat doet.",
+                            "images": [],
+                            "tipText": "Noem een hobby of activiteit en zeg hoe vaak u dat doet."
+                        },
+                        {
+                            "id": "s2-p1-q3",
+                            "prompt": "In Nederland sneeuwt het soms. Wat vindt u daarvan?",
+                            "images": [],
+                            "tipText": "Vertel of u sneeuw leuk vindt. Vergelijk met uw eigen land."
+                        },
+                        {
+                            "id": "s2-p1-q4",
+                            "prompt": "Ik krijg graag een cd op mijn verjaardag. Welk cadeau krijgt u het liefst?",
+                            "images": [],
+                            "tipText": "Vertel welk cadeau u het liefst krijgt en waarom."
+                        }
+                    ]
                 },
                 {
-                    "id": "s1-p2-q2",
-                    "prompt": "Bekijk de afbeelding. Beschrijf wat je ziet. Wat gebeurt er?",
-                    "images": ["spreken/park.jpg"],
-                    "tipText": "Beschrijf het park. Wat doen de mensen? Zijn er kinderen? Dieren?"
+                    "partNumber": 2,
+                    "title": "Eén afbeelding beschrijven",
+                    "description": "Bekijk de afbeelding en beschrijf wat je ziet. Je hebt 60 seconden.",
+                    "prepTime": 25,
+                    "responseTime": 60,
+                    "exercises": [
+                        {
+                            "id": "s2-p2-q1",
+                            "prompt": "Bekijk de afbeelding. Beschrijf wat je ziet. Wat doen de mensen? Wat eten of drinken ze?",
+                            "images": ["spreken/restaurant.jpg"],
+                            "tipText": "Beschrijf het restaurant. Hoeveel mensen zijn er? Wat staat er op tafel? Wat is de sfeer?"
+                        },
+                        {
+                            "id": "s2-p2-q2",
+                            "prompt": "Bekijk de afbeelding. Beschrijf wat je ziet. Wat doen de kinderen? Wat doet de juf of meester?",
+                            "images": ["spreken/klas.jpg"],
+                            "tipText": "Beschrijf het klaslokaal. Hoeveel kinderen zijn er? Wat leren ze? Wat hangt aan de muur?"
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 3,
+                    "title": "Twee afbeeldingen vergelijken",
+                    "description": "Bekijk de twee afbeeldingen. Vergelijk ze. Wat is hetzelfde? Wat is anders? Je hebt 60 seconden.",
+                    "prepTime": 25,
+                    "responseTime": 60,
+                    "exercises": [
+                        {
+                            "id": "s2-p3-q1",
+                            "prompt": "Bekijk de twee afbeeldingen. De ene toont werken op kantoor, de andere werken thuis. Waar werkt u liever? Waarom?",
+                            "images": ["spreken/kantoor.jpg", "spreken/thuiswerken.jpg"],
+                            "tipText": "Vergelijk kantoor en thuiswerken. Denk aan: collega's, reistijd, rust, concentratie."
+                        },
+                        {
+                            "id": "s2-p3-q2",
+                            "prompt": "Bekijk de twee afbeeldingen. De ene toont thuis koken, de andere uit eten gaan. Wat doet u liever? Waarom?",
+                            "images": ["spreken/thuis-koken.jpg", "spreken/uit-eten.jpg"],
+                            "tipText": "Vergelijk thuis koken en uit eten. Denk aan: kosten, gezelligheid, gezondheid, tijd."
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 4,
+                    "title": "Een verhaal vertellen",
+                    "description": "Bekijk de drie afbeeldingen. Vertel een verhaal. Wat gebeurt er? Je hebt 60 seconden.",
+                    "prepTime": 25,
+                    "responseTime": 60,
+                    "exercises": [
+                        {
+                            "id": "s2-p4-q1",
+                            "prompt": "Bekijk de drie afbeeldingen. Vertel een verhaal over wat er gebeurt. Gebruik de afbeeldingen in de juiste volgorde.",
+                            "images": ["spreken/story3-a.jpg", "spreken/story3-b.jpg", "spreken/story3-c.jpg"],
+                            "tipText": "Afbeelding 1: Een man voelt zich ziek. Afbeelding 2: Hij gaat naar de dokter. Afbeelding 3: Hij haalt medicijnen bij de apotheek. Vertel het verhaal."
+                        },
+                        {
+                            "id": "s2-p4-q2",
+                            "prompt": "Bekijk de drie afbeeldingen. Vertel een verhaal over wat er gebeurt.",
+                            "images": ["spreken/story4-a.jpg", "spreken/story4-b.jpg", "spreken/story4-c.jpg"],
+                            "tipText": "Afbeelding 1: Een gezin pakt dozen in. Afbeelding 2: Een verhuiswagen staat voor het huis. Afbeelding 3: Ze zijn in hun nieuwe huis. Vertel het verhaal."
+                        }
+                    ]
                 }
             ]
         },
-        {
-            "partNumber": 3,
-            "title": "Twee afbeeldingen vergelijken",
-            "description": "Bekijk de twee afbeeldingen. Vergelijk ze. Wat is hetzelfde? Wat is anders? Je hebt 60 seconden.",
-            "prepTime": 25,
-            "responseTime": 60,
-            "exercises": [
+        "exam3": {
+            "title": "Spreken Oefenexamen 3",
+            "parts": [
                 {
-                    "id": "s1-p3-q1",
-                    "prompt": "Bekijk de twee afbeeldingen. De ene toont een drukke stad, de andere een rustig dorp. Vergelijk de twee plekken. Wat is hetzelfde? Wat is anders?",
-                    "images": ["spreken/stad.jpg", "spreken/dorp.jpg"],
-                    "tipText": "Vergelijk stad en dorp. Denk aan: mensen, gebouwen, verkeer, natuur."
+                    "partNumber": 1,
+                    "title": "Vragen beantwoorden",
+                    "description": "Beantwoord de vraag. Je hebt 20 seconden.",
+                    "prepTime": 10,
+                    "responseTime": 20,
+                    "exercises": [
+                        {
+                            "id": "s3-p1-q1",
+                            "prompt": "Wat voor hobby's heeft u nu? Vertel ook wat voor hobby's u vroeger had.",
+                            "images": [],
+                            "tipText": "Noem uw hobby's nu en vergelijk met vroeger."
+                        },
+                        {
+                            "id": "s3-p1-q2",
+                            "prompt": "Hoe vaak gebruikt u een computer? Vertel ook waarvoor u de computer gebruikt.",
+                            "images": [],
+                            "tipText": "Zeg hoe vaak u de computer gebruikt en waarvoor."
+                        },
+                        {
+                            "id": "s3-p1-q3",
+                            "prompt": "In Nederland geven mensen elkaar met Sinterklaas cadeautjes. Wat vindt u daarvan?",
+                            "images": [],
+                            "tipText": "Vertel wat u van Sinterklaas vindt. Heeft uw land een vergelijkbaar feest?"
+                        },
+                        {
+                            "id": "s3-p1-q4",
+                            "prompt": "Reist u liever met de trein of de auto? Vertel ook waarom.",
+                            "images": [],
+                            "tipText": "Kies trein of auto en leg uit waarom u dat liever doet."
+                        }
+                    ]
                 },
                 {
-                    "id": "s1-p3-q2",
-                    "prompt": "Bekijk de twee afbeeldingen. De ene toont een zomer dag, de andere een winter dag. Vergelijk de twee. Wat is hetzelfde? Wat is anders?",
-                    "images": ["spreken/zomer.jpg", "spreken/winter.jpg"],
-                    "tipText": "Vergelijk de seizoenen. Denk aan: weer, kleding, activiteiten."
-                }
-            ]
-        },
-        {
-            "partNumber": 4,
-            "title": "Een verhaal vertellen",
-            "description": "Bekijk de drie afbeeldingen. Vertel een verhaal. Wat gebeurt er? Je hebt 60 seconden.",
-            "prepTime": 25,
-            "responseTime": 60,
-            "exercises": [
-                {
-                    "id": "s1-p4-q1",
-                    "prompt": "Bekijk de drie afbeeldingen. Vertel een verhaal over wat er gebeurt. Gebruik de afbeeldingen in de juiste volgorde.",
-                    "images": ["spreken/story1-a.jpg", "spreken/story1-b.jpg", "spreken/story1-c.jpg"],
-                    "tipText": "Afbeelding 1: Een man kijkt naar zijn fiets. Afbeelding 2: De band is lek. Afbeelding 3: Hij repareert de fiets. Vertel het verhaal."
+                    "partNumber": 2,
+                    "title": "Eén afbeelding beschrijven",
+                    "description": "Bekijk de afbeelding en beschrijf wat je ziet. Je hebt 60 seconden.",
+                    "prepTime": 25,
+                    "responseTime": 60,
+                    "exercises": [
+                        {
+                            "id": "s3-p2-q1",
+                            "prompt": "Bekijk de afbeelding. U bent in een supermarkt. Beschrijf wat je ziet. Wat kunt u kopen?",
+                            "images": ["spreken/supermarkt.jpg"],
+                            "tipText": "Beschrijf de supermarkt. Welke producten ziet u? Hoeveel mensen zijn er? Wat koopt u zelf vaak?"
+                        },
+                        {
+                            "id": "s3-p2-q2",
+                            "prompt": "Bekijk de afbeelding. Beschrijf wat je ziet. Wat doen de mensen op het station?",
+                            "images": ["spreken/station.jpg"],
+                            "tipText": "Beschrijf het station. Waar wachten de mensen? Is het druk? Waar gaan ze naartoe?"
+                        }
+                    ]
                 },
                 {
-                    "id": "s1-p4-q2",
-                    "prompt": "Bekijk de drie afbeeldingen. Vertel een verhaal over wat er gebeurt.",
-                    "images": ["spreken/story2-a.jpg", "spreken/story2-b.jpg", "spreken/story2-c.jpg"],
-                    "tipText": "Afbeelding 1: Een vrouw gaat naar de supermarkt. Afbeelding 2: Ze doet boodschappen. Afbeelding 3: Ze kookt thuis. Vertel het verhaal."
+                    "partNumber": 3,
+                    "title": "Twee afbeeldingen vergelijken",
+                    "description": "Bekijk de twee afbeeldingen. Vergelijk ze. Wat is hetzelfde? Wat is anders? Je hebt 60 seconden.",
+                    "prepTime": 25,
+                    "responseTime": 60,
+                    "exercises": [
+                        {
+                            "id": "s3-p3-q1",
+                            "prompt": "Bekijk de twee afbeeldingen. De ene toont fietsen naar werk, de andere met de auto naar werk. Hoe gaat u het liefst naar uw werk? Waarom?",
+                            "images": ["spreken/fietsen.jpg", "spreken/autorijden.jpg"],
+                            "tipText": "Vergelijk fietsen en autorijden. Denk aan: gezondheid, snelheid, kosten, milieu."
+                        },
+                        {
+                            "id": "s3-p3-q2",
+                            "prompt": "Bekijk de twee afbeeldingen. De ene toont een groot huis met een tuin, de andere een klein appartement in de stad. Waar woont u liever? Waarom?",
+                            "images": ["spreken/huis-tuin.jpg", "spreken/appartement.jpg"],
+                            "tipText": "Vergelijk een huis met tuin en een appartement. Denk aan: ruimte, locatie, kosten, buren."
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 4,
+                    "title": "Een verhaal vertellen",
+                    "description": "Bekijk de drie afbeeldingen. Vertel een verhaal. Wat gebeurt er? Je hebt 60 seconden.",
+                    "prepTime": 25,
+                    "responseTime": 60,
+                    "exercises": [
+                        {
+                            "id": "s3-p4-q1",
+                            "prompt": "Bekijk de drie afbeeldingen. Vertel een verhaal over wat er gebeurt.",
+                            "images": ["spreken/story5-a.jpg", "spreken/story5-b.jpg", "spreken/story5-c.jpg"],
+                            "tipText": "Afbeelding 1: Een vrouw ziet een bord 'open dag' bij een school. Afbeelding 2: Ze praat met een leraar in een klaslokaal. Afbeelding 3: Ze schrijft haar kind in. Vertel het verhaal."
+                        },
+                        {
+                            "id": "s3-p4-q2",
+                            "prompt": "Bekijk de drie afbeeldingen. Vertel een verhaal over wat er gebeurt.",
+                            "images": ["spreken/story6-a.jpg", "spreken/story6-b.jpg", "spreken/story6-c.jpg"],
+                            "tipText": "Afbeelding 1: Een man kookt in de keuken. Afbeelding 2: Vrienden komen aan de deur. Afbeelding 3: Ze eten samen aan tafel. Vertel het verhaal."
+                        }
+                    ]
                 }
             ]
         }
-    ]
+    }
 }

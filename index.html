@@ -3206,6 +3206,7 @@
         window.sprekenRecord = () => spreken.startRecording();
         window.sprekenStopEarly = () => spreken.stopEarly();
         window.sprekenNext = () => spreken.nextExercise(getContentArea());
+        window.sprekenSwitchExam = (examKey) => spreken.switchExam(examKey, getContentArea());
 
         // Luisteren global bindings
         window.luisterenStart = (i) => luisteren.startQuestion(getContentArea(), i);
@@ -3213,6 +3214,7 @@
         window.luisterenSelect = (i) => luisteren.selectOption(i);
         window.luisterenCheck = () => luisteren.checkAnswer(getContentArea());
         window.luisterenNext = () => luisteren.nextQuestion(getContentArea());
+        window.luisterenSwitchExam = (examKey) => luisteren.switchExam(examKey, getContentArea());
 
         // KNM global bindings
         window.knmStart = (i) => knm.startQuestion(getContentArea(), i);

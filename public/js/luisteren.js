@@ -17,12 +17,31 @@ export async function init(contentArea) {
     renderSidebar();
 }
 
+export function switchExam(examKey, contentArea) {
+    currentExam = examKey;
+    currentQuestionIndex = 0;
+    selectedOption = null;
+    answered = false;
+    inQuestion = false;
+    showOverviewContent(contentArea);
+    renderSidebar();
+}
+
 export function renderSidebar() {
     const sidebar = document.getElementById('exam-sidebar');
     if (!sidebar || !exerciseData) return;
 
     const exam = exerciseData.exams[currentExam];
+    const examKeys = Object.keys(exerciseData.exams);
     let html = '<h3 style="padding: 10px; margin: 0; border-bottom: 1px solid #ddd;">Luisteren Vragen</h3>';
+    if (examKeys.length > 1) {
+        html += `<div style="padding: 10px; border-bottom: 1px solid #ddd;">
+            <select style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px;"
+                onchange="window.luisterenSwitchExam(this.value)">
+                ${examKeys.map(k => `<option value="${k}" ${k === currentExam ? 'selected' : ''}>${exerciseData.exams[k].title}</option>`).join('')}
+            </select>
+        </div>`;
+    }
     html += `<div class="exam-section">
         <div class="exam-section-title">${exam.title} <span>(${exam.questions.length})</span></div>
         <ul class="exercise-list">`;

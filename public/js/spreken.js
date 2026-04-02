@@ -2,6 +2,7 @@ import { CountdownTimer, AudioRecorder, ProgressTracker } from './shared.js';
 
 const progress = new ProgressTracker('spreken');
 let exerciseData = null;
+let currentExam = 'exam1';
 let currentPartIndex = 0;
 let currentExerciseIndex = 0;
 let recorder = null;
@@ -17,16 +18,39 @@ export async function init(contentArea) {
     renderSidebar();
 }
 
+export function switchExam(examKey, contentArea) {
+    currentExam = examKey;
+    currentPartIndex = 0;
+    currentExerciseIndex = 0;
+    inExercise = false;
+    showExerciseContent(contentArea);
+    renderSidebar();
+}
+
 export function getState() {
     return { exerciseData, currentPartIndex, currentExerciseIndex, inExercise, progress };
+}
+
+function getExam() {
+    return exerciseData.exams[currentExam];
 }
 
 export function renderSidebar() {
     const sidebar = document.getElementById('exam-sidebar');
     if (!sidebar || !exerciseData) return;
 
+    const examKeys = Object.keys(exerciseData.exams);
     let html = '<h3 style="padding: 10px; margin: 0; border-bottom: 1px solid #ddd;">Spreken Exercises</h3>';
-    exerciseData.parts.forEach((part, pi) => {
+    if (examKeys.length > 1) {
+        html += `<div style="padding: 10px; border-bottom: 1px solid #ddd;">
+            <select style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px;"
+                onchange="window.sprekenSwitchExam(this.value)">
+                ${examKeys.map(k => `<option value="${k}" ${k === currentExam ? 'selected' : ''}>${exerciseData.exams[k].title}</option>`).join('')}
+            </select>
+        </div>`;
+    }
+    const exam = getExam();
+    exam.parts.forEach((part, pi) => {
         html += `<div class="exam-section">
             <div class="exam-section-title">Deel ${part.partNumber}: ${part.title} <span>(${part.exercises.length})</span></div>
             <ul class="exercise-list">`;
@@ -45,7 +69,7 @@ export function renderSidebar() {
 }
 
 function showExerciseContent(contentArea) {
-    const parts = exerciseData.parts;
+    const parts = getExam().parts;
     let totalDone = 0;
     let totalExercises = 0;
     parts.forEach(p => {
@@ -54,7 +78,7 @@ function showExerciseContent(contentArea) {
     });
 
     contentArea.innerHTML = `
-        <div class="exercise-title">${exerciseData.exam}</div>
+        <div class="exercise-title">${getExam().title}</div>
         <p class="exercise-instructions">Kies een oefening in de zijbalk om te beginnen, of klik hieronder.</p>
         <p style="margin-bottom: var(--space-md); color: var(--text-muted);">${totalDone} / ${totalExercises} voltooid</p>
     `;
@@ -71,7 +95,7 @@ export async function startExercise(contentArea, partIndex, exerciseIndex) {
     currentExerciseIndex = exerciseIndex;
     inExercise = true;
     renderSidebar();
-    const part = exerciseData.parts[partIndex];
+    const part = getExam().parts[partIndex];
     const exercise = part.exercises[exerciseIndex];
 
     contentArea.innerHTML = `
@@ -117,7 +141,7 @@ export async function startExercise(contentArea, partIndex, exerciseIndex) {
 }
 
 export async function startRecording() {
-    const part = exerciseData.parts[currentPartIndex];
+    const part = getExam().parts[currentPartIndex];
     const exercise = part.exercises[currentExerciseIndex];
 
     const recorderArea = document.getElementById('recorder-area');
@@ -190,7 +214,7 @@ async function stopAndGrade() {
             </div>`;
 
         // Grade
-        const part = exerciseData.parts[currentPartIndex];
+        const part = getExam().parts[currentPartIndex];
         const exercise = part.exercises[currentExerciseIndex];
 
         const gradeResp = await fetch('/api/grade-speaking', {
@@ -277,10 +301,10 @@ function displayGrading(container, grading, transcription) {
 }
 
 export function nextExercise(contentArea) {
-    const part = exerciseData.parts[currentPartIndex];
+    const part = getExam().parts[currentPartIndex];
     if (currentExerciseIndex < part.exercises.length - 1) {
         startExercise(contentArea, currentPartIndex, currentExerciseIndex + 1);
-    } else if (currentPartIndex < exerciseData.parts.length - 1) {
+    } else if (currentPartIndex < getExam().parts.length - 1) {
         startExercise(contentArea, currentPartIndex + 1, 0);
     } else {
         renderExerciseList(contentArea);

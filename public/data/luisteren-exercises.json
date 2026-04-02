@@ -104,6 +104,216 @@
                     "explanation": "Het bericht zegt: 'Van maandag tot en met zaterdag.' Op zondag gesloten."
                 }
             ]
+        },
+        "exam2": {
+            "title": "Luisteren Oefenexamen 2",
+            "questions": [
+                {
+                    "id": "l2-q1",
+                    "questionText": "Waarom belt de vrouw?",
+                    "audioFile": "luisteren/exam2/q1.mp3",
+                    "transcript": "Vrouw: Goedemiddag, ik bel om een afspraak te maken bij de huisarts.\nReceptionist: Wanneer wilt u komen?\nVrouw: Kan het morgenochtend? Ik heb al drie dagen hoofdpijn.\nReceptionist: Morgen om negen uur kan. Neemt u uw verzekeringspas mee.",
+                    "readingTime": 5,
+                    "options": ["Ze wil een recept ophalen", "Ze wil een afspraak maken bij de huisarts", "Ze wil een specialist bezoeken"],
+                    "correctAnswer": 1,
+                    "explanation": "De vrouw zegt: 'Ik bel om een afspraak te maken bij de huisarts.'"
+                },
+                {
+                    "id": "l2-q2",
+                    "questionText": "Wat is het probleem met het pakket?",
+                    "audioFile": "luisteren/exam2/q2.mp3",
+                    "transcript": "Man: Ik heb vorige week een pakket besteld, maar het is nog niet aangekomen.\nVrouw: Wat is uw bestelnummer?\nMan: Eendrievier-zevenacht.\nVrouw: Ik zie het. Uw pakket is onderweg. Het komt morgen.",
+                    "readingTime": 5,
+                    "options": ["Het pakket is kapot", "Het pakket is nog niet aangekomen", "Het pakket is te duur"],
+                    "correctAnswer": 1,
+                    "explanation": "De man zegt: 'Het is nog niet aangekomen.'"
+                },
+                {
+                    "id": "l2-q3",
+                    "questionText": "Waar gaat het gesprek over?",
+                    "audioFile": "luisteren/exam2/q3.mp3",
+                    "transcript": "Leraar: Volgende week hebben we een excursie naar het museum.\nLeerling: Leuk! Hoe laat moeten we er zijn?\nLeraar: Om tien uur. We gaan met de bus. Vergeet niet om eten en drinken mee te nemen.\nLeerling: Moet ik geld meenemen?\nLeraar: Nee, de school betaalt alles.",
+                    "readingTime": 5,
+                    "options": ["Een feest op school", "Een excursie naar het museum", "Een sportdag"],
+                    "correctAnswer": 1,
+                    "explanation": "De leraar zegt: 'Volgende week hebben we een excursie naar het museum.'"
+                },
+                {
+                    "id": "l2-q4",
+                    "questionText": "Hoe laat vertrekt de trein?",
+                    "audioFile": "luisteren/exam2/q4.mp3",
+                    "transcript": "Reizigers, let op. De trein naar Amsterdam Centraal van kwart over elf vertrekt vandaag vijf minuten later, om twintig over elf, vanaf spoor drie. Wij bieden onze excuses aan voor het ongemak.",
+                    "readingTime": 5,
+                    "options": ["Om kwart over elf", "Om twintig over elf", "Om half twaalf"],
+                    "correctAnswer": 1,
+                    "explanation": "De trein vertrekt vijf minuten later, dus om twintig over elf."
+                },
+                {
+                    "id": "l2-q5",
+                    "questionText": "Wat wil de man bestellen?",
+                    "audioFile": "luisteren/exam2/q5.mp3",
+                    "transcript": "Vrouw: Goedemiddag, wat mag het zijn?\nMan: Ik wil graag een broodje kaas en een kop koffie.\nVrouw: Met melk en suiker?\nMan: Alleen melk, geen suiker alstublieft.\nVrouw: Dat is dan vier euro vijftig.",
+                    "readingTime": 5,
+                    "options": ["Een broodje ham en thee", "Een broodje kaas en koffie", "Alleen een kop koffie"],
+                    "correctAnswer": 1,
+                    "explanation": "De man zegt: 'Ik wil graag een broodje kaas en een kop koffie.'"
+                },
+                {
+                    "id": "l2-q6",
+                    "questionText": "Wanneer is de verjaardag?",
+                    "audioFile": "luisteren/exam2/q6.mp3",
+                    "transcript": "Vrouw: Hoi, ik bel even om te zeggen dat we zaterdag een verjaardagsfeest hebben voor Sanne.\nMan: Leuk! Hoe laat?\nVrouw: Om drie uur 's middags. Bij ons thuis. Kun je een salade meenemen?\nMan: Ja, natuurlijk. Tot zaterdag!",
+                    "readingTime": 5,
+                    "options": ["Vrijdag", "Zaterdag", "Zondag"],
+                    "correctAnswer": 1,
+                    "explanation": "De vrouw zegt: 'Zaterdag hebben we een verjaardagsfeest.'"
+                },
+                {
+                    "id": "l2-q7",
+                    "questionText": "Wat moet de vrouw doen voor haar nieuwe baan?",
+                    "audioFile": "luisteren/exam2/q7.mp3",
+                    "transcript": "Man: Gefeliciteerd met je nieuwe baan! Wanneer begin je?\nVrouw: Volgende week maandag. Maar ik moet eerst nog een paar formulieren invullen en een kopie van mijn diploma opsturen.\nMan: Dat klinkt goed. Veel succes!",
+                    "readingTime": 5,
+                    "options": ["Een cursus volgen", "Formulieren invullen en diploma opsturen", "Naar een sollicitatiegesprek gaan"],
+                    "correctAnswer": 1,
+                    "explanation": "De vrouw zegt: 'Ik moet eerst formulieren invullen en een kopie van mijn diploma opsturen.'"
+                },
+                {
+                    "id": "l2-q8",
+                    "questionText": "Wat is er met de buurman?",
+                    "audioFile": "luisteren/exam2/q8.mp3",
+                    "transcript": "Vrouw: Heb je gehoord? Meneer Jansen van hiernaast is gevallen op straat.\nMan: Oh nee! Is het erg?\nVrouw: Hij heeft zijn been gebroken. Hij ligt nu in het ziekenhuis.\nMan: Zullen we bloemen voor hem kopen?\nVrouw: Goed idee.",
+                    "readingTime": 5,
+                    "options": ["Hij is verhuisd", "Hij heeft zijn been gebroken", "Hij is met vakantie"],
+                    "correctAnswer": 1,
+                    "explanation": "De vrouw zegt: 'Hij heeft zijn been gebroken.'"
+                },
+                {
+                    "id": "l2-q9",
+                    "questionText": "Wat moet de man vanavond doen?",
+                    "audioFile": "luisteren/exam2/q9.mp3",
+                    "transcript": "Vrouw: Vergeet niet dat je vanavond de kinderen van school moet halen.\nMan: Hoe laat is de school uit?\nVrouw: Om half vier. En daarna moeten ze naar zwemles om vier uur.\nMan: Oké, ik haal ze op en breng ze naar het zwembad.",
+                    "readingTime": 5,
+                    "options": ["Boodschappen doen", "De kinderen ophalen en naar zwemles brengen", "Naar een vergadering gaan"],
+                    "correctAnswer": 1,
+                    "explanation": "De vrouw zegt dat hij de kinderen moet ophalen en ze naar zwemles moet brengen."
+                },
+                {
+                    "id": "l2-q10",
+                    "questionText": "Waarom kan de bibliotheek niet open?",
+                    "audioFile": "luisteren/exam2/q10.mp3",
+                    "transcript": "Beste bezoekers, de bibliotheek is vandaag gesloten wegens een waterleidingbreuk. Morgen zijn we weer open vanaf negen uur. Boeken die vandaag teruggebracht moeten worden, kunt u in de brievenbus bij de ingang doen. Excuses voor het ongemak.",
+                    "readingTime": 5,
+                    "options": ["Het is een feestdag", "Er is een waterleidingbreuk", "Er is verbouwing"],
+                    "correctAnswer": 1,
+                    "explanation": "Het bericht zegt: 'De bibliotheek is gesloten wegens een waterleidingbreuk.'"
+                }
+            ]
+        },
+        "exam3": {
+            "title": "Luisteren Oefenexamen 3",
+            "questions": [
+                {
+                    "id": "l3-q1",
+                    "questionText": "Wat wil de man weten?",
+                    "audioFile": "luisteren/exam3/q1.mp3",
+                    "transcript": "Man: Goedemorgen, ik ben nieuw in deze buurt. Kunt u mij vertellen waar de dichtstbijzijnde huisarts is?\nVrouw: Ja hoor, er is een huisartspraktijk aan de Hoofdstraat, naast de apotheek.\nMan: Dank u wel. Zijn ze ook op zaterdag open?\nVrouw: Nee, alleen doordeweeks.",
+                    "readingTime": 5,
+                    "options": ["Waar de apotheek is", "Waar de dichtstbijzijnde huisarts is", "Wanneer de winkels open zijn"],
+                    "correctAnswer": 1,
+                    "explanation": "De man vraagt: 'Kunt u mij vertellen waar de dichtstbijzijnde huisarts is?'"
+                },
+                {
+                    "id": "l3-q2",
+                    "questionText": "Hoeveel kost de cursus?",
+                    "audioFile": "luisteren/exam3/q2.mp3",
+                    "transcript": "Vrouw: Ik wil me graag inschrijven voor de zwemcursus.\nMan: De cursus is op dinsdag en donderdag van zes tot zeven uur. Het kost vijfenveertig euro per maand.\nVrouw: Oké, en moet ik zelf een badpak meenemen?\nMan: Ja, en ook een handdoek.",
+                    "readingTime": 5,
+                    "options": ["Vijfendertig euro per maand", "Vijfenveertig euro per maand", "Vijfenvijftig euro per maand"],
+                    "correctAnswer": 1,
+                    "explanation": "De man zegt: 'Het kost vijfenveertig euro per maand.'"
+                },
+                {
+                    "id": "l3-q3",
+                    "questionText": "Waarom kan de vrouw niet naar het feest?",
+                    "audioFile": "luisteren/exam3/q3.mp3",
+                    "transcript": "Man: We geven vrijdagavond een feest. Kun je komen?\nVrouw: Vrijdag kan ik helaas niet. Ik moet oppassen op de kinderen van mijn zus.\nMan: Jammer! Misschien een andere keer.\nVrouw: Ja, leuk. Veel plezier vrijdag!",
+                    "readingTime": 5,
+                    "options": ["Ze moet werken", "Ze moet oppassen op de kinderen van haar zus", "Ze is op vakantie"],
+                    "correctAnswer": 1,
+                    "explanation": "De vrouw zegt: 'Ik moet oppassen op de kinderen van mijn zus.'"
+                },
+                {
+                    "id": "l3-q4",
+                    "questionText": "Wat moet de man meenemen naar het gemeentehuis?",
+                    "audioFile": "luisteren/exam3/q4.mp3",
+                    "transcript": "Vrouw: U wilt zich inschrijven bij de gemeente? Dan moet u een afspraak maken.\nMan: Oké, wat moet ik meenemen?\nVrouw: Uw paspoort, een pasfoto, en een bewijs van uw adres. Dat kan een huurcontract zijn.\nMan: Goed, ik maak een afspraak.",
+                    "readingTime": 5,
+                    "options": ["Alleen zijn paspoort", "Paspoort, pasfoto en bewijs van adres", "Zijn rijbewijs en bankpas"],
+                    "correctAnswer": 1,
+                    "explanation": "De vrouw zegt: 'Uw paspoort, een pasfoto, en een bewijs van uw adres.'"
+                },
+                {
+                    "id": "l3-q5",
+                    "questionText": "Waar werkt de vrouw?",
+                    "audioFile": "luisteren/exam3/q5.mp3",
+                    "transcript": "Man: Wat voor werk doe je?\nVrouw: Ik werk in een ziekenhuis als verpleegkundige. Ik werk drie dagen per week.\nMan: Vind je het leuk?\nVrouw: Ja, het is soms zwaar, maar ik vind het mooi om mensen te helpen.",
+                    "readingTime": 5,
+                    "options": ["In een apotheek", "In een ziekenhuis", "In een school"],
+                    "correctAnswer": 1,
+                    "explanation": "De vrouw zegt: 'Ik werk in een ziekenhuis als verpleegkundige.'"
+                },
+                {
+                    "id": "l3-q6",
+                    "questionText": "Hoe laat moet de man bij de garage zijn?",
+                    "audioFile": "luisteren/exam3/q6.mp3",
+                    "transcript": "Vrouw: Je auto staat morgen klaar bij de garage.\nMan: Hoe laat kan ik hem ophalen?\nVrouw: Vanaf half drie 's middags. Vergeet niet om de factuur contant te betalen.\nMan: Oké, ik kom om drie uur.",
+                    "readingTime": 5,
+                    "options": ["Om half twee", "Vanaf half drie", "Om vier uur"],
+                    "correctAnswer": 1,
+                    "explanation": "De vrouw zegt: 'Vanaf half drie 's middags.'"
+                },
+                {
+                    "id": "l3-q7",
+                    "questionText": "Wat is er veranderd?",
+                    "audioFile": "luisteren/exam3/q7.mp3",
+                    "transcript": "Beste ouders, de schoolreis van volgende week woensdag gaat niet door vanwege het slechte weer. De nieuwe datum is vrijdag twee mei. De kinderen moeten om half negen op school zijn. Neem lunchpakketten en drinken mee.",
+                    "readingTime": 5,
+                    "options": ["De school is gesloten", "De datum van de schoolreis is veranderd", "De kinderen krijgen vrij"],
+                    "correctAnswer": 1,
+                    "explanation": "De schoolreis gaat niet door op woensdag; de nieuwe datum is vrijdag twee mei."
+                },
+                {
+                    "id": "l3-q8",
+                    "questionText": "Wat wil de vrouw ruilen?",
+                    "audioFile": "luisteren/exam3/q8.mp3",
+                    "transcript": "Vrouw: Ik heb deze schoenen gisteren gekocht, maar ze zijn te klein. Kan ik ze ruilen?\nMan: Heeft u de bon nog?\nVrouw: Ja, hier is de bon.\nMan: Goed, welke maat heeft u nodig?\nVrouw: Maat negenendertig, alstublieft.",
+                    "readingTime": 5,
+                    "options": ["Een jas", "Schoenen", "Een broek"],
+                    "correctAnswer": 1,
+                    "explanation": "De vrouw zegt: 'Ik heb deze schoenen gisteren gekocht, maar ze zijn te klein.'"
+                },
+                {
+                    "id": "l3-q9",
+                    "questionText": "Waar gaan ze naartoe in het weekend?",
+                    "audioFile": "luisteren/exam3/q9.mp3",
+                    "transcript": "Man: Zullen we dit weekend iets leuks doen?\nVrouw: Ja, goed idee! Zullen we naar de dierentuin gaan? De kinderen vinden dat altijd leuk.\nMan: Oké, dan gaan we zondag. Is het weer goed?\nVrouw: Ja, het wordt droog en een beetje bewolkt.",
+                    "readingTime": 5,
+                    "options": ["Naar het strand", "Naar de dierentuin", "Naar het museum"],
+                    "correctAnswer": 1,
+                    "explanation": "De vrouw stelt voor: 'Zullen we naar de dierentuin gaan?'"
+                },
+                {
+                    "id": "l3-q10",
+                    "questionText": "Wat heeft de man verloren?",
+                    "audioFile": "luisteren/exam3/q10.mp3",
+                    "transcript": "Man: Ik ben mijn portemonnee kwijt. Ik denk dat ik hem in de bus heb laten liggen.\nVrouw: Heb je al gebeld naar het vervoersbedrijf?\nMan: Nee, nog niet. Heb je het telefoonnummer?\nVrouw: Ja, wacht even. Het nummer is nul-negen-honderd-achttien-achttien.",
+                    "readingTime": 5,
+                    "options": ["Zijn telefoon", "Zijn portemonnee", "Zijn sleutels"],
+                    "correctAnswer": 1,
+                    "explanation": "De man zegt: 'Ik ben mijn portemonnee kwijt.'"
+                }
+            ]
         }
     }
 }
