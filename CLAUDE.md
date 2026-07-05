@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A2 Dutch Inburgeringsexamen (civic integration exam) practice application with AI-powered feedback. The app covers all 5 exam sections:
+**RateMyDutch** — A2 Dutch Inburgeringsexamen (civic integration exam) practice application with AI-powered feedback. The app covers all 5 exam sections:
 - **Schrijven (Writing)**: Practice writing exercises with AI grading using the official DUO rubric
 - **Lezen (Reading)**: Multiple-choice reading comprehension practice
 - **Spreken (Speaking)**: Record speech, transcribe with Whisper, grade with AI on 5 rubric categories
@@ -62,6 +62,18 @@ public/
 - Mode switching via `startMode()` — extended by module script for new modes
 - Shared utilities in `public/js/shared.js`: CountdownTimer, AudioRecorder, OneTimeAudioPlayer, ProgressTracker
 
+## Paywall Architecture
+
+One-time €24 purchase unlocks AI-powered features (Stripe Checkout + Firebase Auth + Firestore entitlements). Owner setup runbook: `docs/SETUP-PAYWALL.md`. Firestore security rules: `firestore.rules`.
+
+- `lib/firebase.js` — Firebase Admin SDK wrapper: verifies ID tokens, reads/writes `entitlements/{uid}` docs. No-ops gracefully when `FIREBASE_SERVICE_ACCOUNT` is unset.
+- `lib/paywall.js` — `createPaywall()` returns `requireAuth` (valid Firebase ID token → 401 otherwise) and `requirePaid` (auth + entitlement doc → 402 otherwise) Express middleware.
+- `lib/stripe-webhook.js` — `createWebhookHandler()` verifies the Stripe signature against the raw body and writes the entitlement on `checkout.session.completed` (paid) or `checkout.session.async_payment_succeeded` (delayed methods like iDEAL).
+- `server.js` — mounts `/api/stripe-webhook` with `express.raw()` **before** `express.json()`; `/api/create-checkout-session` (requireAuth) and `/api/me` (requireAuth); gates `/api/grade-writing`, `/api/transcribe-speech`, `/api/grade-speaking` with `requirePaid`.
+- Free vs paid split: lezen, luisteren, and KNM practice (static JSON + audio) stay free; AI grading and transcription (schrijven writing feedback, spreken transcribe + grade) require payment.
+- Frontend: `public/js/auth.js` (Firebase client auth widget, upgrade modal, checkout return handling) + `public/js/firebase-config.js` (web app config, safe to commit).
+- Tests: `npm test` runs the unit suites in `test/` (paywall middleware, webhook handler, smoke).
+
 ## DUO Grading Rubrics
 
 ### Writing (Schrijven) — max 10 points
@@ -88,3 +100,10 @@ public/
 | `PERPLEXITY_API_KEY` | For AI grading | Perplexity API key |
 | `OPENAI_API_KEY` | For speaking | OpenAI API key for Whisper transcription |
 | `PORT` | No | Server port (default: 3456) |
+| `STRIPE_SECRET_KEY` | For paywall | Stripe secret key (`sk_test_...` / `sk_live_...`) |
+| `STRIPE_WEBHOOK_SECRET` | For paywall | Signing secret of the Stripe webhook endpoint (`whsec_...`) |
+| `STRIPE_PRICE_ID` | For paywall | One-time price ID for lifetime access (`price_...`) |
+| `FIREBASE_SERVICE_ACCOUNT` | For paywall | Firebase Admin service-account JSON, minified to one line |
+| `APP_ORIGIN` | Production | Canonical origin (e.g. `https://ratemydutch.vercel.app`); pins Stripe checkout return URLs. Falls back to request headers if unset — required in production |
+
+Without the paywall vars the app still serves all free modes; gated endpoints return 401/500 instead of crashing.

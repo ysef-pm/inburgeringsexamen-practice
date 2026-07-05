@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <title>RateMY Dutch - Practice Your Dutch</title>
+    <title>RateMyDutch — A2 Inburgering Practice</title>
     <style>
     :root {
         /* Colors */
@@ -188,6 +188,11 @@
         .header-brand {
             max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
         }
 
         .header-logo {
@@ -1312,9 +1317,274 @@
             transform: none;
         }
 
+        /* Auth widget (header) */
+        .auth-widget {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        /* .hidden is declared earlier in this sheet; re-assert at equal specificity so it wins here */
+        .auth-widget.hidden {
+            display: none;
+        }
+
+        .auth-btn {
+            background: transparent;
+            border: 1px solid var(--cream);
+            border-radius: 4px;
+            padding: 0.35rem 0.9rem;
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--cream);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .auth-btn:hover {
+            background: rgba(248,245,240,0.15);
+        }
+
+        .auth-btn-upgrade {
+            background: var(--soft-gold);
+            border-color: var(--soft-gold);
+            color: var(--navy-deep);
+            font-weight: 600;
+        }
+
+        .auth-btn-upgrade:hover {
+            background: var(--cream);
+            border-color: var(--cream);
+        }
+
+        .auth-email {
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            color: var(--cream);
+            opacity: 0.85;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .pro-badge {
+            font-family: var(--font-ui);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--navy-deep);
+            background: var(--soft-gold);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+        }
+
+        /* Lock badge on gated mode buttons */
+        .lock-badge {
+            font-size: 0.85em;
+            margin-left: 0.35rem;
+        }
+
+        /* Auth + upgrade modals */
+        .rmd-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(26,35,50,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-md);
+            z-index: 200;
+        }
+
+        /* .hidden is declared earlier in this sheet; re-assert at equal specificity so it wins here */
+        .rmd-modal-overlay.hidden {
+            display: none;
+        }
+
+        .rmd-modal {
+            background: var(--warm-white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-elevated);
+            padding: var(--space-xl);
+            max-width: 420px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .rmd-modal-close {
+            position: absolute;
+            top: var(--space-sm);
+            right: var(--space-sm);
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            line-height: 1;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .rmd-modal-close:hover {
+            color: var(--navy-deep);
+        }
+
+        .rmd-modal h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--navy-deep);
+            margin-bottom: var(--space-md);
+        }
+
+        .rmd-modal .btn-block {
+            display: block;
+            width: 100%;
+            margin-bottom: var(--space-sm);
+        }
+
+        .rmd-divider {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--text-muted);
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin: var(--space-md) 0;
+        }
+
+        .rmd-divider::before,
+        .rmd-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--cream-dark);
+        }
+
+        .rmd-input {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            margin-bottom: var(--space-sm);
+            border: 1px solid var(--cream-dark);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--navy-deep);
+            background: white;
+        }
+
+        .rmd-input:focus {
+            outline: none;
+            border-color: var(--soft-gold);
+        }
+
+        .rmd-auth-error {
+            color: var(--error-red);
+            font-size: var(--text-small);
+            margin-bottom: var(--space-sm);
+        }
+
+        .rmd-auth-note {
+            color: #666;
+            font-size: var(--text-small);
+            margin-bottom: var(--space-sm);
+        }
+
+        .rmd-link-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 0;
+        }
+
+        .rmd-link-btn:hover {
+            color: var(--navy-deep);
+        }
+
+        .upgrade-features {
+            list-style: none;
+            margin: 0 0 var(--space-md);
+            padding: 0;
+        }
+
+        .upgrade-features li {
+            padding: 0.4rem 0 0.4rem 1.75rem;
+            position: relative;
+            color: var(--navy-mid);
+        }
+
+        .upgrade-features li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--soft-gold);
+            font-weight: 700;
+        }
+
+        .upgrade-price {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--navy-deep);
+            text-align: center;
+            margin-bottom: var(--space-xs);
+        }
+
+        .upgrade-price small {
+            display: block;
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* Toast */
+        .rmd-toast {
+            position: fixed;
+            bottom: var(--space-lg);
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--navy-deep);
+            color: var(--cream);
+            font-family: var(--font-ui);
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-elevated);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 300;
+            pointer-events: none;
+        }
+
+        .rmd-toast.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: var(--space-md);
+            }
+
+            .auth-email {
+                display: none;
+            }
+
+            .rmd-modal {
+                padding: var(--space-lg);
             }
 
             .mode-selector {
@@ -1344,13 +1614,17 @@
             }
         }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/auth.js"></script>
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <h1 class="hero-title">RateMY Dutch</h1>
-            <p class="hero-tagline">Master your Dutch. Prepare with precision.</p>
+            <h1 class="hero-title">RateMyDutch</h1>
+            <p class="hero-tagline">A2 Inburgering Practice &#127475;&#127473; — Master your Dutch. Prepare with precision.</p>
             <button class="btn-primary hero-cta" onclick="document.getElementById('main-content').scrollIntoView({behavior: 'smooth'})">
                 Begin Practice
             </button>
@@ -1363,7 +1637,14 @@
     <!-- Main Content -->
     <header class="app-header">
         <div class="header-brand">
-            <span class="header-logo">RateMY Dutch</span>
+            <span class="header-logo">RateMyDutch — A2 Inburgering Practice</span>
+            <div class="auth-widget hidden" id="auth-widget">
+                <button class="auth-btn" id="auth-signin-btn" onclick="showSignInModal()">Sign in</button>
+                <span class="auth-email hidden" id="auth-user-email"></span>
+                <span class="pro-badge hidden" id="auth-pro-badge">Pro</span>
+                <button class="auth-btn auth-btn-upgrade hidden" id="auth-upgrade-btn" onclick="showUpgradeModal()">Upgrade &euro;24</button>
+                <button class="auth-btn hidden" id="auth-signout-btn">Sign out</button>
+            </div>
         </div>
     </header>
 
@@ -1433,6 +1714,41 @@
 
         <div id="score-area" class="card hidden"></div>
     </div>
+
+    <!-- Sign-in modal -->
+    <div class="rmd-modal-overlay hidden" id="signin-modal">
+        <div class="rmd-modal">
+            <button class="rmd-modal-close" onclick="closeSignInModal()" aria-label="Close">&times;</button>
+            <h3>Sign in to RateMyDutch</h3>
+            <div class="rmd-auth-note hidden" id="signin-unconfigured-note">Sign-in isn't set up on this deployment yet.</div>
+            <button class="btn btn-primary btn-block" id="google-signin-btn">Continue with Google</button>
+            <div class="rmd-divider">or</div>
+            <input type="email" class="rmd-input" id="signin-email" placeholder="Email" autocomplete="email">
+            <input type="password" class="rmd-input" id="signin-password" placeholder="Password" autocomplete="current-password">
+            <div class="rmd-auth-error hidden" id="signin-error"></div>
+            <button class="btn btn-primary btn-block" id="email-signin-btn">Sign in</button>
+            <button class="btn btn-secondary btn-block" id="email-signup-btn">Create account</button>
+            <button class="rmd-link-btn" id="forgot-password-btn">Forgot password?</button>
+        </div>
+    </div>
+
+    <!-- Upgrade modal -->
+    <div class="rmd-modal-overlay hidden" id="upgrade-modal">
+        <div class="rmd-modal">
+            <button class="rmd-modal-close" onclick="closeUpgradeModal()" aria-label="Close">&times;</button>
+            <h3>Unlock AI grading</h3>
+            <ul class="upgrade-features">
+                <li>AI writing grading with the official DUO rubric</li>
+                <li>Speech transcription + AI speaking grading</li>
+                <li>All practice exams — Lezen, Luisteren &amp; KNM stay free</li>
+            </ul>
+            <div class="upgrade-price">&euro;24 <small>one-time payment, lifetime access</small></div>
+            <div class="rmd-auth-error hidden" id="upgrade-error"></div>
+            <button class="btn btn-primary btn-block" id="upgrade-checkout-btn">Unlock with Stripe</button>
+        </div>
+    </div>
+
+    <div class="rmd-toast" id="rmd-toast"></div>
 
     <script>
         // Writing questions with model answers
@@ -2899,7 +3215,7 @@
             `;
 
             try {
-                const response = await fetch('/api/grade-writing', {
+                const fetchOpts = {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -2907,12 +3223,17 @@
                         prompt: q.prompt,
                         modelAnswer: q.modelAnswer
                     })
-                });
+                };
+                const response = (window.RMDAuth && window.RMDAuth.isConfigured())
+                    ? await window.RMDAuth.authedFetch('/api/grade-writing', fetchOpts)
+                    : await fetch('/api/grade-writing', fetchOpts);
 
                 const data = await response.json();
 
                 if (!data.success) {
-                    throw new Error(data.error || 'Failed to grade');
+                    // Attach the error code so the catch below routes paywall/auth
+                    // errors to the modals even on the plain-fetch fallback path.
+                    throw Object.assign(new Error(data.error || 'Failed to grade'), { code: data.error });
                 }
 
                 if (data.parseError) {
@@ -2928,12 +3249,20 @@
                 }
 
             } catch (error) {
-                console.error('Grading error:', error);
-                gradingArea.innerHTML = `
-                    <div class="warning-note" style="margin-top: 20px;">
-                        <strong>Error:</strong> ${error.message || 'Could not grade your answer. Make sure the server is running.'}
-                    </div>
-                `;
+                if (error && error.code === 'payment_required' && window.showUpgradeModal) {
+                    gradingArea.innerHTML = '';
+                    window.showUpgradeModal();
+                } else if (error && (error.code === 'auth_required' || error.code === 'invalid_token') && window.showSignInModal) {
+                    gradingArea.innerHTML = '';
+                    window.showSignInModal();
+                } else {
+                    console.error('Grading error:', error);
+                    gradingArea.innerHTML = `
+                        <div class="warning-note" style="margin-top: 20px;">
+                            <strong>Error:</strong> ${error.message || 'Could not grade your answer. Make sure the server is running.'}
+                        </div>
+                    `;
+                }
             }
 
             btn.disabled = false;
@@ -3188,6 +3517,189 @@
             document.getElementById('welcome').classList.remove('hidden');
             document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
         }
+    </script>
+    <script>
+        // ---- Auth UI: header widget, sign-in modal, upgrade modal, checkout return, lock badges ----
+
+        function showToast(message) {
+            const toast = document.getElementById('rmd-toast');
+            toast.textContent = message;
+            toast.classList.add('visible');
+            clearTimeout(showToast._timer);
+            showToast._timer = setTimeout(() => toast.classList.remove('visible'), 5000);
+        }
+
+        // Exposed as window globals (called from module scripts in other files too)
+        window.showSignInModal = function () {
+            const errEl = document.getElementById('signin-error');
+            errEl.classList.add('hidden');
+            errEl.textContent = '';
+            // Friendly note when Firebase isn't configured on this deployment
+            const note = document.getElementById('signin-unconfigured-note');
+            const configured = window.RMDAuth && window.RMDAuth.isConfigured();
+            note.classList.toggle('hidden', !!configured);
+            document.getElementById('signin-modal').classList.remove('hidden');
+        };
+
+        window.closeSignInModal = function () {
+            document.getElementById('signin-modal').classList.add('hidden');
+        };
+
+        window.showUpgradeModal = function () {
+            const errEl = document.getElementById('upgrade-error');
+            errEl.classList.add('hidden');
+            errEl.textContent = '';
+            document.getElementById('upgrade-modal').classList.remove('hidden');
+        };
+
+        window.closeUpgradeModal = function () {
+            document.getElementById('upgrade-modal').classList.add('hidden');
+        };
+
+        (function initAuthUI() {
+            const configured = window.RMDAuth && window.RMDAuth.isConfigured();
+
+            // Click on the dark overlay closes the modal
+            ['signin-modal', 'upgrade-modal'].forEach((id) => {
+                const overlay = document.getElementById(id);
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) overlay.classList.add('hidden');
+                });
+            });
+
+            // Checkout return handling (?checkout=success|cancelled)
+            const params = new URLSearchParams(window.location.search);
+            const checkoutStatus = params.get('checkout');
+            if (checkoutStatus) {
+                window.history.replaceState({}, '', window.location.pathname);
+                if (checkoutStatus === 'success' && configured) {
+                    let attempts = 0;
+                    (function pollEntitlement() {
+                        attempts += 1;
+                        window.RMDAuth.refresh().then(() => {
+                            if (window.RMDAuth.isPaid()) {
+                                showToast("You're in! AI grading unlocked \u{1F389}");
+                            } else if (attempts < 10) {
+                                setTimeout(pollEntitlement, 1500);
+                            } else {
+                                showToast('Payment received — access unlocks shortly. Try refreshing.');
+                            }
+                        }).catch(() => {
+                            if (attempts < 10) setTimeout(pollEntitlement, 1500);
+                        });
+                    })();
+                }
+                // 'cancelled' → URL cleaned silently, nothing else to do
+            }
+
+            // Without Firebase config the widget stays hidden and the app works as before
+            if (!configured) return;
+
+            const widget = document.getElementById('auth-widget');
+            const signinBtn = document.getElementById('auth-signin-btn');
+            const emailEl = document.getElementById('auth-user-email');
+            const proBadge = document.getElementById('auth-pro-badge');
+            const upgradeBtn = document.getElementById('auth-upgrade-btn');
+            const signoutBtn = document.getElementById('auth-signout-btn');
+            widget.classList.remove('hidden');
+
+            function updateLockBadges(locked) {
+                ['schrijven', 'spreken'].forEach((mode) => {
+                    const btn = document.querySelector(`.mode-btn.${mode}`);
+                    if (!btn) return;
+                    let badge = btn.querySelector('.lock-badge');
+                    if (locked && !badge) {
+                        badge = document.createElement('span');
+                        badge.className = 'lock-badge';
+                        badge.textContent = '\u{1F512}';
+                        btn.appendChild(badge);
+                    } else if (!locked && badge) {
+                        badge.remove();
+                    }
+                });
+            }
+
+            window.RMDAuth.onChange(({ user, paid }) => {
+                signinBtn.classList.toggle('hidden', !!user);
+                emailEl.classList.toggle('hidden', !user);
+                emailEl.textContent = user ? (user.email || 'Account') : '';
+                proBadge.classList.toggle('hidden', !(user && paid));
+                upgradeBtn.classList.toggle('hidden', !user || paid);
+                signoutBtn.classList.toggle('hidden', !user);
+                updateLockBadges(!paid);
+                if (user) closeSignInModal();
+            });
+
+            signoutBtn.addEventListener('click', () => window.RMDAuth.signOut());
+
+            // Sign-in modal actions
+            const signinError = document.getElementById('signin-error');
+            function showSignInError(err) {
+                signinError.textContent = (err && err.message) || String(err);
+                signinError.classList.remove('hidden');
+            }
+
+            document.getElementById('google-signin-btn').addEventListener('click', async () => {
+                try {
+                    await window.RMDAuth.signInGoogle();
+                    closeSignInModal();
+                } catch (err) { showSignInError(err); }
+            });
+
+            document.getElementById('email-signin-btn').addEventListener('click', async () => {
+                const email = document.getElementById('signin-email').value.trim();
+                const password = document.getElementById('signin-password').value;
+                try {
+                    await window.RMDAuth.signInEmail(email, password);
+                    closeSignInModal();
+                } catch (err) { showSignInError(err); }
+            });
+
+            document.getElementById('email-signup-btn').addEventListener('click', async () => {
+                const email = document.getElementById('signin-email').value.trim();
+                const password = document.getElementById('signin-password').value;
+                try {
+                    await window.RMDAuth.signUpEmail(email, password);
+                    closeSignInModal();
+                } catch (err) { showSignInError(err); }
+            });
+
+            document.getElementById('forgot-password-btn').addEventListener('click', async () => {
+                const email = document.getElementById('signin-email').value.trim();
+                if (!email) { showSignInError(new Error('Enter your email above first.')); return; }
+                try {
+                    await window.RMDAuth.resetPassword(email);
+                    closeSignInModal();
+                    showToast(`Password reset email sent to ${email}`);
+                } catch (err) { showSignInError(err); }
+            });
+
+            // Upgrade modal action
+            const checkoutBtn = document.getElementById('upgrade-checkout-btn');
+            const upgradeError = document.getElementById('upgrade-error');
+            checkoutBtn.addEventListener('click', async () => {
+                if (!window.RMDAuth.getUser()) {
+                    closeUpgradeModal();
+                    showSignInModal();
+                    return;
+                }
+                checkoutBtn.disabled = true;
+                checkoutBtn.textContent = 'Redirecting…';
+                try {
+                    await window.RMDAuth.startCheckout();
+                    if (window.RMDAuth.isPaid()) {
+                        closeUpgradeModal();
+                        showToast('You already have full access — happy practicing!');
+                    }
+                } catch (err) {
+                    upgradeError.textContent = (err && err.message) || String(err);
+                    upgradeError.classList.remove('hidden');
+                } finally {
+                    checkoutBtn.disabled = false;
+                    checkoutBtn.textContent = 'Unlock with Stripe';
+                }
+            });
+        })();
     </script>
     <script type="module">
         import * as spreken from '/js/spreken.js';

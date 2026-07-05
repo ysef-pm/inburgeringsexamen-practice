@@ -2,13 +2,76 @@ const express = require('express');
 const path = require('path');
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
+const Stripe = require('stripe');
+const firebase = require('./lib/firebase');
+const { createPaywall } = require('./lib/paywall');
+const { createWebhookHandler } = require('./lib/stripe-webhook');
+
+const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
+const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
+const STRIPE_PRICE_ID = process.env.STRIPE_PRICE_ID;
+const stripe = STRIPE_SECRET_KEY ? new Stripe(STRIPE_SECRET_KEY) : null;
+
+const { requireAuth, requirePaid } = createPaywall({
+    verifyIdToken: firebase.verifyIdToken,
+    getEntitlement: firebase.getEntitlement,
+});
+
 const app = express();
+
+// Stripe webhook needs the raw body — MUST be registered before express.json()
+app.post('/api/stripe-webhook', express.raw({ type: 'application/json' }), (req, res) => {
+    if (!stripe || !STRIPE_WEBHOOK_SECRET) {
+        return res.status(500).json({ error: 'stripe_not_configured' });
+    }
+    return createWebhookHandler({
+        constructEvent: (rawBody, sig) => stripe.webhooks.constructEvent(rawBody, sig, STRIPE_WEBHOOK_SECRET),
+        writeEntitlement: firebase.writeEntitlement,
+    })(req, res);
+});
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve index.html from root
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.post('/api/create-checkout-session', requireAuth, async (req, res) => {
+    if (!stripe || !STRIPE_PRICE_ID) {
+        return res.status(500).json({ success: false, error: 'stripe_not_configured' });
+    }
+    try {
+        const existing = await firebase.getEntitlement(req.user.uid);
+        if (existing && existing.paid === true) {
+            return res.json({ success: true, alreadyPaid: true });
+        }
+        const origin = process.env.APP_ORIGIN || `${req.headers['x-forwarded-proto'] || 'http'}://${req.headers.host}`;
+        const session = await stripe.checkout.sessions.create({
+            mode: 'payment',
+            line_items: [{ price: STRIPE_PRICE_ID, quantity: 1 }],
+            client_reference_id: req.user.uid,
+            customer_email: req.user.email || undefined,
+            metadata: { uid: req.user.uid },
+            success_url: `${origin}/?checkout=success`,
+            cancel_url: `${origin}/?checkout=cancelled`,
+        });
+        res.json({ success: true, url: session.url });
+    } catch (err) {
+        console.error('Checkout session creation failed:', err);
+        res.status(500).json({ success: false, error: 'checkout_failed' });
+    }
+});
+
+app.get('/api/me', requireAuth, async (req, res) => {
+    try {
+        const entitlement = await firebase.getEntitlement(req.user.uid);
+        res.json({ success: true, paid: !!(entitlement && entitlement.paid === true) });
+    } catch (err) {
+        console.error('Entitlement lookup failed:', err);
+        res.status(500).json({ success: false, error: 'entitlement_check_failed' });
+    }
 });
 
 // Perplexity API endpoint
@@ -51,7 +114,7 @@ You MUST grade using these EXACT criteria from the official DUO "Grading documen
 TOTAL MAXIMUM: 10 points (3+2+2+1+2)
 `;
 
-app.post('/api/grade-writing', async (req, res) => {
+app.post('/api/grade-writing', requirePaid, async (req, res) => {
     const { userText, prompt, modelAnswer } = req.body;
 
     if (!userText || userText.trim().length === 0) {
@@ -209,7 +272,7 @@ app.post('/api/check-grammar', async (req, res) => {
 });
 
 // Speech transcription endpoint (Whisper) - uses base64 JSON body, no multer
-app.post('/api/transcribe-speech', async (req, res) => {
+app.post('/api/transcribe-speech', requirePaid, async (req, res) => {
     if (!OPENAI_API_KEY) {
         return res.json({ success: false, error: 'OPENAI_API_KEY not configured.' });
     }
@@ -293,7 +356,7 @@ Grade the candidate's spoken response (transcribed) on these 5 categories:
 TOTAL MAXIMUM: 10 points (2+2+2+2+2)
 `;
 
-app.post('/api/grade-speaking', async (req, res) => {
+app.post('/api/grade-speaking', requirePaid, async (req, res) => {
     const { transcription, prompt, partType } = req.body;
 
     if (!transcription || transcription.trim().length === 0) {
@@ -389,6 +452,21 @@ if (!process.env.VERCEL) {
             console.log('   Run with: OPENAI_API_KEY=your_key npm start\n');
         } else {
             console.log('✅ OpenAI API key configured. Speech transcription enabled.\n');
+        }
+        if (!STRIPE_SECRET_KEY || !STRIPE_PRICE_ID) {
+            console.log('⚠️  Warning: STRIPE_SECRET_KEY and/or STRIPE_PRICE_ID not set. Checkout will not work.');
+            console.log('   Run with: STRIPE_SECRET_KEY=sk_... STRIPE_PRICE_ID=price_... npm start\n');
+        } else {
+            console.log('✅ Stripe configured. Checkout enabled.\n');
+        }
+        if (!STRIPE_WEBHOOK_SECRET) {
+            console.log('⚠️  Warning: STRIPE_WEBHOOK_SECRET not set. Stripe webhooks will not work.\n');
+        }
+        if (!process.env.FIREBASE_SERVICE_ACCOUNT) {
+            console.log('⚠️  Warning: FIREBASE_SERVICE_ACCOUNT not set. Auth verification and entitlements will not work.\n');
+        }
+        if (!process.env.APP_ORIGIN) {
+            console.log('⚠️  Warning: APP_ORIGIN not set. Checkout return URLs will be derived from request headers; set APP_ORIGIN in production.\n');
         }
     });
 }
