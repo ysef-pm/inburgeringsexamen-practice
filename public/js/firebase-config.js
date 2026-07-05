@@ -1,8 +1,9 @@
 // Firebase web app config — public values, safe to expose.
-// TODO(owner): replace with real values from Firebase console > Project settings > Your apps.
 window.FIREBASE_CONFIG = {
-    apiKey: 'REPLACE_ME',
-    authDomain: 'REPLACE_ME.firebaseapp.com',
-    projectId: 'REPLACE_ME',
-    appId: 'REPLACE_ME',
+    apiKey: 'AIzaSyCD9mRzTF71Dg96FBi3oBC0ZWd0dUkqkhQ',
+    authDomain: 'ratemydutch.firebaseapp.com',
+    projectId: 'ratemydutch',
+    storageBucket: 'ratemydutch.firebasestorage.app',
+    messagingSenderId: '529276412561',
+    appId: '1:529276412561:web:1b1952577571da48469530',
 };
