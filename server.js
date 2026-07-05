@@ -47,7 +47,7 @@ app.post('/api/create-checkout-session', requireAuth, async (req, res) => {
         if (existing && existing.paid === true) {
             return res.json({ success: true, alreadyPaid: true });
         }
-        const origin = `${req.headers['x-forwarded-proto'] || 'http'}://${req.headers.host}`;
+        const origin = process.env.APP_ORIGIN || `${req.headers['x-forwarded-proto'] || 'http'}://${req.headers.host}`;
         const session = await stripe.checkout.sessions.create({
             mode: 'payment',
             line_items: [{ price: STRIPE_PRICE_ID, quantity: 1 }],
@@ -464,6 +464,9 @@ if (!process.env.VERCEL) {
         }
         if (!process.env.FIREBASE_SERVICE_ACCOUNT) {
             console.log('⚠️  Warning: FIREBASE_SERVICE_ACCOUNT not set. Auth verification and entitlements will not work.\n');
+        }
+        if (!process.env.APP_ORIGIN) {
+            console.log('⚠️  Warning: APP_ORIGIN not set. Checkout return URLs will be derived from request headers; set APP_ORIGIN in production.\n');
         }
     });
 }
