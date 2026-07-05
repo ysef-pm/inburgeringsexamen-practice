@@ -34,6 +34,58 @@ test('requireAuth: 401 when token invalid', async () => {
     assert.equal(res.body.error, 'invalid_token');
 });
 
+test('requireAuth: 401 invalid_token when decoded token has no uid', async () => {
+    const { requireAuth } = createPaywall({
+        verifyIdToken: async () => ({}),
+        getEntitlement: async () => null,
+    });
+    const res = fakeRes();
+    let nextCalled = false;
+    await requireAuth(fakeReq('good'), res, () => { nextCalled = true; });
+    assert.equal(res.statusCode, 401);
+    assert.equal(res.body.error, 'invalid_token');
+    assert.equal(nextCalled, false);
+});
+
+test('requireAuth: 401 invalid_token when decoded uid is empty string', async () => {
+    const { requireAuth } = createPaywall({
+        verifyIdToken: async () => ({ uid: '' }),
+        getEntitlement: async () => null,
+    });
+    const res = fakeRes();
+    let nextCalled = false;
+    await requireAuth(fakeReq('good'), res, () => { nextCalled = true; });
+    assert.equal(res.statusCode, 401);
+    assert.equal(res.body.error, 'invalid_token');
+    assert.equal(nextCalled, false);
+});
+
+test('requireAuth: 401 auth_required when header is "Bearer " with no token', async () => {
+    const { requireAuth } = createPaywall({
+        verifyIdToken: async () => ({ uid: 'u1' }),
+        getEntitlement: async () => null,
+    });
+    const res = fakeRes();
+    let nextCalled = false;
+    await requireAuth({ headers: { authorization: 'Bearer ' } }, res, () => { nextCalled = true; });
+    assert.equal(res.statusCode, 401);
+    assert.equal(res.body.error, 'auth_required');
+    assert.equal(nextCalled, false);
+});
+
+test('requireAuth: 401 auth_required when scheme is lowercase bearer', async () => {
+    const { requireAuth } = createPaywall({
+        verifyIdToken: async () => ({ uid: 'u1' }),
+        getEntitlement: async () => null,
+    });
+    const res = fakeRes();
+    let nextCalled = false;
+    await requireAuth({ headers: { authorization: 'bearer x' } }, res, () => { nextCalled = true; });
+    assert.equal(res.statusCode, 401);
+    assert.equal(res.body.error, 'auth_required');
+    assert.equal(nextCalled, false);
+});
+
 test('requireAuth: sets req.user and calls next on valid token', async () => {
     const { requireAuth } = createPaywall({
         verifyIdToken: async (t) => ({ uid: 'u1', email: 'a@b.c' }),
