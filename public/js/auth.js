@@ -5,7 +5,11 @@
     let paid = false;
     const listeners = [];
 
-    function notify() { listeners.forEach((fn) => fn({ user: currentUser, paid })); }
+    function notify() {
+        listeners.forEach((fn) => {
+            try { fn({ user: currentUser, paid }); } catch (e) { console.error('auth listener error:', e); }
+        });
+    }
 
     async function refreshEntitlement() {
         if (!currentUser) { paid = false; return; }
@@ -28,7 +32,10 @@
 
     window.RMDAuth = {
         isConfigured: () => configured,
-        onChange(fn) { listeners.push(fn); fn({ user: currentUser, paid }); },
+        onChange(fn) {
+            listeners.push(fn);
+            try { fn({ user: currentUser, paid }); } catch (e) { console.error('auth listener error:', e); }
+        },
         getUser: () => currentUser,
         isPaid: () => paid,
         async getToken() { return currentUser ? currentUser.getIdToken() : null; },

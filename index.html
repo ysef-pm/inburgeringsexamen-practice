@@ -1324,6 +1324,11 @@
             gap: var(--space-xs);
         }
 
+        /* .hidden is declared earlier in this sheet; re-assert at equal specificity so it wins here */
+        .auth-widget.hidden {
+            display: none;
+        }
+
         .auth-btn {
             background: transparent;
             border: 1px solid var(--cream);
