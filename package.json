@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A2 Dutch exam practice with AI grammar feedback",
   "main": "server.js",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "node --test \"test/*.test.js\""
