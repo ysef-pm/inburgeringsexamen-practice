@@ -1491,6 +1491,12 @@
             margin-bottom: var(--space-sm);
         }
 
+        .rmd-auth-note {
+            color: #666;
+            font-size: var(--text-small);
+            margin-bottom: var(--space-sm);
+        }
+
         .rmd-link-btn {
             background: none;
             border: none;
@@ -1714,6 +1720,7 @@
         <div class="rmd-modal">
             <button class="rmd-modal-close" onclick="closeSignInModal()" aria-label="Close">&times;</button>
             <h3>Sign in to RateMyDutch</h3>
+            <div class="rmd-auth-note hidden" id="signin-unconfigured-note">Sign-in isn't set up on this deployment yet.</div>
             <button class="btn btn-primary btn-block" id="google-signin-btn">Continue with Google</button>
             <div class="rmd-divider">or</div>
             <input type="email" class="rmd-input" id="signin-email" placeholder="Email" autocomplete="email">
@@ -3224,7 +3231,9 @@
                 const data = await response.json();
 
                 if (!data.success) {
-                    throw new Error(data.error || 'Failed to grade');
+                    // Attach the error code so the catch below routes paywall/auth
+                    // errors to the modals even on the plain-fetch fallback path.
+                    throw Object.assign(new Error(data.error || 'Failed to grade'), { code: data.error });
                 }
 
                 if (data.parseError) {
@@ -3243,7 +3252,7 @@
                 if (error && error.code === 'payment_required' && window.showUpgradeModal) {
                     gradingArea.innerHTML = '';
                     window.showUpgradeModal();
-                } else if (error && error.code === 'auth_required' && window.showSignInModal) {
+                } else if (error && (error.code === 'auth_required' || error.code === 'invalid_token') && window.showSignInModal) {
                     gradingArea.innerHTML = '';
                     window.showSignInModal();
                 } else {
@@ -3525,6 +3534,10 @@
             const errEl = document.getElementById('signin-error');
             errEl.classList.add('hidden');
             errEl.textContent = '';
+            // Friendly note when Firebase isn't configured on this deployment
+            const note = document.getElementById('signin-unconfigured-note');
+            const configured = window.RMDAuth && window.RMDAuth.isConfigured();
+            note.classList.toggle('hidden', !!configured);
             document.getElementById('signin-modal').classList.remove('hidden');
         };
 

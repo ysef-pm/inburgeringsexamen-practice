@@ -107,3 +107,15 @@ plus existing `PERPLEXITY_API_KEY`, `OPENAI_API_KEY`.
 ## Out of scope (YAGNI)
 Subscriptions, customer portal, refund automation, admin dashboard, usage
 metering/free-grading credits, marketing landing page, custom receipt emails.
+
+## Divergences during implementation
+- **Already-paid checkout returns `200 {alreadyPaid:true}`** rather than a
+  409-style conflict. The client treats it as a success signal (refresh
+  entitlement, close modal) instead of an error path.
+- **Webhook handles the async payment events too:** in addition to
+  `checkout.session.completed`, the handler processes
+  `checkout.session.async_payment_succeeded` and
+  `checkout.session.async_payment_failed` for iDEAL-style delayed payments,
+  where `completed` fires with payment still pending.
+- **`APP_ORIGIN` env var added** to pin Stripe checkout return (success/cancel)
+  URLs to a canonical origin, falling back to request headers only when unset.

@@ -209,6 +209,11 @@ async function stopAndGrade() {
         const transcribeData = await transcribeResp.json();
 
         if (!transcribeData.success) {
+            // On the plain-fetch fallback path (no RMDAuth) paywall/auth errors arrive as
+            // JSON error codes; rethrow them typed so the catch below routes to the modals.
+            if (['payment_required', 'auth_required', 'invalid_token'].includes(transcribeData.error)) {
+                throw Object.assign(new Error(transcribeData.error), { code: transcribeData.error });
+            }
             resultArea.innerHTML = `<p class="error">${transcribeData.error}</p>`;
             actionArea.innerHTML = `<button class="btn btn-primary" onclick="window.sprekenRecord()">Probeer opnieuw</button>`;
             return;
@@ -237,6 +242,10 @@ async function stopAndGrade() {
         const gradeData = await gradeResp.json();
 
         if (!gradeData.success) {
+            // Same fallback-path routing as the transcribe step above.
+            if (['payment_required', 'auth_required', 'invalid_token'].includes(gradeData.error)) {
+                throw Object.assign(new Error(gradeData.error), { code: gradeData.error });
+            }
             resultArea.innerHTML += `<p class="error">${gradeData.error}</p>`;
             return;
         }
@@ -254,7 +263,7 @@ async function stopAndGrade() {
             window.showUpgradeModal();
             return;
         }
-        if (e && e.code === 'auth_required' && window.showSignInModal) {
+        if (e && (e.code === 'auth_required' || e.code === 'invalid_token') && window.showSignInModal) {
             resultArea.innerHTML = '';
             actionArea.innerHTML = `<button class="btn btn-primary" onclick="window.sprekenRecord()">Probeer opnieuw</button>`;
             window.showSignInModal();

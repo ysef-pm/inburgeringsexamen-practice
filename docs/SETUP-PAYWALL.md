@@ -73,6 +73,7 @@ Owner runbook to take the RateMyDutch paywall from zero to live. Do the steps in
 
    > **Why the async events matter:** delayed payment methods — notably **iDEAL, the most common way Dutch buyers pay** — are supported. For those, `checkout.session.completed` arrives with payment still pending, and access is granted only when `checkout.session.async_payment_succeeded` fires. If that event isn't selected on the endpoint, iDEAL customers pay but never get access.
 3. **Firebase authorized domains:** Firebase Console > Authentication > Settings > Authorized domains > add your Vercel domain(s) (e.g. `ratemydutch.vercel.app` and any preview domain you test on). Without this, Google sign-in fails on the deployed site.
+4. **Node.js version:** In Vercel project settings > General > Node.js Version, confirm it is **20.x or newer** — `firebase-admin`'s transitive dependencies require Node ≥ 20 and fail on older runtimes.
 
 ## 5. Pre-launch verification (do not skip)
 
