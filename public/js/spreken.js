@@ -35,6 +35,14 @@ function getExam() {
     return exerciseData.exams[currentExam];
 }
 
+// Attach Firebase ID token when auth is configured; plain fetch for local dev without Firebase.
+function apiFetch(url, options) {
+    if (window.RMDAuth && window.RMDAuth.isConfigured()) {
+        return window.RMDAuth.authedFetch(url, options);
+    }
+    return fetch(url, options);
+}
+
 export function renderSidebar() {
     const sidebar = document.getElementById('exam-sidebar');
     if (!sidebar || !exerciseData) return;
@@ -193,7 +201,7 @@ async function stopAndGrade() {
     const resultArea = document.getElementById('result-area');
 
     try {
-        const transcribeResp = await fetch('/api/transcribe-speech', {
+        const transcribeResp = await apiFetch('/api/transcribe-speech', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ audio: base64Audio, mimeType: audioBlob.type || 'audio/webm' })
@@ -217,7 +225,7 @@ async function stopAndGrade() {
         const part = getExam().parts[currentPartIndex];
         const exercise = part.exercises[currentExerciseIndex];
 
-        const gradeResp = await fetch('/api/grade-speaking', {
+        const gradeResp = await apiFetch('/api/grade-speaking', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -240,6 +248,18 @@ async function stopAndGrade() {
             <button class="btn btn-primary" onclick="window.sprekenNext()">Volgende oefening</button>
         `;
     } catch (e) {
+        if (e && e.code === 'payment_required' && window.showUpgradeModal) {
+            resultArea.innerHTML = '';
+            actionArea.innerHTML = `<button class="btn btn-primary" onclick="window.sprekenRecord()">Probeer opnieuw</button>`;
+            window.showUpgradeModal();
+            return;
+        }
+        if (e && e.code === 'auth_required' && window.showSignInModal) {
+            resultArea.innerHTML = '';
+            actionArea.innerHTML = `<button class="btn btn-primary" onclick="window.sprekenRecord()">Probeer opnieuw</button>`;
+            window.showSignInModal();
+            return;
+        }
         resultArea.innerHTML = `<p class="error">Er ging iets mis: ${e.message}</p>`;
         actionArea.innerHTML = `<button class="btn btn-primary" onclick="window.sprekenRecord()">Probeer opnieuw</button>`;
     }

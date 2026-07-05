@@ -3208,7 +3208,7 @@
             `;
 
             try {
-                const response = await fetch('/api/grade-writing', {
+                const fetchOpts = {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -3216,7 +3216,10 @@
                         prompt: q.prompt,
                         modelAnswer: q.modelAnswer
                     })
-                });
+                };
+                const response = (window.RMDAuth && window.RMDAuth.isConfigured())
+                    ? await window.RMDAuth.authedFetch('/api/grade-writing', fetchOpts)
+                    : await fetch('/api/grade-writing', fetchOpts);
 
                 const data = await response.json();
 
@@ -3237,12 +3240,20 @@
                 }
 
             } catch (error) {
-                console.error('Grading error:', error);
-                gradingArea.innerHTML = `
-                    <div class="warning-note" style="margin-top: 20px;">
-                        <strong>Error:</strong> ${error.message || 'Could not grade your answer. Make sure the server is running.'}
-                    </div>
-                `;
+                if (error && error.code === 'payment_required' && window.showUpgradeModal) {
+                    gradingArea.innerHTML = '';
+                    window.showUpgradeModal();
+                } else if (error && error.code === 'auth_required' && window.showSignInModal) {
+                    gradingArea.innerHTML = '';
+                    window.showSignInModal();
+                } else {
+                    console.error('Grading error:', error);
+                    gradingArea.innerHTML = `
+                        <div class="warning-note" style="margin-top: 20px;">
+                            <strong>Error:</strong> ${error.message || 'Could not grade your answer. Make sure the server is running.'}
+                        </div>
+                    `;
+                }
             }
 
             btn.disabled = false;
