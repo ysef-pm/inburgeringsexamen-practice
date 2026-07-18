@@ -45,6 +45,24 @@ app.get('/scorecard', (req, res) => {
 });
 app.use(createScorecardRouter());
 
+// Nurture sequence runner — called daily by the n8n scheduler. Idempotent, so a
+// duplicate trigger is harmless. `?dryRun=1` reports without sending.
+app.post('/api/nurture/run', async (req, res) => {
+    const secret = process.env.NURTURE_CRON_SECRET;
+    const auth = req.get('authorization') || '';
+    if (!secret || auth !== `Bearer ${secret}`) {
+        return res.status(401).json({ success: false, error: 'unauthorized' });
+    }
+    try {
+        const { runNurture } = require('./lib/nurture');
+        const summary = await runNurture({ dryRun: req.query.dryRun === '1' });
+        res.json({ success: true, ...summary });
+    } catch (err) {
+        console.error('nurture run failed:', err);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
 app.post('/api/create-checkout-session', requireAuth, async (req, res) => {
     if (!stripe || !STRIPE_PRICE_ID) {
         return res.status(500).json({ success: false, error: 'stripe_not_configured' });
