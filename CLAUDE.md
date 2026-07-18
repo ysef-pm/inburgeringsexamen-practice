@@ -108,6 +108,7 @@ One-time €24 purchase unlocks AI-powered features (Stripe Checkout + Firebase 
 | `RESEND_API_KEY` | For scorecard email | Resend API key; without it scorecard result emails are skipped (logged), on-screen result still works |
 | `EMAIL_FROM` | No | Scorecard email sender (default `RateMyDutch <scorecard@ratemydutch.com>`; domain must be verified in Resend) |
 | `SCORECARD_SECRET` | Production | HMAC secret for unsubscribe links (falls back to a hash of the service account if unset) |
+| `NURTURE_CRON_SECRET` | Production | Bearer secret for `POST /api/nurture/run` (called daily by n8n workflow `vezAywIDCBHWKToR`, 09:00 Europe/Amsterdam) |
 
 ## Acquisition Scorecard (consent-first funnel)
 

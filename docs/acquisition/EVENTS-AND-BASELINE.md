@@ -51,6 +51,17 @@ server-side writes. Common fields: `event_name`, `ts`, `anon_id` (random client 
 - Retention: delete incomplete assessments after 90 days; subscribers inactive
   ≥12 months get deleted on review. (Manual job for the pilot — revisit before scale.)
 
+## Nurture sequence (live 2026-07-18)
+
+Emails 1–5 (day 1/3/6/10/14 after assessment) built in `lib/nurture.js`, sent only
+to `marketing_consent == true` + `subscriber_status == active` + not paid
+(entitlements check = "stop promotional after conversion"). Send ledger:
+`nurture_sends` (idempotent; backlog collapses to the latest due email, earlier
+marked `skipped_stale`). Scheduler: n8n workflow **RateMyDutch — Nurture Emails
+Daily** (`vezAywIDCBHWKToR` on youssgoose.app.n8n.cloud), 09:00 Europe/Amsterdam,
+POST `/api/nurture/run` with `NURTURE_CRON_SECRET` bearer. Pause the sequence by
+deactivating the n8n workflow.
+
 ## Experiment register
 
 | ID | Hypothesis | Metric | Status |
