@@ -11,6 +11,14 @@ Firebase project: `ratemydutch` · Vercel project: `inburgeringsexamen-practice`
 > Vercel prod envs swapped to live values + redeployed; smoke test passed
 > (site 200, webhook 400 invalid_signature, checkout 401 auth_required).
 > Remaining: step 5 real-card test; optional: delete old test-mode webhook.
+>
+> **2026-07-18 (later): custom domain.** `ratemydutch.com` registered via
+> Vercel and serving the app; `www.ratemydutch.com` added as project alias.
+> Both added to Firebase authorized domains (via Identity Toolkit admin API).
+> `APP_ORIGIN` now `https://ratemydutch.com`. Old vercel.app URL still works.
+> Optional leftovers: set Stripe Dashboard → business website to
+> ratemydutch.com (API refuses self-update); Stripe webhook still points at
+> the vercel.app URL — works fine, no change needed.
 
 The paywall is built, deployed, and verified in **Stripe test mode**. This
 checklist flips it to accept real payments. Legend: 🧑 = you (dashboard/account),
