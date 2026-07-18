@@ -104,6 +104,18 @@ One-time €24 purchase unlocks AI-powered features (Stripe Checkout + Firebase 
 | `STRIPE_WEBHOOK_SECRET` | For paywall | Signing secret of the Stripe webhook endpoint (`whsec_...`) |
 | `STRIPE_PRICE_ID` | For paywall | One-time price ID for lifetime access (`price_...`) |
 | `FIREBASE_SERVICE_ACCOUNT` | For paywall | Firebase Admin service-account JSON, minified to one line |
-| `APP_ORIGIN` | Production | Canonical origin (e.g. `https://ratemydutch.vercel.app`); pins Stripe checkout return URLs. Falls back to request headers if unset — required in production |
+| `APP_ORIGIN` | Production | Canonical origin (e.g. `https://ratemydutch.com`); pins Stripe checkout return URLs. Falls back to request headers if unset — required in production |
+| `RESEND_API_KEY` | For scorecard email | Resend API key; without it scorecard result emails are skipped (logged), on-screen result still works |
+| `EMAIL_FROM` | No | Scorecard email sender (default `RateMyDutch <scorecard@ratemydutch.com>`; domain must be verified in Resend) |
+| `SCORECARD_SECRET` | Production | HMAC secret for unsubscribe links (falls back to a hash of the service account if unset) |
+
+## Acquisition Scorecard (consent-first funnel)
+
+`/scorecard` — exam-readiness scorecard as opt-in lead magnet. Plan + event dictionary:
+`docs/acquisition/EVENTS-AND-BASELINE.md`. Rubric (server-side only, answers never
+shipped to the client): `lib/scorecard-rubric.v1.json`. Router: `lib/scorecard.js`
+(subscribe/submit/events/unsubscribe). Email: `lib/email.js` (Resend, provider-pluggable).
+Firestore collections: `subscribers`, `consent_events` (append-only ledger),
+`assessments`, `funnel_events`. Scoring is deterministic — no AI in the loop.
 
 Without the paywall vars the app still serves all free modes; gated endpoints return 401/500 instead of crashing.

@@ -6,6 +6,7 @@ const Stripe = require('stripe');
 const firebase = require('./lib/firebase');
 const { createPaywall } = require('./lib/paywall');
 const { createWebhookHandler } = require('./lib/stripe-webhook');
+const { createScorecardRouter } = require('./lib/scorecard');
 
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
@@ -37,6 +38,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+// Acquisition scorecard (landing page + API). See docs/acquisition/EVENTS-AND-BASELINE.md
+app.get('/scorecard', (req, res) => {
+    res.sendFile(path.join(__dirname, 'scorecard.html'));
+});
+app.use(createScorecardRouter());
 
 app.post('/api/create-checkout-session', requireAuth, async (req, res) => {
     if (!stripe || !STRIPE_PRICE_ID) {

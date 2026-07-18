@@ -3762,7 +3762,28 @@
             } else if (originalStartMode) {
                 originalStartMode(mode);
             }
+            // Acquisition funnel: first mode start after arriving via the scorecard
+            // counts as product activation (docs/acquisition/EVENTS-AND-BASELINE.md).
+            if (new URLSearchParams(location.search).get('src') === 'scorecard'
+                && !localStorage.getItem('rmd-activated')) {
+                localStorage.setItem('rmd-activated', '1');
+                fetch('/api/events', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        event_name: 'product_activated',
+                        anonId: localStorage.getItem('rmd-anon-id'),
+                        subscriberId: localStorage.getItem('rmd-scorecard-sid'),
+                        source: 'scorecard', properties: { mode: mode }
+                    })
+                }).catch(() => {});
+            }
         };
+
+        // Deep link from the scorecard result CTA: /?src=scorecard#spreken
+        const hashMode = location.hash.replace('#', '');
+        if (['schrijven', 'lezen', 'spreken', 'luisteren', 'knm'].includes(hashMode)) {
+            window.startMode(hashMode);
+        }
     </script>
 </body>
 </html>

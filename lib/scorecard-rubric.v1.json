@@ -1,0 +1,230 @@
+{
+  "version": "v1",
+  "skills": ["speaking", "listening", "reading", "writing", "knowledge"],
+  "context": [
+    {
+      "id": "ctx_route",
+      "text": "Which exam are you preparing for?",
+      "options": [
+        { "id": "a2", "text": "Inburgeringsexamen at A2 (standard route)" },
+        { "id": "b1", "text": "B1 route (Wet inburgering 2021)" },
+        { "id": "unsure", "text": "I'm not sure yet" }
+      ]
+    },
+    {
+      "id": "ctx_timeline",
+      "text": "When do you expect to take your exam?",
+      "options": [
+        { "id": "1m", "text": "Within 1 month" },
+        { "id": "3m", "text": "In 1–3 months" },
+        { "id": "3m_plus", "text": "In more than 3 months" },
+        { "id": "not_booked", "text": "I haven't booked it yet" }
+      ]
+    },
+    {
+      "id": "ctx_hardest",
+      "text": "Which part feels hardest for you right now?",
+      "options": [
+        { "id": "speaking", "text": "Spreken (Speaking)" },
+        { "id": "listening", "text": "Luisteren (Listening)" },
+        { "id": "reading", "text": "Lezen (Reading)" },
+        { "id": "writing", "text": "Schrijven (Writing)" },
+        { "id": "knowledge", "text": "KNM (Dutch society)" }
+      ]
+    }
+  ],
+  "selfAssessment": {
+    "scale": [
+      { "id": "yes", "text": "Yes, comfortably", "points": 2 },
+      { "id": "sometimes", "text": "Usually, but it takes effort", "points": 1 },
+      { "id": "not_yet", "text": "Not yet", "points": 0 }
+    ],
+    "items": [
+      { "id": "sa_speak_1", "skill": "speaking", "text": "I can introduce myself in Dutch and say where I live, where I'm from, and what I do." },
+      { "id": "sa_speak_2", "skill": "speaking", "text": "I can describe a simple picture or situation in Dutch using 3–4 full sentences." },
+      { "id": "sa_listen_1", "skill": "listening", "text": "I can understand the main instruction in a short Dutch appointment message or voicemail." },
+      { "id": "sa_listen_2", "skill": "listening", "text": "I can follow a short, slow Dutch conversation about everyday topics (work, shopping, health)." },
+      { "id": "sa_read_1", "skill": "reading", "text": "I can understand a short letter from my gemeente, school, or huisarts." },
+      { "id": "sa_read_2", "skill": "reading", "text": "I can find specific information (a date, a price, a time) in a Dutch announcement or schedule." },
+      { "id": "sa_write_1", "skill": "writing", "text": "I can write a short note in Dutch, for example to report my child sick at school." },
+      { "id": "sa_write_2", "skill": "writing", "text": "I can fill in a simple Dutch form with my personal details without help." },
+      { "id": "sa_knm_1", "skill": "knowledge", "text": "I know what to do in common Dutch situations, like registering with a huisarts or using DigiD." },
+      { "id": "sa_knm_2", "skill": "knowledge", "text": "I understand common Dutch customs at work and school, like appointments and being on time." }
+    ]
+  },
+  "diagnostic": [
+    {
+      "id": "dx_read_1",
+      "skill": "reading",
+      "text": "Read the message: “Beste ouders, woensdag 12 maart is de school gesloten. De kinderen zijn vrij.” — What does this message tell you?",
+      "options": [
+        { "id": "a", "text": "The school is closed on Wednesday 12 March" },
+        { "id": "b", "text": "The children must come to school earlier" },
+        { "id": "c", "text": "There is a parents' evening on 12 March" },
+        { "id": "d", "text": "The school is looking for volunteers" }
+      ],
+      "correct": "a",
+      "points": 2
+    },
+    {
+      "id": "dx_read_2",
+      "skill": "reading",
+      "text": "You read: “De apotheek is open van maandag tot vrijdag van 8.30 tot 17.30 uur. Zaterdag alleen open tot 12.00 uur.” — When can you collect medicine on Saturday?",
+      "options": [
+        { "id": "a", "text": "Until 17:30" },
+        { "id": "b", "text": "Until 12:00" },
+        { "id": "c", "text": "Not at all, it is closed" },
+        { "id": "d", "text": "From 12:00" }
+      ],
+      "correct": "b",
+      "points": 2
+    },
+    {
+      "id": "dx_listen_1",
+      "skill": "listening",
+      "text": "At the gemeente you hear: “U moet eerst een nummertje trekken en dan wachten tot u aan de beurt bent.” — What should you do first?",
+      "options": [
+        { "id": "a", "text": "Wait by the desk" },
+        { "id": "b", "text": "Take a ticket number" },
+        { "id": "c", "text": "Fill in a form" },
+        { "id": "d", "text": "Make a new appointment" }
+      ],
+      "correct": "b",
+      "points": 2
+    },
+    {
+      "id": "dx_listen_2",
+      "skill": "listening",
+      "text": "A colleague says: “Kun je morgen een uurtje eerder komen? We hebben een teamoverleg.” — What is the best response?",
+      "options": [
+        { "id": "a", "text": "“Ja, dat is goed. Tot morgen!”" },
+        { "id": "b", "text": "“Nee, ik eet geen vlees.”" },
+        { "id": "c", "text": "“De trein komt om negen uur.”" },
+        { "id": "d", "text": "“Ik woon in Amsterdam.”" }
+      ],
+      "correct": "a",
+      "points": 2
+    },
+    {
+      "id": "dx_write_1",
+      "skill": "writing",
+      "text": "Which sentence is written correctly?",
+      "options": [
+        { "id": "a", "text": "Ik ben gisteren naar de markt gegaan." },
+        { "id": "b", "text": "Ik ben gisteren naar de markt gaan." },
+        { "id": "c", "text": "Ik gisteren ben naar de markt gegaan." },
+        { "id": "d", "text": "Ik ben naar gisteren de markt gegaan." }
+      ],
+      "correct": "a",
+      "points": 2
+    },
+    {
+      "id": "dx_knm_1",
+      "skill": "knowledge",
+      "text": "You are ill and cannot go to work. What is the normal thing to do in the Netherlands?",
+      "options": [
+        { "id": "a", "text": "Call your employer in the morning to report sick (ziekmelden)" },
+        { "id": "b", "text": "Say nothing and explain later in the week" },
+        { "id": "c", "text": "Ask a family member to visit your workplace" },
+        { "id": "d", "text": "Go to the hospital first for a doctor's note" }
+      ],
+      "correct": "a",
+      "points": 2
+    },
+    {
+      "id": "dx_knm_2",
+      "skill": "knowledge",
+      "text": "You need to see a medical specialist. How does this usually work in the Netherlands?",
+      "options": [
+        { "id": "a", "text": "You go directly to the hospital and ask for a specialist" },
+        { "id": "b", "text": "You first visit your huisarts, who can refer you (verwijzing)" },
+        { "id": "c", "text": "You call 112 to make an appointment" },
+        { "id": "d", "text": "You ask the apotheek for a referral" }
+      ],
+      "correct": "b",
+      "points": 2
+    }
+  ],
+  "speakingNote": "Speaking is scored from self-assessment only in this version; the RateMyDutch app records and grades real speech with the official rubric.",
+  "bands": [
+    {
+      "id": "early",
+      "min": 0,
+      "max": 39,
+      "label": "Early preparation",
+      "summary": "You're at the start of your preparation. That's a fine place to be — you now know exactly where you stand. Focus on building daily contact with Dutch before drilling exam tasks."
+    },
+    {
+      "id": "building",
+      "min": 40,
+      "max": 69,
+      "label": "Building readiness",
+      "summary": "You have a real foundation. Some skills are close to exam level and others need focused work. Concentrated practice on your weakest skill will move your result fastest."
+    },
+    {
+      "id": "ready",
+      "min": 70,
+      "max": 100,
+      "label": "Practice-ready",
+      "summary": "You're close. At this level the biggest gains come from realistic exam practice under exam conditions — timed tasks, one-time audio, and honest feedback on your speaking and writing."
+    }
+  ],
+  "skillPlans": {
+    "speaking": {
+      "label": "Spreken (Speaking)",
+      "why": "Speaking is the skill most candidates under-practise because it's hard to practise alone — and it's graded live on adequacy, vocabulary, grammar, fluency and pronunciation.",
+      "exercises": [
+        "Record yourself answering one everyday question in Dutch each day (60 seconds), then listen back once.",
+        "Describe a photo out loud in 4 full sentences: who, what, where, why.",
+        "Practise your self-introduction until you can say it without pausing: name, country, woonplaats, work/study, family."
+      ],
+      "appAction": "Use the Spreken section in RateMyDutch: record your answer, get it transcribed, and receive a score on the official 5-part rubric.",
+      "appMode": "spreken"
+    },
+    "listening": {
+      "label": "Luisteren (Listening)",
+      "why": "On the exam you hear each fragment only once, so trained one-time listening — not relistening — is the skill to build.",
+      "exercises": [
+        "Listen to one short Dutch audio clip daily (jeugdjournaal, podcast at slow speed) without pausing, then summarise it in one sentence.",
+        "Practise catching numbers, times and dates: write down every one you hear in a clip.",
+        "Listen to a voicemail-style message and answer: who is calling, what do they want, what must I do?"
+      ],
+      "appAction": "Use the Luisteren section in RateMyDutch: real one-time-playback questions that mirror the exam format.",
+      "appMode": "luisteren"
+    },
+    "reading": {
+      "label": "Lezen (Reading)",
+      "why": "Exam reading is about finding the right information fast in everyday texts: letters, announcements, schedules.",
+      "exercises": [
+        "Read one real Dutch letter or email you've received and underline: who is it from, what do they want, is there a deadline?",
+        "Practise scanning: give yourself 60 seconds to find one specific fact (a time, a price) in an announcement.",
+        "Read a short news item on nu.nl and write down the main point in one Dutch sentence."
+      ],
+      "appAction": "Use the Lezen section in RateMyDutch: timed multiple-choice reading in the exam format.",
+      "appMode": "lezen"
+    },
+    "writing": {
+      "label": "Schrijven (Writing)",
+      "why": "Writing is graded strictly on execution, grammar, spelling, clarity and vocabulary — small recurring errors cost predictable points.",
+      "exercises": [
+        "Write one short practical note per day: report sick, make an appointment, reply to an invitation (3–4 sentences).",
+        "Rewrite yesterday's note fixing one thing: word order, capital letters, or verb forms.",
+        "Practise filling in a form with your details: naam, adres, geboortedatum, handtekening."
+      ],
+      "appAction": "Use the Schrijven section in RateMyDutch: write a task and get graded feedback on the official DUO rubric.",
+      "appMode": "schrijven"
+    },
+    "knowledge": {
+      "label": "KNM (Dutch society)",
+      "why": "KNM is the most learnable section — it tests fixed knowledge about health care, work, school and government that you can simply study.",
+      "exercises": [
+        "Learn one KNM theme per day: zorg, werk, onderwijs, wonen, geschiedenis, overheid.",
+        "For each theme, write down the 3 practical rules (e.g. huisarts first, then specialist).",
+        "Quiz yourself: what would you do in this situation? Answer out loud in Dutch."
+      ],
+      "appAction": "Use the KNM section in RateMyDutch: scenario questions across all 6 official themes.",
+      "appMode": "knm"
+    }
+  },
+  "disclaimer": "RateMyDutch is an independent practice tool. It is not affiliated with DUO or the Dutch government, and this scorecard does not predict your official exam result."
+}
