@@ -43,6 +43,14 @@ app.get('/', (req, res) => {
 app.get('/scorecard', (req, res) => {
     res.sendFile(path.join(__dirname, 'scorecard.html'));
 });
+
+// Search-intent guides (acquisition channel 1)
+app.get('/guides/am-i-ready-inburgering-speaking-exam', (req, res) => {
+    res.sendFile(path.join(__dirname, 'guide-speaking.html'));
+});
+app.get('/guides/two-weeks-before-inburgeringsexamen', (req, res) => {
+    res.sendFile(path.join(__dirname, 'guide-two-weeks.html'));
+});
 app.use(createScorecardRouter());
 
 // Nurture sequence runner — called daily by the n8n scheduler. Idempotent, so a

@@ -50,7 +50,10 @@ function renderLanding() {
             <p class="muted" style="margin-top:.75rem">Takes about 4 minutes. Free.</p>
         </div>
         <button class="btn" id="start-btn">Start the scorecard</button>
-        <p class="muted" style="margin-top:2rem" id="disclaimer"></p>
+        <p class="muted" style="margin-top:2.5rem">Preparation guides:
+            <a href="/guides/am-i-ready-inburgering-speaking-exam">Am I ready for the speaking exam?</a> ·
+            <a href="/guides/two-weeks-before-inburgeringsexamen">The last two weeks before the exam</a></p>
+        <p class="muted" style="margin-top:1rem" id="disclaimer"></p>
     `;
     document.getElementById('start-btn').onclick = renderConsent;
     loadQuestions();
