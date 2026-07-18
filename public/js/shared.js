@@ -162,23 +162,26 @@ export class OneTimeAudioPlayer {
 
     play() {
         if (this.hasPlayed) return Promise.resolve();
-        this.hasPlayed = true;
         const fill = this.container.querySelector('#audio-fill');
         const status = this.container.querySelector('#audio-status');
-        status.textContent = 'Afspelen...';
 
         this.audio.ontimeupdate = () => {
             const pct = (this.audio.currentTime / this.audio.duration) * 100;
             fill.style.width = `${pct}%`;
         };
 
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
             this.audio.onended = () => {
                 fill.style.width = '100%';
                 status.textContent = 'Afgespeeld - kies je antwoord';
                 resolve();
             };
-            this.audio.play();
+            // hasPlayed only flips once playback actually starts, so a
+            // blocked autoplay attempt can be retried from a user gesture
+            this.audio.play().then(() => {
+                this.hasPlayed = true;
+                status.textContent = 'Afspelen...';
+            }).catch(reject);
         });
     }
 }

@@ -142,7 +142,18 @@ function playAudio(question) {
 
     audio.oncanplaythrough = () => {
         const player = new OneTimeAudioPlayer(playerArea, `/audio/${question.audioFile}`);
-        player.play().then(() => enableOptions());
+        player.play().then(() => enableOptions()).catch(() => {
+            // Safari/iOS block play() outside a user gesture — offer a tap instead
+            const btn = document.createElement('button');
+            btn.className = 'btn btn-primary';
+            btn.id = 'play-audio-btn';
+            btn.textContent = '▶ Speel fragment af';
+            btn.onclick = () => {
+                btn.remove();
+                player.play().then(() => enableOptions());
+            };
+            playerArea.appendChild(btn);
+        });
     };
 
     // Try loading the audio

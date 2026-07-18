@@ -3,6 +3,15 @@
 Production URL: `https://inburgeringsexamen-practice.vercel.app`
 Firebase project: `ratemydutch` · Vercel project: `inburgeringsexamen-practice`
 
+> **STATUS 2026-07-18: LIVE.** Steps 0–4 completed. Stripe account activated
+> (Hounat Advisory, KVK 42108620, eenmanszaak; ID verified; payouts → Revolut
+> ••••8391, weekly Mon). Live objects: product `prod_UuLARyn7ljmzAp`
+> ("RateMyDutch — Lifetime access", €24 one-time), price
+> `price_1TuWUT8idYv8Gy5jC7xS9588`, webhook `we_1TuWd68idYv8Gy5jZxowUCgf`.
+> Vercel prod envs swapped to live values + redeployed; smoke test passed
+> (site 200, webhook 400 invalid_signature, checkout 401 auth_required).
+> Remaining: step 5 real-card test; optional: delete old test-mode webhook.
+
 The paywall is built, deployed, and verified in **Stripe test mode**. This
 checklist flips it to accept real payments. Legend: 🧑 = you (dashboard/account),
 🤖 = Claude can do via CLI once you provide values.
