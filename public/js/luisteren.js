@@ -122,12 +122,14 @@ function playAudio(question) {
     timerArea.innerHTML = '';
 
     const playerArea = document.getElementById('player-area');
+    // No preload probe: iOS Safari won't fetch audio before a user gesture,
+    // so waiting for canplaythrough would hang forever there.
+    const player = new OneTimeAudioPlayer(playerArea, `/audio/${question.audioFile}`);
+    let settled = false;
 
-    // Check if audio file exists, otherwise show transcript
-    const audio = new Audio(`/audio/${question.audioFile}`);
-    audio.onerror = () => {
-        // Fallback: show transcript with TTS-style reveal
-        if (!playerArea) return;
+    const showTranscript = () => {
+        if (settled) return;
+        settled = true;
         playerArea.innerHTML = `
             <div class="transcript-fallback">
                 <div class="audio-icon playing">&#128266;</div>
@@ -140,9 +142,17 @@ function playAudio(question) {
         setTimeout(() => enableOptions(), readDelay);
     };
 
-    audio.oncanplaythrough = () => {
-        const player = new OneTimeAudioPlayer(playerArea, `/audio/${question.audioFile}`);
-        player.play().then(() => enableOptions()).catch(() => {
+    // Broken or missing audio file → show the transcript instead
+    player.audio.onerror = showTranscript;
+
+    const onPlayed = () => {
+        settled = true;
+        enableOptions();
+    };
+
+    player.play().then(onPlayed).catch((err) => {
+        if (settled) return;
+        if (err && err.name === 'NotAllowedError') {
             // Safari/iOS block play() outside a user gesture — offer a tap instead
             const btn = document.createElement('button');
             btn.className = 'btn btn-primary';
@@ -150,14 +160,13 @@ function playAudio(question) {
             btn.textContent = '▶ Speel fragment af';
             btn.onclick = () => {
                 btn.remove();
-                player.play().then(() => enableOptions());
+                player.play().then(onPlayed).catch(showTranscript);
             };
             playerArea.appendChild(btn);
-        });
-    };
-
-    // Try loading the audio
-    audio.load();
+        } else {
+            showTranscript();
+        }
+    });
 }
 
 function enableOptions() {
