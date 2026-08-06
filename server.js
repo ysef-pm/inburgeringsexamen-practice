@@ -51,6 +51,11 @@ app.get('/guides/am-i-ready-inburgering-speaking-exam', (req, res) => {
 app.get('/guides/two-weeks-before-inburgeringsexamen', (req, res) => {
     res.sendFile(path.join(__dirname, 'guide-two-weeks.html'));
 });
+
+// Privacy policy (required by ad platforms' app review / Live mode)
+app.get('/privacy', (req, res) => {
+    res.sendFile(path.join(__dirname, 'privacy.html'));
+});
 app.use(createScorecardRouter());
 
 // Nurture sequence runner — called daily by the n8n scheduler. Idempotent, so a
