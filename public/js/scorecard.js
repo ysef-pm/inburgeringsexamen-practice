@@ -71,11 +71,6 @@ function renderConsent() {
                     <input type="checkbox" checked disabled>
                     <span>Email me my RateMyDutch exam-readiness scorecard.</span>
                 </label>
-                <label class="consent">
-                    <input type="checkbox" id="marketing-consent">
-                    <span>Also send me inburgering preparation tips and RateMyDutch product updates.
-                    I can unsubscribe at any time.</span>
-                </label>
                 <div class="error" id="consent-error"></div>
                 <button class="btn" type="submit" id="consent-btn">Continue to the questions</button>
             </form>
@@ -94,7 +89,6 @@ function renderConsent() {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     email: document.getElementById('email').value,
-                    marketingConsent: document.getElementById('marketing-consent').checked,
                     anonId, source, ...utm,
                 }),
             });
@@ -210,11 +204,37 @@ function renderResult(r) {
                 <a class="btn" id="cta-btn" href="/?src=scorecard#${r.plan.appMode}">Practise ${r.plan.label.split(' ')[0]} now — free</a>
             </p>
         </div>
+        ${localStorage.getItem('rmd-marketing-optin') ? '' : `
+        <div class="card" id="optin-card">
+            <h2>Keep this plan on track</h2>
+            <p>We'll email you your seven-day ${r.plan.label.split(' ')[0].toLowerCase()} plan, plus
+            inburgering preparation tips and RateMyDutch product updates. Unsubscribe any time with one click.</p>
+            <p style="margin-top:.75rem"><button class="btn" id="optin-btn">Email me my 7-day plan</button></p>
+            <div class="error" id="optin-error"></div>
+        </div>`}
         <p class="muted">We've also emailed this result to you (check spam the first time).</p>
         <p class="muted" style="margin-top:1.5rem">${r.disclaimer}</p>
     `;
     track('result_viewed', { band: r.band.id, focus: r.focus });
     document.getElementById('cta-btn').addEventListener('click', () => track('cta_clicked', { focus: r.focus }));
+    const optinBtn = document.getElementById('optin-btn');
+    if (optinBtn) optinBtn.onclick = async () => {
+        optinBtn.disabled = true;
+        try {
+            const resp = await fetch('/api/scorecard/marketing-opt-in', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ subscriberId, anonId, source, ...utm }),
+            });
+            const data = await resp.json();
+            if (!data.success) throw new Error(data.error || 'Something went wrong.');
+            localStorage.setItem('rmd-marketing-optin', '1');
+            document.getElementById('optin-card').innerHTML =
+                '<h2>You\'re in</h2><p>Your first email arrives within a day or two. Tot snel!</p>';
+        } catch (err) {
+            document.getElementById('optin-error').textContent = err.message;
+            optinBtn.disabled = false;
+        }
+    };
 }
 
 // ===== boot =====
