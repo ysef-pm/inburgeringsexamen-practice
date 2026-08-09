@@ -28,6 +28,9 @@ let startedAt = null;
 let startedEventSent = false;
 
 function track(event_name, properties) {
+    // Mirror into PostHog (public/js/analytics.js) — Firestore below stays the
+    // source of truth for the ads-agent.
+    window.rmdAnalytics?.capture(event_name, { source, ...utm, ...properties });
     const payload = { event_name, anonId, subscriberId, source, ...utm, properties };
     // sendBeacon survives navigation; fetch is the fallback.
     const body = JSON.stringify(payload);
@@ -96,6 +99,7 @@ function renderConsent() {
             if (!data.success) throw new Error(data.error || 'Something went wrong.');
             subscriberId = data.subscriberId;
             localStorage.setItem('rmd-scorecard-sid', subscriberId);
+            window.rmdAnalytics?.identify(subscriberId);
             startQuestions();
         } catch (err) {
             document.getElementById('consent-error').textContent = err.message;
