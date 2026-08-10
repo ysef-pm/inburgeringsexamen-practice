@@ -190,8 +190,8 @@ const SKILL_LABELS = {
 };
 
 // v2 funnel: inline question + Google sign-up + checkout on this page.
-// Opt-in via ?flow=v2 until production-verified, then flip to default-on.
-const flowV2 = params.get('flow') === 'v2';
+// Default-on (production-verified 2026-08-10); ?flow=v1 is the escape hatch.
+const flowV2 = params.get('flow') !== 'v1';
 
 function renderResult(r) {
     try { localStorage.setItem('rmd-last-result', JSON.stringify(r)); } catch {}
