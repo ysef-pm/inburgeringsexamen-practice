@@ -52,7 +52,27 @@
     .error { color: var(--error-red); margin: .5rem 0; }
     footer { text-align: center; margin-top: 3rem; }
     ol.plan li { margin: .5rem 0; }
+    ul.plan li { margin: .5rem 0; }
     @media (max-width: 480px) { .skill-row .name { flex-basis: 8.5rem; font-size: .92rem; } }
+
+    /* Inline-practice funnel (flow v2) */
+    #rmd-sheet .sheet-backdrop { position: fixed; inset: 0; background: rgba(26,35,50,.55); z-index: 1000; }
+    #rmd-sheet .sheet-panel { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1001;
+        background: var(--warm-white); border-radius: 14px 14px 0 0; padding: 1.5rem 1.25rem 2rem;
+        max-width: 40rem; margin: 0 auto; box-shadow: 0 -6px 30px rgba(26,35,50,.3);
+        animation: sheet-up .22s ease-out; }
+    @keyframes sheet-up { from { transform: translateY(40px); opacity: .4; } to { transform: none; opacity: 1; } }
+    @media (min-width: 641px) { #rmd-sheet .sheet-panel { bottom: auto; top: 20vh; left: 50%; right: auto;
+        transform: translateX(-50%); width: 26rem; border-radius: 12px; } }
+    .btn-google { display: flex; align-items: center; justify-content: center; gap: .6rem; width: 100%;
+        font-family: var(--font-ui); font-size: 1.1rem; font-weight: 600; background: var(--warm-white);
+        color: var(--navy-deep); border: 1px solid var(--navy-mid); border-radius: 5px;
+        padding: .75rem 1rem; cursor: pointer; margin-top: .75rem; }
+    .btn-ghost-link { display: block; margin: 1rem auto 0; background: none; border: none;
+        color: var(--text-muted); font-family: var(--font-body); font-size: .95rem;
+        cursor: pointer; text-decoration: underline; }
+    .inline-paywall { border: 2px solid var(--dutch-orange); }
+    #inline-practice textarea:focus { outline: 2px solid var(--dutch-orange); border-color: transparent; }
     </style>
     <script src="/js/analytics.js"></script>
 </head>
@@ -61,6 +81,9 @@
     <div class="wrap" id="app" data-page="scorecard">
         <noscript><p>This scorecard needs JavaScript. Meanwhile, you can practise all exam sections free at <a href="/">RateMyDutch</a>.</p></noscript>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="/js/firebase-config.js"></script>
     <script type="module" src="/js/scorecard.js"></script>
 </body>
 </html>

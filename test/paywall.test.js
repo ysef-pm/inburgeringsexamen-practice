@@ -138,3 +138,70 @@ test('requirePaid: 500 when entitlement lookup throws', async () => {
     await requirePaid(fakeReq('good'), res, () => {});
     assert.equal(res.statusCode, 500);
 });
+
+// ---- requirePaidOrFreeGrade (scorecard inline-question free grade) ----
+
+test('requirePaidOrFreeGrade: paid user passes without consuming the allowance', async () => {
+    let consumed = false;
+    const { requirePaidOrFreeGrade } = createPaywall({
+        verifyIdToken: async () => ({ uid: 'u1' }),
+        getEntitlement: async () => ({ paid: true }),
+        consumeFreeGrade: async () => { consumed = true; return true; },
+    });
+    const req = fakeReq('good');
+    const res = fakeRes();
+    let nextCalled = false;
+    await requirePaidOrFreeGrade(req, res, () => { nextCalled = true; });
+    assert.equal(nextCalled, true);
+    assert.equal(consumed, false);
+    assert.equal(req.usedFreeGrade, undefined);
+});
+
+test('requirePaidOrFreeGrade: unpaid user with allowance passes and is marked', async () => {
+    const { requirePaidOrFreeGrade } = createPaywall({
+        verifyIdToken: async () => ({ uid: 'u1' }),
+        getEntitlement: async () => null,
+        consumeFreeGrade: async () => true,
+    });
+    const req = fakeReq('good');
+    const res = fakeRes();
+    let nextCalled = false;
+    await requirePaidOrFreeGrade(req, res, () => { nextCalled = true; });
+    assert.equal(nextCalled, true);
+    assert.equal(req.usedFreeGrade, true);
+});
+
+test('requirePaidOrFreeGrade: unpaid user with spent allowance gets 402', async () => {
+    const { requirePaidOrFreeGrade } = createPaywall({
+        verifyIdToken: async () => ({ uid: 'u1' }),
+        getEntitlement: async () => null,
+        consumeFreeGrade: async () => false,
+    });
+    const res = fakeRes();
+    let nextCalled = false;
+    await requirePaidOrFreeGrade(fakeReq('good'), res, () => { nextCalled = true; });
+    assert.equal(res.statusCode, 402);
+    assert.equal(res.body.error, 'payment_required');
+    assert.equal(nextCalled, false);
+});
+
+test('requirePaidOrFreeGrade: no consumeFreeGrade wired -> unpaid gets 402', async () => {
+    const { requirePaidOrFreeGrade } = createPaywall({
+        verifyIdToken: async () => ({ uid: 'u1' }),
+        getEntitlement: async () => null,
+    });
+    const res = fakeRes();
+    await requirePaidOrFreeGrade(fakeReq('good'), res, () => {});
+    assert.equal(res.statusCode, 402);
+});
+
+test('requirePaidOrFreeGrade: consume throwing -> 500', async () => {
+    const { requirePaidOrFreeGrade } = createPaywall({
+        verifyIdToken: async () => ({ uid: 'u1' }),
+        getEntitlement: async () => null,
+        consumeFreeGrade: async () => { throw new Error('firestore down'); },
+    });
+    const res = fakeRes();
+    await requirePaidOrFreeGrade(fakeReq('good'), res, () => {});
+    assert.equal(res.statusCode, 500);
+});

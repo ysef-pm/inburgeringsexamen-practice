@@ -1,6 +1,10 @@
-// Scorecard flow: landing → consent → questions → result.
+// Scorecard flow: landing → consent → questions → result → inline first
+// question → Google sign-up → free AI feedback → checkout (flow v2).
 // Events: landing_viewed, (consent_confirmed server-side), scorecard_started,
-// result_viewed, cta_clicked. See docs/acquisition/EVENTS-AND-BASELINE.md
+// result_viewed, cta_clicked + inline_* / signup_* / checkout_opened.
+// See docs/acquisition/EVENTS-AND-BASELINE.md
+import { renderInlinePractice, renderCheckoutReturn, initInlinePractice, loadState } from './inline-practice.js';
+
 const app = document.getElementById('app');
 
 const params = new URLSearchParams(location.search);
@@ -185,7 +189,12 @@ const SKILL_LABELS = {
     reading: 'Lezen (Reading)', writing: 'Schrijven (Writing)', knowledge: 'KNM (Dutch society)',
 };
 
+// v2 funnel: inline question + Google sign-up + checkout on this page.
+// Opt-in via ?flow=v2 until production-verified, then flip to default-on.
+const flowV2 = params.get('flow') === 'v2';
+
 function renderResult(r) {
+    try { localStorage.setItem('rmd-last-result', JSON.stringify(r)); } catch {}
     const rows = Object.entries(r.skills).map(([skill, pct]) => `
         <div class="skill-row">
             <span class="name">${SKILL_LABELS[skill]}</span>
@@ -205,9 +214,12 @@ function renderResult(r) {
             <ol class="plan">${r.plan.exercises.map(e => `<li>${e}</li>`).join('')}</ol>
             <p style="margin-top:.75rem">${r.plan.appAction}</p>
             <p style="margin-top:1rem">
-                <a class="btn" id="cta-btn" href="/?src=scorecard#${r.plan.appMode}">Practise ${r.plan.label.split(' ')[0]} now — free</a>
+                ${flowV2
+                    ? `<a id="cta-btn" href="/?src=scorecard#${r.plan.appMode}">Browse all ${r.plan.label.split(' ')[0].toLowerCase()} exercises in the app</a>`
+                    : `<a class="btn" id="cta-btn" href="/?src=scorecard#${r.plan.appMode}">Practise ${r.plan.label.split(' ')[0]} now — free</a>`}
             </p>
         </div>
+        ${flowV2 ? '<div id="inline-practice"></div>' : ''}
         ${localStorage.getItem('rmd-marketing-optin') ? '' : `
         <div class="card" id="optin-card">
             <h2>Keep this plan on track</h2>
@@ -221,6 +233,10 @@ function renderResult(r) {
     `;
     track('result_viewed', { band: r.band.id, focus: r.focus });
     document.getElementById('cta-btn').addEventListener('click', () => track('cta_clicked', { focus: r.focus }));
+    if (flowV2) {
+        renderInlinePractice(document.getElementById('inline-practice'), r.focus)
+            .catch((err) => console.error('inline practice failed:', err));
+    }
     const optinBtn = document.getElementById('optin-btn');
     if (optinBtn) optinBtn.onclick = async () => {
         optinBtn.disabled = true;
@@ -242,5 +258,21 @@ function renderResult(r) {
 }
 
 // ===== boot =====
-track('landing_viewed');
-renderLanding();
+initInlinePractice(track);
+const checkoutParam = params.get('checkout');
+const savedResult = (() => {
+    try { return JSON.parse(localStorage.getItem('rmd-last-result')); } catch { return null; }
+})();
+
+if (checkoutParam === 'success' || checkoutParam === 'cancelled') {
+    // Back from Stripe: resume the funnel, not the landing page.
+    renderCheckoutReturn(app, checkoutParam === 'success');
+    track(checkoutParam === 'success' ? 'checkout_returned_success' : 'checkout_returned_cancelled');
+} else if (savedResult && (loadState().pendingRedirect || (flowV2 && loadState().stage))) {
+    // Back from a Google auth redirect (or reload mid-funnel): re-render the
+    // result screen so the inline flow can pick up where the tap left off.
+    renderResult(savedResult);
+} else {
+    track('landing_viewed');
+    renderLanding();
+}

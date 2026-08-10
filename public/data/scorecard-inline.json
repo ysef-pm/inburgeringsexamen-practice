@@ -1,0 +1,91 @@
+{
+  "writing": {
+    "type": "graded",
+    "intro": "Try your first writing exercise now — you'll get AI feedback on the official DUO rubric.",
+    "prompt": "Je bent ziek en je kunt vandaag niet werken. Schrijf een korte e-mail aan je baas.",
+    "bullets": [
+      "Schrijf dat je ziek bent",
+      "Schrijf wanneer je waarschijnlijk weer kunt werken",
+      "Vraag wat je moet doen met je taken"
+    ],
+    "placeholder": "Beste …",
+    "modelAnswer": "Beste meneer De Vries, Ik ben vandaag ziek. Ik heb koorts en ik kan niet naar het werk komen. Ik denk dat ik overmorgen weer kan werken. Wat moet ik doen met mijn taken? Kunt u mij dat laten weten? Met vriendelijke groet, Sam"
+  },
+  "speaking": {
+    "type": "graded",
+    "intro": "Try your first speaking exercise now — type your answer here, record it later in the app. You'll get AI feedback on the official rubric.",
+    "prompt": "Vertel iets over je favoriete dag van de week. Wat doe je dan? Met wie? Waarom vind je die dag leuk?",
+    "bullets": [
+      "Welke dag is je favoriete dag?",
+      "Wat doe je op die dag?",
+      "Waarom vind je die dag leuk?"
+    ],
+    "placeholder": "Mijn favoriete dag is …",
+    "modelAnswer": "Mijn favoriete dag is zaterdag. Dan werk ik niet. Ik ga naar de markt met mijn vrouw. We kopen groente en vis. Daarna drinken we koffie in de stad. Ik vind zaterdag leuk omdat ik tijd heb voor mijn familie."
+  },
+  "reading": {
+    "type": "mcq",
+    "intro": "Try three quick reading questions from your focus skill right now.",
+    "passage": "Beste bewoners, Volgende week maandag werken wij aan de lift. De lift werkt dan niet van 09.00 tot 17.00 uur. Gebruikt u alstublieft de trap. Heeft u hulp nodig? Bel dan de huismeester: 020-1234567. Met vriendelijke groet, Woningbouw Zuid",
+    "questions": [
+      {
+        "q": "Wat is het probleem op maandag?",
+        "options": ["De trap is dicht", "De lift werkt niet overdag", "De huismeester is ziek"],
+        "answer": 1
+      },
+      {
+        "q": "Wat moeten de bewoners doen?",
+        "options": ["Thuis blijven", "De trap gebruiken", "Naar kantoor bellen voor een sleutel"],
+        "answer": 1
+      },
+      {
+        "q": "Wanneer werkt de lift weer?",
+        "options": ["Na 17.00 uur", "Volgende week vrijdag", "Om 09.00 uur"],
+        "answer": 0
+      }
+    ]
+  },
+  "listening": {
+    "type": "mcq",
+    "intro": "A quick listening warm-up — read this short conversation and answer three questions. (Real audio exercises are in the app.)",
+    "passage": "Receptionist: Goedemiddag, huisartsenpraktijk De Linde. — Anna: Goedemiddag, ik wil graag een afspraak maken. Ik heb al drie dagen hoofdpijn. — Receptionist: Kunt u morgen om 10.15 uur komen? — Anna: Ja, dat kan. Dank u wel.",
+    "questions": [
+      {
+        "q": "Waarom belt Anna?",
+        "options": ["Ze wil een afspraak maken", "Ze wil medicijnen bestellen", "Ze wil haar afspraak afzeggen"],
+        "answer": 0
+      },
+      {
+        "q": "Wat is haar klacht?",
+        "options": ["Buikpijn", "Hoofdpijn", "Koorts"],
+        "answer": 1
+      },
+      {
+        "q": "Wanneer is de afspraak?",
+        "options": ["Vandaag om 10.15 uur", "Morgen om 10.15 uur", "Morgen om 10.50 uur"],
+        "answer": 1
+      }
+    ]
+  },
+  "knowledge": {
+    "type": "mcq",
+    "intro": "Try three KNM questions from your focus skill right now.",
+    "questions": [
+      {
+        "q": "Je hebt een nieuwe baan. Wat moet je baas jou elke maand geven?",
+        "options": ["Een loonstrook", "Een nieuw contract", "Een cadeau"],
+        "answer": 0
+      },
+      {
+        "q": "Je wilt een huis huren via een woningcorporatie. Wat moet je meestal eerst doen?",
+        "options": ["Direct de eigenaar bellen", "Je inschrijven bij de woningcorporatie", "Naar het gemeentehuis gaan"],
+        "answer": 1
+      },
+      {
+        "q": "Je kind is 5 jaar. Wat is verplicht in Nederland?",
+        "options": ["Je kind gaat naar school", "Je kind gaat naar de kinderopvang", "Je kind blijft thuis tot 6 jaar"],
+        "answer": 0
+      }
+    ]
+  }
+}

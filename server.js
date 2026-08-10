@@ -13,9 +13,10 @@ const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
 const STRIPE_PRICE_ID = process.env.STRIPE_PRICE_ID;
 const stripe = STRIPE_SECRET_KEY ? new Stripe(STRIPE_SECRET_KEY) : null;
 
-const { requireAuth, requirePaid } = createPaywall({
+const { requireAuth, requirePaid, requirePaidOrFreeGrade } = createPaywall({
     verifyIdToken: firebase.verifyIdToken,
     getEntitlement: firebase.getEntitlement,
+    consumeFreeGrade: firebase.consumeFreeGrade,
 });
 
 const app = express();
@@ -86,14 +87,17 @@ app.post('/api/create-checkout-session', requireAuth, async (req, res) => {
             return res.json({ success: true, alreadyPaid: true });
         }
         const origin = process.env.APP_ORIGIN || `${req.headers['x-forwarded-proto'] || 'http'}://${req.headers.host}`;
+        // Optional whitelisted return path so the scorecard funnel can resume
+        // where the user left off instead of dumping them on the app home.
+        const returnTo = ['/scorecard'].includes(req.body && req.body.returnTo) ? req.body.returnTo : '/';
         const session = await stripe.checkout.sessions.create({
             mode: 'payment',
             line_items: [{ price: STRIPE_PRICE_ID, quantity: 1 }],
             client_reference_id: req.user.uid,
             customer_email: req.user.email || undefined,
             metadata: { uid: req.user.uid },
-            success_url: `${origin}/?checkout=success`,
-            cancel_url: `${origin}/?checkout=cancelled`,
+            success_url: `${origin}${returnTo}?checkout=success`,
+            cancel_url: `${origin}${returnTo}?checkout=cancelled`,
         });
         res.json({ success: true, url: session.url });
     } catch (err) {
@@ -152,7 +156,7 @@ You MUST grade using these EXACT criteria from the official DUO "Grading documen
 TOTAL MAXIMUM: 10 points (3+2+2+1+2)
 `;
 
-app.post('/api/grade-writing', requirePaid, async (req, res) => {
+app.post('/api/grade-writing', requirePaidOrFreeGrade, async (req, res) => {
     const { userText, prompt, modelAnswer } = req.body;
 
     if (!userText || userText.trim().length === 0) {
