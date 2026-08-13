@@ -1658,7 +1658,9 @@
             .mode-btn {
                 padding: var(--space-sm) var(--space-md);
                 font-size: 0.85rem;
-                flex: 1;
+                /* flex-basis 40% keeps the 2-per-row wrap from the 900px block;
+                   bare `flex: 1` (basis 0) collapsed all 5 into one row. */
+                flex: 1 1 40%;
                 text-align: center;
             }
 
