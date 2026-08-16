@@ -35,6 +35,12 @@ function authReady() {
     });
 }
 
+// Facebook/Instagram in-app browsers: Google blocks OAuth entirely
+// (403 disallowed_useragent), so the Google button must not be offered there.
+function inBlockedWebview() {
+    return /FBAN|FBAV|FB_IAB|Instagram|Line\/|MicroMessenger/i.test(navigator.userAgent);
+}
+
 async function signInGoogle() {
     ensureFirebase();
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -52,6 +58,29 @@ async function signInGoogle() {
     }
 }
 
+// Email works in every browser, including the ad-traffic webviews.
+// Create-or-sign-in on one form: try create; fall back to sign-in.
+async function signInEmail(email, password) {
+    ensureFirebase();
+    try {
+        const cred = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        return cred.user;
+    } catch (err) {
+        if (err.code === 'auth/email-already-in-use') {
+            const cred = await firebase.auth().signInWithEmailAndPassword(email, password);
+            return cred.user;
+        }
+        throw err;
+    }
+}
+
+const AUTH_ERROR_COPY = {
+    'auth/wrong-password': 'That email already has an account with a different password.',
+    'auth/invalid-credential': 'That email already has an account with a different password.',
+    'auth/weak-password': 'Please use at least 6 characters for the password.',
+    'auth/invalid-email': 'That email address does not look right.',
+};
+
 function sheet(html) {
     document.getElementById('rmd-sheet')?.remove();
     const el = document.createElement('div');
@@ -63,27 +92,64 @@ function sheet(html) {
 function closeSheet() { document.getElementById('rmd-sheet')?.remove(); }
 
 function requireSignIn({ title, subtitle, onSignedIn, focus }) {
-    track('signup_sheet_shown', { focus });
-    const el = sheet(`
-        <h2>${title}</h2>
-        <p>${subtitle}</p>
+    const webview = inBlockedWebview();
+    track('signup_sheet_shown', { focus, webview });
+    const googleBtn = `
         <button class="btn btn-google" id="sheet-google">
             <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.1 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.8 6.1C12.3 13.4 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.4 5.8c4.4-4.1 7.2-10.1 7.2-17.5z"/><path fill="#FBBC05" d="M10.4 28.7a14.5 14.5 0 0 1 0-9.4l-7.8-6.1a24 24 0 0 0 0 21.6l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.1 0 11.2-2 15-5.5l-7.4-5.8c-2 1.4-4.6 2.2-7.6 2.2-6.3 0-11.7-3.9-13.6-9.4l-7.8 6.1C6.5 42.6 14.6 48 24 48z"/></svg>
             Continue with Google
-        </button>
+        </button>`;
+    const emailForm = `
+        <form id="sheet-email-form" ${webview ? '' : 'style="display:none"'}>
+            <input type="email" id="sheet-email" required autocomplete="email" placeholder="you@example.com"
+                   value="${(localStorage.getItem('rmd-email') || '').replace(/"/g, '')}">
+            <input type="password" id="sheet-password" required autocomplete="new-password"
+                   placeholder="Choose a password (6+ characters)" minlength="6"
+                   style="width:100%;font-family:var(--font-body);font-size:1.05rem;padding:.7rem .9rem;border:1px solid var(--cream-dark);border-radius:5px;background:var(--warm-white);margin:.35rem 0 .75rem">
+            <button class="btn" type="submit" id="sheet-email-btn" style="width:100%">Create my free account</button>
+        </form>`;
+    const el = sheet(`
+        <h2>${title}</h2>
+        <p>${subtitle}</p>
+        ${webview ? emailForm : googleBtn + `
+        <button class="btn-ghost-link" id="sheet-email-toggle" style="margin-top:.5rem">Or continue with email</button>
+        ` + emailForm}
         <div class="error" id="sheet-error"></div>
-        <p class="muted" style="margin-top:.75rem;font-size:.85rem">One account for feedback, progress and access on any device.
-        Prefer email? <a href="/?signin=1">Use the practice app</a>.</p>
+        <p class="muted" style="margin-top:.75rem;font-size:.85rem">One account for feedback, progress and access on any device.</p>
         <button class="btn-ghost-link" id="sheet-close">Not now</button>
     `);
-    el.querySelector('#sheet-google').onclick = async () => {
+    const fail = (err, method) => {
+        track('signup_failed', { focus, method, code: err.code || null });
+        el.querySelector('#sheet-error').textContent =
+            AUTH_ERROR_COPY[err.code] || err.message || 'Sign-in failed, please try again.';
+    };
+    const succeed = (user, method) => {
+        track('signup_completed', { focus, method });
+        closeSheet(); onSignedIn(user);
+    };
+    el.querySelector('#sheet-google')?.addEventListener('click', async () => {
         el.querySelector('#sheet-error').textContent = '';
+        track('signup_google_tapped', { focus });
         try {
             const user = await signInGoogle();
-            if (user) { track('signup_completed', { focus }); closeSheet(); onSignedIn(user); }
-        } catch (err) {
-            el.querySelector('#sheet-error').textContent = err.message || 'Sign-in failed, please try again.';
-        }
+            if (user) succeed(user, 'google');
+        } catch (err) { fail(err, 'google'); }
+    });
+    el.querySelector('#sheet-email-toggle')?.addEventListener('click', () => {
+        el.querySelector('#sheet-email-form').style.display = '';
+        el.querySelector('#sheet-email-toggle').style.display = 'none';
+    });
+    el.querySelector('#sheet-email-form').onsubmit = async (e) => {
+        e.preventDefault();
+        el.querySelector('#sheet-error').textContent = '';
+        track('signup_email_tapped', { focus });
+        const btn = el.querySelector('#sheet-email-btn');
+        btn.disabled = true;
+        try {
+            const user = await signInEmail(
+                el.querySelector('#sheet-email').value, el.querySelector('#sheet-password').value);
+            succeed(user, 'email');
+        } catch (err) { fail(err, 'email'); btn.disabled = false; }
     };
     el.querySelector('#sheet-close').onclick = closeSheet;
     el.querySelector('.sheet-backdrop').onclick = closeSheet;

@@ -126,6 +126,7 @@ function renderConsentGate() {
             if (!data.success) throw new Error(data.error || 'Something went wrong.');
             subscriberId = data.subscriberId;
             localStorage.setItem('rmd-scorecard-sid', subscriberId);
+            try { localStorage.setItem('rmd-email', document.getElementById('email').value); } catch {}
             window.rmdAnalytics?.identify(subscriberId);
             renderStep();
         } catch (err) {
@@ -172,6 +173,7 @@ function renderConsent() {
             if (!data.success) throw new Error(data.error || 'Something went wrong.');
             subscriberId = data.subscriberId;
             localStorage.setItem('rmd-scorecard-sid', subscriberId);
+            try { localStorage.setItem('rmd-email', document.getElementById('email').value); } catch {}
             window.rmdAnalytics?.identify(subscriberId);
             startQuestions();
         } catch (err) {
