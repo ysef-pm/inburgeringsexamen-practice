@@ -252,6 +252,8 @@ function renderStep() {
 
 async function submit() {
     app.innerHTML = '<h1>Calculating your result…</h1>';
+    // The paywall personalises its urgency line from the exam date answer.
+    try { localStorage.setItem('rmd-exam-timeline', answers.ctx_timeline || ''); } catch {}
     try {
         const resp = await fetch('/api/scorecard/submit', {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -280,9 +282,13 @@ const flowV2 = params.get('flow') !== 'v1';
 
 function renderResult(r) {
     try { localStorage.setItem('rmd-last-result', JSON.stringify(r)); } catch {}
+    // Speaking/writing scores are mostly self-assessed — label them so a high
+    // bar reads as a claim to verify, not a job already done.
+    const selfReported = r.selfReported || ['speaking', 'writing'];
     const rows = Object.entries(r.skills).map(([skill, pct]) => `
         <div class="skill-row">
-            <span class="name">${SKILL_LABELS[skill]}</span>
+            <span class="name">${SKILL_LABELS[skill]}${selfReported.includes(skill)
+                ? ' <span class="chip-self">self-reported</span>' : ''}</span>
             <div class="bar"><div style="width:${pct}%"></div></div>
             <span class="pct">${pct}%</span>
         </div>`).join('');
@@ -291,7 +297,11 @@ function renderResult(r) {
         <p class="muted">Your exam-readiness scorecard</p>
         <h1>${r.overall}% — ${r.band.label}</h1>
         <p class="lede">${r.band.summary}</p>
-        <div class="card">${rows}</div>
+        <div class="card">${rows}
+            <p class="muted" style="margin-top:.75rem;font-size:.9rem">Self-reported skills are your own
+            estimate — the exam grades them with a strict rubric.${flowV2
+                ? ' The exercise below checks the one that matters most for you.' : ''}</p>
+        </div>
         <div class="card">
             <h2>Start with: ${r.plan.label}</h2>
             <p>${r.plan.why}</p>

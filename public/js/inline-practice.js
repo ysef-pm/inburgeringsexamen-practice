@@ -155,8 +155,9 @@ function requireSignIn({ title, subtitle, onSignedIn, focus }) {
     el.querySelector('.sheet-backdrop').onclick = closeSheet;
 }
 
-async function openCheckout(focus, btn) {
-    track('checkout_opened', { focus });
+async function openCheckout(focus, btn, via) {
+    track('checkout_opened', { focus, via: via || 'card' });
+    const label = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Opening secure checkout…'; }
     try {
         const idToken = await firebase.auth().currentUser.getIdToken();
@@ -171,21 +172,54 @@ async function openCheckout(focus, btn) {
         saveState({ stage: 'checkout' });
         location.href = data.url;
     } catch (err) {
-        if (btn) { btn.disabled = false; btn.textContent = 'Unlock everything — €24 once'; }
+        if (btn) { btn.disabled = false; btn.textContent = label; }
         alert(err.message || 'Checkout failed, please try again.');
     }
+}
+
+// The exam-date answer from the scorecard drives the urgency line: a failed
+// section is a paid retake plus months of waiting — that's what €24 is against.
+function urgencyLine() {
+    const t = (() => { try { return localStorage.getItem('rmd-exam-timeline'); } catch { return null; } })();
+    if (t === '1m') return 'Your exam is within a month — every ungraded answer between now and then is a guess.';
+    if (t === '3m') return 'Your exam is 1–3 months away — enough time to fix weak spots, if you can see them.';
+    return 'A failed section means paying for a retake and waiting months for a new date.';
 }
 
 function paywallCard(container, focus, headline) {
     container.insertAdjacentHTML('beforeend', `
         <div class="card inline-paywall">
             <h2>${headline}</h2>
-            <p>Unlimited AI feedback on writing and speaking, all exam sets for every skill,
-            and your progress saved. One payment, lifetime access.</p>
+            <p>${urgencyLine()}</p>
+            <p style="margin-top:.5rem">Every writing and speaking answer graded the way the examiners
+            grade, all exam sets for every skill, progress saved. €24 once — yours until you pass.</p>
             <button class="btn" id="paywall-btn" style="margin-top:.75rem">Unlock everything — €24 once</button>
             <p class="muted" style="margin-top:.5rem;font-size:.85rem">Secure payment via Stripe · iDEAL, cards and more</p>
         </div>`);
     document.getElementById('paywall-btn').onclick = (e) => openCheckout(focus, e.target);
+    ensureStickyUnlock(container, focus);
+}
+
+// Once the free grade is consumed the unlock offer must survive scrolling:
+// the one replayed user who saw their feedback scrolled back to the scorecard,
+// never saw the paywall card again, and left.
+function ensureStickyUnlock(container, focus) {
+    if (document.getElementById('rmd-unlock-bar')) return;
+    const bar = document.createElement('div');
+    bar.id = 'rmd-unlock-bar';
+    bar.innerHTML = `
+        <span class="bar-copy">Every answer graded until you pass</span>
+        <button class="btn" id="unlock-bar-btn">Unlock — €24 once</button>`;
+    document.body.appendChild(bar);
+    document.body.style.paddingBottom = '4.5rem';
+    bar.querySelector('#unlock-bar-btn').onclick = (e) => openCheckout(focus, e.target, 'sticky');
+    // Hide the bar while the full paywall card is on screen — one offer at a time.
+    const card = container.querySelector('.inline-paywall');
+    if (card && 'IntersectionObserver' in window) {
+        new IntersectionObserver(([entry]) => {
+            bar.style.display = entry.isIntersecting ? 'none' : '';
+        }).observe(card);
+    }
 }
 
 function feedbackHtml(g) {
@@ -243,6 +277,8 @@ function renderGraded(container, ex, focus, resumeAnswer) {
             <p class="muted">Step 1 of your plan — try it right now</p>
             <h2>${ex.prompt}</h2>
             <ul class="plan">${ex.bullets.map((b) => `<li>${b}</li>`).join('')}</ul>
+            <p class="muted" style="margin:.5rem 0 0;font-size:.9rem">Three or four short sentences is
+            enough — most people finish in about 2 minutes. Mistakes are fine: they're what the feedback is for.</p>
             <textarea id="inline-answer" rows="5" placeholder="${ex.placeholder}"
                 style="width:100%;font-family:inherit;font-size:1.05rem;padding:.7rem .9rem;border:1px solid var(--cream-dark);border-radius:5px;margin-top:.5rem">${resumeAnswer || ''}</textarea>
             <div class="error" id="inline-error"></div>

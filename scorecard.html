@@ -73,6 +73,17 @@
         cursor: pointer; text-decoration: underline; }
     .inline-paywall { border: 2px solid var(--dutch-orange); }
     #inline-practice textarea:focus { outline: 2px solid var(--dutch-orange); border-color: transparent; }
+    .chip-self { display: inline-block; font-size: .68rem; font-family: var(--font-body); color: var(--text-muted);
+        border: 1px solid var(--cream-dark); border-radius: 999px; padding: 0 .45rem; vertical-align: 1px;
+        white-space: nowrap; background: var(--cream); }
+    #rmd-unlock-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+        display: flex; align-items: center; justify-content: center; gap: 1rem;
+        background: var(--navy-deep); color: var(--warm-white);
+        padding: .6rem 1rem calc(.6rem + env(safe-area-inset-bottom));
+        box-shadow: 0 -4px 20px rgba(26,35,50,.35); }
+    #rmd-unlock-bar .bar-copy { font-size: .95rem; }
+    #rmd-unlock-bar .btn { padding: .5rem 1.1rem; font-size: 1rem; white-space: nowrap; }
+    @media (max-width: 400px) { #rmd-unlock-bar .bar-copy { display: none; } }
     </style>
     <script src="/js/analytics.js"></script>
 </head>
