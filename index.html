@@ -1690,6 +1690,9 @@
         <div class="hero-content">
             <h1 class="hero-title">RateMyDutch</h1>
             <p class="hero-tagline">A2 Inburgering Practice &#127475;&#127473; — Master your Dutch. Prepare with precision.</p>
+            <p class="hero-tagline" style="font-size:1.05rem;opacity:.75">Start with the
+            <a href="/scorecard" style="color:var(--cream);text-decoration:underline">free readiness scorecard</a>
+            — AI writing &amp; speaking feedback is €24 once, everything else is free.</p>
             <button class="btn-primary hero-cta" onclick="document.getElementById('main-content').scrollIntoView({behavior: 'smooth'})">
                 Begin Practice
             </button>
@@ -3829,22 +3832,10 @@
             } else if (originalStartMode) {
                 originalStartMode(mode);
             }
-            // Acquisition funnel: first mode start after arriving via the scorecard
-            // counts as product activation (docs/acquisition/EVENTS-AND-BASELINE.md).
-            if (new URLSearchParams(location.search).get('src') === 'scorecard'
-                && !localStorage.getItem('rmd-activated')) {
-                localStorage.setItem('rmd-activated', '1');
-                window.rmdAnalytics?.capture('product_activated', { source: 'scorecard', mode: mode });
-                fetch('/api/events', {
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        event_name: 'product_activated',
-                        anonId: localStorage.getItem('rmd-anon-id'),
-                        subscriberId: localStorage.getItem('rmd-scorecard-sid'),
-                        source: 'scorecard', properties: { mode: mode }
-                    })
-                }).catch(() => {});
-            }
+            // product_activated is written ONLY by the Stripe webhook now
+            // (server.js onEntitlementGranted) — it means "paid", not "started
+            // a free mode". This client-side firing was inflating the metric
+            // ~13 activations per 2 checkouts (2026-08-29 audit).
         };
 
         // ===== Mobile practice UX =====

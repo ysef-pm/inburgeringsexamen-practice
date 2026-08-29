@@ -152,3 +152,50 @@ test('writeEntitlement failure -> 500 so Stripe retries', async () => {
     await handler(reqWith(), res);
     assert.equal(res.statusCode, 500);
 });
+
+test('onEntitlementGranted runs after a successful write, with the session', async () => {
+    let granted = null;
+    const handler = createWebhookHandler({
+        constructEvent: () => ({ type: 'checkout.session.completed', data: { object: makeSession() } }),
+        writeEntitlement: async () => {},
+        onEntitlementGranted: async (s) => { granted = s; },
+    });
+    const res = fakeRes();
+    await handler(reqWith(), res);
+    assert.equal(res.statusCode, 200);
+    assert.equal(granted.id, 'cs_test_123');
+});
+
+test('onEntitlementGranted NOT called for unpaid sessions', async () => {
+    let granted = null;
+    const handler = createWebhookHandler({
+        constructEvent: () => ({ type: 'checkout.session.completed', data: { object: makeSession({ payment_status: 'unpaid' }) } }),
+        writeEntitlement: async () => {},
+        onEntitlementGranted: async (s) => { granted = s; },
+    });
+    await handler(reqWith(), fakeRes());
+    assert.equal(granted, null);
+});
+
+test('onEntitlementGranted NOT called when the write fails', async () => {
+    let granted = null;
+    const handler = createWebhookHandler({
+        constructEvent: () => ({ type: 'checkout.session.completed', data: { object: makeSession() } }),
+        writeEntitlement: async () => { throw new Error('down'); },
+        onEntitlementGranted: async (s) => { granted = s; },
+    });
+    await handler(reqWith(), fakeRes());
+    assert.equal(granted, null);
+});
+
+test('onEntitlementGranted failure still returns 200 (entitlement is written; no Stripe retry)', async () => {
+    const handler = createWebhookHandler({
+        constructEvent: () => ({ type: 'checkout.session.completed', data: { object: makeSession() } }),
+        writeEntitlement: async () => {},
+        onEntitlementGranted: async () => { throw new Error('email bounced'); },
+    });
+    const res = fakeRes();
+    await handler(reqWith(), res);
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual(res.body, { received: true });
+});

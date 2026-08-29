@@ -74,6 +74,110 @@ async function signInEmail(email, password) {
     }
 }
 
+// One gate, not two: the Q3 email already identifies this person. Ask the
+// server to mint a passwordless session for that subscriber; only fall back
+// to the sign-in sheet when the email belongs to a real (Google/password or
+// paid) account. Returns 'ok' | 'requiresSignIn' | 'failed'.
+async function sessionAuth(sid) {
+    try {
+        const resp = await fetch('/api/scorecard/session-auth', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ subscriberId: sid }),
+        });
+        const data = await resp.json();
+        if (data.token) {
+            ensureFirebase();
+            await firebase.auth().signInWithCustomToken(data.token);
+            return 'ok';
+        }
+        if (data.requiresSignIn) return 'requiresSignIn';
+    } catch (err) {
+        console.error('session-auth failed:', err);
+    }
+    return 'failed';
+}
+
+// Get a signed-in user with as little friction as the situation allows:
+// already signed in → session from the Q3 email → email-only sheet (no
+// password) → full sign-in sheet only for existing accounts.
+async function ensureAuthed(focus, onReady) {
+    const user = await authReady();
+    if (user) return onReady(user);
+    const sid = localStorage.getItem('rmd-scorecard-sid');
+    if (sid) {
+        const outcome = await sessionAuth(sid);
+        if (outcome === 'ok') {
+            track('signup_completed', { focus, method: 'session' });
+            return onReady(firebase.auth().currentUser);
+        }
+        if (outcome === 'requiresSignIn') {
+            return requireSignIn({
+                title: 'Welcome back — sign in',
+                subtitle: 'This email already has an account. Continue with Google or your password to see your feedback.',
+                focus, onSignedIn: onReady,
+            });
+        }
+    }
+    requireEmailOnly({ focus, onReady });
+}
+
+// Email-only fallback when the scorecard subscriber id is missing (cleared
+// storage, different device): one field, no password. Spec: "ask for email
+// once, not email then password".
+function requireEmailOnly({ focus, onReady }) {
+    track('signup_sheet_shown', { focus, variant: 'email_only' });
+    const el = sheet(`
+        <h2>Where should your feedback go?</h2>
+        <p>Enter your email to see your graded answer — no password, no account form.</p>
+        <form id="sheet-email-form">
+            <input type="email" id="sheet-email" required autocomplete="email" placeholder="you@example.com"
+                   value="${(localStorage.getItem('rmd-email') || '').replace(/"/g, '')}">
+            <button class="btn" type="submit" id="sheet-email-btn" style="width:100%;margin-top:.5rem">Show my feedback</button>
+        </form>
+        <div class="error" id="sheet-error"></div>
+        <button class="btn-ghost-link" id="sheet-close">Not now</button>
+    `);
+    el.querySelector('#sheet-email-form').onsubmit = async (e) => {
+        e.preventDefault();
+        const btn = el.querySelector('#sheet-email-btn');
+        const errEl = el.querySelector('#sheet-error');
+        errEl.textContent = '';
+        btn.disabled = true;
+        track('signup_email_tapped', { focus, variant: 'email_only' });
+        try {
+            const email = el.querySelector('#sheet-email').value;
+            const resp = await fetch('/api/scorecard/subscribe', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, anonId: localStorage.getItem('rmd-anon-id') }),
+            });
+            const data = await resp.json();
+            if (!data.success) throw new Error(data.error || 'Something went wrong.');
+            localStorage.setItem('rmd-scorecard-sid', data.subscriberId);
+            try { localStorage.setItem('rmd-email', email); } catch {}
+            const outcome = await sessionAuth(data.subscriberId);
+            if (outcome === 'ok') {
+                track('signup_completed', { focus, method: 'session' });
+                closeSheet();
+                return onReady(firebase.auth().currentUser);
+            }
+            if (outcome === 'requiresSignIn') {
+                return requireSignIn({
+                    title: 'Welcome back — sign in',
+                    subtitle: 'This email already has an account. Continue with Google or your password.',
+                    focus, onSignedIn: onReady,
+                });
+            }
+            throw new Error('Could not start your session, please try again.');
+        } catch (err) {
+            track('signup_failed', { focus, method: 'session', code: err.code || null });
+            errEl.textContent = err.message || 'Something went wrong, please try again.';
+            btn.disabled = false;
+        }
+    };
+    el.querySelector('#sheet-close').onclick = closeSheet;
+    el.querySelector('.sheet-backdrop').onclick = closeSheet;
+}
+
 const AUTH_ERROR_COPY = {
     'auth/wrong-password': 'That email already has an account with a different password.',
     'auth/invalid-credential': 'That email already has an account with a different password.',
@@ -156,7 +260,6 @@ function requireSignIn({ title, subtitle, onSignedIn, focus }) {
 }
 
 async function openCheckout(focus, btn, via) {
-    track('checkout_opened', { focus, via: via || 'card' });
     const label = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Opening secure checkout…'; }
     try {
@@ -164,12 +267,27 @@ async function openCheckout(focus, btn, via) {
         const resp = await fetch('/api/create-checkout-session', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
-            body: JSON.stringify({ returnTo: '/scorecard' }),
+            body: JSON.stringify({
+                returnTo: '/scorecard',
+                // Dutch checkout (P0): the server whitelists these.
+                locale: (navigator.language || '').toLowerCase().startsWith('nl') ? 'nl' : 'auto',
+                subscriberId: localStorage.getItem('rmd-scorecard-sid') || undefined,
+                anonId: localStorage.getItem('rmd-anon-id') || undefined,
+                focus,
+                via: via || 'card',
+            }),
         });
         const data = await resp.json();
         if (data.alreadyPaid) { location.href = '/?src=scorecard'; return; }
         if (!data.success || !data.url) throw new Error(data.error || 'Could not start checkout.');
+        // Firestore checkout_opened is written server-side when the session is
+        // actually created; this is only the PostHog mirror with the same props.
+        window.rmdAnalytics?.capture('checkout_opened', {
+            focus, via: via || 'card',
+            currency: data.currency, locale: data.locale, country: data.country,
+        });
         saveState({ stage: 'checkout' });
+        // Same-tab navigation: Meta's in-app browsers kill new tabs/popups.
         location.href = data.url;
     } catch (err) {
         if (btn) { btn.disabled = false; btn.textContent = label; }
@@ -186,16 +304,52 @@ function urgencyLine() {
     return 'A failed section means paying for a retake and waiting months for a new date.';
 }
 
+const SKILL_SHORT = {
+    speaking: 'Spreken', listening: 'Luisteren', reading: 'Lezen',
+    writing: 'Schrijven', knowledge: 'KNM',
+};
+
+// REAL quotes from real users only — Youssef adds them here as
+// { text: 'one line', who: 'First name, City' }. Empty array renders nothing.
+// Never invent testimonials.
+const TESTIMONIALS = [];
+
+// The offer block, rebuilt as a real paywall (P1): personalized weak-skill
+// hook, what €24 buys as bullets, payment-method icons on the CTA, refund
+// line under the button, real quotes. One filled orange button in view.
 function paywallCard(container, focus, headline) {
+    const result = (() => { try { return JSON.parse(localStorage.getItem('rmd-last-result')); } catch { return null; } })();
+    const pct = result && result.skills ? result.skills[focus] : null;
+    const short = SKILL_SHORT[focus] || 'Schrijven';
+    const hook = typeof pct === 'number'
+        ? `${short} ${pct}% — this is where the exam will fail you. Unlock graded speaking and writing until you pass.`
+        : 'Unlock graded speaking and writing until you pass.';
+    const quotes = TESTIMONIALS.length ? `
+        <div class="paywall-quotes">${TESTIMONIALS.map((q) =>
+            `<p class="quote">“${q.text}” <span class="muted">— ${q.who}</span></p>`).join('')}
+        </div>` : '';
     container.insertAdjacentHTML('beforeend', `
         <div class="card inline-paywall">
             <h2>${headline}</h2>
-            <p>${urgencyLine()}</p>
-            <p style="margin-top:.5rem">Every writing and speaking answer graded the way the examiners
-            grade, all exam sets for every skill, progress saved. €24 once — yours until you pass.</p>
-            <button class="btn" id="paywall-btn" style="margin-top:.75rem">Unlock everything — €24 once</button>
-            <p class="muted" style="margin-top:.5rem;font-size:.85rem">Secure payment via Stripe · iDEAL, cards and more</p>
+            <p>${hook}</p>
+            <p class="muted" style="margin-top:.35rem">${urgencyLine()}</p>
+            <p style="margin-top:.75rem"><b>Your 7-day plan, with graded feedback — €24 once:</b></p>
+            <ul class="plan">
+                <li>Unlimited AI grades on Schrijven — the official DUO writing rubric categories (execution, grammar, spelling, clearness, vocabulary)</li>
+                <li>Unlimited AI grades on Spreken — transcription plus the same rubric</li>
+                <li>All exam sets for Lezen, Luisteren and KNM — those stay free, and stay yours</li>
+                <li>Progress saved, on any device</li>
+                <li>Yours until you pass — one payment, no subscription</li>
+            </ul>
+            <button class="btn" id="paywall-btn" style="margin-top:.75rem;width:100%">Unlock everything — €24 once</button>
+            <p class="pay-methods"><span class="pay-chip ideal">iDEAL</span>
+                <span class="pay-chip">Cards</span> <span class="pay-chip">Apple&nbsp;Pay</span>
+                <span class="muted">via Stripe</span></p>
+            <p class="muted" style="margin-top:.5rem;font-size:.9rem">7-day refund if the feedback isn't
+            useful. Email support@ratemydutch.com — no questions asked.</p>
+            ${quotes}
         </div>`);
+    track('paywall_viewed', { focus, headline });
     document.getElementById('paywall-btn').onclick = (e) => openCheckout(focus, e.target);
     ensureStickyUnlock(container, focus);
 }
@@ -234,7 +388,7 @@ function feedbackHtml(g) {
     const fixes = (g.grammarErrors || []).slice(0, 3).map((e) =>
         `<li><s>${e.error}</s> → <b>${e.correction}</b><br><span class="muted">${e.explanation || ''}</span></li>`).join('');
     return `
-        <p class="muted">Your first AI feedback — official DUO rubric</p>
+        <p class="muted">Your first AI feedback — graded on the official DUO writing rubric categories</p>
         <h2 style="margin-top:.25rem">${g.total}/10</h2>
         ${rows}
         ${fixes ? `<p style="margin-top:.75rem"><b>Fix these first:</b></p><ul class="plan">${fixes}</ul>` : ''}
@@ -294,14 +448,9 @@ function renderGraded(container, ex, focus, resumeAnswer) {
         track('inline_answer_submitted', { focus, type: 'graded', words: text.split(/\s+/).length });
         saveState({ answer: text, stage: 'answered' });
         container.querySelector('#inline-submit').style.display = 'none';
-        const go = () => gradeAnswer(container, ex, focus, text);
-        const user = await authReady();
-        if (user) go();
-        else requireSignIn({
-            title: 'See your AI feedback',
-            subtitle: 'Create your free account to unlock your graded answer — takes one tap.',
-            focus, onSignedIn: go,
-        });
+        // No second gate: the Q3 email becomes the session server-side.
+        // A sheet only appears for lost storage or existing real accounts.
+        ensureAuthed(focus, () => gradeAnswer(container, ex, focus, text));
     };
 }
 
@@ -342,13 +491,14 @@ function renderMcq(container, ex, focus) {
                 idx += 1;
                 if (idx < ex.questions.length) return step();
                 saveState({ stage: 'answered', picks });
+                // The score is never gated — account creation happens silently
+                // from the Q3 email when possible, and the score shows anyway.
                 const user = await authReady();
-                if (user) showScore();
-                else requireSignIn({
-                    title: 'See your score',
-                    subtitle: 'Create your free account to see how you did — takes one tap.',
-                    focus, onSignedIn: showScore,
-                });
+                if (!user) {
+                    const sid = localStorage.getItem('rmd-scorecard-sid');
+                    if (sid) await sessionAuth(sid);
+                }
+                showScore();
             };
             box.appendChild(b);
         });
@@ -359,7 +509,14 @@ function renderMcq(container, ex, focus) {
 // Entry point. `focus` is the scorecard focus skill id (writing/speaking/reading/listening/knowledge).
 export async function renderInlinePractice(container, focus) {
     const ex = (await loadExercises())[focus] || (await loadExercises()).writing;
-    saveState({ focus });
+    // A focus change (retaken scorecard, different result) must not leak a
+    // previous exercise's answer into this one's textarea.
+    const prior = loadState();
+    if (prior.focus && prior.focus !== focus) {
+        saveState({ focus, answer: null, stage: null, grading: null, picks: null });
+    } else {
+        saveState({ focus });
+    }
     const state = loadState();
 
     // Resume after Google auth redirect: finish what the tap started.
@@ -372,6 +529,16 @@ export async function renderInlinePractice(container, focus) {
         container.innerHTML = '<div class="card"><div id="inline-grade-area"></div></div>';
         container.querySelector('#inline-grade-area').innerHTML = feedbackHtml(state.grading);
         paywallCard(container, focus, 'That was your free feedback — want it on every answer?');
+        return;
+    }
+    // Bounced off Stripe (back button, closed tab): the paywall must come
+    // back, never a dead "Opening secure checkout…" screen.
+    if (state.stage === 'checkout') {
+        if (state.grading) {
+            container.innerHTML = '<div class="card"><div id="inline-grade-area"></div></div>';
+            container.querySelector('#inline-grade-area').innerHTML = feedbackHtml(state.grading);
+        }
+        paywallCard(container, focus, 'Finish unlocking — you were almost there');
         return;
     }
     if (state.stage === 'paywalled') {
@@ -393,14 +560,18 @@ export function renderCheckoutReturn(app, ok) {
     const mode = { writing: 'schrijven', speaking: 'spreken', reading: 'lezen', listening: 'luisteren', knowledge: 'knm' }[st.focus] || 'schrijven';
     if (ok) {
         try { localStorage.removeItem(STATE_KEY); } catch {}
+        const skillLabel = SKILL_SHORT[st.focus] || 'Schrijven';
+        const target = `/?src=scorecard#${mode}`;
         app.innerHTML = `
             <h1>You're in 🎉</h1>
             <p class="lede">Everything is unlocked: unlimited AI feedback, all exam sets, every skill.</p>
             <div class="card">
-                <h2>Carry on with your plan</h2>
-                <p>Your focus skill is waiting in the practice app.</p>
-                <p style="margin-top:.75rem"><a class="btn" href="/?src=scorecard#${mode}">Continue practising</a></p>
+                <h2>Start with ${skillLabel}</h2>
+                <p>Your scorecard says that's the skill to fix first — taking you straight to those exercises…</p>
+                <p style="margin-top:.75rem"><a class="btn" href="${target}">Start ${skillLabel} now</a></p>
             </div>`;
+        // Straight into the weak-skill exercises, not a generic homepage.
+        setTimeout(() => { location.href = target; }, 2000);
     } else {
         app.innerHTML = `
             <h1>Checkout cancelled</h1>
@@ -410,9 +581,7 @@ export function renderCheckoutReturn(app, ok) {
                 <p class="muted" style="margin-top:.5rem"><a href="/?src=scorecard#${mode}">Or keep using the free exercises</a></p>
             </div>`;
         document.getElementById('retry-checkout').onclick = async (e) => {
-            const user = await authReady();
-            if (user) openCheckout(st.focus, e.target);
-            else requireSignIn({ title: 'Sign in to continue', subtitle: 'One tap and you are back at checkout.', focus: st.focus, onSignedIn: () => openCheckout(st.focus, e.target) });
+            ensureAuthed(st.focus, () => openCheckout(st.focus, e.target));
         };
     }
 }

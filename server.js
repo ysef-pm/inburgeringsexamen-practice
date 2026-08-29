@@ -7,6 +7,9 @@ const firebase = require('./lib/firebase');
 const { createPaywall } = require('./lib/paywall');
 const { createWebhookHandler } = require('./lib/stripe-webhook');
 const { createScorecardRouter } = require('./lib/scorecard');
+const { createSessionAuth } = require('./lib/session-auth');
+const { buildCheckoutSessionParams, prefillCountry } = require('./lib/checkout');
+const { sendPurchaseEmail } = require('./lib/email');
 
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
@@ -21,6 +24,44 @@ const { requireAuth, requirePaid, requirePaidOrFreeGrade } = createPaywall({
 
 const app = express();
 
+// Post-payment side effects, deduped per session across Stripe's at-least-once
+// delivery (completed + async_payment_succeeded + retries): the ONLY place
+// product_activated is recorded (it means "paid", never "clicked a CTA"),
+// plus the post-purchase email deep-linking the buyer's weak skill.
+async function onEntitlementGranted(session) {
+    if (!(await firebase.claimOnce('activations', session.id))) return;
+    const md = session.metadata || {};
+    try {
+        const db = firebase.getDb();
+        await db.collection('funnel_events').add({
+            event_name: 'product_activated',
+            subscriber_id: md.subscriberId || null,
+            anon_id: md.anonId || null,
+            properties: {
+                session_id: session.id,
+                focus: md.focus || null,
+                currency: session.currency || null,
+                amount_total: typeof session.amount_total === 'number' ? session.amount_total : null,
+            },
+            ts: firebase.FieldValue.serverTimestamp(),
+        });
+    } catch (err) {
+        console.error('product_activated event write failed:', err.message);
+    }
+    const buyerEmail = (session.customer_details && session.customer_details.email) || null;
+    if (buyerEmail) {
+        try {
+            await sendPurchaseEmail({
+                to: buyerEmail,
+                focus: md.focus || null,
+                origin: process.env.APP_ORIGIN || 'https://ratemydutch.com',
+            });
+        } catch (err) {
+            console.error('post-purchase email failed:', err.message);
+        }
+    }
+}
+
 // Stripe webhook needs the raw body — MUST be registered before express.json()
 app.post('/api/stripe-webhook', express.raw({ type: 'application/json' }), (req, res) => {
     if (!stripe || !STRIPE_WEBHOOK_SECRET) {
@@ -29,6 +70,7 @@ app.post('/api/stripe-webhook', express.raw({ type: 'application/json' }), (req,
     return createWebhookHandler({
         constructEvent: (rawBody, sig) => stripe.webhooks.constructEvent(rawBody, sig, STRIPE_WEBHOOK_SECRET),
         writeEntitlement: firebase.writeEntitlement,
+        onEntitlementGranted,
     })(req, res);
 });
 
@@ -77,6 +119,16 @@ app.post('/api/nurture/run', async (req, res) => {
     }
 });
 
+// Passwordless session from the scorecard email — kills the second signup
+// gate before the free grade. Guardrails live in lib/session-auth.js.
+app.post('/api/scorecard/session-auth', createSessionAuth({
+    getSubscriberEmail: firebase.getSubscriberEmail,
+    getUserByEmail: firebase.getUserByEmail,
+    createAuthUser: firebase.createAuthUser,
+    createCustomToken: firebase.createCustomToken,
+    getEntitlement: firebase.getEntitlement,
+}));
+
 app.post('/api/create-checkout-session', requireAuth, async (req, res) => {
     if (!stripe || !STRIPE_PRICE_ID) {
         return res.status(500).json({ success: false, error: 'stripe_not_configured' });
@@ -89,17 +141,63 @@ app.post('/api/create-checkout-session', requireAuth, async (req, res) => {
         const origin = process.env.APP_ORIGIN || `${req.headers['x-forwarded-proto'] || 'http'}://${req.headers.host}`;
         // Optional whitelisted return path so the scorecard funnel can resume
         // where the user left off instead of dumping them on the app home.
-        const returnTo = ['/scorecard'].includes(req.body && req.body.returnTo) ? req.body.returnTo : '/';
-        const session = await stripe.checkout.sessions.create({
-            mode: 'payment',
-            line_items: [{ price: STRIPE_PRICE_ID, quantity: 1 }],
-            client_reference_id: req.user.uid,
-            customer_email: req.user.email || undefined,
-            metadata: { uid: req.user.uid },
-            success_url: `${origin}${returnTo}?checkout=success`,
-            cancel_url: `${origin}${returnTo}?checkout=cancelled`,
+        const body = req.body || {};
+        const returnTo = ['/scorecard'].includes(body.returnTo) ? body.returnTo : '/';
+        const str = (v, max = 64) => (typeof v === 'string' && v ? v.slice(0, max) : undefined);
+
+        // Prefill the billing country for nearby-EU visitors via a pre-created
+        // customer (Vercel provides the GeoIP header). Best effort only.
+        const geoCountry = prefillCountry(req.headers['x-vercel-ip-country']);
+        const buyerEmail = req.user.email || str(body.email, 254);
+        let customerId;
+        if (geoCountry && buyerEmail) {
+            try {
+                const customer = await stripe.customers.create({
+                    email: buyerEmail, address: { country: geoCountry },
+                });
+                customerId = customer.id;
+            } catch (err) {
+                console.error('Customer prefill failed (continuing without):', err.message);
+            }
+        }
+
+        const params = buildCheckoutSessionParams({
+            priceId: STRIPE_PRICE_ID,
+            uid: req.user.uid,
+            email: buyerEmail,
+            origin, returnTo,
+            locale: str(body.locale, 8),
+            customerId,
+            subscriberId: str(body.subscriberId),
+            anonId: str(body.anonId),
+            focus: str(body.focus, 20),
         });
-        res.json({ success: true, url: session.url });
+        const session = await stripe.checkout.sessions.create(params);
+
+        // checkout_opened is the "a session actually exists" event — logged
+        // server-side so it can't fire on a dead CTA tap. Best effort.
+        try {
+            const db = firebase.getDb();
+            await db.collection('funnel_events').add({
+                event_name: 'checkout_opened',
+                subscriber_id: str(body.subscriberId) || null,
+                anon_id: str(body.anonId) || null,
+                properties: {
+                    currency: session.currency || 'eur',
+                    locale: params.locale,
+                    country: geoCountry,
+                    via: str(body.via, 20) || null,
+                },
+                ts: firebase.FieldValue.serverTimestamp(),
+            });
+        } catch (err) {
+            console.error('checkout_opened event write failed:', err.message);
+        }
+
+        res.json({
+            success: true, url: session.url,
+            currency: session.currency || 'eur', locale: params.locale, country: geoCountry,
+        });
     } catch (err) {
         console.error('Checkout session creation failed:', err);
         res.status(500).json({ success: false, error: 'checkout_failed' });

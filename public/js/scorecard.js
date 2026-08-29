@@ -96,14 +96,15 @@ function renderConsentGate() {
                 <label for="email"><b>Email address</b></label>
                 <input type="email" id="email" required autocomplete="email" placeholder="you@example.com">
                 <label class="consent">
-                    <input type="checkbox" checked disabled>
-                    <span>Email me my RateMyDutch exam-readiness scorecard.</span>
+                    <input type="checkbox" id="consent-marketing">
+                    <span>Also email me my scorecard and short exam-readiness tips (optional).
+                    Unsubscribe any time with one click.</span>
                 </label>
                 <div class="error" id="consent-error"></div>
                 <button class="btn" type="submit" id="consent-btn">Continue — ${steps.length - stepIndex} questions left</button>
             </form>
-            <p class="muted" style="margin-top:1rem">You'll also see your result immediately on screen.
-            We only use your email for the purposes above. Unsubscribing always works with one click.
+            <p class="muted" style="margin-top:1rem">You'll see your result on screen either way.
+            Your email saves your feedback and progress — nothing else without the box above.
             <span id="disclaimer-inline"></span></p>
         </div>
     `;
@@ -114,11 +115,13 @@ function renderConsentGate() {
         const btn = document.getElementById('consent-btn');
         btn.disabled = true;
         document.getElementById('consent-error').textContent = '';
+        const optedIn = document.getElementById('consent-marketing').checked;
         try {
             const resp = await fetch('/api/scorecard/subscribe', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     email: document.getElementById('email').value,
+                    marketingConsent: optedIn,
                     anonId, source, ...utm,
                 }),
             });
@@ -127,6 +130,7 @@ function renderConsentGate() {
             subscriberId = data.subscriberId;
             localStorage.setItem('rmd-scorecard-sid', subscriberId);
             try { localStorage.setItem('rmd-email', document.getElementById('email').value); } catch {}
+            if (optedIn) { try { localStorage.setItem('rmd-marketing-optin', '1'); } catch {} }
             window.rmdAnalytics?.identify(subscriberId);
             renderStep();
         } catch (err) {
@@ -139,20 +143,21 @@ function renderConsentGate() {
 function renderConsent() {
     app.innerHTML = `
         <h1>Where should we send your scorecard?</h1>
-        <p>You'll see your result immediately on screen — we also email it to you so you can keep it.</p>
+        <p>You'll see your result immediately on screen — the email is optional.</p>
         <div class="card">
             <form id="consent-form">
                 <label for="email"><b>Email address</b></label>
                 <input type="email" id="email" required autocomplete="email" placeholder="you@example.com">
                 <label class="consent">
-                    <input type="checkbox" checked disabled>
-                    <span>Email me my RateMyDutch exam-readiness scorecard.</span>
+                    <input type="checkbox" id="consent-marketing">
+                    <span>Also email me my scorecard and short exam-readiness tips (optional).
+                    Unsubscribe any time with one click.</span>
                 </label>
                 <div class="error" id="consent-error"></div>
                 <button class="btn" type="submit" id="consent-btn">Continue to the questions</button>
             </form>
-            <p class="muted" style="margin-top:1rem">We only use your email for the purposes above.
-            Unsubscribing always works with one click. <span id="disclaimer-inline"></span></p>
+            <p class="muted" style="margin-top:1rem">Your email saves your feedback and progress —
+            nothing else without the box above. <span id="disclaimer-inline"></span></p>
         </div>
     `;
     if (questions) document.getElementById('disclaimer-inline').textContent = questions.disclaimer;
@@ -161,11 +166,14 @@ function renderConsent() {
         const btn = document.getElementById('consent-btn');
         btn.disabled = true;
         document.getElementById('consent-error').textContent = '';
+        const optedIn = document.getElementById('consent-marketing').checked;
+        if (optedIn) { try { localStorage.setItem('rmd-marketing-optin', '1'); } catch {} }
         try {
             const resp = await fetch('/api/scorecard/subscribe', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     email: document.getElementById('email').value,
+                    marketingConsent: optedIn,
                     anonId, source, ...utm,
                 }),
             });
@@ -320,10 +328,10 @@ function renderResult(r) {
             <h2>Keep this plan on track</h2>
             <p>We'll email you your seven-day ${r.plan.label.split(' ')[0].toLowerCase()} plan, plus
             inburgering preparation tips and RateMyDutch product updates. Unsubscribe any time with one click.</p>
-            <p style="margin-top:.75rem"><button class="btn" id="optin-btn">Email me my 7-day plan</button></p>
+            <p style="margin-top:.75rem"><button class="btn btn-ghost" id="optin-btn">Email me my 7-day plan</button></p>
             <div class="error" id="optin-error"></div>
         </div>`}
-        <p class="muted">We've also emailed this result to you (check spam the first time).</p>
+        ${r.emailed === false ? '' : '<p class="muted">We\'ve also emailed this result to you (check spam the first time).</p>'}
         <p class="muted" style="margin-top:1.5rem">${r.disclaimer}</p>
     `;
     track('result_viewed', { band: r.band.id, focus: r.focus });
@@ -353,6 +361,11 @@ function renderResult(r) {
 }
 
 // ===== boot =====
+// Back-button from Stripe restores this page from the bfcache with the unlock
+// buttons still stuck on "Opening secure checkout…". A reload re-renders the
+// result + paywall from saved state instead of a dead screen.
+window.addEventListener('pageshow', (e) => { if (e.persisted) location.reload(); });
+
 initInlinePractice(track);
 const checkoutParam = params.get('checkout');
 const savedResult = (() => {
