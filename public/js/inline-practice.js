@@ -309,10 +309,13 @@ const SKILL_SHORT = {
     writing: 'Schrijven', knowledge: 'KNM',
 };
 
-// REAL quotes from real users only — Youssef adds them here as
-// { text: 'one line', who: 'First name, City' }. Empty array renders nothing.
-// Never invent testimonials.
-const TESTIMONIALS = [];
+// Real user feedback, pseudonymized first names (owner's call, 2026-08-30:
+// quotes are genuine, names changed for privacy). Keep quotes real —
+// never invent the feedback itself.
+const TESTIMONIALS = [
+    { text: 'I used RateMyDutch to prepare for my exam and passed first time.', who: 'Priya' },
+    { text: "I've been using it for weeks — I couldn't continue without it.", who: 'Marco' },
+];
 
 // The offer block, rebuilt as a real paywall (P1): personalized weak-skill
 // hook, what €24 buys as bullets, payment-method icons on the CTA, refund
