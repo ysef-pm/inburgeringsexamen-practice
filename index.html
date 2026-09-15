@@ -1379,6 +1379,13 @@
             transform: none;
         }
 
+        /* Header right-hand cluster: level badge + auth widget */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
         /* Auth widget (header) */
         .auth-widget {
             display: flex;
@@ -1575,6 +1582,120 @@
             color: var(--navy-deep);
         }
 
+        /* ===== Level chooser sheet (A2 / B1) ===== */
+        /* Above the cookie consent banner (z-index 9999 in analytics.js) —
+           at 390px both dock to the bottom edge and the banner would
+           otherwise intercept taps on the sheet's buttons. */
+        #level-sheet {
+            z-index: 10000;
+        }
+
+        .level-badge {
+            white-space: nowrap;
+        }
+
+        .level-choice-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: var(--space-md);
+            margin-bottom: var(--space-sm);
+            background: var(--warm-white);
+            border: 2px solid var(--cream-dark);
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: var(--font-ui);
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .level-choice-btn:hover {
+            border-color: var(--navy-deep);
+        }
+
+        .level-choice-btn.level-choice-active {
+            border-color: var(--navy-deep);
+            background: var(--cream);
+        }
+
+        .level-choice-title {
+            display: block;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--navy-deep);
+        }
+
+        .level-choice-sub {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .level-current-chip {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--navy-deep);
+            background: var(--soft-gold);
+            border-radius: 4px;
+            padding: 0.1rem 0.4rem;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+        }
+
+        .level-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: var(--space-sm);
+        }
+
+        .level-confirm {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-md);
+            color: var(--navy-deep);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .level-helper-card {
+            background: var(--cream);
+            border: 1px solid var(--cream-dark);
+            border-radius: 8px;
+            padding: var(--space-md);
+            margin-bottom: var(--space-md);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .level-helper-card a {
+            color: var(--navy-deep);
+        }
+
+        .level-footnote {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: var(--space-xs);
+            line-height: 1.5;
+        }
+
+        /* On phones the chooser docks to the bottom edge as a sheet */
+        @media (max-width: 600px) {
+            #level-sheet {
+                align-items: flex-end;
+                padding: 0;
+            }
+
+            #level-sheet .rmd-modal {
+                max-width: none;
+                border-radius: 14px 14px 0 0;
+                max-height: 85vh;
+            }
+        }
+
         .upgrade-features {
             list-style: none;
             margin: 0 0 var(--space-md);
@@ -1707,12 +1828,15 @@
     <header class="app-header">
         <div class="header-brand">
             <span class="header-logo">RateMyDutch — A2 Inburgering Practice</span>
+            <div class="header-actions">
+            <button class="auth-btn level-badge" id="level-badge" onclick="openLevelSheet()" aria-haspopup="dialog" title="Practice level">A2 &#9662;</button>
             <div class="auth-widget hidden" id="auth-widget">
                 <button class="auth-btn" id="auth-signin-btn" onclick="showSignInModal()">Sign in</button>
                 <span class="auth-email hidden" id="auth-user-email"></span>
                 <span class="pro-badge hidden" id="auth-pro-badge">Pro</span>
                 <button class="auth-btn auth-btn-upgrade hidden" id="auth-upgrade-btn" onclick="showUpgradeModal()">Upgrade &euro;24</button>
                 <button class="auth-btn hidden" id="auth-signout-btn">Sign out</button>
+            </div>
             </div>
         </div>
     </header>
@@ -1819,16 +1943,72 @@
         </div>
     </div>
 
+    <!-- Level chooser sheet (A2 / B1) -->
+    <div class="rmd-modal-overlay hidden" id="level-sheet" role="dialog" aria-modal="true" aria-labelledby="level-sheet-title">
+        <div class="rmd-modal">
+            <button class="rmd-modal-close" onclick="closeLevelSheet()" aria-label="Close">&times;</button>
+
+            <!-- Chooser view -->
+            <div id="level-sheet-choose">
+                <h3 id="level-sheet-title">Which exam are you preparing for?</h3>
+                <button class="level-choice-btn" id="level-choice-a2" onclick="chooseLevel('a2')">
+                    <span class="level-choice-title">A2 &mdash; Wet inburgering 2013<span class="level-current-chip hidden" id="level-chip-a2">Current</span></span>
+                    <span class="level-choice-sub">My integration obligation started before 1 Jan 2022</span>
+                </button>
+                <button class="level-choice-btn" id="level-choice-b1" onclick="chooseLevel('b1')">
+                    <span class="level-choice-title">B1 &mdash; Wet inburgering 2021<span class="level-current-chip hidden" id="level-chip-b1">Current</span></span>
+                    <span class="level-choice-sub">My obligation started on or after 1 Jan 2022</span>
+                </button>
+                <button class="rmd-link-btn" id="level-helper-link" onclick="showLevelHelper()">I'm not sure &mdash; help me decide</button>
+                <p class="level-note hidden" id="level-switch-note">Switching level reloads practice content.</p>
+            </div>
+
+            <!-- Decision helper view -->
+            <div id="level-sheet-helper" class="hidden">
+                <h3>When did your inburgering obligation start?</h3>
+                <div id="level-helper-questions">
+                    <button class="level-choice-btn" id="level-helper-before" onclick="levelHelperPick('a2')">
+                        <span class="level-choice-title">Before 1 January 2022</span>
+                    </button>
+                    <button class="level-choice-btn" id="level-helper-after" onclick="levelHelperPick('b1')">
+                        <span class="level-choice-title">On or after 1 January 2022</span>
+                    </button>
+                    <button class="level-choice-btn" id="level-helper-unknown-btn" onclick="showLevelHelperUnknown()">
+                        <span class="level-choice-title">I don't know</span>
+                    </button>
+                </div>
+                <div class="hidden" id="level-helper-confirm-wrap">
+                    <div class="level-confirm" id="level-helper-confirm"></div>
+                    <button class="btn btn-primary btn-block" id="level-helper-continue" onclick="confirmHelperLevel()">Continue</button>
+                </div>
+                <div class="hidden" id="level-helper-unknown">
+                    <div class="level-helper-card">
+                        Log in to <strong>Mijn Inburgering</strong> on
+                        <a href="https://www.inburgeren.nl" target="_blank" rel="noopener">inburgeren.nl</a>
+                        with your DigiD &mdash; it shows your start date and exactly which exams you must take.
+                    </div>
+                    <p class="level-footnote">On the onderwijsroute you may need B2 &mdash; we don't cover B2 yet.</p>
+                    <p class="level-footnote">If your gemeente approved switching down (afschalen), choose A2.</p>
+                </div>
+                <button class="rmd-link-btn" id="level-helper-back" onclick="showLevelChooser()">Back</button>
+            </div>
+        </div>
+    </div>
+
     <div class="rmd-toast" id="rmd-toast"></div>
 
     <script>
         // The intro "Official Writing Rubric" box above is static A2 markup.
-        // The level lives in localStorage and can't change without a reload,
-        // so a one-time patch at load keeps the clearness bullet level-aware.
-        if (window.RMDContent.getLevel() === 'b1') {
+        // A chosen level normally only changes via a full reload (header badge
+        // switch), but the FIRST choice happens live in the level sheet before
+        // any content loads — so the patch is a re-runnable function.
+        function applyLevelIntroPatch() {
             document.getElementById('intro-clearness-tip').innerHTML =
-                '<strong>Organization / Coherence (samenhang) (0-1 pt):</strong> Paragraph structure and connectors (daarom, terwijl, bovendien)';
+                window.RMDContent.getLevel() === 'b1'
+                    ? '<strong>Organization / Coherence (samenhang) (0-1 pt):</strong> Paragraph structure and connectors (daarom, terwijl, bovendien)'
+                    : '<strong>Clearness (0-1 pt):</strong> Structure with conjunctions (en, maar, want, omdat)';
         }
+        applyLevelIntroPatch();
 
         // A2 schrijven + lezen content now lives in /data/a2/*.json (extracted
         // byte-for-byte by scripts/extract-a2-content.mjs) and is loaded on
@@ -2943,6 +3123,142 @@
             document.getElementById('upgrade-modal').classList.add('hidden');
         };
 
+        // ===== Level chooser sheet (A2 / B1) =====
+        // Gates the four language modes on a chosen level. KNM is level-free.
+        (function levelSheetUI() {
+            const GATED_MODES = ['schrijven', 'lezen', 'spreken', 'luisteren'];
+            // Any of these in localStorage means this visitor practiced before
+            // the B1 launch — everything they saw was A2, so default silently.
+            const EXISTING_USER_KEYS = [
+                'rmd-inline-state',        // inline practice state (scorecard funnel)
+                'rmd-last-result',         // scorecard result
+                'rmd-scorecard-sid',       // scorecard subscriber
+                'rmd-progress-spreken',    // ProgressTracker (shared.js)
+                'rmd-progress-luisteren',
+                'rmd-progress-knm'
+            ];
+
+            let pendingLevelMode = null; // mode to enter once a level is picked
+            let helperPickedLevel = null;
+
+            function sheetEl() { return document.getElementById('level-sheet'); }
+
+            function updateLevelBadge() {
+                const chosen = window.RMDContent.hasChosenLevel();
+                document.getElementById('level-badge').innerHTML =
+                    (chosen ? window.RMDContent.getLevel().toUpperCase() : 'A2') + ' &#9662;';
+            }
+
+            window.showLevelChooser = function () {
+                document.getElementById('level-sheet-choose').classList.remove('hidden');
+                document.getElementById('level-sheet-helper').classList.add('hidden');
+                document.getElementById('level-helper-questions').classList.remove('hidden');
+                document.getElementById('level-helper-confirm-wrap').classList.add('hidden');
+                document.getElementById('level-helper-unknown').classList.add('hidden');
+                helperPickedLevel = null;
+                // Mark the active level so a reopened sheet shows where you are
+                const chosen = window.RMDContent.hasChosenLevel();
+                const level = window.RMDContent.getLevel();
+                ['a2', 'b1'].forEach((l) => {
+                    document.getElementById('level-choice-' + l)
+                        .classList.toggle('level-choice-active', chosen && level === l);
+                    document.getElementById('level-chip-' + l)
+                        .classList.toggle('hidden', !(chosen && level === l));
+                });
+                document.getElementById('level-switch-note').classList.toggle('hidden', !chosen);
+            };
+
+            window.openLevelSheet = function () {
+                window.showLevelChooser();
+                sheetEl().classList.remove('hidden');
+            };
+
+            window.closeLevelSheet = function () {
+                sheetEl().classList.add('hidden');
+                pendingLevelMode = null;
+                helperPickedLevel = null;
+            };
+
+            window.showLevelHelper = function () {
+                document.getElementById('level-sheet-choose').classList.add('hidden');
+                document.getElementById('level-sheet-helper').classList.remove('hidden');
+            };
+
+            window.showLevelHelperUnknown = function () {
+                document.getElementById('level-helper-confirm-wrap').classList.add('hidden');
+                document.getElementById('level-helper-unknown').classList.remove('hidden');
+                helperPickedLevel = null;
+            };
+
+            window.levelHelperPick = function (level) {
+                helperPickedLevel = level;
+                document.getElementById('level-helper-unknown').classList.add('hidden');
+                document.getElementById('level-helper-confirm').textContent =
+                    level === 'a2'
+                        ? 'You fall under Wi2013 — the A2 exams are yours.'
+                        : 'You fall under Wi2021 — the B1-route exams are standard.';
+                document.getElementById('level-helper-confirm-wrap').classList.remove('hidden');
+            };
+
+            window.confirmHelperLevel = function () {
+                if (helperPickedLevel) window.chooseLevel(helperPickedLevel);
+            };
+
+            window.chooseLevel = function (level) {
+                const prev = window.RMDContent.hasChosenLevel() ? window.RMDContent.getLevel() : null;
+                window.RMDContent.setLevel(level);
+                if (prev && prev !== level) {
+                    // Switching an already-chosen level: several renders (intro
+                    // rubric patch, coaching copy) read the level once at page
+                    // load, so a clean reload is the only stale-free path.
+                    // Preserve the active mode via the existing hash deep-link.
+                    if (currentMode) location.hash = '#' + currentMode;
+                    location.reload();
+                    return;
+                }
+                // First choice (or re-picking the same level): nothing level-
+                // keyed has loaded yet, so apply live and continue.
+                applyLevelIntroPatch();
+                updateLevelBadge();
+                const resume = pendingLevelMode;
+                window.closeLevelSheet();
+                if (resume) window.startMode(resume);
+            };
+
+            // Called by the startMode gate (module script). Returns true when
+            // the sheet was shown and the mode should wait for a choice.
+            window.RMDLevelGate = function (mode) {
+                if (!GATED_MODES.includes(mode)) return false;
+                if (window.RMDContent.hasChosenLevel()) return false;
+                let existing = false;
+                try {
+                    existing = EXISTING_USER_KEYS.some((k) => localStorage.getItem(k) !== null);
+                } catch (e) { /* storage blocked: treat as new visitor */ }
+                if (existing) {
+                    // Pre-B1 users only ever saw A2 content — keep it that way
+                    // silently; the header badge makes switching discoverable.
+                    window.RMDContent.setLevel('a2');
+                    updateLevelBadge();
+                    return false;
+                }
+                pendingLevelMode = mode;
+                window.openLevelSheet();
+                return true;
+            };
+
+            // Backdrop click + Escape close, consistent with the other sheets
+            sheetEl().addEventListener('click', (e) => {
+                if (e.target === sheetEl()) window.closeLevelSheet();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !sheetEl().classList.contains('hidden')) {
+                    window.closeLevelSheet();
+                }
+            });
+
+            updateLevelBadge();
+        })();
+
         (function initAuthUI() {
             const configured = window.RMDAuth && window.RMDAuth.isConfigured();
 
@@ -3176,6 +3492,17 @@
             if (window.innerWidth <= 900) {
                 document.getElementById('practice-area').scrollIntoView({ block: 'start' });
             }
+        };
+
+        // ===== Level gate (outermost wrapper — covers schrijven/lezen inline,
+        // spreken/luisteren via the module wrapper, and hash deep links).
+        // KNM passes straight through; RMDLevelGate ignores it.
+        const gatedStartMode = window.startMode;
+        window.startMode = function (mode) {
+            // true = level sheet shown; the sheet re-calls startMode(mode)
+            // after a level is chosen (pending-mode resume).
+            if (window.RMDLevelGate && window.RMDLevelGate(mode)) return;
+            gatedStartMode(mode);
         };
 
         // Deep link from the scorecard result CTA: /?src=scorecard#spreken
