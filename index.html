@@ -2021,15 +2021,56 @@
             if (mode === 'schrijven') {
                 const d = await window.RMDContent.loadContent('schrijven');
                 schrijvenQuestions = d.questions;
-                examSections = {
-                    original: schrijvenQuestions.slice(0, 10),
-                    e2: schrijvenQuestions.slice(10, 14),
-                    e3: schrijvenQuestions.slice(14, 18),
-                    e4: schrijvenQuestions.slice(18, 22),
-                    d1: schrijvenQuestions.slice(22, 34),
-                    d2: schrijvenQuestions.slice(34, 40),
-                    d3: schrijvenQuestions.slice(40, 44)
-                };
+                if (window.RMDContent.getLevel() === 'b1') {
+                    // B1 sections are derived from each item's register (the
+                    // "type" prefix), not from hardcoded slice indices, so
+                    // future content edits keep working. Order within each
+                    // section follows the data order; unmatched items land in
+                    // a catch-all section. Empty sections are dropped.
+                    const formalPrefixes = ['Formele', 'Bezwaarbrief', 'Sollicitatie', 'Reactie'];
+                    const informalPrefixes = ['Informele', 'Briefje', 'Bericht', 'E-mail'];
+                    const groups = { formeel: [], informeel: [], overig: [] };
+                    for (const q of schrijvenQuestions) {
+                        const key = formalPrefixes.some(p => q.type.startsWith(p)) ? 'formeel'
+                            : informalPrefixes.some(p => q.type.startsWith(p)) ? 'informeel'
+                            : 'overig';
+                        groups[key].push(q);
+                    }
+                    examSections = {};
+                    for (const [key, items] of Object.entries(groups)) {
+                        if (items.length > 0) examSections[key] = items;
+                    }
+                    schrijvenSectionNames = {
+                        formeel: 'Formele brieven en e-mails',
+                        informeel: 'Informele berichten',
+                        overig: 'Alle opdrachten'
+                    };
+                } else {
+                    examSections = {
+                        original: schrijvenQuestions.slice(0, 10),
+                        e2: schrijvenQuestions.slice(10, 14),
+                        e3: schrijvenQuestions.slice(14, 18),
+                        e4: schrijvenQuestions.slice(18, 22),
+                        d1: schrijvenQuestions.slice(22, 34),
+                        d2: schrijvenQuestions.slice(34, 40),
+                        d3: schrijvenQuestions.slice(40, 44)
+                    };
+                    schrijvenSectionNames = {
+                        original: 'Original Exercises',
+                        e2: 'E2 - Exam Set 2',
+                        e3: 'E3 - Exam Set 3',
+                        e4: 'E4 - Exam Set 4 (E1)',
+                        d1: 'D1 - Messages (Berichten)',
+                        d2: 'D2 - Text for Everyone',
+                        d3: 'D3 - Forms (Formulieren)'
+                    };
+                }
+                // Completion tracking must have an array per section (keys
+                // differ by level); keep any arrays that already exist so
+                // progress survives re-entering the mode.
+                for (const key of Object.keys(examSections)) {
+                    if (!completedExercises[key]) completedExercises[key] = [];
+                }
             } else if (mode === 'lezen') {
                 const d = await window.RMDContent.loadContent('lezen');
                 lezenExams = {};
@@ -2072,7 +2113,8 @@
         let showingAnswer = false;
 
         // Organized exam sections for schrijven
-        let examSections = null; // built in ensureLevelContent() from a2/schrijven.json
+        let examSections = null; // built in ensureLevelContent() from <level>/schrijven.json
+        let schrijvenSectionNames = null; // level-aware display names, built alongside examSections
 
         let currentSection = 'original';
         let currentExerciseIndex = 0;
@@ -2127,15 +2169,7 @@
                 return;
             }
 
-            const sectionNames = {
-                original: 'Original Exercises',
-                e2: 'E2 - Exam Set 2',
-                e3: 'E3 - Exam Set 3',
-                e4: 'E4 - Exam Set 4 (E1)',
-                d1: 'D1 - Messages (Berichten)',
-                d2: 'D2 - Text for Everyone',
-                d3: 'D3 - Forms (Formulieren)'
-            };
+            const sectionNames = schrijvenSectionNames;
 
             let html = '<h3 style="padding: 10px; margin: 0; border-bottom: 1px solid #ddd;">✍️ Schrijven Exercises</h3>';
             for (const [sectionKey, questions] of Object.entries(examSections)) {
@@ -2320,7 +2354,8 @@
         }
 
         function showCurrentExercise() {
-            const q = examSections[currentSection][currentExerciseIndex];
+            const q = (examSections[currentSection] || [])[currentExerciseIndex];
+            if (!q) return; // empty/unknown section or index out of range — keep the current view
             const totalInSection = examSections[currentSection].length;
 
             document.getElementById('counter').textContent = `${currentSection.toUpperCase()} - Exercise ${currentExerciseIndex + 1} of ${totalInSection}`;
@@ -2328,6 +2363,7 @@
 
             let html = `
                 <div class="prompt">${q.prompt.replace(/\n/g, '<br>')}</div>
+                ${q.wordGuidance ? `<div style="color: #777; font-size: 0.9em; margin: -8px 0 10px;">Richtlijn: ${q.wordGuidance}</div>` : ''}
                 <textarea class="writing-area" id="user-answer" placeholder="Schrijf hier je antwoord...">${userAnswers[`${currentSection}_${currentExerciseIndex}`] || ''}</textarea>
                 <div id="ai-grading-area"></div>
                 <div id="model-answer-area"></div>
@@ -2364,6 +2400,7 @@
         }
 
         function nextExercise() {
+            if (!examSections[currentSection]) return; // unknown section — nothing to advance from
             saveCurrentAnswer();
             markCurrentCompleted();
 
@@ -2390,6 +2427,7 @@
         }
 
         function markCurrentCompleted() {
+            if (!completedExercises[currentSection]) completedExercises[currentSection] = [];
             if (!completedExercises[currentSection].includes(currentExerciseIndex)) {
                 completedExercises[currentSection].push(currentExerciseIndex);
             }
@@ -2424,8 +2462,8 @@
             if (currentMode !== mode) return; // a later startMode call superseded this one
 
             if (mode === 'schrijven') {
-                // Start with first exercise of first section
-                currentSection = 'original';
+                // Start with first exercise of first section (keys are level-dependent)
+                currentSection = Object.keys(examSections)[0];
                 currentExerciseIndex = 0;
                 renderSidebar();
                 showCurrentExercise();
