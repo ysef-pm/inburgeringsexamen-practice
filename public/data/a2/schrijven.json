@@ -1,0 +1,224 @@
+{
+  "questions": [
+    {
+      "type": "Email - Ziek melden",
+      "prompt": "Je bent ziek en kunt niet naar je werk komen. Schrijf een e-mail aan je baas.\n\n• Schrijf dat je ziek bent\n• Schrijf wanneer je waarschijnlijk weer kunt werken\n• Vraag wat je moet doen met je taken",
+      "modelAnswer": "Beste meneer Martin,\n\nIk ben vandaag ziek. Ik heb koorts en hoofdpijn. Ik kan niet naar mijn werk komen.\n\nIk denk dat ik morgen of overmorgen weer beter ben. Dan kom ik weer werken.\n\nWat moet ik doen met mijn werk van vandaag? Moet iemand anders mijn taken doen?\n\nVriendelijke groet,\n[Jouw naam]"
+    },
+    {
+      "type": "Email - Afspraak verzetten",
+      "prompt": "Je volgt een cursus. Morgen heb je een afspraak met Amber, een andere student. Je kunt niet komen en wilt de afspraak verzetten.\n\n• Schrijf dat je de afspraak wilt verzetten\n• Schrijf waarom\n• Stel een nieuwe datum voor",
+      "modelAnswer": "Beste Amber,\n\nIk wil graag de afspraak verzetten. Ik kan helaas niet morgen. Ik heb een doktersafspraak.\n\nKan het volgende week woensdag 14 januari? Zullen we dan afspreken?\n\nGroetjes,\n[Jouw naam]"
+    },
+    {
+      "type": "Formulier - Vrijwilligerswerk",
+      "prompt": "Een verzorgingshuis zoekt vrijwilligers. Je bent geïnteresseerd. Vul het formulier in:\n\n• Voornaam:\n• Achternaam:\n• Telefoonnummer:\n• Hoe vaak bent u beschikbaar?\n• Waarom wilt u vrijwilligerswerk doen?\n• Wanneer kunt u beginnen?",
+      "modelAnswer": "Voornaam: Maria\nAchternaam: de Jong\nTelefoonnummer: 06-12345678\nHoe vaak bent u beschikbaar: Twee dagen per week, op maandag en donderdag\nWaarom wilt u vrijwilligerswerk doen: Ik wil graag ouderen helpen. Ik vind het leuk om met mensen te praten.\nWanneer kunt u beginnen: Zo snel mogelijk, vanaf volgende week"
+    },
+    {
+      "type": "Briefje - Huishouden",
+      "prompt": "Je hebt zo rijles en moet weg. Later komt je partner thuis. Hij/zij moet een paar dingen doen.\n\nSchrijf een briefje voor je partner. Schrijf drie dingen die hij/zij moet doen:\n• De plantjes water geven\n• De was in de wasmachine doen\n• Het eten opwarmen",
+      "modelAnswer": "Hoi schat,\n\nIk heb zo rijles en moet weg.\n\nWil jij een paar dingen doen als je thuis komt?\n1. Geef de plantjes water.\n2. Doe de was in de wasmachine.\n3. Warm het eten op in de magnetron.\n\nDankjewel!\n\nTot straks,\n[Jouw naam]"
+    },
+    {
+      "type": "Email - Kapot product",
+      "prompt": "Je hebt vorige week een telefoon gekocht maar hij werkt niet goed. Schrijf een e-mail aan de winkel.\n\n• Schrijf wat het probleem is\n• Schrijf wanneer je de telefoon hebt gekocht\n• Vraag om een oplossing",
+      "modelAnswer": "Beste meneer of mevrouw,\n\nVorige week dinsdag heb ik een telefoon gekocht in uw winkel. De telefoon kost €200, maar de telefoon werkt niet goed.\n\nHet scherm is zwart en ik kan niet bellen.\n\nKunt u mij helpen? Ik wil graag mijn geld terug of een nieuwe telefoon.\n\nVriendelijke groet,\n[Jouw naam]"
+    },
+    {
+      "type": "Email - Cursus informatie",
+      "prompt": "Je wilt je inschrijven voor een Nederlandse cursus. Schrijf een e-mail naar de school.\n\n• Schrijf dat je je wilt inschrijven\n• Vraag naar de kosten en tijden\n• Vertel iets over je Nederlandse niveau",
+      "modelAnswer": "Beste meneer of mevrouw,\n\nIk wil graag een Nederlandse cursus volgen bij uw school.\n\nIk spreek al een beetje Nederlands, maar ik wil beter worden. Ik ben nu op niveau A1.\n\nHoeveel kost de cursus? Wanneer zijn de lessen? Ik kan op maandag, woensdag en vrijdag.\n\nVriendelijke groet,\n[Jouw naam]"
+    },
+    {
+      "type": "Briefje - Buren",
+      "prompt": "Je buren hadden een feestje. Het was erg luid na 22.00 uur. Schrijf een briefje aan je buren.\n\n• Schrijf dat je buren een feestje hadden\n• Schrijf dat het geluid te hard was\n• Vraag of ze iets rustiger kunnen zijn",
+      "modelAnswer": "Beste buren,\n\nUw feestje gisterenavond was gezellig, maar het geluid was na 22.00 uur erg hard.\n\nIk kon niet slapen omdat de muziek zo luid was.\n\nZou u de volgende keer iets rustiger kunnen zijn na 22.00 uur?\n\nDank u wel!\n\nVriendelijke groet,\nUw buurman/buurvrouw"
+    },
+    {
+      "type": "Beschrijving - Huisdier",
+      "prompt": "Beschrijf je huisdier of een dier dat je leuk vindt.\n\n• Schrijf hoe het eruitziet\n• Schrijf wat het doet\n• Schrijf waarom je het leuk vindt",
+      "modelAnswer": "Mijn kat heet Simba. Hij is groot en heeft zwart-wit vacht. Hij heeft groene ogen.\n\nSimba speelt graag met een balletje. Hij slaapt veel, meestal op de bank. Hij eet drie keer per dag.\n\nIk vind hem leuk omdat hij grappig is. Hij maakt me blij als ik thuiskom."
+    },
+    {
+      "type": "Email - Bibliotheek",
+      "prompt": "Je wilt een boek reserveren in de bibliotheek. Schrijf een e-mail.\n\n• Schrijf welk boek je wilt\n• Vraag of het beschikbaar is\n• Vraag hoe lang je het kunt lenen",
+      "modelAnswer": "Beste bibliotheek,\n\nIk wil graag het boek 'Nederlands voor beginners' reserveren.\n\nKunt u me vertellen of het boek beschikbaar is?\n\nEn hoe lang kan ik het boek lenen?\n\nAlvast bedankt!\n\nVriendelijke groet,\n[Jouw naam]"
+    },
+    {
+      "type": "Verhaal - Iets nieuws geleerd",
+      "prompt": "Vertel over een dag dat je iets nieuws hebt geleerd.\n\n• Schrijf wat je hebt geleerd\n• Schrijf hoe je het hebt gedaan\n• Schrijf wat moeilijk was\n• Schrijf hoe je je voelde",
+      "modelAnswer": "Vorige week leerde ik fietsen in Amsterdam.\n\nEerst was het moeilijk. Er waren veel auto's en fietsen. Ik was bang.\n\nMijn vriend hielp mij. Hij gaf tips over de verkeerslichten en fietspaden.\n\nNa een paar dagen kon ik het zelf. Ik voelde me trots en blij. Nu fiets ik elke dag naar mijn cursus."
+    },
+    {
+      "type": "Bericht - Later op werk",
+      "prompt": "U moet morgen werken maar u zult later komen. U moet naar de huisarts.\n\nSchrijf een email aan uw manager.\n\n• U schrijft waarom u mailt.\n• U schrijft hoe laat u ongeveer op uw werk komt.\n• U vraagt of dat goed is.",
+      "modelAnswer": "Beste manager,\n\nIk zal morgen later op mijn werk komen want ik moet naar de huisarts.\n\nIk kom om 11:00 uur.\n\nIs dat goed?\n\nGroeten,\nEline"
+    },
+    {
+      "type": "Tekst voor iedereen - De sportdag van de buurt",
+      "prompt": "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over de sportdag van de buurt. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Wie komen er op de sportdag?\n• Wat kunnen mensen doen op de sportdag?\n• Op welke dag is de sportdag en hoe laat begint de sportdag?\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Iedereen uit de buurt kan naar de sportdag komen.\n\nMensen kunnen op de sportdag voetballen, tennissen en rennen.\n\nDe sportdag is op vrijdag 10 juli en hij begint om 10:00."
+    },
+    {
+      "type": "Formulier - Sollicitatieformulier bloemenwinkel",
+      "prompt": "U solliciteert voor de functie van verkoper bij bloemenwinkel DE TULP. U kunt alleen op weekdagen werken en u heeft geen rijbewijs. U kunt wel direct starten met werken.\n\nSommige gegevens moet u zelf bedenken.\n\nVul het formulier in:\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoon, geslacht, geboortedatum, email)\n• Kunt u in het weekend werken?\n• Kunt u direct starten?\n• Kunt u in de avond werken?\n• Heeft u een rijbewijs?\n• Wat is uw werkervaring?",
+      "modelAnswer": "Persoonsgegevens:\nMichiel Pietersen\nAstrastraat 11\n6599 PE\nAbcoude\n06-4382937\nMan\n13-10-1987\n\nKunt u direct starten met werken? Ja\nKunt u in het weekend werken? Nee\nKunt u in de avond werken? Ja of Nee (beide correct)\nHeeft u een rijbewijs? Nee\n\nWat is uw werkervaring?\nIk heb bij een supermarkt gewerkt."
+    },
+    {
+      "type": "Bericht - Afspraak bij de tandarts",
+      "prompt": "U moet vrijdag werken maar u heeft in de middag een afspraak bij de tandarts.\n\nSchrijf een email aan uw manager.\n\n• U schrijft waarom u mailt.\n• U schrijft hoe laat u weg moet.\n• U schrijft dat u de rest van de dag thuis werkt.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Beste manager,\n\nIk heb vrijdagmiddag een afspraak bij de tandarts.\n\nIk moet om 14:00 weg.\n\nIk zal de rest van de dag thuis werken.\n\nGroeten,\nJesper"
+    },
+    {
+      "type": "Bericht - Lessen verzetten",
+      "prompt": "U volgt een cursus Chinees. U hebt les in de avond. U kunt niet meer in de avond naar de lessen komen.\n\nSchrijf een email aan uw docent.\n\n• U schrijft waarom u mailt.\n• U schrijft waarom u niet meer in de avond naar de lessen kunt komen. Bedenk het zelf.\n• U vraagt of u de les in een andere groep kunt volgen.\n• Biedt uw excuses aan.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Beste docent,\n\nIk kan niet meer in de avond naar de lessen komen want ik moet mijn dochter ophalen bij de kinderopvang.\n\nKan ik een les in een andere groep volgen?\n\nMijn excuses voor het ongemak.\n\nGroeten,\nRobert"
+    },
+    {
+      "type": "Tekst voor iedereen - Uw verjaardag",
+      "prompt": "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over uw verjaardag. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Wat doet u graag op uw verjaardag?\n• Waar viert u uw verjaardag?\n• Wie komen op uw verjaardag?\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Ik eet graag taart op mijn verjaardag.\n\nIk vier mijn verjaardag in mijn huis.\n\nOp mijn verjaardag komen mijn beste vrienden en familie."
+    },
+    {
+      "type": "Formulier - Beoordelingsformulier huurauto",
+      "prompt": "U heeft een auto gehuurd bij autoverhuurbedrijf 'BESTE HUURAUTO'S'. U was niet blij met de auto. Het was een Opel met kentekennummer 21-KBB-7.\n\nU heeft twee klachten over de auto. Vul het beoordelingsformulier van het autoverhuurbedrijf in. Sommige gegevens moet u zelf bedenken.\n\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoon, email)\n• Informatie over de auto (Merk, Kentekennummer)\n• Wat zijn de klachten? (1. en 2.)",
+      "modelAnswer": "Persoonsgegevens:\nMichiel Pietersen\nAstrastraat 11\n6599 PE\nAbcoude\n06-4382937\nmich@pietersen.nl\n\nInformatie over de auto:\nMerk: Opel\nKentekennummer: 21-KBB-7\n\nWat zijn de klachten?\n1. Vuilnis in de auto\n2. Kapotte stoel"
+    },
+    {
+      "type": "Bericht - Briefje voor collega (kantine)",
+      "prompt": "U werkt in een kantine. Straks komt uw collega Jesper. Hij moet een paar dingen doen.\n\nSchrijf een briefje voor Jesper. Vertel wat hij moet doen. Schrijf drie dingen op.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Hallo Jesper,\n\nJij moet vandaag een paar dingen doen.\n\nEerst moet jij de deur van de kantine openen.\n\nDan moet jij de broodjes in de oven doen.\n\nDaarna moet jij de borden afwassen.\n\nAlvast bedankt!\n\nGroeten,\nMichiel"
+    },
+    {
+      "type": "Bericht - Meerijden naar bedrijfsuitje",
+      "prompt": "U heeft volgende week een bedrijfsuitje. U heeft geen auto. U vraagt of uw collega Marianne u kan ophalen.\n\n• U schrijft dat u geen auto heeft.\n• U vraagt of uw collega u kan ophalen.\n• U schrijft waar u woont (bedenk zelf een adres).\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Hoi Marianne,\n\nWij hebben volgende week een bedrijfsuitje maar ik heb geen auto.\n\nKun jij mij komen ophalen?\n\nJij kunt mij bij mijn huis komen ophalen. Ik woon op de Rijnstraat 14.\n\nGroetjes,\nMichiel"
+    },
+    {
+      "type": "Tekst voor iedereen - Mijn fiets",
+      "prompt": "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over uw fiets. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Waar gaat u op de fiets naartoe?\n• Hoe ziet uw fiets eruit?\n• Met wie fietst u wel eens?\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Ik ga op mijn fiets naar mijn werk.\n\nMijn fiets is een blauwe herenfiets.\n\nIk fiets wel eens met mijn vrouw."
+    },
+    {
+      "type": "Formulier - Inschrijven cursus Chinees",
+      "prompt": "U wilt zich graag inschrijven voor een cursus Chinees bij Talenschool WERELDTALEN. U wilt twee keer per week les en u wilt groepslessen.\n\nSommige gegevens moet u zelf bedenken.\n\nVul het formulier in:\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoon, geslacht, geboortedatum, email)\n• Welke taal wilt u leren?\n• Hoe vaak wilt u les?\n• Wat voor soort lessen wilt u?\n• Wat is uw niveau?\n• Waarom wilt u deze taal leren?",
+      "modelAnswer": "Persoonsgegevens:\nMichiel Pietersen\nAstrastraat 11\n6599 PE\nAbcoude\n06-4382937\nMan\n13-10-1987\nmich@pietersen.nl\n\nWelke taal wilt u leren? Chinees\n\nHoe vaak wilt u les? 2x per week\n\nWat voor soort lessen wilt u? Groepslessen\n\nWat is uw niveau? Beginner (or whatever applies to you)\n\nWaarom wilt u deze taal leren? Ik ga in China werken / Ik heb Chinese collega's"
+    },
+    {
+      "type": "Bericht - Planten water geven",
+      "prompt": "U gaat volgende week op vakantie. U wilt aan uw buurman, Mark, vragen of hij de planten water kan geven. U schrijft hem een e-mail.\n\n• U schrijft waarom u de email stuurt.\n• U vraagt of uw buurman volgende week de planten water kan geven.\n• U vertelt hem waar de sleutel van de voordeur ligt. Bedenk het zelf.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Hoi Mark,\n\nIk ga volgende week op vakantie.\n\nKun jij mijn planten water geven?\n\nKun jij de planten twee keer per week water geven?\n\nDe sleutel van de voordeur ligt onder de deurmat.\n\nGroetjes,\nMichelle"
+    },
+    {
+      "type": "D1 Bericht - Spelletjesavond",
+      "prompt": "U organiseert volgende week een spelletjesavond bij u thuis. U nodigt uw vrienden uit.\n\nSchrijf een e-mail aan uw vrienden.\n\n• U schrijft waarom u mailt.\n• U schrijft welke dag en hoe laat de spelletjesavond is.\n• U vraagt of uw vrienden iets willen meenemen (bijvoorbeeld drinken of een spelletje).\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Hoi allemaal,\n\nVolgende week organiseer ik een spelletjesavond bij mij thuis.\n\nDe avond is op zaterdag om 20:00 uur.\n\nKunnen jullie iets te drinken of een leuk spelletje meenemen?\n\nIk hoop jullie te zien!\n\nGroetjes,\n[Naam]"
+    },
+    {
+      "type": "D1 Bericht - Cursus Spaans klacht",
+      "prompt": "U volgt een cursus Spaans bij een school. U bent niet tevreden over de cursus.\n\nSchrijf een e-mail aan de school.\n\n• U schrijft waarom u mailt.\n• U schrijft waarom u niet tevreden bent. Bedenk het zelf.\n• U vraagt of u kunt stoppen met de cursus en uw geld terug kunt krijgen.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Beste meneer of mevrouw,\n\nIk volg de cursus Spaans bij uw school, maar ik ben niet tevreden.\n\nDe lessen zijn te moeilijk en de docent spreekt te snel.\n\nKan ik stoppen met de cursus? En kan ik mijn geld terugkrijgen?\n\nVriendelijke groet,\n[Naam]"
+    },
+    {
+      "type": "D1 Bericht - Opdracht inleveren",
+      "prompt": "U volgt een cursus. U moet een opdracht inleveren, maar u bent niet klaar.\n\nSchrijf een e-mail aan uw docent.\n\n• U schrijft waarom u mailt.\n• U schrijft waarom u niet klaar bent. Bedenk het zelf.\n• U vraagt of u de opdracht later kunt inleveren.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Beste docent,\n\nIk schrijf u over de opdracht die ik moet inleveren.\n\nIk ben helaas nog niet klaar met de opdracht omdat ik ziek was.\n\nKan ik de opdracht later inleveren? Misschien volgende week?\n\nVriendelijke groet,\n[Naam]"
+    },
+    {
+      "type": "D1 Bericht - Weekend werken bibliotheek",
+      "prompt": "U werkt bij een bibliotheek. U wilt graag in het weekend werken.\n\nSchrijf een e-mail naar uw manager.\n\n• U schrijft waarom u mailt.\n• U schrijft waarom u in het weekend wilt werken. Bedenk het zelf.\n• U vraagt of u in het weekend kunt werken.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Beste manager,\n\nIk zou graag in het weekend willen werken.\n\nIk wil extra geld verdienen voor mijn vakantie.\n\nKan ik in het weekend werken? Ik ben beschikbaar op zaterdag en zondag.\n\nVriendelijke groet,\n[Naam]"
+    },
+    {
+      "type": "D1 Bericht - Portemonnee gestolen",
+      "prompt": "Uw portemonnee is gestolen. U schrijft een e-mail aan de politie.\n\nSchrijf een e-mail aan de politie.\n\n• U schrijft waarom u mailt.\n• U schrijft wat er is gestolen en waar.\n• U vraagt wat u moet doen.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Beste politie,\n\nIk wil aangifte doen. Mijn portemonnee is gestolen.\n\nDe portemonnee is gisteren gestolen in de supermarkt. In de portemonnee zaten mijn pinpas en 50 euro.\n\nWat moet ik nu doen? Kan ik langskomen?\n\nVriendelijke groet,\n[Naam]"
+    },
+    {
+      "type": "D1 Bericht - Fiets kopen",
+      "prompt": "U wilt een fiets kopen. U heeft een advertentie gezien.\n\nSchrijf een e-mail aan de verkoper.\n\n• U schrijft waarom u mailt.\n• U stelt een vraag over de fiets. Bedenk het zelf.\n• U vraagt wanneer u de fiets kunt bekijken.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Beste verkoper,\n\nIk zag uw advertentie voor de fiets. Ik ben geïnteresseerd.\n\nHoe oud is de fiets? En werken de remmen goed?\n\nWanneer kan ik de fiets komen bekijken?\n\nVriendelijke groet,\n[Naam]"
+    },
+    {
+      "type": "D1 Bericht - Fiets reparatie",
+      "prompt": "Uw fiets is kapot. U brengt de fiets naar de fietsenmaker.\n\nSchrijf een briefje voor de fietsenmaker.\n\n• U schrijft wat er kapot is.\n• U vraagt hoeveel de reparatie kost.\n• U schrijft wanneer u de fiets wilt ophalen.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Beste fietsenmaker,\n\nMijn fiets is kapot. De band is lek en de lamp doet het niet.\n\nKunt u de fiets repareren? Hoeveel kost dat?\n\nIk wil de fiets graag morgen ophalen.\n\nVriendelijke groet,\n[Naam]"
+    },
+    {
+      "type": "D1 Bericht - Kat verzorgen",
+      "prompt": "U gaat op vakantie. U vraagt aan uw vriend of hij/zij op uw kat kan passen.\n\nSchrijf een e-mail aan uw vriend.\n\n• U schrijft waarom u mailt.\n• U schrijft wanneer u op vakantie gaat.\n• U vraagt of uw vriend op de kat kan passen.\n• U schrijft wat uw vriend moet doen voor de kat.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Hoi,\n\nIk ga volgende week op vakantie, van maandag tot vrijdag.\n\nKun jij op mijn kat passen?\n\nJe moet de kat elke dag eten en water geven. En kun je ook even met haar spelen?\n\nDe sleutel ligt onder de mat.\n\nAlvast bedankt!\n\nGroetjes,\n[Naam]"
+    },
+    {
+      "type": "D1 Bericht - E-mail aan collega",
+      "prompt": "U werkt vandaag niet, maar u heeft een vraag voor uw collega.\n\nSchrijf een e-mail aan uw collega.\n\n• U schrijft waarom u mailt.\n• U stelt een vraag over het werk. Bedenk het zelf.\n• U bedankt uw collega.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Hoi collega,\n\nIk werk vandaag niet, maar ik heb een vraag.\n\nWeet jij waar het verslag van de vergadering is? Ik kan het niet vinden.\n\nAlvast bedankt voor je hulp!\n\nGroetjes,\n[Naam]"
+    },
+    {
+      "type": "D1 Bericht - Uitnodiging collega",
+      "prompt": "U organiseert een feestje voor uw verjaardag. U nodigt uw collega uit.\n\nSchrijf een e-mail aan uw collega.\n\n• U schrijft waarom u mailt.\n• U schrijft wanneer en waar het feestje is.\n• U vraagt of uw collega kan komen.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Hoi collega,\n\nIk word volgende week 30 jaar en ik geef een feestje.\n\nHet feestje is op zaterdag 15 januari om 20:00 uur bij mij thuis.\n\nKun je komen? Ik hoop je te zien!\n\nGroetjes,\n[Naam]"
+    },
+    {
+      "type": "D1 Bericht - Dienst ruilen",
+      "prompt": "U kunt volgende week niet werken op woensdag. U wilt met uw collega van dienst ruilen.\n\nSchrijf een e-mail aan uw collega.\n\n• U schrijft waarom u mailt.\n• U schrijft waarom u niet kunt werken. Bedenk het zelf.\n• U vraagt of uw collega met u wil ruilen.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Hoi collega,\n\nIk kan volgende week woensdag niet werken.\n\nIk heb een afspraak bij de tandarts.\n\nKun jij mijn dienst overnemen? Dan werk ik voor jou op een andere dag.\n\nLaat je het me weten?\n\nGroetjes,\n[Naam]"
+    },
+    {
+      "type": "D1 Bericht - Kinderopvang",
+      "prompt": "Uw kind is ziek en kan niet naar de kinderopvang.\n\nSchrijf een e-mail aan de kinderopvang.\n\n• U schrijft waarom u mailt.\n• U schrijft wat uw kind heeft.\n• U schrijft wanneer uw kind weer kan komen.\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Beste kinderopvang,\n\nMijn kind kan vandaag niet komen. Hij/zij is ziek.\n\nMijn kind heeft koorts en buikpijn.\n\nIk denk dat hij/zij over twee dagen weer beter is. Dan komt hij/zij weer.\n\nVriendelijke groet,\n[Naam]"
+    },
+    {
+      "type": "D2 Tekst - Vakantie",
+      "prompt": "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over uw vakantie. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Waar ging u op vakantie?\n• Wat deed u op vakantie?\n• Hoe was het weer?\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Vorige maand ging ik op vakantie naar Spanje.\n\nIk ging naar het strand en ik zwom in de zee. Ik bezocht ook een mooie stad.\n\nHet weer was heel warm en zonnig."
+    },
+    {
+      "type": "D2 Tekst - Favoriete muziek",
+      "prompt": "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over uw favoriete muziek. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Welke muziek vindt u mooi?\n• Wanneer luistert u naar muziek?\n• Waarom vindt u deze muziek mooi?\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Mijn favoriete muziek is popmuziek.\n\nIk luister naar muziek als ik in de auto zit of als ik kook.\n\nIk vind popmuziek mooi omdat het vrolijk is. Het maakt me blij."
+    },
+    {
+      "type": "D2 Tekst - Nederland",
+      "prompt": "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over Nederland. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Wat vindt u mooi aan Nederland?\n• Wat vindt u niet zo leuk aan Nederland?\n• Wat is anders dan in uw land?\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Ik vind Nederland een mooi land. De parken en de fietspaden zijn heel fijn.\n\nIk vind het weer niet zo leuk. Het regent vaak.\n\nIn Nederland fietsen veel mensen. Dat is anders dan in mijn land."
+    },
+    {
+      "type": "D2 Tekst - Goede vriend",
+      "prompt": "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over een goede vriend. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Wie is uw goede vriend?\n• Hoe kent u deze vriend?\n• Wat doet u samen met uw vriend?\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Mijn goede vriend heet Ahmed.\n\nIk ken Ahmed van mijn werk. We werken samen op kantoor.\n\nWij sporten samen en we gaan soms uit eten. Hij is een hele leuke vriend."
+    },
+    {
+      "type": "D2 Tekst - Favoriete eten",
+      "prompt": "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over uw favoriete eten. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Wat is uw favoriete eten?\n• Wanneer eet u dit?\n• Waarom vindt u dit lekker?\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "Mijn favoriete eten is couscous met groenten en vlees.\n\nIk eet dit vaak in het weekend, op zondag.\n\nIk vind het lekker omdat het me aan thuis doet denken. Mijn moeder maakte dit ook altijd."
+    },
+    {
+      "type": "D2 Tekst - Leukste dag",
+      "prompt": "U krijgt elke week een wijkkrant. Iedereen uit de buurt mag iets voor deze krant schrijven.\n\nU schrijft over de leukste dag van de week. Schrijf minimaal drie zinnen op. Denk aan:\n\n• Welke dag vindt u het leukst?\n• Wat doet u op die dag?\n• Waarom vindt u die dag leuk?\n\nSchrijf in hele zinnen.",
+      "modelAnswer": "De leukste dag van de week vind ik zaterdag.\n\nOp zaterdag hoef ik niet te werken. Ik ga naar de markt en ik zie mijn vrienden.\n\nIk vind zaterdag leuk omdat ik dan vrij ben en kan doen wat ik wil."
+    },
+    {
+      "type": "D3 Formulier - Meldingsformulier politie",
+      "prompt": "Uw fiets is gestolen. U doet aangifte bij de politie.\n\nVul het meldingsformulier in:\n\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoonnummer, e-mail)\n• Wat is er gestolen?\n• Waar is het gestolen?\n• Wanneer is het gestolen?\n• Heeft u nog andere informatie?\n\nSommige gegevens moet u zelf bedenken.",
+      "modelAnswer": "Persoonsgegevens:\nJan de Vries\nKerkstraat 12\n1234 AB\nAmsterdam\n06-12345678\njan@email.nl\n\nWat is er gestolen?\nMijn fiets, een blauwe damesfiets\n\nWaar is het gestolen?\nBij het station Amsterdam Centraal\n\nWanneer is het gestolen?\nGisteren, 10 januari, rond 14:00 uur\n\nHeeft u nog andere informatie?\nDe fiets stond op slot. Het slot is kapotgemaakt."
+    },
+    {
+      "type": "D3 Formulier - Sportschool Rico",
+      "prompt": "U wilt lid worden van Sportschool Rico. U kunt alleen in de ochtend sporten.\n\nVul het inschrijfformulier in:\n\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoonnummer, geboortedatum, e-mail)\n• Wanneer wilt u sporten? (ochtend/middag/avond)\n• Welke sporten wilt u doen?\n• Hoe heeft u over ons gehoord?\n\nSommige gegevens moet u zelf bedenken.",
+      "modelAnswer": "Persoonsgegevens:\nMaria Jansen\nHoofdweg 45\n5678 CD\nRotterdam\n06-98765432\n15-03-1990\nmaria@email.nl\n\nWanneer wilt u sporten?\nIn de ochtend\n\nWelke sporten wilt u doen?\nFitness en yoga\n\nHoe heeft u over ons gehoord?\nVia een vriend"
+    },
+    {
+      "type": "D3 Formulier - Supermarkt sollicitatie",
+      "prompt": "U solliciteert voor een baan bij een supermarkt. U wilt fulltime werken.\n\nVul het sollicitatieformulier in:\n\n• Persoonsgegevens (naam, adres, postcode, woonplaats, telefoonnummer, geboortedatum, e-mail)\n• Wilt u fulltime of parttime werken?\n• Kunt u in het weekend werken?\n• Wat is uw werkervaring?\n• Waarom wilt u bij ons werken?\n\nSommige gegevens moet u zelf bedenken.",
+      "modelAnswer": "Persoonsgegevens:\nPeter Bakker\nLangestraat 78\n9012 EF\nUtrecht\n06-11223344\n20-08-1995\npeter@email.nl\n\nWilt u fulltime of parttime werken?\nFulltime\n\nKunt u in het weekend werken?\nJa, ik kan in het weekend werken.\n\nWat is uw werkervaring?\nIk heb 2 jaar bij een andere supermarkt gewerkt.\n\nWaarom wilt u bij ons werken?\nIk vind het leuk om met klanten te werken en uw supermarkt is dicht bij mijn huis."
+    },
+    {
+      "type": "D3 Formulier - Wasmachine beoordeling",
+      "prompt": "U heeft een wasmachine gekocht. De winkel vraagt u om een beoordeling.\n\nVul het beoordelingsformulier in:\n\n• Persoonsgegevens (naam, e-mail)\n• Welk product heeft u gekocht?\n• Hoe tevreden bent u? (heel tevreden/tevreden/niet tevreden)\n• Wat vindt u goed aan het product?\n• Wat kan beter aan het product?\n\nSommige gegevens moet u zelf bedenken.",
+      "modelAnswer": "Persoonsgegevens:\nSarah Visser\nsarah@email.nl\n\nWelk product heeft u gekocht?\nEen wasmachine, merk Samsung\n\nHoe tevreden bent u?\nTevreden\n\nWat vindt u goed aan het product?\nDe wasmachine is stil en wast goed. Hij is ook makkelijk te gebruiken.\n\nWat kan beter aan het product?\nDe handleiding is moeilijk te lezen. Er zijn te veel knoppen."
+    }
+  ]
+}

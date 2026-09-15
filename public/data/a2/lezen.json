@@ -1,0 +1,665 @@
+{
+  "exams": {
+    "exam1": {
+      "name": "DUO Lezen Exam 1",
+      "questions": [
+        {
+          "passage": "tips_leren",
+          "passageTitle": "Tips om goed te leren",
+          "text": "Tips om goed te leren\n\nIedereen leert op zijn eigen manier. Toch geven we u een paar tips om beter te kunnen leren.\n\n1. Begin met het maken van een planning: wat gaat u wanneer doen? Elke dag een beetje leren is beter dan alles op één dag leren. Lees op verschillende dagen dezelfde bladzijdes een paar keer opnieuw. U onthoudt de informatie dan beter.\n\n2. Zoek uit wanneer u het beste kan leren: 's morgens, 's middags of 's avonds.\n\n3. Leer niet langer dan een half uur. Neem daarna een pauze of ga even iets heel anders doen.\n\n4. Leer in een rustige omgeving. Denk niet teveel aan andere dingen.\n\n5. Lees eerst een stuk tekst. Denk daarna even na over de inhoud. Lees dan een nieuw stuk tekst en denk weer na over die inhoud. Ga zo verder tot het einde van de tekst.\n\n6. Leg aan iemand anders uit wat u hebt gelezen. Als u dat kunt, weet u zeker dat u het hebt begrepen. U onthoudt informatie beter als u het aan iemand hebt verteld.",
+          "question": "Jamie heeft volgende week een belangrijk examen. Wat moet hij volgens de tekst het eerste doen?",
+          "options": [
+            "nadenken over de inhoud",
+            "een planning maken",
+            "een rustige plek zoeken"
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "tips_leren",
+          "passageTitle": "Tips om goed te leren",
+          "text": "Tips om goed te leren\n\nIedereen leert op zijn eigen manier. Toch geven we u een paar tips om beter te kunnen leren.\n\n1. Begin met het maken van een planning: wat gaat u wanneer doen? Elke dag een beetje leren is beter dan alles op één dag leren. Lees op verschillende dagen dezelfde bladzijdes een paar keer opnieuw. U onthoudt de informatie dan beter.\n\n2. Zoek uit wanneer u het beste kan leren: 's morgens, 's middags of 's avonds.\n\n3. Leer niet langer dan een half uur. Neem daarna een pauze of ga even iets heel anders doen.\n\n4. Leer in een rustige omgeving. Denk niet teveel aan andere dingen.\n\n5. Lees eerst een stuk tekst. Denk daarna even na over de inhoud. Lees dan een nieuw stuk tekst en denk weer na over die inhoud. Ga zo verder tot het einde van de tekst.\n\n6. Leg aan iemand anders uit wat u hebt gelezen. Als u dat kunt, weet u zeker dat u het hebt begrepen. U onthoudt informatie beter als u het aan iemand hebt verteld.",
+          "question": "Wanneer kan je volgens de tekst het beste leren?",
+          "options": [
+            "'s ochtends",
+            "'s middags",
+            "'s avonds",
+            "Dat moet je zelf bepalen."
+          ],
+          "correct": 3
+        },
+        {
+          "passage": "tips_leren",
+          "passageTitle": "Tips om goed te leren",
+          "text": "Tips om goed te leren\n\nIedereen leert op zijn eigen manier. Toch geven we u een paar tips om beter te kunnen leren.\n\n1. Begin met het maken van een planning: wat gaat u wanneer doen? Elke dag een beetje leren is beter dan alles op één dag leren. Lees op verschillende dagen dezelfde bladzijdes een paar keer opnieuw. U onthoudt de informatie dan beter.\n\n2. Zoek uit wanneer u het beste kan leren: 's morgens, 's middags of 's avonds.\n\n3. Leer niet langer dan een half uur. Neem daarna een pauze of ga even iets heel anders doen.\n\n4. Leer in een rustige omgeving. Denk niet teveel aan andere dingen.\n\n5. Lees eerst een stuk tekst. Denk daarna even na over de inhoud. Lees dan een nieuw stuk tekst en denk weer na over die inhoud. Ga zo verder tot het einde van de tekst.\n\n6. Leg aan iemand anders uit wat u hebt gelezen. Als u dat kunt, weet u zeker dat u het hebt begrepen. U onthoudt informatie beter als u het aan iemand hebt verteld.",
+          "question": "Noa weet niet hoe hij het beste kan leren. Welk advies kan je hem geven?",
+          "options": [
+            "Leer eerst de hele tekst en lees daarna elk stukje opnieuw.",
+            "Leer elke dag een beetje en vertel aan iemand wat je hebt gelezen.",
+            "Leer lang achter elkaar door en lees elk stuk tekst twee keer.",
+            "Leer met andere mensen en lees elke dag samen hetzelfde stuk tekst."
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "hardloopwedstrijd",
+          "passageTitle": "Brief: Hardloopwedstrijd",
+          "text": "Aan de bewoners van het dorp\n\nOnderwerp: Jaarlijkse hardloopwedstrijd\n\nWij willen u met deze brief informatie geven over de jaarlijkse hardloopwedstrijd in ons dorp. Ook willen wij u vertellen wat er die dag anders is voor het verkeer. We willen dat alles zo goed mogelijk gaat en we hopen dat u weinig last hebt van de wedstrijd.\n\nOngeveer 500 hardlopers doen mee aan de hardloopwedstrijd. De start en de finish zijn op het Dorpsplein. U kunt naar de hardlopers komen kijken, als u daar zin in heeft.\n\nDatum: zaterdag 13 juni\nTijd: van 11.00 uur tot 16.00 uur\nRoute: Dorpsplein – Dorpsstraat – Bergsebaan – Flamingostraat – Dorpsplein\n\nWe willen dat alles veilig is voor de hardlopers, het verkeer en het publiek. Daarom sluiten wij een aantal straten en wegen af. Op de route mogen tot 17.00 uur geen auto's staan. Wij vragen u daarom uw auto vóór zaterdagmorgen 13 juni 10.00 uur weg te halen. Auto's die er daarna nog staan zal de politie wegslepen.\n\nWij bieden u onze excuses aan voor de overlast en wij danken u voor uw medewerking.\n\nMet vriendelijke groet,\nPiet Jansen\nOrganisator hardloopwedstrijd",
+          "question": "Waarom krijgen de dorpsbewoners deze brief van Piet Jansen?",
+          "options": [
+            "Hij wil ze uitnodigen om mee te doen aan de hardloopwedstrijd.",
+            "Hij wil ze informatie geven over alles rondom de hardloopwedstrijd.",
+            "Hij wil ze oproepen met z'n allen naar de hardlopers te komen kijken."
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "hardloopwedstrijd",
+          "passageTitle": "Brief: Hardloopwedstrijd",
+          "text": "Aan de bewoners van het dorp\n\nOnderwerp: Jaarlijkse hardloopwedstrijd\n\nWij willen u met deze brief informatie geven over de jaarlijkse hardloopwedstrijd in ons dorp. Ook willen wij u vertellen wat er die dag anders is voor het verkeer. We willen dat alles zo goed mogelijk gaat en we hopen dat u weinig last hebt van de wedstrijd.\n\nOngeveer 500 hardlopers doen mee aan de hardloopwedstrijd. De start en de finish zijn op het Dorpsplein. U kunt naar de hardlopers komen kijken, als u daar zin in heeft.\n\nDatum: zaterdag 13 juni\nTijd: van 11.00 uur tot 16.00 uur\nRoute: Dorpsplein – Dorpsstraat – Bergsebaan – Flamingostraat – Dorpsplein\n\nWe willen dat alles veilig is voor de hardlopers, het verkeer en het publiek. Daarom sluiten wij een aantal straten en wegen af. Op de route mogen tot 17.00 uur geen auto's staan. Wij vragen u daarom uw auto vóór zaterdagmorgen 13 juni 10.00 uur weg te halen. Auto's die er daarna nog staan zal de politie wegslepen.\n\nWij bieden u onze excuses aan voor de overlast en wij danken u voor uw medewerking.\n\nMet vriendelijke groet,\nPiet Jansen\nOrganisator hardloopwedstrijd",
+          "question": "Gaston woont in de Flamingostraat. Wanneer moet hij zijn auto weghalen op zaterdag 13 juni?",
+          "options": [
+            "voor 10.00 uur",
+            "voor 11.00 uur",
+            "voor 16.00 uur",
+            "voor 17.00 uur"
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "transportservice",
+          "passageTitle": "Folder: Transportservice",
+          "text": "Verzamel- en transportservice\n\nHebt u meubels gezien die u wilt kopen? En wilt u dat wij deze meubels bij u thuisbezorgen? Dan kunt u gebruikmaken van onze transportservice.\n\nHoe werkt het? U maakt een lijstje met de meubels, op internet of in onze winkel. Wij verzamelen deze meubels en bezorgen alles bij u thuis. Dit alles voor een klein bedrag. De prijzen voor het bezorgen ziet u hieronder.\n\nTarieven:\nHoeveel weegt uw bestelling?\n0-199 kg: Bezorging begane grond €54,- | 1e, 2e, 3e etc. verdieping €64,-\n200 kg of meer: Bezorging begane grond €104,- | 1e, 2e, 3e etc. verdieping €144,-\n\nDeze prijzen zijn geldig voor één adres. Wilt u de meubels op meer adressen laten bezorgen? Ga dan voor meer informatie naar de informatiebalie in onze winkel.\n\nBezorging:\n- De levertijd van de meubels is ten minste twee weken.\n- U kunt op onze website zien op welke dagen wij meubels thuisbezorgen.\n- Wilt u weten hoe laat wij de meubels bezorgen? Bel dan naar onze klantenservice. Dit kan alleen op de dag van de bezorging, vanaf 8 uur 's ochtends.\n- Woont u op de vijfde verdieping of hoger? Wij bezorgen alleen als er een lift is.",
+          "question": "Modibo woont in een flat, op de tweede verdieping. Hij heeft een tafel van 20 kilo gekocht. Hij wil deze tafel thuis laten bezorgen. Wat moet hij hiervoor betalen?",
+          "options": [
+            "€54,-",
+            "€64,-",
+            "€104,-",
+            "€144,-"
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "transportservice",
+          "passageTitle": "Folder: Transportservice",
+          "text": "Verzamel- en transportservice\n\nHebt u meubels gezien die u wilt kopen? En wilt u dat wij deze meubels bij u thuisbezorgen? Dan kunt u gebruikmaken van onze transportservice.\n\nHoe werkt het? U maakt een lijstje met de meubels, op internet of in onze winkel. Wij verzamelen deze meubels en bezorgen alles bij u thuis. Dit alles voor een klein bedrag. De prijzen voor het bezorgen ziet u hieronder.\n\nTarieven:\nHoeveel weegt uw bestelling?\n0-199 kg: Bezorging begane grond €54,- | 1e, 2e, 3e etc. verdieping €64,-\n200 kg of meer: Bezorging begane grond €104,- | 1e, 2e, 3e etc. verdieping €144,-\n\nDeze prijzen zijn geldig voor één adres. Wilt u de meubels op meer adressen laten bezorgen? Ga dan voor meer informatie naar de informatiebalie in onze winkel.\n\nBezorging:\n- De levertijd van de meubels is ten minste twee weken.\n- U kunt op onze website zien op welke dagen wij meubels thuisbezorgen.\n- Wilt u weten hoe laat wij de meubels bezorgen? Bel dan naar onze klantenservice. Dit kan alleen op de dag van de bezorging, vanaf 8 uur 's ochtends.\n- Woont u op de vijfde verdieping of hoger? Wij bezorgen alleen als er een lift is.",
+          "question": "Thérèse wil meubels thuis laten bezorgen. Ze wil weten hoe laat de meubels bezorgd worden. Wanneer kan zij dat vragen?",
+          "options": [
+            "twee weken voor de bezorging",
+            "op het moment dat zij de meubels koopt",
+            "op de dag van de bezorging"
+          ],
+          "correct": 2
+        },
+        {
+          "passage": "kanovaren",
+          "passageTitle": "Brief: Bedrijfsuitje",
+          "text": "Beste collega,\n\nOp vrijdag 9 mei gaan we met het bedrijf kanovaren!\n\nJan van 'Botenverhuur de Rijnstroom' wacht op ons om half 11 in Utrecht. Adres: Rhijnauwen 2. Om half 12 is er lunch met een kop koffie of thee. Om half 8 eten we een pannenkoek bij het pannenkoekenhuis. Je hoeft zelf dus geen eten mee te nemen. Het programma eindigt om half 9.\n\nWat moet je meenemen? We raden aan om extra kleding mee te nemen, voor als je kleding nat wordt op de boot. Wij zullen handdoeken meenemen. Je hoeft geen zwemkleding mee te nemen, het water is nog te koud om in te zwemmen.\n\nLaat je weten of je erbij kunt zijn? Je kunt je tot 2 mei bij Ingmar aanmelden. Als je nog vragen hebt, kun je bellen met Charlotte, tel. 030 - 2521312.\n\nWij hopen op een gezellige dag!\n\nNamens de feestcommissie,\nHenk de Groot",
+          "question": "Wat moet Sabrina meenemen naar het personeelsuitje?",
+          "options": [
+            "zwemkleding",
+            "een handdoek",
+            "eten en drinken",
+            "extra kleding"
+          ],
+          "correct": 3
+        },
+        {
+          "passage": "kanovaren",
+          "passageTitle": "Brief: Bedrijfsuitje",
+          "text": "Beste collega,\n\nOp vrijdag 9 mei gaan we met het bedrijf kanovaren!\n\nJan van 'Botenverhuur de Rijnstroom' wacht op ons om half 11 in Utrecht. Adres: Rhijnauwen 2. Om half 12 is er lunch met een kop koffie of thee. Om half 8 eten we een pannenkoek bij het pannenkoekenhuis. Je hoeft zelf dus geen eten mee te nemen. Het programma eindigt om half 9.\n\nWat moet je meenemen? We raden aan om extra kleding mee te nemen, voor als je kleding nat wordt op de boot. Wij zullen handdoeken meenemen. Je hoeft geen zwemkleding mee te nemen, het water is nog te koud om in te zwemmen.\n\nLaat je weten of je erbij kunt zijn? Je kunt je tot 2 mei bij Ingmar aanmelden. Als je nog vragen hebt, kun je bellen met Charlotte, tel. 030 - 2521312.\n\nWij hopen op een gezellige dag!\n\nNamens de feestcommissie,\nHenk de Groot",
+          "question": "Sabrina wil weten of haar man ook mee mag. Aan wie moet ze dat vragen?",
+          "options": [
+            "aan Henk",
+            "aan Charlotte",
+            "aan Jan",
+            "aan Ingmar"
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "tas_vergeten",
+          "passageTitle": "Email: Tas vergeten",
+          "text": "Aan: j.degraaf@werk.nl\nOnderwerp: Tas vergeten\n\nHoi Jasper,\n\nIk zit nu in de trein van mijn werk naar huis en merk dat ik mijn tas ben vergeten! Hij staat nog op mijn bureau. Wil jij hem misschien ophalen en naar de portier brengen? Dan haal ik mijn tas daar morgen op.\n\nHet is een gele rugtas met een rits. In de tas zit mijn laptop. Er zitten ook een boek en een bril in de tas. Gelukkig heb ik mijn telefoon en portemonnee wel bij me!\n\nWil je me een bericht sturen als je de tas gevonden hebt?\n\nAlvast bedankt!\n\nGroetjes,\nSuzanne",
+          "question": "Waar is de tas van Suzanne?",
+          "options": [
+            "Op haar bureau.",
+            "Bij de portier.",
+            "In de trein."
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "tas_vergeten",
+          "passageTitle": "Email: Tas vergeten",
+          "text": "Aan: j.degraaf@werk.nl\nOnderwerp: Tas vergeten\n\nHoi Jasper,\n\nIk zit nu in de trein van mijn werk naar huis en merk dat ik mijn tas ben vergeten! Hij staat nog op mijn bureau. Wil jij hem misschien ophalen en naar de portier brengen? Dan haal ik mijn tas daar morgen op.\n\nHet is een gele rugtas met een rits. In de tas zit mijn laptop. Er zitten ook een boek en een bril in de tas. Gelukkig heb ik mijn telefoon en portemonnee wel bij me!\n\nWil je me een bericht sturen als je de tas gevonden hebt?\n\nAlvast bedankt!\n\nGroetjes,\nSuzanne",
+          "question": "Wat zit er in de tas van Suzanne?",
+          "options": [
+            "Laptop, boek en bril",
+            "Laptop, telefoon en portemonnee",
+            "Boek, bril en portemonnee",
+            "Telefoon, boek en bril"
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "sportdag",
+          "passageTitle": "Brief: Sportdag",
+          "text": "Beste buurtbewoners,\n\nOp 9 juli is onze sportdag in het Sportpark in Amsterdam. Wilt u om 9 uur op het veld zijn? Dan kunnen we op tijd beginnen.\n\nWe beginnen om half 10 met een tennistoernooi. U kunt 's ochtends ook kiezen voor basketbal. Daarna hebben we lunchpauze. U moet zelf uw brood meenemen, wij zorgen voor koffie en thee. Na de pauze is er een voetbaltoernooi. Voor de kinderen is er dan een volleybalwedstrijd. Om half 7 is de sportdag afgelopen. We gaan dan barbecueën. Als u geen vlees eet, wilt u dit dan doorgeven aan Marie? Zij doet samen met Mo de boodschappen.\n\nLet op! Wij kunnen de kleedkamers van het Sportpark niet gebruiken. De kleedkamers worden verbouwd. U moet dus thuis uw sportkleren aantrekken.\n\nDe sportdag (met barbecue en drankjes) kost €15,- per persoon. Kinderen betalen €8,50. U moet betalen als u zich aanmeldt. U kunt zich aanmelden tot 25 juni bij Jan (Vissersplein 45A).\n\nVorig jaar was de barbecue alleen voor de deelnemers van de sportdag. Dit jaar is dat anders: ook mensen die niet meedoen mogen mee barbecueën. Zij betalen dan €10,-. Als u niet meedoet aan de sportdag, kunt u zich tot 1 juli voor de barbecue aanmelden bij Mo (Abrahamslaan 2).\n\nWij hopen op een zonnige sportdag!\n\nMet vriendelijke groeten,\nJan, Marie, Bas en Mo",
+          "question": "Vandaag is de sportdag. Halima doet mee. Wat moet ze meenemen?",
+          "options": [
+            "haar lunch voor de pauze",
+            "haar sportkleding",
+            "wat te drinken voor de pauze",
+            "geld voor de barbecue"
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "sportdag",
+          "passageTitle": "Brief: Sportdag",
+          "text": "Beste buurtbewoners,\n\nOp 9 juli is onze sportdag in het Sportpark in Amsterdam. Wilt u om 9 uur op het veld zijn? Dan kunnen we op tijd beginnen.\n\nWe beginnen om half 10 met een tennistoernooi. U kunt 's ochtends ook kiezen voor basketbal. Daarna hebben we lunchpauze. U moet zelf uw brood meenemen, wij zorgen voor koffie en thee. Na de pauze is er een voetbaltoernooi. Voor de kinderen is er dan een volleybalwedstrijd. Om half 7 is de sportdag afgelopen. We gaan dan barbecueën. Als u geen vlees eet, wilt u dit dan doorgeven aan Marie? Zij doet samen met Mo de boodschappen.\n\nLet op! Wij kunnen de kleedkamers van het Sportpark niet gebruiken. De kleedkamers worden verbouwd. U moet dus thuis uw sportkleren aantrekken.\n\nDe sportdag (met barbecue en drankjes) kost €15,- per persoon. Kinderen betalen €8,50. U moet betalen als u zich aanmeldt. U kunt zich aanmelden tot 25 juni bij Jan (Vissersplein 45A).\n\nVorig jaar was de barbecue alleen voor de deelnemers van de sportdag. Dit jaar is dat anders: ook mensen die niet meedoen mogen mee barbecueën. Zij betalen dan €10,-. Als u niet meedoet aan de sportdag, kunt u zich tot 1 juli voor de barbecue aanmelden bij Mo (Abrahamslaan 2).\n\nWij hopen op een zonnige sportdag!\n\nMet vriendelijke groeten,\nJan, Marie, Bas en Mo",
+          "question": "De kinderen van Halima doen 's middags mee met de sportdag. Welke sport gaan ze doen?",
+          "options": [
+            "tennis",
+            "volleybal",
+            "voetbal",
+            "basketbal"
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "sportdag",
+          "passageTitle": "Brief: Sportdag",
+          "text": "Beste buurtbewoners,\n\nOp 9 juli is onze sportdag in het Sportpark in Amsterdam. Wilt u om 9 uur op het veld zijn? Dan kunnen we op tijd beginnen.\n\nWe beginnen om half 10 met een tennistoernooi. U kunt 's ochtends ook kiezen voor basketbal. Daarna hebben we lunchpauze. U moet zelf uw brood meenemen, wij zorgen voor koffie en thee. Na de pauze is er een voetbaltoernooi. Voor de kinderen is er dan een volleybalwedstrijd. Om half 7 is de sportdag afgelopen. We gaan dan barbecueën. Als u geen vlees eet, wilt u dit dan doorgeven aan Marie? Zij doet samen met Mo de boodschappen.\n\nLet op! Wij kunnen de kleedkamers van het Sportpark niet gebruiken. De kleedkamers worden verbouwd. U moet dus thuis uw sportkleren aantrekken.\n\nDe sportdag (met barbecue en drankjes) kost €15,- per persoon. Kinderen betalen €8,50. U moet betalen als u zich aanmeldt. U kunt zich aanmelden tot 25 juni bij Jan (Vissersplein 45A).\n\nVorig jaar was de barbecue alleen voor de deelnemers van de sportdag. Dit jaar is dat anders: ook mensen die niet meedoen mogen mee barbecueën. Zij betalen dan €10,-. Als u niet meedoet aan de sportdag, kunt u zich tot 1 juli voor de barbecue aanmelden bij Mo (Abrahamslaan 2).\n\nWij hopen op een zonnige sportdag!\n\nMet vriendelijke groeten,\nJan, Marie, Bas en Mo",
+          "question": "De man van Halima kan niet meedoen met de sportdag. Hij wil wel mee barbecueën. Wat moet hij doen?",
+          "options": [
+            "zich aanmelden bij Jan",
+            "zich aanmelden bij Marie",
+            "zich aanmelden bij Mo",
+            "Niets, hij mag niet mee barbecueën."
+          ],
+          "correct": 2
+        },
+        {
+          "passage": "bruiloft",
+          "passageTitle": "Email: Bruiloft",
+          "text": "Bruiloft Nadia en Richard\n\nBeste collega's,\n\nVolgende week vrijdag is de bruiloft van Nadia en Richard! Daarom hebben we een feestcommissie opgericht. De feestcommissie bestaat uit William, David en Elise. We hebben alle drie een taak, zodat we er een leuke dag van kunnen maken!\n\nWij willen een bus huren om samen met collega's naar de bruiloft te gaan. Wil je mee met de bus? Geef je dan op bij David.\n\nWe willen met de collega's een cadeau geven aan het bruidspaar. Als je wilt, kun je ook meedoen. Je kunt geld aan William geven. We weten nog niet precies wat we gaan geven. Op het bureau van Elise ligt een lijstje met cadeaus. Kruis op het lijstje aan wat je het leukste cadeau vindt: een cadeaubon of een weekendje weg. We gaan het cadeau geven dat het meest gekozen is door jullie.\n\nNadia is deze week nog gewoon aan het werk. Ons cadeau moet natuurlijk wel een verrassing blijven. Let er dus op dat je niets zegt tegen Nadia!\n\nGroeten, de feestcommissie\nDavid, William en Elise",
+          "question": "Michael wil met de bus mee naar de bruiloft. Bij wie moet hij zich opgeven?",
+          "options": [
+            "bij Elise",
+            "bij David",
+            "bij William"
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "bruiloft",
+          "passageTitle": "Email: Bruiloft",
+          "text": "Bruiloft Nadia en Richard\n\nBeste collega's,\n\nVolgende week vrijdag is de bruiloft van Nadia en Richard! Daarom hebben we een feestcommissie opgericht. De feestcommissie bestaat uit William, David en Elise. We hebben alle drie een taak, zodat we er een leuke dag van kunnen maken!\n\nWij willen een bus huren om samen met collega's naar de bruiloft te gaan. Wil je mee met de bus? Geef je dan op bij David.\n\nWe willen met de collega's een cadeau geven aan het bruidspaar. Als je wilt, kun je ook meedoen. Je kunt geld aan William geven. We weten nog niet precies wat we gaan geven. Op het bureau van Elise ligt een lijstje met cadeaus. Kruis op het lijstje aan wat je het leukste cadeau vindt: een cadeaubon of een weekendje weg. We gaan het cadeau geven dat het meest gekozen is door jullie.\n\nNadia is deze week nog gewoon aan het werk. Ons cadeau moet natuurlijk wel een verrassing blijven. Let er dus op dat je niets zegt tegen Nadia!\n\nGroeten, de feestcommissie\nDavid, William en Elise",
+          "question": "Welk cadeau gaan de collega's samen geven aan Nadia en Richard?",
+          "options": [
+            "een cadeaubon voor een weekendje weg",
+            "geld",
+            "Dat moeten ze nog kiezen."
+          ],
+          "correct": 2
+        },
+        {
+          "passage": "bruiloft",
+          "passageTitle": "Email: Bruiloft",
+          "text": "Bruiloft Nadia en Richard\n\nBeste collega's,\n\nVolgende week vrijdag is de bruiloft van Nadia en Richard! Daarom hebben we een feestcommissie opgericht. De feestcommissie bestaat uit William, David en Elise. We hebben alle drie een taak, zodat we er een leuke dag van kunnen maken!\n\nWij willen een bus huren om samen met collega's naar de bruiloft te gaan. Wil je mee met de bus? Geef je dan op bij David.\n\nWe willen met de collega's een cadeau geven aan het bruidspaar. Als je wilt, kun je ook meedoen. Je kunt geld aan William geven. We weten nog niet precies wat we gaan geven. Op het bureau van Elise ligt een lijstje met cadeaus. Kruis op het lijstje aan wat je het leukste cadeau vindt: een cadeaubon of een weekendje weg. We gaan het cadeau geven dat het meest gekozen is door jullie.\n\nNadia is deze week nog gewoon aan het werk. Ons cadeau moet natuurlijk wel een verrassing blijven. Let er dus op dat je niets zegt tegen Nadia!\n\nGroeten, de feestcommissie\nDavid, William en Elise",
+          "question": "Waarom stuurt de feestcommissie deze e-mail vooral?",
+          "options": [
+            "om te vertellen wat zij geregeld hebben",
+            "om nog wat taken te verdelen",
+            "om te vragen wie er nog meer bij de feestcommissie wil"
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "ehbo",
+          "passageTitle": "Folder: EHBO Cursussen",
+          "text": "EHBO De Groene Cirkel\n\nEHBO betekent: Eerste Hulp Bij Ongelukken. Als EHBO'er kunt u helpen als er een ongeluk gebeurt. Bijvoorbeeld als uw buurjongen valt en zijn arm breekt. Of als iemand zich snijdt bij het eten maken. U kunt bij ons verschillende EHBO-cursussen volgen. U haalt uw diploma bij ons altijd in korte tijd.\n\nCursus EHBO I\nDit is de algemene cursus 'EHBO'. U leert om te helpen bij allerlei ongelukken. Bijvoorbeeld als iemand z'n been breekt. Maar u leert ook wat u moet doen bij andere problemen, zoals een bloedneus of brandwond.\nDe cursus bestaat uit zes bijeenkomsten. U krijgt er een online cursusboek bij. Aan het einde van de cursus doet u examen in de praktijk.\nKosten: €124,50\n\nCursus EHBO II\nDit is de cursus 'Reanimeren'. Deze cursus kan u helpen om levens te redden! U leert mensen met een hartstilstand of ademstilstand te helpen. U weet na de cursus precies wat u dan moet doen.\nDe cursus bestaat uit één bijeenkomst van drie uur. U krijgt de gids 'Reanimatie' mee naar huis.\nKosten: €72,50\n\nCursus EHBO III\nDit is de cursus 'EHBO voor ouders'. Deze cursus is zeer geschikt voor ouders en verzorgers. Is een kind bijvoorbeeld gewond of ziek? Of moet een kind ineens erg hoesten? Deze cursus leert u hoe u dan kunt helpen. De cursus is ook erg handig als u in het onderwijs werkt.\nDe cursus bestaat uit vier bijeenkomsten. U krijgt het cursusboek bij de eerste bijeenkomst.\nKosten: €105,-",
+          "question": "Myra geeft les op een basisschool. Ze wil een EHBO-cursus volgen die past bij haar werk. Welke cursus is het meest geschikt voor Myra?",
+          "options": [
+            "cursus EHBO I",
+            "cursus EHBO II",
+            "cursus EHBO III"
+          ],
+          "correct": 2
+        },
+        {
+          "passage": "ehbo",
+          "passageTitle": "Folder: EHBO Cursussen",
+          "text": "EHBO De Groene Cirkel\n\nEHBO betekent: Eerste Hulp Bij Ongelukken. Als EHBO'er kunt u helpen als er een ongeluk gebeurt. Bijvoorbeeld als uw buurjongen valt en zijn arm breekt. Of als iemand zich snijdt bij het eten maken. U kunt bij ons verschillende EHBO-cursussen volgen. U haalt uw diploma bij ons altijd in korte tijd.\n\nCursus EHBO I\nDit is de algemene cursus 'EHBO'. U leert om te helpen bij allerlei ongelukken. Bijvoorbeeld als iemand z'n been breekt. Maar u leert ook wat u moet doen bij andere problemen, zoals een bloedneus of brandwond.\nDe cursus bestaat uit zes bijeenkomsten. U krijgt er een online cursusboek bij. Aan het einde van de cursus doet u examen in de praktijk.\nKosten: €124,50\n\nCursus EHBO II\nDit is de cursus 'Reanimeren'. Deze cursus kan u helpen om levens te redden! U leert mensen met een hartstilstand of ademstilstand te helpen. U weet na de cursus precies wat u dan moet doen.\nDe cursus bestaat uit één bijeenkomst van drie uur. U krijgt de gids 'Reanimatie' mee naar huis.\nKosten: €72,50\n\nCursus EHBO III\nDit is de cursus 'EHBO voor ouders'. Deze cursus is zeer geschikt voor ouders en verzorgers. Is een kind bijvoorbeeld gewond of ziek? Of moet een kind ineens erg hoesten? Deze cursus leert u hoe u dan kunt helpen. De cursus is ook erg handig als u in het onderwijs werkt.\nDe cursus bestaat uit vier bijeenkomsten. U krijgt het cursusboek bij de eerste bijeenkomst.\nKosten: €105,-",
+          "question": "Aylin wil leren reanimeren. In hoeveel bijeenkomsten leert zij dat?",
+          "options": [
+            "één",
+            "drie",
+            "vier",
+            "zes"
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "ehbo",
+          "passageTitle": "Folder: EHBO Cursussen",
+          "text": "EHBO De Groene Cirkel\n\nEHBO betekent: Eerste Hulp Bij Ongelukken. Als EHBO'er kunt u helpen als er een ongeluk gebeurt. Bijvoorbeeld als uw buurjongen valt en zijn arm breekt. Of als iemand zich snijdt bij het eten maken. U kunt bij ons verschillende EHBO-cursussen volgen. U haalt uw diploma bij ons altijd in korte tijd.\n\nCursus EHBO I\nDit is de algemene cursus 'EHBO'. U leert om te helpen bij allerlei ongelukken. Bijvoorbeeld als iemand z'n been breekt. Maar u leert ook wat u moet doen bij andere problemen, zoals een bloedneus of brandwond.\nDe cursus bestaat uit zes bijeenkomsten. U krijgt er een online cursusboek bij. Aan het einde van de cursus doet u examen in de praktijk.\nKosten: €124,50\n\nCursus EHBO II\nDit is de cursus 'Reanimeren'. Deze cursus kan u helpen om levens te redden! U leert mensen met een hartstilstand of ademstilstand te helpen. U weet na de cursus precies wat u dan moet doen.\nDe cursus bestaat uit één bijeenkomst van drie uur. U krijgt de gids 'Reanimatie' mee naar huis.\nKosten: €72,50\n\nCursus EHBO III\nDit is de cursus 'EHBO voor ouders'. Deze cursus is zeer geschikt voor ouders en verzorgers. Is een kind bijvoorbeeld gewond of ziek? Of moet een kind ineens erg hoesten? Deze cursus leert u hoe u dan kunt helpen. De cursus is ook erg handig als u in het onderwijs werkt.\nDe cursus bestaat uit vier bijeenkomsten. U krijgt het cursusboek bij de eerste bijeenkomst.\nKosten: €105,-",
+          "question": "Ronald wil zoveel mogelijk verschillende dingen leren over EHBO. Welke cursus kan hij het beste kiezen?",
+          "options": [
+            "cursus EHBO I",
+            "cursus EHBO II",
+            "cursus EHBO III"
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "kringloop",
+          "passageTitle": "Tekst: Kringloopcentrum",
+          "text": "Bartjes Kringloopcentrum\n\nIn Bartjes Kringloopcentrum is veel te koop. Gebruikte spullen of nieuwe spullen, altijd goed en goedkoop. Kom regelmatig kijken. Er is altijd weer iets anders te koop.\n\nWat hebben we te koop?\n- Kleding en schoenen voor dames, heren en kinderen\n- Boeken en tijdschriften voor volwassenen en jeugd\n- Elektrische apparaten, meubels, speelgoed, enzovoorts…\n\nHoe werken we?\nU brengt uw spullen naar ons. Wij kunnen ze ook gratis bij u thuis ophalen. We nemen niet alles mee, alleen wat we kunnen verkopen in onze winkel. Wij controleren en testen alle spullen. Wat kapot is, proberen we te maken. Ook maken we alles schoon. Daarna zetten we de spullen te koop in onze winkel. Als u spullen bij ons koopt, kunnen we ze bij u thuis afleveren. Daarvoor betaalt u 5 euro.\n\nWat doen we met onze winst?\nU krijgt geen geld voor uw spullen. De medewerkers van Bartjes zijn allemaal vrijwilligers. Het geld dat we verdienen met de verkoop gaat naar een goed doel. Elk jaar kiezen we een ander goed doel. Het goede doel is dit jaar kinderboerderij 'Het bokje'.\n\nDus…\nHebt u spullen die u niet meer gebruikt? Hebt u kleren die u niet meer draagt? Gooi ze niet weg! Geef de spullen aan ons! Hebt u iets nodig voor weinig geld? Koop het bij ons!",
+          "question": "Bartjes krijgt vaak kapotte spullen. Wat doet Bartjes met de kapotte spullen?",
+          "options": [
+            "die brengen ze terug naar de eigenaar",
+            "die proberen ze te repareren",
+            "die gooien ze weg"
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "kringloop",
+          "passageTitle": "Tekst: Kringloopcentrum",
+          "text": "Bartjes Kringloopcentrum\n\nIn Bartjes Kringloopcentrum is veel te koop. Gebruikte spullen of nieuwe spullen, altijd goed en goedkoop. Kom regelmatig kijken. Er is altijd weer iets anders te koop.\n\nWat hebben we te koop?\n- Kleding en schoenen voor dames, heren en kinderen\n- Boeken en tijdschriften voor volwassenen en jeugd\n- Elektrische apparaten, meubels, speelgoed, enzovoorts…\n\nHoe werken we?\nU brengt uw spullen naar ons. Wij kunnen ze ook gratis bij u thuis ophalen. We nemen niet alles mee, alleen wat we kunnen verkopen in onze winkel. Wij controleren en testen alle spullen. Wat kapot is, proberen we te maken. Ook maken we alles schoon. Daarna zetten we de spullen te koop in onze winkel. Als u spullen bij ons koopt, kunnen we ze bij u thuis afleveren. Daarvoor betaalt u 5 euro.\n\nWat doen we met onze winst?\nU krijgt geen geld voor uw spullen. De medewerkers van Bartjes zijn allemaal vrijwilligers. Het geld dat we verdienen met de verkoop gaat naar een goed doel. Elk jaar kiezen we een ander goed doel. Het goede doel is dit jaar kinderboerderij 'Het bokje'.\n\nDus…\nHebt u spullen die u niet meer gebruikt? Hebt u kleren die u niet meer draagt? Gooi ze niet weg! Geef de spullen aan ons! Hebt u iets nodig voor weinig geld? Koop het bij ons!",
+          "question": "John heeft spullen voor Bartjes. Bartjes moet de spullen bij hem op komen halen. Hoeveel moet hij dan betalen aan Bartjes?",
+          "options": [
+            "5 euro",
+            "niets",
+            "Dat ligt aan het soort spullen."
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "kringloop",
+          "passageTitle": "Tekst: Kringloopcentrum",
+          "text": "Bartjes Kringloopcentrum\n\nIn Bartjes Kringloopcentrum is veel te koop. Gebruikte spullen of nieuwe spullen, altijd goed en goedkoop. Kom regelmatig kijken. Er is altijd weer iets anders te koop.\n\nWat hebben we te koop?\n- Kleding en schoenen voor dames, heren en kinderen\n- Boeken en tijdschriften voor volwassenen en jeugd\n- Elektrische apparaten, meubels, speelgoed, enzovoorts…\n\nHoe werken we?\nU brengt uw spullen naar ons. Wij kunnen ze ook gratis bij u thuis ophalen. We nemen niet alles mee, alleen wat we kunnen verkopen in onze winkel. Wij controleren en testen alle spullen. Wat kapot is, proberen we te maken. Ook maken we alles schoon. Daarna zetten we de spullen te koop in onze winkel. Als u spullen bij ons koopt, kunnen we ze bij u thuis afleveren. Daarvoor betaalt u 5 euro.\n\nWat doen we met onze winst?\nU krijgt geen geld voor uw spullen. De medewerkers van Bartjes zijn allemaal vrijwilligers. Het geld dat we verdienen met de verkoop gaat naar een goed doel. Elk jaar kiezen we een ander goed doel. Het goede doel is dit jaar kinderboerderij 'Het bokje'.\n\nDus…\nHebt u spullen die u niet meer gebruikt? Hebt u kleren die u niet meer draagt? Gooi ze niet weg! Geef de spullen aan ons! Hebt u iets nodig voor weinig geld? Koop het bij ons!",
+          "question": "Waar gaat de winst van Bartjes dit jaar naartoe?",
+          "options": [
+            "naar de medewerkers van Bartjes",
+            "naar verschillende goede doelen",
+            "naar kinderboerderij 'Het bokje'"
+          ],
+          "correct": 2
+        },
+        {
+          "passage": "ziekmelding",
+          "passageTitle": "Tekst: Ziekmelding",
+          "text": "Ziekmelding\n\nHoe meld ik mij ziek?\nU meldt u telefonisch ziek bij uw werkgever. Dit doet u zo snel mogelijk, maar uiterlijk op het tijdstip dat uw werkdag begint. Als uw werkdag normaal bijvoorbeeld om 9 uur begint, meldt u zich uiterlijk om 9 uur ziek. Wordt u onder werktijd ziek, dan meldt u dit meteen. In ieder geval voordat u naar huis gaat.\n\nWat vertel ik tijdens een ziekmelding?\nWaar hebt u last van? Wat gaat u doen om zo snel mogelijk beter te worden? Wanneer kunt u weer werken, denkt u? Moeten uw collega's werk van u overnemen? Dit zijn allemaal dingen die uw werkgever moet weten. Ook is het belangrijk dat uw werkgever u kan bereiken. U spreekt tijdens het gesprek ook af wanneer u elkaar weer spreekt.\n\nMoet ik alle klachten aan mijn werkgever vertellen?\nU hebt recht op uw privacy. U hoeft geen medische gegevens te geven. Als u privéproblemen hebt, hoeft u daar niets over te vertellen. U moet wél vertellen waarom u niet kunt komen werken. U kunt zeggen dat u om medische redenen of privéredenen niet kunt komen werken. Meer hoeft u niet te zeggen.",
+          "question": "Felicity is aan het werk en voelt zich ziek. Het is drie uur 's middags. Wat moet ze doen?",
+          "options": [
+            "Ze moet naar huis gaan en zich dan meteen ziek melden.",
+            "Ze moet naar huis gaan en zich de volgende werkdag ziek melden.",
+            "Ze moet zich ziek melden en dan naar huis gaan."
+          ],
+          "correct": 2
+        },
+        {
+          "passage": "ziekmelding",
+          "passageTitle": "Tekst: Ziekmelding",
+          "text": "Ziekmelding\n\nHoe meld ik mij ziek?\nU meldt u telefonisch ziek bij uw werkgever. Dit doet u zo snel mogelijk, maar uiterlijk op het tijdstip dat uw werkdag begint. Als uw werkdag normaal bijvoorbeeld om 9 uur begint, meldt u zich uiterlijk om 9 uur ziek. Wordt u onder werktijd ziek, dan meldt u dit meteen. In ieder geval voordat u naar huis gaat.\n\nWat vertel ik tijdens een ziekmelding?\nWaar hebt u last van? Wat gaat u doen om zo snel mogelijk beter te worden? Wanneer kunt u weer werken, denkt u? Moeten uw collega's werk van u overnemen? Dit zijn allemaal dingen die uw werkgever moet weten. Ook is het belangrijk dat uw werkgever u kan bereiken. U spreekt tijdens het gesprek ook af wanneer u elkaar weer spreekt.\n\nMoet ik alle klachten aan mijn werkgever vertellen?\nU hebt recht op uw privacy. U hoeft geen medische gegevens te geven. Als u privéproblemen hebt, hoeft u daar niets over te vertellen. U moet wél vertellen waarom u niet kunt komen werken. U kunt zeggen dat u om medische redenen of privéredenen niet kunt komen werken. Meer hoeft u niet te zeggen.",
+          "question": "Jaime meldt zich ziek. Wat moet hij vertellen tijdens zijn ziekmelding?",
+          "options": [
+            "wanneer hij ziek geworden is",
+            "wanneer hij denkt dat hij weer kan werken",
+            "wat voor werk hij misschien nog wel kan doen"
+          ],
+          "correct": 1
+        }
+      ],
+      "sectionNames": {
+        "tips_leren": "1. Tips om te leren",
+        "hardloopwedstrijd": "2. Hardloopwedstrijd",
+        "transportservice": "3. Transportservice",
+        "kanovaren": "4. Bedrijfsuitje",
+        "tas_vergeten": "5. Tas vergeten",
+        "sportdag": "6. Sportdag",
+        "bruiloft": "7. Bruiloft",
+        "ehbo": "8. EHBO Cursussen",
+        "kringloop": "9. Kringloopcentrum",
+        "ziekmelding": "10. Ziekmelding"
+      }
+    },
+    "exam2": {
+      "name": "DUO Lezen Exam 2",
+      "questions": [
+        {
+          "passage": "tandarts",
+          "passageTitle": "Tandartspraktijk Oud Zwaluwen",
+          "text": "Welkom bij de tandartspraktijk Oud Zwaluwen\n\nOns team / Werkdagen:\n- Javier Barnet, tandarts: maandag en donderdag\n- Marie de Klop, tandarts: dinsdag en woensdag\n- Peter de Vries, kindertandarts: woensdag en donderdag\n- Salah Ben Ali, mondhygiënist: maandag, dinsdag en donderdag\n\nOnze openingstijden\nDe praktijk is elke dag geopend van 8.30 tot 17.00 uur. Op vrijdag en in het weekend zijn wij gesloten.\n\nAfspraak maken\nU kunt onze receptie bellen van maandag tot en met donderdag van 9.00 tot 12.00 uur. Op vrijdag zijn wij gesloten. Ons telefoonnummer is 070 - 3609916.\n\nSpoedbehandeling tijdens openingstijden\nHeeft u zoveel pijn dat u direct geholpen moet worden? U kunt dan een spoedafspraak maken met de assistente op 06-35571209. U kunt dan altijd dezelfde dag nog bij onze praktijk terecht. Let op: Dit kan niet op vrijdag of in het weekend!\n\nSpoedbehandeling op vrijdag en in het weekend\nOp vrijdag en in het weekend is de praktijk gesloten. Heeft u veel pijn en kunt u niet wachten tot maandag? U kunt dan bellen met het noodnummer: 070 – 3608814.",
+          "question": "Het is woensdag. Sergio heeft kiespijn en wil zo snel mogelijk naar de tandarts. Wat moet hij doen?",
+          "options": [
+            "bellen naar de assistente",
+            "bellen naar de receptie",
+            "bellen naar het noodnummer",
+            "direct naar de praktijk gaan"
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "tandarts",
+          "passageTitle": "Tandartspraktijk Oud Zwaluwen",
+          "text": "Welkom bij de tandartspraktijk Oud Zwaluwen\n\nOns team / Werkdagen:\n- Javier Barnet, tandarts: maandag en donderdag\n- Marie de Klop, tandarts: dinsdag en woensdag\n- Peter de Vries, kindertandarts: woensdag en donderdag\n- Salah Ben Ali, mondhygiënist: maandag, dinsdag en donderdag\n\nOnze openingstijden\nDe praktijk is elke dag geopend van 8.30 tot 17.00 uur. Op vrijdag en in het weekend zijn wij gesloten.\n\nAfspraak maken\nU kunt onze receptie bellen van maandag tot en met donderdag van 9.00 tot 12.00 uur. Op vrijdag zijn wij gesloten. Ons telefoonnummer is 070 - 3609916.",
+          "question": "Soumia wil op maandag een afspraak maken bij de tandarts. Bij wie kan dat?",
+          "options": [
+            "Marie de Klop",
+            "Salah Ben Ali",
+            "Javier Barnet",
+            "Peter de Vries"
+          ],
+          "correct": 2
+        },
+        {
+          "passage": "cv",
+          "passageTitle": "Wat is een cv?",
+          "text": "Wat is een cv?\nUw curriculum vitae (cv) stuurt u op als u solliciteert naar een baan. In uw cv staat wie u bent en wat u kunt.\n\nHoe maakt u een cv?\nEen cv bestaat uit de volgende punten:\n\n- persoonlijke gegevens: Hier zet u uw naam, adres, telefoon, e-mailadres, geboortedatum.\n- opleiding: Hier zet u alle opleidingen en cursussen die u hebt gedaan.\n- werkervaring: Hier schrijft u het werk dat u gedaan heeft. Dus ook vrijwilligerswerk en stages. Schrijf hier ook wat u allemaal op uw werk moest doen.\n- overig: Hier zet u alle andere dingen die belangrijk zijn. Zoals: talenkennis, computerkennis, rijbewijs.",
+          "question": "Waarom maakt Anna een cv?",
+          "options": [
+            "Omdat zij een nieuwe baan wil.",
+            "Omdat zij al een baan heeft.",
+            "Omdat zij geen baan heeft."
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "cv",
+          "passageTitle": "Wat is een cv?",
+          "text": "Wat is een cv?\nUw curriculum vitae (cv) stuurt u op als u solliciteert naar een baan. In uw cv staat wie u bent en wat u kunt.\n\nHoe maakt u een cv?\nEen cv bestaat uit de volgende punten:\n\n- persoonlijke gegevens: Hier zet u uw naam, adres, telefoon, e-mailadres, geboortedatum.\n- opleiding: Hier zet u alle opleidingen en cursussen die u hebt gedaan.\n- werkervaring: Hier schrijft u het werk dat u gedaan heeft. Dus ook vrijwilligerswerk en stages. Schrijf hier ook wat u allemaal op uw werk moest doen.\n- overig: Hier zet u alle andere dingen die belangrijk zijn. Zoals: talenkennis, computerkennis, rijbewijs.",
+          "question": "Anna heeft in een buurthuis vrijwillig klusjes gedaan. Waar moet ze dat op haar cv zetten?",
+          "options": [
+            "Bij overig.",
+            "Bij werkervaring.",
+            "Bij persoonlijke gegevens."
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "cv",
+          "passageTitle": "Wat is een cv?",
+          "text": "Wat is een cv?\nUw curriculum vitae (cv) stuurt u op als u solliciteert naar een baan. In uw cv staat wie u bent en wat u kunt.\n\nHoe maakt u een cv?\nEen cv bestaat uit de volgende punten:\n\n- persoonlijke gegevens: Hier zet u uw naam, adres, telefoon, e-mailadres, geboortedatum.\n- opleiding: Hier zet u alle opleidingen en cursussen die u hebt gedaan.\n- werkervaring: Hier schrijft u het werk dat u gedaan heeft. Dus ook vrijwilligerswerk en stages. Schrijf hier ook wat u allemaal op uw werk moest doen.\n- overig: Hier zet u alle andere dingen die belangrijk zijn. Zoals: talenkennis, computerkennis, rijbewijs.",
+          "question": "Anna heeft vorig jaar haar scooterrijbewijs gehaald. Waar moet ze dat op haar cv zetten?",
+          "options": [
+            "Bij persoonlijke gegevens.",
+            "Bij overig.",
+            "Bij werkervaring."
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "talenschool",
+          "passageTitle": "Talenschool Het Palet - Praktische zaken",
+          "text": "Vakanties:\n- Herfstvakantie: Maandag 17 oktober t/m vrijdag 21 oktober\n- Kerstvakantie: Maandag 26 december t/m vrijdag 6 januari\n- Voorjaarsvakantie: Maandag 27 februari t/m vrijdag 2 maart\n- Meivakantie: Dinsdag 1 mei t/m vrijdag 4 mei\n- Zomervakantie: Maandag 16 juli t/m vrijdag 31 augustus\n\nOp vakantie?\nGaat u buiten de vakantieperiode om op vakantie? Vertel dit dan aan uw docent. Dit moet u uiterlijk 2 weken vóór uw vakantie schriftelijk doen.\n\nZiek?\nBent u ziek en kunt u niet naar de les komen, bel dan met de administratie van de talenschool. U moet dit zo snel mogelijk doen, uiterlijk een uur voordat de les begint.\n\nOpen dagen:\n- Donderdag 26 januari 17.30 uur – 21.00 uur\n- Zaterdag 28 januari 10.00 uur – 13.00 uur\n- Vrijdag 20 april 18.30 uur – 21.00 uur\n\nOp deze dagen zijn er geen lessen op de talenschool. Als u het leuk vindt, kunt u helpen tijdens de open dagen. Wilt u helpen? Zeg dit dan tegen uw docent of tegen de administratie.",
+          "question": "Joy gaat in juni een week naar het buitenland. Wat moet zij doen?",
+          "options": [
+            "Zij moet de administratie van de school bellen.",
+            "Zij moet dit laten weten aan haar docent.",
+            "Zij moet dit tegen de administratie en de docent vertellen."
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "talenschool",
+          "passageTitle": "Talenschool Het Palet - Praktische zaken",
+          "text": "Vakanties:\n- Herfstvakantie: Maandag 17 oktober t/m vrijdag 21 oktober\n- Kerstvakantie: Maandag 26 december t/m vrijdag 6 januari\n- Voorjaarsvakantie: Maandag 27 februari t/m vrijdag 2 maart\n- Meivakantie: Dinsdag 1 mei t/m vrijdag 4 mei\n- Zomervakantie: Maandag 16 juli t/m vrijdag 31 augustus\n\nOp vakantie?\nGaat u buiten de vakantieperiode om op vakantie? Vertel dit dan aan uw docent. Dit moet u uiterlijk 2 weken vóór uw vakantie schriftelijk doen.\n\nZiek?\nBent u ziek en kunt u niet naar de les komen, bel dan met de administratie van de talenschool. U moet dit zo snel mogelijk doen, uiterlijk een uur voordat de les begint.\n\nOpen dagen:\n- Donderdag 26 januari 17.30 uur – 21.00 uur\n- Zaterdag 28 januari 10.00 uur – 13.00 uur\n- Vrijdag 20 april 18.30 uur – 21.00 uur\n\nOp deze dagen zijn er geen lessen op de talenschool. Als u het leuk vindt, kunt u helpen tijdens de open dagen. Wilt u helpen? Zeg dit dan tegen uw docent of tegen de administratie.",
+          "question": "Samad heeft elke donderdag Nederlandse les. Wat kan hij donderdag 26 januari op de talenschool doen?",
+          "options": [
+            "Hij kan gewoon naar de les gaan.",
+            "Hij kan meehelpen op de open dag.",
+            "Niets, want de school is die dag gesloten.",
+            "Niets, want die dag is alleen voor nieuwe cursisten."
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "talenschool",
+          "passageTitle": "Talenschool Het Palet - Praktische zaken",
+          "text": "Open dagen:\n- Donderdag 26 januari 17.30 uur – 21.00 uur\n- Zaterdag 28 januari 10.00 uur – 13.00 uur\n- Vrijdag 20 april 18.30 uur – 21.00 uur\n\nOp deze dagen zijn er geen lessen op de talenschool.",
+          "question": "Yolande wil graag naar een open dag van talenschool Het Palet. Zij werkt van dinsdag tot en met zaterdag van 16:00 tot 22.00 uur. Wanneer kan zij naar een open dag?",
+          "options": [
+            "op donderdag 26 januari",
+            "op zaterdag 28 januari",
+            "op vrijdag 20 april"
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "ziekmelding_werk",
+          "passageTitle": "Ziekmelding op het werk",
+          "text": "Ziekmelding\nAls u ziek bent en niet kunt komen werken, moet u dit bij uw leidinggevende melden. U hoeft niet te vertellen waar u last van heeft. Wel moet u zeggen hoe lang u denkt ziek te zijn.\n\nUw leidinggevende is Chantal Miedema. U kunt haar bellen vanaf 7:00 uur. Haar telefoonnummer is 06-12563490. U moet Chantal altijd voor 9:30 uur bellen. Als u Chantal niet kunt bereiken, dan kunt u bellen met Jaap van Bommel. Hij werkt bij het secretariaat. Het secretariaat is bereikbaar tussen 8:00 en 12:00 uur op 030-5452343.\n\nDe bedrijfsarts\nU kunt altijd een afspraak maken met de bedrijfsarts. Zijn telefoonnummer is 030-3448015. Als u langer dan zes weken ziek bent, krijgt u een uitnodiging van onze bedrijfsarts. Zijn naam is Cees Zwaan. Hij gaat samen met u kijken hoe u weer beter kunt worden.",
+          "question": "Anya moet zich ziek melden bij Jaap van Bommel. Hoe laat kan ze bellen?",
+          "options": [
+            "tussen 7:00 uur en 9:30 uur",
+            "tussen 7:00 uur en 12:00 uur",
+            "tussen 8:00 uur en 9:30 uur",
+            "tussen 8:00 uur en 12:00 uur"
+          ],
+          "correct": 3
+        },
+        {
+          "passage": "ziekmelding_werk",
+          "passageTitle": "Ziekmelding op het werk",
+          "text": "Ziekmelding\nAls u ziek bent en niet kunt komen werken, moet u dit bij uw leidinggevende melden. U hoeft niet te vertellen waar u last van heeft. Wel moet u zeggen hoe lang u denkt ziek te zijn.\n\nDe bedrijfsarts\nU kunt altijd een afspraak maken met de bedrijfsarts. Zijn telefoonnummer is 030-3448015. Als u langer dan zes weken ziek bent, krijgt u een uitnodiging van onze bedrijfsarts. Zijn naam is Cees Zwaan. Hij gaat samen met u kijken hoe u weer beter kunt worden.",
+          "question": "Antonio wil een afspraak maken met de bedrijfsarts. Wanneer kan dat?",
+          "options": [
+            "Dat kan alleen als Chantal dat goed vindt.",
+            "Dat kan op elk moment dat hij dat wil.",
+            "Dat kan alleen als hij een uitnodiging krijgt.",
+            "Dat kan alleen als hij langer dan zes weken ziek is."
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "buurt",
+          "passageTitle": "Uitnodiging buurtbijeenkomst Oranjebuurt",
+          "text": "Uitnodiging buurtbijeenkomst\nWe hebben de afgelopen jaren veel gedaan in de Oranjebuurt. Er is nu een speeltuin voor de kinderen. En we hebben met alle bewoners een paar bomen geplant. Maar we willen meer. We nodigen u daarom van harte uit voor de buurtbijeenkomst op woensdagavond 24 november.\n\nProgramma:\n19:30 uur: Ontvangst en welkomstdrankje\n19:45 uur: Muzikaal optreden Milan & Zelina\n20:15 uur: Film over wat we gedaan hebben in de wijk\n21:00 uur: Themagroepen (zie hieronder)\n22:00 uur: Hapjes, drankjes en muziek\n\nThemagroepen:\n- Activiteiten voor kinderen\n- Winkels\n- Werkgelegenheid\n- Veiligheid\n- Groen en schoon\n\nOpgeven: Wilt u komen? Laat dat dan vóór 23 november weten aan het buurtcomité.",
+          "question": "Allan wil meer sportlessen voor kinderen. Hij wil graag naar de buurtbijeenkomst komen, maar hij heeft weinig tijd. Hoe laat kan hij het beste komen om over de sportlessen te praten?",
+          "options": [
+            "om 19:30 uur",
+            "om 20:15 uur",
+            "om 21:00 uur",
+            "om 22:00 uur"
+          ],
+          "correct": 2
+        },
+        {
+          "passage": "buurt",
+          "passageTitle": "Uitnodiging buurtbijeenkomst Oranjebuurt",
+          "text": "Uitnodiging buurtbijeenkomst\nWe nodigen u van harte uit voor de buurtbijeenkomst op woensdagavond 24 november.\n\nOpgeven: Wilt u komen? Laat dat dan vóór 23 november weten aan het buurtcomité. We zien u graag op 24 november in het buurthuis!",
+          "question": "Mirja wil naar de buurtbijeenkomst komen. Wanneer moet ze zich opgeven?",
+          "options": [
+            "uiterlijk 22 november",
+            "op 23 november",
+            "op de avond zelf",
+            "Ze hoeft zich niet op te geven."
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "sport",
+          "passageTitle": "Sportcentrum - Abonnementen",
+          "text": "Het sportcentrum is geopend op:\n- Werkdagen van 08.00 uur tot 22.00 uur.\n- Zaterdag en zondag van 09.00 uur tot 17.00 uur.\n\nEr zijn drie soorten abonnementen:\n- Basis: €14,- per maand - zoveel sporten als u maar wilt\n- Daluren: €12,95 per maand - op werkdagen sporten tot 17.00 uur\n- Weekend: €10,- per maand - vanaf vrijdagmiddag 17.00 uur\n\nU kunt zich aanmelden bij het sportcentrum.",
+          "question": "Mohammed heeft een basisabonnement. Tot hoe laat kan hij op dinsdag sporten?",
+          "options": [
+            "Tot 17.00 uur.",
+            "Tot 20.00 uur.",
+            "Tot 22.00 uur."
+          ],
+          "correct": 2
+        },
+        {
+          "passage": "sport",
+          "passageTitle": "Sportcentrum - Abonnementen",
+          "text": "Het sportcentrum is geopend op:\n- Werkdagen van 08.00 uur tot 22.00 uur.\n- Zaterdag en zondag van 09.00 uur tot 17.00 uur.\n\nEr zijn drie soorten abonnementen:\n- Basis: €14,- per maand - zoveel sporten als u maar wilt\n- Daluren: €12,95 per maand - op werkdagen sporten tot 17.00 uur\n- Weekend: €10,- per maand - vanaf vrijdagmiddag 17.00 uur",
+          "question": "Ali heeft een weekendabonnement. Hij krijgt een baan in het weekend, dan moet hij van 9 tot 5 uur werken. Wanneer kan Ali nog sporten?",
+          "options": [
+            "Vrijdagavond.",
+            "Zaterdagavond.",
+            "Zondagavond."
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "brief_samira",
+          "passageTitle": "Brief van Samira aan haar docent",
+          "text": "Dag Yvonne,\n\nIk wil je graag bedanken voor de geweldige taalcursus. Ik heb geleerd om de Nederlandse taal echt te gebruiken. Ik durf nu meer in het Nederlands te praten en te schrijven. En ik kan het nu ook veel beter. Ik praatte eigenlijk nooit met Nederlanders. Ik vind het nog steeds moeilijk en maak nog steeds fouten, maar ik doe het nu wel. Mijn man heeft me wel geholpen bij deze brief.\n\nHet is belangrijk dat ik blijf oefenen. Dat doe ik door de taal gewoon te gebruiken. Soms willen mijn man of mijn kinderen me helpen. Maar ik wil het zelf proberen. Als ik hun hulp nodig heb, dan vraag ik het wel.\n\nHet is jammer dat ik alles in één jaar moest leren. Het is echt heel veel. Maar ik heb de cursus afgemaakt. En ik ben geslaagd voor mijn examen.\n\nNogmaals heel veel dank voor al je hulp. Jij bent een fantastische docent!\n\nGroetjes,\nSamira",
+          "question": "Wat heeft Samira van Yvonne geleerd?",
+          "options": [
+            "zonden fouten Nederlands te praten en te schrijven",
+            "te schrijven zonder hulp van anderen",
+            "hoe ze haar familie met de taal kan helpen",
+            "de Nederlandse taal beter en vaker te gebruiken"
+          ],
+          "correct": 3
+        },
+        {
+          "passage": "brief_samira",
+          "passageTitle": "Brief van Samira aan haar docent",
+          "text": "Dag Yvonne,\n\nIk wil je graag bedanken voor de geweldige taalcursus. Ik heb geleerd om de Nederlandse taal echt te gebruiken.\n\nHet is jammer dat ik alles in één jaar moest leren. Het is echt heel veel. Maar ik heb de cursus afgemaakt. En ik ben geslaagd voor mijn examen.\n\nNogmaals heel veel dank voor al je hulp. Jij bent een fantastische docent!\n\nGroetjes,\nSamira",
+          "question": "Samira is blij met de cursus van Yvonne. Toch vindt ze niet alles goed. Wat vindt ze niet zo goed?",
+          "options": [
+            "Ze vindt dat ze te weinig tijd had.",
+            "Ze vindt dat ze te weinig oefeningen kreeg.",
+            "Ze vindt dat de lessen te moeilijk waren.",
+            "Ze vindt dat de cursus te lang duurde."
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "huisarts",
+          "passageTitle": "Informatie huisarts",
+          "text": "Informatie huisarts\n\nOpeningstijden\nWij zijn open van maandag tot en met donderdag van 08:00 tot 17:00 uur en op vrijdag van 08:00 tot 12:30 uur.\n\n's Avonds, in het weekend en tijdens de vakantie\nOp avonden, in het weekend en op vrijdagmiddag kunt u de centrale huisartsenpost bellen (0900 2233333). Zij geven u telefonisch advies. Als het nodig is, kunt u een afspraak maken voor een bezoek. Deze informatie staat ook op onze website: www.uwhuisarts.nl. Hier kunt u ook vinden wie uw huisarts vervangt tijdens vakanties.\n\nNoodgevallen\nAls u bij een noodgeval niemand direct kunt bereiken, belt u dan het alarmnummer (112).\n\nAfspraak maken\nEen afspraak voor het spreekuur van de huisarts kunt u maken bij de assistente. U kunt dat bij ons aan de balie doen of telefonisch: 031 2850127. Belt u het liefst tussen 08:00 en 10:30 uur.\n\nTelefonisch spreekuur\nVoor kort overleg en uitslagen kunt u de assistente bellen. Dat kan van maandag tot en met donderdag van 13:30 tot 14:30 uur.",
+          "question": "Het is vrijdag. Mouna wil een afspraak met haar huisarts. Ze wil vandaag naar de assistente bellen. Wanneer kan ze dat het beste doen?",
+          "options": [
+            "tussen 08:00 en 10:30 uur",
+            "tussen 10:30 en 12:30 uur",
+            "tussen 13:30 en 14:30 uur",
+            "vóór 13:30 uur of ná 14:30 uur"
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "huisarts",
+          "passageTitle": "Informatie huisarts",
+          "text": "'s Avonds, in het weekend en tijdens de vakantie\nOp avonden, in het weekend en op vrijdagmiddag kunt u de centrale huisartsenpost bellen (0900 2233333). Deze informatie staat ook op onze website: www.uwhuisarts.nl. Hier kunt u ook vinden wie uw huisarts vervangt tijdens vakanties.\n\nNoodgevallen\nAls u bij een noodgeval niemand direct kunt bereiken, belt u dan het alarmnummer (112).",
+          "question": "Mouna heeft een huisarts nodig. Haar eigen huisarts heeft vakantie. Wat moet Mouna doen?",
+          "options": [
+            "op www.uwhuisarts.nl opzoeken bij wie ze moet zijn",
+            "in het weekblad opzoeken bij wie ze moet zijn",
+            "naar de centrale huisartsenpost bellen",
+            "naar het alarmnummer voor noodgevallen bellen"
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "woorden",
+          "passageTitle": "Woorden leren - Methodes",
+          "text": "Woorden leren\n\n1. De kaartjesmethode\nKent u nog bijna geen woorden in de taal die u wilt leren? Dan is dit een goede manier. U schrijft op elk kaartje een woord dat u moet leren. Op de achterkant schrijft u wat het woord in uw eigen taal betekent.\n\n2. De schuifmethode\nHeeft u het altijd druk? De schuifmethode is een snelle manier om woorden te leren. U legt een papier op de woordenlijst die u moet leren. U schuift dit papier naar beneden, zodat u alleen het woord ziet dat u wilt leren. U spreekt het vreemde woord eerst hardop uit. U schrijft daarna het woord op. Leer ze niet alleen van boven naar beneden, maar ook van beneden naar boven en door elkaar.\n\n3. Het woordnet\nKent u al veel woorden? Maar vergeet u altijd een paar moeilijke woorden? Maak dan een 'woordnet' voor elk moeilijk woord. U schrijft het moeilijke woord in het midden van een blad papier. U zet daaromheen allemaal woorden die iets te maken hebben met het moeilijke woord.",
+          "question": "Karima gebruikt de schuifmethode om woorden te leren. In welke volgorde moet zij de woorden leren?",
+          "options": [
+            "alleen door elkaar",
+            "alleen van beneden naar boven",
+            "alleen van boven naar beneden",
+            "in allerlei verschillende volgordes"
+          ],
+          "correct": 3
+        },
+        {
+          "passage": "woorden",
+          "passageTitle": "Woorden leren - Methodes",
+          "text": "1. De kaartjesmethode\nKent u nog bijna geen woorden in de taal die u wilt leren? Dan is dit een goede manier.\n\n2. De schuifmethode\nHeeft u het altijd druk? De schuifmethode is een snelle manier om woorden te leren.\n\n3. Het woordnet\nKent u al veel woorden? Maar vergeet u altijd een paar moeilijke woorden? Maak dan een 'woordnet' voor elk moeilijk woord.",
+          "question": "Noa leert al een paar maanden Nederlandse woorden. Ze kent de meeste woorden al goed. Ze heeft moeite met sommige woorden. Ze wil die ook graag leren. Welke manier is dan het beste?",
+          "options": [
+            "de schuifmethode",
+            "de kaartjesmethode",
+            "het woordnet"
+          ],
+          "correct": 2
+        },
+        {
+          "passage": "rooster",
+          "passageTitle": "Werkrooster Hotel 'Chez Janou'",
+          "text": "WERKROOSTER HOTEL 'CHEZ JANOU'\n\nN nachtdienst van 23.00 uur tot 07.30 uur\nO ochtenddienst van 7.30 uur tot 14.00 uur\nM middagdienst van 14.00 uur tot 18.30 uur\nA avonddienst van 18.30 uur tot 23.00 uur\n\nWil je een dienst ruilen met een collega? Dan moet je dat zelf regelen. Kijk eerst op het rooster wie van je collega's kan.\n\nLet op:\n- Je mag altijd twee diensten achter elkaar werken.\n- Let op: als je nachtdienst hebt (gehad), mag dat niet\n- Je mag per weekend maximaal twee nachtdiensten draaien.\n\n(Xavier heeft vrijdag M+A dienst)",
+          "question": "Hoe lang moet Xavier vrijdag werken?",
+          "options": [
+            "van 07.30 uur tot 18.30 uur",
+            "van 14.00 uur tot 18.30 uur",
+            "van 14.00 uur tot 23.00 uur",
+            "van 18.30 uur tot 23.00 uur"
+          ],
+          "correct": 2
+        },
+        {
+          "passage": "rooster",
+          "passageTitle": "Werkrooster Hotel 'Chez Janou'",
+          "text": "WERKROOSTER HOTEL 'CHEZ JANOU'\n\nN nachtdienst van 23.00 uur tot 07.30 uur\nO ochtenddienst van 7.30 uur tot 14.00 uur\nM middagdienst van 14.00 uur tot 18.30 uur\nA avonddienst van 18.30 uur tot 23.00 uur\n\nWil je een dienst ruilen met een collega? Dan moet je dat zelf regelen.\n\n(Xavier heeft zaterdag M dienst. Casper, Ersin en Juul zijn collega's.)",
+          "question": "Xavier moet op zaterdagmiddag werken. Hij wil dan graag vrij. Met wie kan Xavier ruilen?",
+          "options": [
+            "met Casper",
+            "met Ersin",
+            "met Juul",
+            "met niemand"
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "bloemen",
+          "passageTitle": "E-mail bloemenwinkel",
+          "text": "Beste collega's,\n\nWe hebben vanmorgen met zijn allen gepraat. Dat was goed om te doen. We hebben duidelijke afspraken gemaakt over het werk in de winkel. Iedereen moet zich aan deze afspraken houden. De afspraken staan hieronder:\n\n1. De winkel is vanaf nu elke eerste en derde zondag van de maand open. Jantine werkt dan altijd. Elke eerste zondag helpt Ricardo haar. Nadia werkt op elke derde zondag van de maand met Jantine. Op de andere zondagen is de winkel dicht. Omar en Moniek werken niet op zondag.\n\n2. We hebben vanaf 1 maart een nieuwe klantenkaart. Klanten mogen hun oude klantenkaart dan niet meer gebruiken. De oude kaart kostte €5,-, maar de nieuwe klantenkaart is gratis! We vertellen de klant ook over het sparen met de nieuwe kaart. Bij elke €10,- krijgt de klant één punt. Bij tien punten krijgt de klant €15,- korting.\n\n3. We dweilen de winkel twee keer per week: op dinsdag en op zaterdag. We deden dit tot nu toe altijd één keer per week, maar het is nu wel erg vaak vies. Is het druk geweest in de winkel? Dan dweilen we nog een derde keer. We willen de winkel graag schoonhouden.\n\nGroeten,\nRemco",
+          "question": "Wie werken op de eerste zondag van april?",
+          "options": [
+            "Jantine en Nadia",
+            "Jantine en Ricardo",
+            "Omar en Moniek"
+          ],
+          "correct": 1
+        },
+        {
+          "passage": "bloemen",
+          "passageTitle": "E-mail bloemenwinkel",
+          "text": "We hebben vanaf 1 maart een nieuwe klantenkaart. Klanten mogen hun oude klantenkaart dan niet meer gebruiken. De oude kaart kostte €5,-, maar de nieuwe klantenkaart is gratis! We vertellen de klant ook over het sparen met de nieuwe kaart. Bij elke €10,- krijgt de klant één punt. Bij tien punten krijgt de klant €15,- korting.",
+          "question": "Hoeveel kost de nieuwe klantenkaart?",
+          "options": [
+            "Die is gratis.",
+            "€5,-",
+            "€10,-",
+            "€15,-"
+          ],
+          "correct": 0
+        },
+        {
+          "passage": "bloemen",
+          "passageTitle": "E-mail bloemenwinkel",
+          "text": "We dweilen de winkel twee keer per week: op dinsdag en op zaterdag. We deden dit tot nu toe altijd één keer per week, maar het is nu wel erg vaak vies. Is het druk geweest in de winkel? Dan dweilen we nog een derde keer. We willen de winkel graag schoonhouden.",
+          "question": "Hoe vaak moeten Omar en zijn collega's dweilen?",
+          "options": [
+            "altijd één keer per week",
+            "altijd twee keer per week",
+            "twee of drie keer per week"
+          ],
+          "correct": 2
+        }
+      ],
+      "sectionNames": {
+        "tandarts": "1. Tandartspraktijk",
+        "cv": "2. CV maken",
+        "talenschool": "3. Talenschool",
+        "ziekmelding_werk": "4. Ziekmelding werk",
+        "buurt": "5. Buurtbijeenkomst",
+        "sport": "6. Sportcentrum",
+        "brief_samira": "7. Brief aan docent",
+        "huisarts": "8. Huisarts",
+        "woorden": "9. Woorden leren",
+        "rooster": "10. Werkrooster",
+        "bloemen": "11. Bloemenwinkel"
+      }
+    }
+  }
+}
