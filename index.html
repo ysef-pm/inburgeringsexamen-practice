@@ -1774,7 +1774,7 @@
                     <li><strong>Execution (0-3 pts):</strong> Did you address all parts of the task?</li>
                     <li><strong>Grammar (0-2 pts):</strong> Correct verb placement and conjugation</li>
                     <li><strong>Spelling (0-2 pts):</strong> Words spelled correctly</li>
-                    <li><strong>Clearness (0-1 pt):</strong> Structure with conjunctions (en, maar, want, omdat)</li>
+                    <li id="intro-clearness-tip"><strong>Clearness (0-1 pt):</strong> Structure with conjunctions (en, maar, want, omdat)</li>
                     <li><strong>Vocabulary (0-2 pts):</strong> Varied word choice</li>
                 </ul>
                 <p style="font-size: 0.8rem; color: #666; margin-top: 10px; font-style: italic;">
@@ -1822,6 +1822,14 @@
     <div class="rmd-toast" id="rmd-toast"></div>
 
     <script>
+        // The intro "Official Writing Rubric" box above is static A2 markup.
+        // The level lives in localStorage and can't change without a reload,
+        // so a one-time patch at load keeps the clearness bullet level-aware.
+        if (window.RMDContent.getLevel() === 'b1') {
+            document.getElementById('intro-clearness-tip').innerHTML =
+                '<strong>Organization / Coherence (samenhang) (0-1 pt):</strong> Paragraph structure and connectors (daarom, terwijl, bovendien)';
+        }
+
         // A2 schrijven + lezen content now lives in /data/a2/*.json (extracted
         // byte-for-byte by scripts/extract-a2-content.mjs) and is loaded on
         // demand through the level-keyed loader in /js/content.js. These are
@@ -2508,6 +2516,9 @@
             const total = Object.values(currentTaskRubricScores).reduce((a, b) => a + b, 0);
             const maxTotal = 10; // 3+2+2+1+2
 
+            // The B1 rubric grades the `clearness` JSON key as organization/coherence.
+            const rubricIsB1 = window.RMDContent.getLevel() === 'b1';
+
             // Store for final summary
             taskScores[currentIndex] = { ...currentTaskRubricScores, total };
 
@@ -2527,7 +2538,7 @@
                         <span>${currentTaskRubricScores.spelling}/2</span>
                     </div>
                     <div class="score-row">
-                        <span>Clearness</span>
+                        <span>${rubricIsB1 ? 'Organization / Coherence (Samenhang)' : 'Clearness'}</span>
                         <span>${currentTaskRubricScores.clearness}/1</span>
                     </div>
                     <div class="score-row">
@@ -2866,7 +2877,9 @@
                                 <li><strong>Execution (3 pts):</strong> Address ALL parts of the task - this is most important!</li>
                                 <li><strong>Grammar (2 pts):</strong> Verb in second position, correct conjugation</li>
                                 <li><strong>Spelling (2 pts):</strong> Correct spelling, especially common words</li>
-                                <li><strong>Clearness (1 pt):</strong> Use conjunctions: en, maar, want, omdat + reference words: hij, zij, die, dat</li>
+                                <li>${window.RMDContent.getLevel() === 'b1'
+                                    ? '<strong>Organization / Coherence (samenhang):</strong> paragraph structure and connectors (daarom, terwijl, bovendien)'
+                                    : '<strong>Clearness (1 pt):</strong> Use conjunctions: en, maar, want, omdat + reference words: hij, zij, die, dat'}</li>
                                 <li><strong>Vocabulary (2 pts):</strong> Use varied words and standard expressions</li>
                             </ul>
                         </div>
