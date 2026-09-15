@@ -30,9 +30,18 @@
     }
 
     const cache = {};
-    async function loadContent(mode) {
+    function loadContent(mode) {
         const path = contentPath(getLevel(), mode);
-        if (!cache[path]) cache[path] = (await fetch(path)).json();
+        if (!cache[path]) {
+            cache[path] = (async () => {
+                const resp = await fetch(path);
+                if (!resp.ok) throw new Error('content load failed: ' + path + ' (' + resp.status + ')');
+                return resp.json();
+            })();
+            // Never cache a failed load — a rejected promise stuck in the
+            // cache would permanently break the mode for this page view.
+            cache[path].catch(function () { delete cache[path]; });
+        }
         return cache[path];
     }
 
