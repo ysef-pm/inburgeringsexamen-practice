@@ -9,8 +9,7 @@ let recorder = null;
 let inExercise = false;
 
 export async function init(contentArea) {
-    const resp = await fetch('/data/spreken-exercises.json');
-    exerciseData = await resp.json();
+    exerciseData = await window.RMDContent.loadContent('spreken');
     currentPartIndex = 0;
     currentExerciseIndex = 0;
     inExercise = false;

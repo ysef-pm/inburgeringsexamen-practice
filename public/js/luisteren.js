@@ -9,8 +9,7 @@ let answered = false;
 let inQuestion = false;
 
 export async function init(contentArea) {
-    const resp = await fetch('/data/luisteren-exercises.json');
-    exerciseData = await resp.json();
+    exerciseData = await window.RMDContent.loadContent('luisteren');
     currentQuestionIndex = 0;
     inQuestion = false;
     showOverviewContent(contentArea);

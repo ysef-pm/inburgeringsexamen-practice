@@ -120,7 +120,7 @@ const IMAGE_PROMPTS = {
 async function runTTS() {
     console.log('\n=== Generating TTS Audio for Luisteren ===\n');
     const luisterenData = JSON.parse(fs.readFileSync(
-        path.join(__dirname, '..', 'public', 'data', 'luisteren-exercises.json'), 'utf8'
+        path.join(__dirname, '..', 'public', 'data', 'a2', 'luisteren.json'), 'utf8'
     ));
 
     for (const [examKey, exam] of Object.entries(luisterenData.exams)) {
