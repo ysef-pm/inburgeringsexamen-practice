@@ -235,7 +235,9 @@ async function stopAndGrade() {
             body: JSON.stringify({
                 transcription: transcribeData.transcription,
                 prompt: exercise.prompt,
-                partType: `Deel ${part.partNumber}: ${part.title}`
+                partType: `Deel ${part.partNumber}: ${part.title}`,
+                level: window.RMDContent.getLevel(),
+                taskType: exercise.taskType || 'short'
             })
         });
         const gradeData = await gradeResp.json();
@@ -251,7 +253,7 @@ async function stopAndGrade() {
 
         progress.markCompleted(exercise.id);
         renderSidebar();
-        displayGrading(resultArea, gradeData.grading, transcribeData.transcription);
+        displayGrading(resultArea, gradeData.grading, transcribeData.transcription, gradeData.level);
         actionArea.innerHTML = `
             <button class="btn btn-primary" onclick="window.sprekenNext()">Volgende oefening</button>
         `;
@@ -273,14 +275,20 @@ async function stopAndGrade() {
     }
 }
 
-function displayGrading(container, grading, transcription) {
+function displayGrading(container, grading, transcription, level) {
+    // `level` is echoed by the API; fall back to the current level if absent.
+    const gradedLevel = window.RMDContent.normalizeLevel(level || window.RMDContent.getLevel());
     const categories = [
         { key: 'adequacy', label: 'Taakuitvoering', max: 2 },
         { key: 'vocabulary', label: 'Woordenschat', max: 2 },
         { key: 'grammar', label: 'Grammatica', max: 2 },
-        { key: 'fluency', label: 'Vloeiendheid', max: 2 },
+        // The B1 rubric grades the `fluency` JSON key as fluency/coherence.
+        { key: 'fluency', label: gradedLevel === 'b1' ? 'Vloeiendheid en samenhang' : 'Vloeiendheid', max: 2 },
         { key: 'pronunciation', label: 'Uitspraak', max: 2 }
     ];
+    const rubricBadge = gradedLevel === 'b1'
+        ? 'Graded against B1 (Staatsexamen Nt2 Programma I) criteria'
+        : 'Graded against A2 (inburgeringsexamen) criteria';
 
     let scoresHtml = categories.map(cat => {
         const s = grading.scores[cat.key];
@@ -304,6 +312,7 @@ function displayGrading(container, grading, transcription) {
                 <span class="total-label">Totaal</span>
                 <span class="total-value">${grading.total}/10</span>
             </div>
+            <p class="rubric-level-badge" style="font-size: 0.8rem; color: #888; margin: 4px 0 12px;">${rubricBadge}</p>
             <div class="scores-grid">${scoresHtml}</div>
             ${grading.grammarErrors && grading.grammarErrors.length > 0 ? `
                 <div class="errors-section">

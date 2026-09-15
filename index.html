@@ -2423,10 +2423,15 @@
                     </div>
             `;
 
+            const rubricIsB1 = window.RMDContent.getLevel() === 'b1';
             for (const [key, category] of Object.entries(officialRubric)) {
+                // The B1 rubric grades the `clearness` JSON key as organization/coherence.
+                const categoryName = (key === 'clearness' && rubricIsB1)
+                    ? 'Organization / Coherence (Samenhang)'
+                    : category.name;
                 rubricHtml += `
                     <div class="rubric-category" data-category="${key}">
-                        <h5>${category.name} <span>(max ${category.maxPoints} pts)</span></h5>
+                        <h5>${categoryName} <span>(max ${category.maxPoints} pts)</span></h5>
                         <div class="rubric-options">
                 `;
                 for (const option of category.options) {
@@ -2574,7 +2579,8 @@
                     body: JSON.stringify({
                         userText: userAnswer,
                         prompt: q.prompt,
-                        modelAnswer: q.modelAnswer
+                        modelAnswer: q.modelAnswer,
+                        level: window.RMDContent.getLevel()
                     })
                 };
                 const response = (window.RMDAuth && window.RMDAuth.isConfigured())
@@ -2594,11 +2600,12 @@
                     gradingArea.innerHTML = `
                         <div class="ai-grading-result">
                             <h4>🤖 AI Examiner Feedback</h4>
+                            ${rubricLevelBadge(data.level)}
                             <div style="white-space: pre-wrap; line-height: 1.6;">${data.rawFeedback}</div>
                         </div>
                     `;
                 } else {
-                    displayAIGrading(data.grading);
+                    displayAIGrading(data.grading, data.level);
                 }
 
             } catch (error) {
@@ -2622,8 +2629,19 @@
             btn.innerHTML = '<span>🤖</span> Grade Again';
         }
 
-        function displayAIGrading(grading) {
+        // One-line muted badge saying which rubric graded this answer. `level`
+        // comes from the API response; falls back to the current level if absent.
+        function rubricLevelBadge(level) {
+            const l = window.RMDContent.normalizeLevel(level || window.RMDContent.getLevel());
+            const text = l === 'b1'
+                ? 'Graded against B1 (Staatsexamen Nt2 Programma I) criteria'
+                : 'Graded against A2 (inburgeringsexamen) criteria';
+            return `<p class="rubric-level-badge" style="font-size: 0.8rem; color: #888; margin: 4px 0 12px;">${text}</p>`;
+        }
+
+        function displayAIGrading(grading, level) {
             const gradingArea = document.getElementById('ai-grading-area');
+            const gradedLevel = window.RMDContent.normalizeLevel(level || window.RMDContent.getLevel());
 
             // Store scores for final summary
             taskScores[currentIndex] = {
@@ -2638,6 +2656,7 @@
             let html = `
                 <div class="ai-grading-result">
                     <h4>🤖 AI Examiner Grade (Official DUO Rubric)</h4>
+                    ${rubricLevelBadge(gradedLevel)}
 
                     <div class="ai-total-score">
                         <div class="number">${grading.total}/10</div>
@@ -2661,7 +2680,7 @@
                             <div class="justification">${grading.scores.spelling.justification}</div>
                         </div>
                         <div class="ai-score-card">
-                            <h5>Clearness</h5>
+                            <h5>${gradedLevel === 'b1' ? 'Organization / Coherence (Samenhang)' : 'Clearness'}</h5>
                             <div class="score">${grading.scores.clearness.score}<span class="max">/1</span></div>
                             <div class="justification">${grading.scores.clearness.justification}</div>
                         </div>
@@ -2820,7 +2839,9 @@
                                     <span>${categoryTotals.spelling}/${scoredTasks.length * 2}</span>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 8px;">
-                                    <span><strong>Clearness</strong> (structure, conjunctions)</span>
+                                    <span>${window.RMDContent.getLevel() === 'b1'
+                                        ? '<strong>Organization / Coherence</strong> (samenhang, connectors)'
+                                        : '<strong>Clearness</strong> (structure, conjunctions)'}</span>
                                     <span>${categoryTotals.clearness}/${scoredTasks.length * 1}</span>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 8px;">
