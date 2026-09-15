@@ -10,6 +10,7 @@ const { createScorecardRouter } = require('./lib/scorecard');
 const { createSessionAuth } = require('./lib/session-auth');
 const { buildCheckoutSessionParams, prefillCountry } = require('./lib/checkout');
 const { sendPurchaseEmail } = require('./lib/email');
+const gp = require('./lib/grading-prompts');
 
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
@@ -218,44 +219,11 @@ app.get('/api/me', requireAuth, async (req, res) => {
 const PERPLEXITY_API_URL = 'https://api.perplexity.ai/chat/completions';
 const PERPLEXITY_API_KEY = process.env.PERPLEXITY_API_KEY;
 
-// Official DUO Rubric for grading
-const OFFICIAL_RUBRIC = `
-## Official DUO Grading Rubric for Inburgeringsexamen Schrijven
-
-You MUST grade using these EXACT criteria from the official DUO "Grading document for Message and Text to everybody":
-
-### 1. EXECUTION OF EXERCISE (Uitvoering) - Maximum 3 points
-- 0 points: The text is not readable and/or recognisable as an execution of the exercise, or is not an execution of the exercise at all.
-- 1 point: The text is hardly acceptable and with a lot of effort recognisable as an execution of the exercise and/or does not completely meet with the specific exercise description.
-- 2 points: The text is acceptable and recognizable as an execution of the exercise.
-- 3 points: The text is completely acceptable and a good execution of the exercise.
-
-**CRITICAL RULE: If Execution = 0 points, ALL other categories MUST be scored 0 points.**
-
-### 2. GRAMMAR (Grammatica) - Maximum 2 points
-- 0 points: The text contains a lot of grammar mistakes
-- 1 point: The text contains quite some grammar mistakes
-- 2 points: The text contains hardly any or no grammar mistakes
-
-### 3. SPELLING - Maximum 2 points
-- 0 points: The text has many spelling mistakes.
-- 1 point: Frequent short words are phonetically spelled reasonably correctly and personal details are spelled correctly.
-- 2 points: The spelling is reasonably correct. Spelling mistakes do not affect the understandability.
-
-### 4. CLEARNESS/UNDERSTANDABILITY (Duidelijkheid) - Maximum 1 point
-- 0 points: The text shows hardly any structure.
-- 1 point: The expression shows some structure, whether or not achieved by the use of simple conjunctions (such as en, maar, want and omdat) and/or reference words (such as hij, zij, die or dat).
-
-### 5. VOCABULARY (Woordenschat) - Maximum 2 points
-- 0 points: The text does not meet the requirements in point 1 (below).
-- 1 point: The text consists of standard patterns, expressions and small groups of words that transfer limited information.
-- 2 points: The vocabulary in the text is reasonably diverse.
-
-TOTAL MAXIMUM: 10 points (3+2+2+1+2)
-`;
+// Grading rubric prompts (A2 + B1) live in lib/grading-prompts.js.
 
 app.post('/api/grade-writing', requirePaidOrFreeGrade, async (req, res) => {
     const { userText, prompt, modelAnswer } = req.body;
+    const level = gp.normalizeLevel(req.body.level);
 
     if (!userText || userText.trim().length === 0) {
         return res.json({
@@ -272,59 +240,7 @@ app.post('/api/grade-writing', requirePaidOrFreeGrade, async (req, res) => {
     }
 
     try {
-        const systemPrompt = `You are an official examiner for the Dutch Inburgeringsexamen (civic integration exam) A2 writing test.
-
-Your task is to grade Dutch text written by a candidate using the OFFICIAL DUO grading rubric EXACTLY as specified.
-
-${OFFICIAL_RUBRIC}
-
-## Your Response Format
-
-You MUST respond with ONLY a valid JSON object in this exact structure (no markdown, no extra text):
-
-{
-    "scores": {
-        "execution": {
-            "score": <0-3>,
-            "justification": "<IN ENGLISH: Brief explanation of why this score>"
-        },
-        "grammar": {
-            "score": <0-2>,
-            "justification": "<IN ENGLISH: Brief explanation with specific examples>"
-        },
-        "spelling": {
-            "score": <0-2>,
-            "justification": "<IN ENGLISH: Brief explanation with specific examples>"
-        },
-        "clearness": {
-            "score": <0-1>,
-            "justification": "<IN ENGLISH: Did they use conjunctions/reference words?>"
-        },
-        "vocabulary": {
-            "score": <0-2>,
-            "justification": "<IN ENGLISH: Brief explanation of vocabulary diversity>"
-        }
-    },
-    "total": <sum of all scores, max 10>,
-    "grammarErrors": [
-        {"error": "<the Dutch text they wrote>", "correction": "<correct Dutch version>", "explanation": "<IN ENGLISH: brief grammar rule explanation>"}
-    ],
-    "spellingErrors": [
-        {"error": "<misspelled Dutch word>", "correction": "<correct Dutch spelling>"}
-    ],
-    "strengths": ["<IN ENGLISH: positive point 1>", "<IN ENGLISH: positive point 2>"],
-    "improvements": ["<IN ENGLISH: specific tip 1>", "<IN ENGLISH: specific tip 2>"],
-    "overallFeedback": "<IN ENGLISH: 2-3 sentences of encouraging, constructive feedback>"
-}
-
-CRITICAL - ALL FEEDBACK MUST BE IN ENGLISH:
-1. ALL justifications, explanations, strengths, improvements, and overallFeedback MUST be written in ENGLISH
-2. Only the "error" and "correction" fields contain Dutch text (showing what they wrote vs correct Dutch)
-3. The user is learning Dutch but understands English - they need English explanations to learn
-4. Be strict but fair - this is A2 level, not native speaker level
-5. If execution = 0, you MUST set ALL other scores to 0
-6. Always provide specific examples from the text
-7. Be encouraging - this is someone learning a new language!`;
+        const systemPrompt = gp.writingPrompt(level);
 
         const userMessage = `Grade this writing submission:
 
@@ -383,7 +299,8 @@ Evaluate using the official DUO rubric and respond with ONLY the JSON object.`;
 
             res.json({
                 success: true,
-                grading: gradingResult
+                grading: gradingResult,
+                level
             });
         } catch (parseError) {
             // If JSON parsing fails, return the raw feedback
@@ -391,7 +308,8 @@ Evaluate using the official DUO rubric and respond with ONLY the JSON object.`;
             res.json({
                 success: true,
                 rawFeedback: feedback,
-                parseError: true
+                parseError: true,
+                level
             });
         }
 
@@ -462,42 +380,11 @@ app.post('/api/transcribe-speech', requirePaid, async (req, res) => {
     }
 });
 
-// Speaking grading endpoint
-const SPEAKING_RUBRIC = `
-## Official Speaking Grading Rubric for Inburgeringsexamen Spreken (A2)
-
-Grade the candidate's spoken response (transcribed) on these 5 categories:
-
-### 1. ADEQUACY (Taakuitvoering) - Maximum 2 points
-- 0: Response does not address the task/question at all
-- 1: Response partially addresses the task
-- 2: Response fully and appropriately addresses the task
-
-### 2. VOCABULARY (Woordenschat) - Maximum 2 points
-- 0: Very limited vocabulary, cannot express basic ideas
-- 1: Basic vocabulary, can express simple ideas with limitations
-- 2: Adequate vocabulary for A2 level communication
-
-### 3. GRAMMAR (Grammatica) - Maximum 2 points
-- 0: Frequent grammar errors that impede understanding
-- 1: Some grammar errors but meaning is usually clear
-- 2: Grammar is mostly correct for A2 level
-
-### 4. FLUENCY (Vloeiendheid) - Maximum 2 points
-- 0: Very hesitant, many long pauses, very fragmented
-- 1: Some hesitation but can maintain basic communication
-- 2: Reasonably fluent for A2 level
-
-### 5. PRONUNCIATION (Uitspraak) - Maximum 2 points
-- 0: Pronunciation makes speech very difficult to understand
-- 1: Some pronunciation issues but generally understandable
-- 2: Clear pronunciation, easily understood
-
-TOTAL MAXIMUM: 10 points (2+2+2+2+2)
-`;
-
+// Speaking grading endpoint (rubric prompts in lib/grading-prompts.js)
 app.post('/api/grade-speaking', requirePaid, async (req, res) => {
     const { transcription, prompt, partType } = req.body;
+    const level = gp.normalizeLevel(req.body.level);
+    const taskType = ['short', 'long'].includes(req.body.taskType) ? req.body.taskType : undefined;
 
     if (!transcription || transcription.trim().length === 0) {
         return res.json({ success: false, error: 'No transcription to grade.' });
@@ -507,28 +394,7 @@ app.post('/api/grade-speaking', requirePaid, async (req, res) => {
     }
 
     try {
-        const systemPrompt = `You are an official examiner for the Dutch Inburgeringsexamen A2 speaking test.
-Grade the transcribed spoken response using the rubric EXACTLY as specified.
-
-${SPEAKING_RUBRIC}
-
-You MUST respond with ONLY a valid JSON object (no markdown, no extra text):
-{
-    "scores": {
-        "adequacy": { "score": <0-2>, "justification": "<IN ENGLISH>" },
-        "vocabulary": { "score": <0-2>, "justification": "<IN ENGLISH>" },
-        "grammar": { "score": <0-2>, "justification": "<IN ENGLISH>" },
-        "fluency": { "score": <0-2>, "justification": "<IN ENGLISH: Note - since this is transcribed, assess sentence completeness and coherence as proxy>" },
-        "pronunciation": { "score": <0-2>, "justification": "<IN ENGLISH: Note - since this is transcribed, assess based on spelling/word patterns suggesting pronunciation issues>" }
-    },
-    "total": <sum, max 10>,
-    "grammarErrors": [{"error": "<Dutch text>", "correction": "<correct>", "explanation": "<IN ENGLISH>"}],
-    "strengths": ["<IN ENGLISH>"],
-    "improvements": ["<IN ENGLISH>"],
-    "overallFeedback": "<IN ENGLISH: 2-3 sentences>"
-}
-
-IMPORTANT: This is a TRANSCRIPTION of speech. Assess fluency by sentence completeness/coherence. For pronunciation, note any patterns suggesting mispronunciation but be lenient since Whisper may normalize pronunciation.`;
+        const systemPrompt = gp.speakingPrompt(level, { taskType });
 
         const userMessage = `Grade this speaking response:
 
@@ -563,9 +429,9 @@ Evaluate and respond with ONLY the JSON object.`;
 
         try {
             const gradingResult = JSON.parse(feedback);
-            res.json({ success: true, grading: gradingResult });
+            res.json({ success: true, grading: gradingResult, level });
         } catch (parseError) {
-            res.json({ success: true, rawFeedback: feedback, parseError: true });
+            res.json({ success: true, rawFeedback: feedback, parseError: true, level });
         }
     } catch (error) {
         console.error('Speaking grading error:', error);
