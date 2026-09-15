@@ -2233,6 +2233,7 @@
             // other modes. Everything above runs synchronously so wrappers that
             // scroll the practice area into view still see it un-hidden.
             await ensureLevelContent(mode);
+            if (currentMode !== mode) return; // a later startMode call superseded this one
 
             if (mode === 'schrijven') {
                 // Start with first exercise of first section
