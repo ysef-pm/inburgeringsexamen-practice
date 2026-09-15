@@ -1,0 +1,810 @@
+{
+  "exams": {
+    "exam1": {
+      "name": "B1 Lezen Oefenexamen 1",
+      "questions": [
+        {
+          "passage": "rooster",
+          "passageTitle": "Nieuw roostersysteem",
+          "text": "Nieuw roostersysteem\n\nBeste collega's,\n\nVanaf 1 maart gaan wij werken met een nieuw digitaal roostersysteem: FlexRooster. Wij doen dit omdat veel medewerkers hebben aangegeven dat zij hun rooster te laat ontvangen. Met het nieuwe systeem staat het rooster drie weken van tevoren online, terwijl dat nu maar één week is. Zo kunt u werk en privé beter combineren.\n\nWat verandert er voor u? U ontvangt het rooster niet meer per e-mail, maar u bekijkt het in de app of op de website. Wilt u een dienst ruilen met een collega? Dat regelt u voortaan zelf in de app. De ruil is pas definitief wanneer uw teamleider deze heeft goedgekeurd. Vrije dagen vraagt u minimaal vier weken van tevoren aan. Aanvragen die later binnenkomen, kunnen wij helaas niet altijd goedkeuren, omdat het rooster dan al vaststaat.\n\nIn februari organiseren wij drie informatiebijeenkomsten waarin wij uitleggen hoe de app werkt. U hoeft zich niet aan te melden; u kiest zelf welke bijeenkomst u bezoekt. Deelname is niet verplicht, maar wij raden het wel aan, vooral als u weinig ervaring heeft met apps.\n\nHeeft u vragen? Neem dan contact op met de afdeling personeelszaken via personeelszaken@vandijklogistiek.nl.\n\nMet vriendelijke groet,\nSandra Vermeer\nHoofd Personeelszaken",
+          "question": "Waarom stuurt Sandra Vermeer deze e-mail?",
+          "options": [
+            "om medewerkers te informeren over een nieuw roostersysteem",
+            "om medewerkers uit te nodigen voor een verplichte cursus",
+            "om te vragen wie er in maart vrije dagen wil opnemen"
+          ],
+          "correct": 0,
+          "explanation": "The email announces that from 1 March the company switches to the FlexRooster system and explains what changes for employees. The information sessions are explicitly not mandatory, and nobody is asked about days off."
+        },
+        {
+          "passage": "rooster",
+          "passageTitle": "Nieuw roostersysteem",
+          "text": "Nieuw roostersysteem\n\nBeste collega's,\n\nVanaf 1 maart gaan wij werken met een nieuw digitaal roostersysteem: FlexRooster. Wij doen dit omdat veel medewerkers hebben aangegeven dat zij hun rooster te laat ontvangen. Met het nieuwe systeem staat het rooster drie weken van tevoren online, terwijl dat nu maar één week is. Zo kunt u werk en privé beter combineren.\n\nWat verandert er voor u? U ontvangt het rooster niet meer per e-mail, maar u bekijkt het in de app of op de website. Wilt u een dienst ruilen met een collega? Dat regelt u voortaan zelf in de app. De ruil is pas definitief wanneer uw teamleider deze heeft goedgekeurd. Vrije dagen vraagt u minimaal vier weken van tevoren aan. Aanvragen die later binnenkomen, kunnen wij helaas niet altijd goedkeuren, omdat het rooster dan al vaststaat.\n\nIn februari organiseren wij drie informatiebijeenkomsten waarin wij uitleggen hoe de app werkt. U hoeft zich niet aan te melden; u kiest zelf welke bijeenkomst u bezoekt. Deelname is niet verplicht, maar wij raden het wel aan, vooral als u weinig ervaring heeft met apps.\n\nHeeft u vragen? Neem dan contact op met de afdeling personeelszaken via personeelszaken@vandijklogistiek.nl.\n\nMet vriendelijke groet,\nSandra Vermeer\nHoofd Personeelszaken",
+          "question": "Wat is nieuw aan de manier waarop medewerkers hun rooster ontvangen?",
+          "options": [
+            "Het rooster wordt drie weken van tevoren per e-mail gestuurd",
+            "Het rooster wordt een week eerder op papier uitgedeeld",
+            "Het rooster staat drie weken van tevoren online in de app"
+          ],
+          "correct": 2,
+          "explanation": "The text says the roster will be online three weeks in advance and that employees no longer receive it by e-mail; they view it in the app or on the website."
+        },
+        {
+          "passage": "rooster",
+          "passageTitle": "Nieuw roostersysteem",
+          "text": "Nieuw roostersysteem\n\nBeste collega's,\n\nVanaf 1 maart gaan wij werken met een nieuw digitaal roostersysteem: FlexRooster. Wij doen dit omdat veel medewerkers hebben aangegeven dat zij hun rooster te laat ontvangen. Met het nieuwe systeem staat het rooster drie weken van tevoren online, terwijl dat nu maar één week is. Zo kunt u werk en privé beter combineren.\n\nWat verandert er voor u? U ontvangt het rooster niet meer per e-mail, maar u bekijkt het in de app of op de website. Wilt u een dienst ruilen met een collega? Dat regelt u voortaan zelf in de app. De ruil is pas definitief wanneer uw teamleider deze heeft goedgekeurd. Vrije dagen vraagt u minimaal vier weken van tevoren aan. Aanvragen die later binnenkomen, kunnen wij helaas niet altijd goedkeuren, omdat het rooster dan al vaststaat.\n\nIn februari organiseren wij drie informatiebijeenkomsten waarin wij uitleggen hoe de app werkt. U hoeft zich niet aan te melden; u kiest zelf welke bijeenkomst u bezoekt. Deelname is niet verplicht, maar wij raden het wel aan, vooral als u weinig ervaring heeft met apps.\n\nHeeft u vragen? Neem dan contact op met de afdeling personeelszaken via personeelszaken@vandijklogistiek.nl.\n\nMet vriendelijke groet,\nSandra Vermeer\nHoofd Personeelszaken",
+          "question": "Wanneer is het ruilen van een dienst definitief?",
+          "options": [
+            "zodra de ruil in de app is ingevoerd",
+            "wanneer de teamleider de ruil heeft goedgekeurd",
+            "zodra een collega akkoord gaat met de ruil"
+          ],
+          "correct": 1,
+          "explanation": "According to the text, a shift swap is only final (\"pas definitief\") once the team leader has approved it; arranging it in the app with a colleague is not enough."
+        },
+        {
+          "passage": "rooster",
+          "passageTitle": "Nieuw roostersysteem",
+          "text": "Nieuw roostersysteem\n\nBeste collega's,\n\nVanaf 1 maart gaan wij werken met een nieuw digitaal roostersysteem: FlexRooster. Wij doen dit omdat veel medewerkers hebben aangegeven dat zij hun rooster te laat ontvangen. Met het nieuwe systeem staat het rooster drie weken van tevoren online, terwijl dat nu maar één week is. Zo kunt u werk en privé beter combineren.\n\nWat verandert er voor u? U ontvangt het rooster niet meer per e-mail, maar u bekijkt het in de app of op de website. Wilt u een dienst ruilen met een collega? Dat regelt u voortaan zelf in de app. De ruil is pas definitief wanneer uw teamleider deze heeft goedgekeurd. Vrije dagen vraagt u minimaal vier weken van tevoren aan. Aanvragen die later binnenkomen, kunnen wij helaas niet altijd goedkeuren, omdat het rooster dan al vaststaat.\n\nIn februari organiseren wij drie informatiebijeenkomsten waarin wij uitleggen hoe de app werkt. U hoeft zich niet aan te melden; u kiest zelf welke bijeenkomst u bezoekt. Deelname is niet verplicht, maar wij raden het wel aan, vooral als u weinig ervaring heeft met apps.\n\nHeeft u vragen? Neem dan contact op met de afdeling personeelszaken via personeelszaken@vandijklogistiek.nl.\n\nMet vriendelijke groet,\nSandra Vermeer\nHoofd Personeelszaken",
+          "question": "Ahmed wil over twee weken een vrije dag opnemen. Wat is waarschijnlijk?",
+          "options": [
+            "Zijn aanvraag wordt misschien niet goedgekeurd, omdat het rooster al vaststaat",
+            "Zijn aanvraag wordt automatisch goedgekeurd via de app",
+            "Hij moet zijn aanvraag per e-mail naar Sandra Vermeer sturen"
+          ],
+          "correct": 0,
+          "explanation": "Days off must be requested at least four weeks in advance; the text warns that later requests cannot always be approved because the roster is already fixed."
+        },
+        {
+          "passage": "rooster",
+          "passageTitle": "Nieuw roostersysteem",
+          "text": "Nieuw roostersysteem\n\nBeste collega's,\n\nVanaf 1 maart gaan wij werken met een nieuw digitaal roostersysteem: FlexRooster. Wij doen dit omdat veel medewerkers hebben aangegeven dat zij hun rooster te laat ontvangen. Met het nieuwe systeem staat het rooster drie weken van tevoren online, terwijl dat nu maar één week is. Zo kunt u werk en privé beter combineren.\n\nWat verandert er voor u? U ontvangt het rooster niet meer per e-mail, maar u bekijkt het in de app of op de website. Wilt u een dienst ruilen met een collega? Dat regelt u voortaan zelf in de app. De ruil is pas definitief wanneer uw teamleider deze heeft goedgekeurd. Vrije dagen vraagt u minimaal vier weken van tevoren aan. Aanvragen die later binnenkomen, kunnen wij helaas niet altijd goedkeuren, omdat het rooster dan al vaststaat.\n\nIn februari organiseren wij drie informatiebijeenkomsten waarin wij uitleggen hoe de app werkt. U hoeft zich niet aan te melden; u kiest zelf welke bijeenkomst u bezoekt. Deelname is niet verplicht, maar wij raden het wel aan, vooral als u weinig ervaring heeft met apps.\n\nHeeft u vragen? Neem dan contact op met de afdeling personeelszaken via personeelszaken@vandijklogistiek.nl.\n\nMet vriendelijke groet,\nSandra Vermeer\nHoofd Personeelszaken",
+          "question": "Wat is waar over de informatiebijeenkomsten?",
+          "options": [
+            "Medewerkers moeten zich vooraf aanmelden",
+            "Deelname is verplicht voor medewerkers zonder ervaring met apps",
+            "Medewerkers kiezen zelf welke bijeenkomst zij bezoeken"
+          ],
+          "correct": 2,
+          "explanation": "The text states that no registration is needed and employees choose which session to attend; attendance is recommended but not compulsory for anyone."
+        },
+        {
+          "passage": "afval",
+          "passageTitle": "Nieuwe afvalinzameling",
+          "text": "Nieuwe afvalinzameling\n\nGeachte heer, mevrouw,\n\nDe gemeente Westervoort gaat de inzameling van huishoudelijk afval veranderen. In deze brief leest u wat er voor u verandert.\n\nVanaf 1 mei halen wij het restafval niet meer bij u thuis op. U brengt uw restafval voortaan zelf naar een ondergrondse container in uw buurt. Deze container opent u met een afvalpas. U ontvangt deze pas uiterlijk 15 april per post. Bewaar de pas goed: een nieuwe pas kost € 10,00.\n\nGroente-, fruit- en tuinafval (gft) blijven wij gewoon om de week bij u ophalen, net als papier en karton. Hiervoor verandert er dus niets.\n\nWaarom doen wij dit? De gemeente wil dat inwoners hun afval beter scheiden. Uit onderzoek blijkt dat huishoudens die hun restafval zelf wegbrengen, minder restafval produceren. Bovendien zorgen de ondergrondse containers voor minder zwerfvuil op straat, omdat vuilniszakken niet meer buiten staan.\n\nGrofvuil, zoals oude meubels, kunt u gratis laten ophalen. U maakt hiervoor een afspraak via onze website of telefonisch via 0800-1234. Zet grofvuil nooit naast de container; hiervoor kunt u een boete krijgen.\n\nHeeft u vragen over deze verandering? Kijk dan op www.westervoort.nl/afval of bel ons algemene nummer.\n\nMet vriendelijke groet,\nGemeente Westervoort",
+          "question": "Wat is het belangrijkste doel van deze brief?",
+          "options": [
+            "inwoners waarschuwen voor boetes bij verkeerd afval scheiden",
+            "inwoners vragen om een afvalpas aan te vragen",
+            "inwoners informeren over veranderingen in de afvalinzameling"
+          ],
+          "correct": 2,
+          "explanation": "The letter explains what will change in waste collection from 1 May. The fine and the pass are details; the pass is sent automatically and does not need to be requested."
+        },
+        {
+          "passage": "afval",
+          "passageTitle": "Nieuwe afvalinzameling",
+          "text": "Nieuwe afvalinzameling\n\nGeachte heer, mevrouw,\n\nDe gemeente Westervoort gaat de inzameling van huishoudelijk afval veranderen. In deze brief leest u wat er voor u verandert.\n\nVanaf 1 mei halen wij het restafval niet meer bij u thuis op. U brengt uw restafval voortaan zelf naar een ondergrondse container in uw buurt. Deze container opent u met een afvalpas. U ontvangt deze pas uiterlijk 15 april per post. Bewaar de pas goed: een nieuwe pas kost € 10,00.\n\nGroente-, fruit- en tuinafval (gft) blijven wij gewoon om de week bij u ophalen, net als papier en karton. Hiervoor verandert er dus niets.\n\nWaarom doen wij dit? De gemeente wil dat inwoners hun afval beter scheiden. Uit onderzoek blijkt dat huishoudens die hun restafval zelf wegbrengen, minder restafval produceren. Bovendien zorgen de ondergrondse containers voor minder zwerfvuil op straat, omdat vuilniszakken niet meer buiten staan.\n\nGrofvuil, zoals oude meubels, kunt u gratis laten ophalen. U maakt hiervoor een afspraak via onze website of telefonisch via 0800-1234. Zet grofvuil nooit naast de container; hiervoor kunt u een boete krijgen.\n\nHeeft u vragen over deze verandering? Kijk dan op www.westervoort.nl/afval of bel ons algemene nummer.\n\nMet vriendelijke groet,\nGemeente Westervoort",
+          "question": "Wat verandert er vanaf 1 mei NIET?",
+          "options": [
+            "de plek waar u uw restafval naartoe brengt",
+            "het ophalen van gft, papier en karton",
+            "het ophalen van restafval"
+          ],
+          "correct": 1,
+          "explanation": "The text explicitly says gft, paper and cardboard will still be collected as usual (\"Hiervoor verandert er dus niets\"), while residual waste must now be brought to an underground container."
+        },
+        {
+          "passage": "afval",
+          "passageTitle": "Nieuwe afvalinzameling",
+          "text": "Nieuwe afvalinzameling\n\nGeachte heer, mevrouw,\n\nDe gemeente Westervoort gaat de inzameling van huishoudelijk afval veranderen. In deze brief leest u wat er voor u verandert.\n\nVanaf 1 mei halen wij het restafval niet meer bij u thuis op. U brengt uw restafval voortaan zelf naar een ondergrondse container in uw buurt. Deze container opent u met een afvalpas. U ontvangt deze pas uiterlijk 15 april per post. Bewaar de pas goed: een nieuwe pas kost € 10,00.\n\nGroente-, fruit- en tuinafval (gft) blijven wij gewoon om de week bij u ophalen, net als papier en karton. Hiervoor verandert er dus niets.\n\nWaarom doen wij dit? De gemeente wil dat inwoners hun afval beter scheiden. Uit onderzoek blijkt dat huishoudens die hun restafval zelf wegbrengen, minder restafval produceren. Bovendien zorgen de ondergrondse containers voor minder zwerfvuil op straat, omdat vuilniszakken niet meer buiten staan.\n\nGrofvuil, zoals oude meubels, kunt u gratis laten ophalen. U maakt hiervoor een afspraak via onze website of telefonisch via 0800-1234. Zet grofvuil nooit naast de container; hiervoor kunt u een boete krijgen.\n\nHeeft u vragen over deze verandering? Kijk dan op www.westervoort.nl/afval of bel ons algemene nummer.\n\nMet vriendelijke groet,\nGemeente Westervoort",
+          "question": "Wat gebeurt er als u uw afvalpas verliest?",
+          "options": [
+            "U moet € 10,00 betalen voor een nieuwe pas",
+            "U krijgt gratis een nieuwe pas thuisgestuurd",
+            "U kunt geen restafval meer wegbrengen"
+          ],
+          "correct": 0,
+          "explanation": "The letter warns residents to keep the pass safe because a new pass costs € 10,00; a replacement is possible, but not free."
+        },
+        {
+          "passage": "afval",
+          "passageTitle": "Nieuwe afvalinzameling",
+          "text": "Nieuwe afvalinzameling\n\nGeachte heer, mevrouw,\n\nDe gemeente Westervoort gaat de inzameling van huishoudelijk afval veranderen. In deze brief leest u wat er voor u verandert.\n\nVanaf 1 mei halen wij het restafval niet meer bij u thuis op. U brengt uw restafval voortaan zelf naar een ondergrondse container in uw buurt. Deze container opent u met een afvalpas. U ontvangt deze pas uiterlijk 15 april per post. Bewaar de pas goed: een nieuwe pas kost € 10,00.\n\nGroente-, fruit- en tuinafval (gft) blijven wij gewoon om de week bij u ophalen, net als papier en karton. Hiervoor verandert er dus niets.\n\nWaarom doen wij dit? De gemeente wil dat inwoners hun afval beter scheiden. Uit onderzoek blijkt dat huishoudens die hun restafval zelf wegbrengen, minder restafval produceren. Bovendien zorgen de ondergrondse containers voor minder zwerfvuil op straat, omdat vuilniszakken niet meer buiten staan.\n\nGrofvuil, zoals oude meubels, kunt u gratis laten ophalen. U maakt hiervoor een afspraak via onze website of telefonisch via 0800-1234. Zet grofvuil nooit naast de container; hiervoor kunt u een boete krijgen.\n\nHeeft u vragen over deze verandering? Kijk dan op www.westervoort.nl/afval of bel ons algemene nummer.\n\nMet vriendelijke groet,\nGemeente Westervoort",
+          "question": "Wat wordt in de tekst bedoeld met 'zwerfvuil'?",
+          "options": [
+            "afval dat in de ondergrondse container zit",
+            "grote spullen zoals oude meubels",
+            "afval dat los op straat ligt"
+          ],
+          "correct": 2,
+          "explanation": "The sentence links \"zwerfvuil op straat\" to rubbish bags no longer standing outside, so it refers to litter lying loose in the street. Large items like furniture are called \"grofvuil\"."
+        },
+        {
+          "passage": "afval",
+          "passageTitle": "Nieuwe afvalinzameling",
+          "text": "Nieuwe afvalinzameling\n\nGeachte heer, mevrouw,\n\nDe gemeente Westervoort gaat de inzameling van huishoudelijk afval veranderen. In deze brief leest u wat er voor u verandert.\n\nVanaf 1 mei halen wij het restafval niet meer bij u thuis op. U brengt uw restafval voortaan zelf naar een ondergrondse container in uw buurt. Deze container opent u met een afvalpas. U ontvangt deze pas uiterlijk 15 april per post. Bewaar de pas goed: een nieuwe pas kost € 10,00.\n\nGroente-, fruit- en tuinafval (gft) blijven wij gewoon om de week bij u ophalen, net als papier en karton. Hiervoor verandert er dus niets.\n\nWaarom doen wij dit? De gemeente wil dat inwoners hun afval beter scheiden. Uit onderzoek blijkt dat huishoudens die hun restafval zelf wegbrengen, minder restafval produceren. Bovendien zorgen de ondergrondse containers voor minder zwerfvuil op straat, omdat vuilniszakken niet meer buiten staan.\n\nGrofvuil, zoals oude meubels, kunt u gratis laten ophalen. U maakt hiervoor een afspraak via onze website of telefonisch via 0800-1234. Zet grofvuil nooit naast de container; hiervoor kunt u een boete krijgen.\n\nHeeft u vragen over deze verandering? Kijk dan op www.westervoort.nl/afval of bel ons algemene nummer.\n\nMet vriendelijke groet,\nGemeente Westervoort",
+          "question": "Meneer Silva zet een oude kast naast de ondergrondse container. Wat kan er volgens de tekst gebeuren?",
+          "options": [
+            "Hij ontvangt eerst een waarschuwing van de gemeente",
+            "Hij kan een boete krijgen",
+            "De kast wordt binnen een week gratis opgehaald"
+          ],
+          "correct": 1,
+          "explanation": "The text says bulky waste (\"grofvuil\") must never be placed next to the container and that you can get a fine for this; free collection only happens by appointment."
+        },
+        {
+          "passage": "cursus",
+          "passageTitle": "Avondcursus Nederlands",
+          "text": "Avondcursus Nederlands, niveau B2\n\nVolksuniversiteit Rijnstad\n\nWilt u uw Nederlands verbeteren voor uw werk of studie? In september start onze avondcursus Nederlands op weg naar niveau B2. De cursus duurt twintig weken en vindt plaats op dinsdag- en donderdagavond van 19.00 tot 21.30 uur.\n\nVoordat u zich inschrijft, maakt u eerst een intaketoets. Met deze toets bepalen wij of de cursus bij uw niveau past. De toets duurt ongeveer een uur en is gratis. Als uit de toets blijkt dat uw niveau nog niet voldoende is, adviseren wij u eerst een andere cursus te volgen.\n\nDe cursus kost € 425,00. Dit bedrag is inclusief lesmateriaal, maar exclusief het examengeld. Sommige werkgevers betalen de cursus voor hun medewerkers; vraag dit na bij uw personeelsafdeling. U kunt in twee delen betalen, mits u dit bij de inschrijving aangeeft.\n\nAnnuleren is gratis tot twee weken voor de startdatum. Daarna betaalt u 50% van het cursusgeld. Als de cursus al is begonnen, betaalt u het volledige bedrag.\n\nU ontvangt aan het einde een certificaat, op voorwaarde dat u minimaal 80% van de lessen aanwezig was en de eindopdracht voldoende heeft gemaakt. Wie het certificaat haalt, kan zich daarna via ons aanmelden voor het officiële examen.\n\nMeer informatie of inschrijven? Ga naar www.vurijnstad.nl of bel 026-555 12 34.",
+          "question": "Voor wie is deze tekst vooral bedoeld?",
+          "options": [
+            "voor mensen die net beginnen met het leren van Nederlands",
+            "voor mensen die hun Nederlands willen verbeteren voor werk of studie",
+            "voor werkgevers die een cursus willen betalen voor hun medewerkers"
+          ],
+          "correct": 1,
+          "explanation": "The opening line addresses people who want to improve their Dutch for work or study, working towards B2. Beginners would be advised to take a different course after the intake test."
+        },
+        {
+          "passage": "cursus",
+          "passageTitle": "Avondcursus Nederlands",
+          "text": "Avondcursus Nederlands, niveau B2\n\nVolksuniversiteit Rijnstad\n\nWilt u uw Nederlands verbeteren voor uw werk of studie? In september start onze avondcursus Nederlands op weg naar niveau B2. De cursus duurt twintig weken en vindt plaats op dinsdag- en donderdagavond van 19.00 tot 21.30 uur.\n\nVoordat u zich inschrijft, maakt u eerst een intaketoets. Met deze toets bepalen wij of de cursus bij uw niveau past. De toets duurt ongeveer een uur en is gratis. Als uit de toets blijkt dat uw niveau nog niet voldoende is, adviseren wij u eerst een andere cursus te volgen.\n\nDe cursus kost € 425,00. Dit bedrag is inclusief lesmateriaal, maar exclusief het examengeld. Sommige werkgevers betalen de cursus voor hun medewerkers; vraag dit na bij uw personeelsafdeling. U kunt in twee delen betalen, mits u dit bij de inschrijving aangeeft.\n\nAnnuleren is gratis tot twee weken voor de startdatum. Daarna betaalt u 50% van het cursusgeld. Als de cursus al is begonnen, betaalt u het volledige bedrag.\n\nU ontvangt aan het einde een certificaat, op voorwaarde dat u minimaal 80% van de lessen aanwezig was en de eindopdracht voldoende heeft gemaakt. Wie het certificaat haalt, kan zich daarna via ons aanmelden voor het officiële examen.\n\nMeer informatie of inschrijven? Ga naar www.vurijnstad.nl of bel 026-555 12 34.",
+          "question": "Waarom moet u eerst een intaketoets maken?",
+          "options": [
+            "om te bepalen of de cursus bij uw niveau past",
+            "om te bepalen hoeveel u voor de cursus moet betalen",
+            "omdat de toets verplicht is voor het officiële examen"
+          ],
+          "correct": 0,
+          "explanation": "The text states directly that the intake test is used to determine whether the course matches your level (\"bepalen wij of de cursus bij uw niveau past\")."
+        },
+        {
+          "passage": "cursus",
+          "passageTitle": "Avondcursus Nederlands",
+          "text": "Avondcursus Nederlands, niveau B2\n\nVolksuniversiteit Rijnstad\n\nWilt u uw Nederlands verbeteren voor uw werk of studie? In september start onze avondcursus Nederlands op weg naar niveau B2. De cursus duurt twintig weken en vindt plaats op dinsdag- en donderdagavond van 19.00 tot 21.30 uur.\n\nVoordat u zich inschrijft, maakt u eerst een intaketoets. Met deze toets bepalen wij of de cursus bij uw niveau past. De toets duurt ongeveer een uur en is gratis. Als uit de toets blijkt dat uw niveau nog niet voldoende is, adviseren wij u eerst een andere cursus te volgen.\n\nDe cursus kost € 425,00. Dit bedrag is inclusief lesmateriaal, maar exclusief het examengeld. Sommige werkgevers betalen de cursus voor hun medewerkers; vraag dit na bij uw personeelsafdeling. U kunt in twee delen betalen, mits u dit bij de inschrijving aangeeft.\n\nAnnuleren is gratis tot twee weken voor de startdatum. Daarna betaalt u 50% van het cursusgeld. Als de cursus al is begonnen, betaalt u het volledige bedrag.\n\nU ontvangt aan het einde een certificaat, op voorwaarde dat u minimaal 80% van de lessen aanwezig was en de eindopdracht voldoende heeft gemaakt. Wie het certificaat haalt, kan zich daarna via ons aanmelden voor het officiële examen.\n\nMeer informatie of inschrijven? Ga naar www.vurijnstad.nl of bel 026-555 12 34.",
+          "question": "Mevrouw Petrova annuleert de cursus één week voor de startdatum. Wat moet zij betalen?",
+          "options": [
+            "niets, want de cursus is nog niet begonnen",
+            "het volledige cursusgeld",
+            "de helft van het cursusgeld"
+          ],
+          "correct": 2,
+          "explanation": "Cancelling is only free up to two weeks before the start date; after that you pay 50% of the course fee. The full amount is only due once the course has started."
+        },
+        {
+          "passage": "cursus",
+          "passageTitle": "Avondcursus Nederlands",
+          "text": "Avondcursus Nederlands, niveau B2\n\nVolksuniversiteit Rijnstad\n\nWilt u uw Nederlands verbeteren voor uw werk of studie? In september start onze avondcursus Nederlands op weg naar niveau B2. De cursus duurt twintig weken en vindt plaats op dinsdag- en donderdagavond van 19.00 tot 21.30 uur.\n\nVoordat u zich inschrijft, maakt u eerst een intaketoets. Met deze toets bepalen wij of de cursus bij uw niveau past. De toets duurt ongeveer een uur en is gratis. Als uit de toets blijkt dat uw niveau nog niet voldoende is, adviseren wij u eerst een andere cursus te volgen.\n\nDe cursus kost € 425,00. Dit bedrag is inclusief lesmateriaal, maar exclusief het examengeld. Sommige werkgevers betalen de cursus voor hun medewerkers; vraag dit na bij uw personeelsafdeling. U kunt in twee delen betalen, mits u dit bij de inschrijving aangeeft.\n\nAnnuleren is gratis tot twee weken voor de startdatum. Daarna betaalt u 50% van het cursusgeld. Als de cursus al is begonnen, betaalt u het volledige bedrag.\n\nU ontvangt aan het einde een certificaat, op voorwaarde dat u minimaal 80% van de lessen aanwezig was en de eindopdracht voldoende heeft gemaakt. Wie het certificaat haalt, kan zich daarna via ons aanmelden voor het officiële examen.\n\nMeer informatie of inschrijven? Ga naar www.vurijnstad.nl of bel 026-555 12 34.",
+          "question": "Wanneer ontvangt u aan het einde een certificaat?",
+          "options": [
+            "als u het officiële examen heeft gehaald",
+            "als u minimaal 80% aanwezig was en de eindopdracht voldoende heeft gemaakt",
+            "als u alle lessen heeft gevolgd en het examengeld heeft betaald"
+          ],
+          "correct": 1,
+          "explanation": "The certificate has two conditions in the text: at least 80% attendance and a sufficient final assignment. The official exam comes after the certificate, not before."
+        },
+        {
+          "passage": "cursus",
+          "passageTitle": "Avondcursus Nederlands",
+          "text": "Avondcursus Nederlands, niveau B2\n\nVolksuniversiteit Rijnstad\n\nWilt u uw Nederlands verbeteren voor uw werk of studie? In september start onze avondcursus Nederlands op weg naar niveau B2. De cursus duurt twintig weken en vindt plaats op dinsdag- en donderdagavond van 19.00 tot 21.30 uur.\n\nVoordat u zich inschrijft, maakt u eerst een intaketoets. Met deze toets bepalen wij of de cursus bij uw niveau past. De toets duurt ongeveer een uur en is gratis. Als uit de toets blijkt dat uw niveau nog niet voldoende is, adviseren wij u eerst een andere cursus te volgen.\n\nDe cursus kost € 425,00. Dit bedrag is inclusief lesmateriaal, maar exclusief het examengeld. Sommige werkgevers betalen de cursus voor hun medewerkers; vraag dit na bij uw personeelsafdeling. U kunt in twee delen betalen, mits u dit bij de inschrijving aangeeft.\n\nAnnuleren is gratis tot twee weken voor de startdatum. Daarna betaalt u 50% van het cursusgeld. Als de cursus al is begonnen, betaalt u het volledige bedrag.\n\nU ontvangt aan het einde een certificaat, op voorwaarde dat u minimaal 80% van de lessen aanwezig was en de eindopdracht voldoende heeft gemaakt. Wie het certificaat haalt, kan zich daarna via ons aanmelden voor het officiële examen.\n\nMeer informatie of inschrijven? Ga naar www.vurijnstad.nl of bel 026-555 12 34.",
+          "question": "'U kunt in twee delen betalen, mits u dit bij de inschrijving aangeeft.' Wat betekent 'mits'?",
+          "options": [
+            "op voorwaarde dat",
+            "behalve als",
+            "hoewel"
+          ],
+          "correct": 0,
+          "explanation": "\"Mits\" means \"provided that\" / \"on the condition that\": paying in two instalments is only possible if you indicate this when enrolling."
+        },
+        {
+          "passage": "zorgverzekering",
+          "passageTitle": "Wijziging zorgverzekering",
+          "text": "Wijziging zorgverzekering\n\nGeachte mevrouw Jansen,\n\nUw zorgverzekering bij ZilverZorg verandert per 1 januari. In deze brief leest u wat de wijzigingen zijn en wat u kunt doen.\n\nDe premie van uw basisverzekering stijgt van € 138,50 naar € 145,25 per maand. Deze stijging komt vooral doordat de kosten van ziekenhuiszorg en medicijnen zijn gestegen. Het verplicht eigen risico blijft € 385 per jaar.\n\nOok uw aanvullende verzekering Fysio Plus wijzigt. U krijgt volgend jaar maximaal zes behandelingen fysiotherapie vergoed in plaats van negen. De vergoeding voor de tandarts blijft gelijk. De premie van de aanvullende verzekering blijft € 21,90 per maand.\n\nWat kunt u doen? Als u tevreden bent met uw verzekering, hoeft u niets te doen. Uw verzekering loopt dan automatisch door. Wilt u overstappen naar een andere verzekeraar? Dan kunt u uw huidige verzekering tot en met 31 december opzeggen. U heeft vervolgens tot 1 februari de tijd om een nieuwe verzekering af te sluiten. Die nieuwe verzekering geldt dan met terugwerkende kracht vanaf 1 januari.\n\nLet op: sluit u geen nieuwe verzekering af, dan bent u niet verzekerd. Dat kan hoge kosten en een boete opleveren.\n\nWilt u uw aanvullende verzekering aanpassen? Dat kan eenvoudig in Mijn ZilverZorg op onze website.\n\nMet vriendelijke groet,\nZilverZorg Verzekeringen",
+          "question": "Waarom stuurt ZilverZorg deze brief?",
+          "options": [
+            "om mevrouw Jansen te informeren over wijzigingen in haar verzekering",
+            "om mevrouw Jansen te adviseren over te stappen naar een andere verzekeraar",
+            "om mevrouw Jansen te waarschuwen dat zij niet meer verzekerd is"
+          ],
+          "correct": 0,
+          "explanation": "The letter informs the customer about changes taking effect on 1 January and her options. Switching is presented as a possibility, not advice, and she is currently still insured."
+        },
+        {
+          "passage": "zorgverzekering",
+          "passageTitle": "Wijziging zorgverzekering",
+          "text": "Wijziging zorgverzekering\n\nGeachte mevrouw Jansen,\n\nUw zorgverzekering bij ZilverZorg verandert per 1 januari. In deze brief leest u wat de wijzigingen zijn en wat u kunt doen.\n\nDe premie van uw basisverzekering stijgt van € 138,50 naar € 145,25 per maand. Deze stijging komt vooral doordat de kosten van ziekenhuiszorg en medicijnen zijn gestegen. Het verplicht eigen risico blijft € 385 per jaar.\n\nOok uw aanvullende verzekering Fysio Plus wijzigt. U krijgt volgend jaar maximaal zes behandelingen fysiotherapie vergoed in plaats van negen. De vergoeding voor de tandarts blijft gelijk. De premie van de aanvullende verzekering blijft € 21,90 per maand.\n\nWat kunt u doen? Als u tevreden bent met uw verzekering, hoeft u niets te doen. Uw verzekering loopt dan automatisch door. Wilt u overstappen naar een andere verzekeraar? Dan kunt u uw huidige verzekering tot en met 31 december opzeggen. U heeft vervolgens tot 1 februari de tijd om een nieuwe verzekering af te sluiten. Die nieuwe verzekering geldt dan met terugwerkende kracht vanaf 1 januari.\n\nLet op: sluit u geen nieuwe verzekering af, dan bent u niet verzekerd. Dat kan hoge kosten en een boete opleveren.\n\nWilt u uw aanvullende verzekering aanpassen? Dat kan eenvoudig in Mijn ZilverZorg op onze website.\n\nMet vriendelijke groet,\nZilverZorg Verzekeringen",
+          "question": "Wat blijft volgend jaar gelijk?",
+          "options": [
+            "de premie van de basisverzekering",
+            "het aantal vergoede behandelingen fysiotherapie",
+            "het verplicht eigen risico"
+          ],
+          "correct": 2,
+          "explanation": "The text says the mandatory deductible stays € 385 per year, while the basic premium rises and the number of reimbursed physiotherapy sessions drops from nine to six."
+        },
+        {
+          "passage": "zorgverzekering",
+          "passageTitle": "Wijziging zorgverzekering",
+          "text": "Wijziging zorgverzekering\n\nGeachte mevrouw Jansen,\n\nUw zorgverzekering bij ZilverZorg verandert per 1 januari. In deze brief leest u wat de wijzigingen zijn en wat u kunt doen.\n\nDe premie van uw basisverzekering stijgt van € 138,50 naar € 145,25 per maand. Deze stijging komt vooral doordat de kosten van ziekenhuiszorg en medicijnen zijn gestegen. Het verplicht eigen risico blijft € 385 per jaar.\n\nOok uw aanvullende verzekering Fysio Plus wijzigt. U krijgt volgend jaar maximaal zes behandelingen fysiotherapie vergoed in plaats van negen. De vergoeding voor de tandarts blijft gelijk. De premie van de aanvullende verzekering blijft € 21,90 per maand.\n\nWat kunt u doen? Als u tevreden bent met uw verzekering, hoeft u niets te doen. Uw verzekering loopt dan automatisch door. Wilt u overstappen naar een andere verzekeraar? Dan kunt u uw huidige verzekering tot en met 31 december opzeggen. U heeft vervolgens tot 1 februari de tijd om een nieuwe verzekering af te sluiten. Die nieuwe verzekering geldt dan met terugwerkende kracht vanaf 1 januari.\n\nLet op: sluit u geen nieuwe verzekering af, dan bent u niet verzekerd. Dat kan hoge kosten en een boete opleveren.\n\nWilt u uw aanvullende verzekering aanpassen? Dat kan eenvoudig in Mijn ZilverZorg op onze website.\n\nMet vriendelijke groet,\nZilverZorg Verzekeringen",
+          "question": "Waarom stijgt de premie van de basisverzekering?",
+          "options": [
+            "omdat de aanvullende verzekering is uitgebreid",
+            "omdat de kosten van ziekenhuiszorg en medicijnen zijn gestegen",
+            "omdat het eigen risico lager is geworden"
+          ],
+          "correct": 1,
+          "explanation": "The letter gives the reason explicitly: the increase is mainly due to higher costs of hospital care and medicines."
+        },
+        {
+          "passage": "zorgverzekering",
+          "passageTitle": "Wijziging zorgverzekering",
+          "text": "Wijziging zorgverzekering\n\nGeachte mevrouw Jansen,\n\nUw zorgverzekering bij ZilverZorg verandert per 1 januari. In deze brief leest u wat de wijzigingen zijn en wat u kunt doen.\n\nDe premie van uw basisverzekering stijgt van € 138,50 naar € 145,25 per maand. Deze stijging komt vooral doordat de kosten van ziekenhuiszorg en medicijnen zijn gestegen. Het verplicht eigen risico blijft € 385 per jaar.\n\nOok uw aanvullende verzekering Fysio Plus wijzigt. U krijgt volgend jaar maximaal zes behandelingen fysiotherapie vergoed in plaats van negen. De vergoeding voor de tandarts blijft gelijk. De premie van de aanvullende verzekering blijft € 21,90 per maand.\n\nWat kunt u doen? Als u tevreden bent met uw verzekering, hoeft u niets te doen. Uw verzekering loopt dan automatisch door. Wilt u overstappen naar een andere verzekeraar? Dan kunt u uw huidige verzekering tot en met 31 december opzeggen. U heeft vervolgens tot 1 februari de tijd om een nieuwe verzekering af te sluiten. Die nieuwe verzekering geldt dan met terugwerkende kracht vanaf 1 januari.\n\nLet op: sluit u geen nieuwe verzekering af, dan bent u niet verzekerd. Dat kan hoge kosten en een boete opleveren.\n\nWilt u uw aanvullende verzekering aanpassen? Dat kan eenvoudig in Mijn ZilverZorg op onze website.\n\nMet vriendelijke groet,\nZilverZorg Verzekeringen",
+          "question": "Mevrouw Jansen wil overstappen naar een andere verzekeraar. Wat moet zij vóór 31 december doen?",
+          "options": [
+            "haar huidige verzekering opzeggen",
+            "een nieuwe verzekering afsluiten",
+            "haar aanvullende verzekering aanpassen"
+          ],
+          "correct": 0,
+          "explanation": "According to the text she must cancel her current insurance by 31 December at the latest; taking out the new policy can wait until 1 February."
+        },
+        {
+          "passage": "zorgverzekering",
+          "passageTitle": "Wijziging zorgverzekering",
+          "text": "Wijziging zorgverzekering\n\nGeachte mevrouw Jansen,\n\nUw zorgverzekering bij ZilverZorg verandert per 1 januari. In deze brief leest u wat de wijzigingen zijn en wat u kunt doen.\n\nDe premie van uw basisverzekering stijgt van € 138,50 naar € 145,25 per maand. Deze stijging komt vooral doordat de kosten van ziekenhuiszorg en medicijnen zijn gestegen. Het verplicht eigen risico blijft € 385 per jaar.\n\nOok uw aanvullende verzekering Fysio Plus wijzigt. U krijgt volgend jaar maximaal zes behandelingen fysiotherapie vergoed in plaats van negen. De vergoeding voor de tandarts blijft gelijk. De premie van de aanvullende verzekering blijft € 21,90 per maand.\n\nWat kunt u doen? Als u tevreden bent met uw verzekering, hoeft u niets te doen. Uw verzekering loopt dan automatisch door. Wilt u overstappen naar een andere verzekeraar? Dan kunt u uw huidige verzekering tot en met 31 december opzeggen. U heeft vervolgens tot 1 februari de tijd om een nieuwe verzekering af te sluiten. Die nieuwe verzekering geldt dan met terugwerkende kracht vanaf 1 januari.\n\nLet op: sluit u geen nieuwe verzekering af, dan bent u niet verzekerd. Dat kan hoge kosten en een boete opleveren.\n\nWilt u uw aanvullende verzekering aanpassen? Dat kan eenvoudig in Mijn ZilverZorg op onze website.\n\nMet vriendelijke groet,\nZilverZorg Verzekeringen",
+          "question": "'Die nieuwe verzekering geldt dan met terugwerkende kracht vanaf 1 januari.' Wat betekent dit?",
+          "options": [
+            "De verzekering gaat pas in op het moment van afsluiten",
+            "De verzekering moet vóór 1 januari worden afgesloten",
+            "De verzekering geldt ook voor de periode vóór het moment van afsluiten"
+          ],
+          "correct": 2,
+          "explanation": "\"Met terugwerkende kracht\" means retroactively: even if the new policy is signed in January, it counts as valid from 1 January."
+        },
+        {
+          "passage": "opinie_auto",
+          "passageTitle": "Minder auto's in de binnenstad",
+          "text": "Minder auto's in de binnenstad? Juist goed voor iedereen\n\nVolgende maand beslist de gemeenteraad of het centrum van onze stad autovrij wordt. Veel winkeliers zijn tegen het plan, omdat zij bang zijn klanten te verliezen. Die angst begrijp ik, maar volgens mij is ze onterecht.\n\nUit onderzoek in andere steden blijkt namelijk dat winkels in autovrije straten juist méér klanten krijgen. Mensen blijven langer in een straat waar het rustig en veilig is. Bovendien komen de meeste bezoekers van ons centrum nu al met de fiets of met het openbaar vervoer; slechts twintig procent komt met de auto.\n\nEr zijn nog meer voordelen. De lucht in de binnenstad wordt schoner, waardoor bewoners gezonder leven. Kinderen kunnen veiliger naar school fietsen. En op de plek van parkeerplaatsen komt ruimte voor bomen en bankjes.\n\nNatuurlijk zijn er ook nadelen. Voor ouderen en mensen die slecht ter been zijn, moet het centrum bereikbaar blijven. Daarom stel ik voor dat er een gratis pendelbusje gaat rijden vanaf de parkeerplaatsen aan de rand van de stad. Ook moeten bewoners van het centrum en leveranciers een ontheffing kunnen krijgen, zodat zij er wél mogen rijden.\n\nIk hoop dat de gemeenteraad volgende maand een moedig besluit neemt. Onze binnenstad is te mooi om vol te staan met auto's.\n\nKarim el Amrani, bewoner van de binnenstad",
+          "question": "Wat vindt Karim el Amrani?",
+          "options": [
+            "De winkeliers hebben gelijk met hun bezwaren",
+            "Er moeten meer parkeerplaatsen komen in het centrum",
+            "De binnenstad moet autovrij worden"
+          ],
+          "correct": 2,
+          "explanation": "The whole piece argues in favour of a car-free centre and ends with the hope that the council takes a \"moedig besluit\". He calls the shopkeepers' fear understandable but unjustified."
+        },
+        {
+          "passage": "opinie_auto",
+          "passageTitle": "Minder auto's in de binnenstad",
+          "text": "Minder auto's in de binnenstad? Juist goed voor iedereen\n\nVolgende maand beslist de gemeenteraad of het centrum van onze stad autovrij wordt. Veel winkeliers zijn tegen het plan, omdat zij bang zijn klanten te verliezen. Die angst begrijp ik, maar volgens mij is ze onterecht.\n\nUit onderzoek in andere steden blijkt namelijk dat winkels in autovrije straten juist méér klanten krijgen. Mensen blijven langer in een straat waar het rustig en veilig is. Bovendien komen de meeste bezoekers van ons centrum nu al met de fiets of met het openbaar vervoer; slechts twintig procent komt met de auto.\n\nEr zijn nog meer voordelen. De lucht in de binnenstad wordt schoner, waardoor bewoners gezonder leven. Kinderen kunnen veiliger naar school fietsen. En op de plek van parkeerplaatsen komt ruimte voor bomen en bankjes.\n\nNatuurlijk zijn er ook nadelen. Voor ouderen en mensen die slecht ter been zijn, moet het centrum bereikbaar blijven. Daarom stel ik voor dat er een gratis pendelbusje gaat rijden vanaf de parkeerplaatsen aan de rand van de stad. Ook moeten bewoners van het centrum en leveranciers een ontheffing kunnen krijgen, zodat zij er wél mogen rijden.\n\nIk hoop dat de gemeenteraad volgende maand een moedig besluit neemt. Onze binnenstad is te mooi om vol te staan met auto's.\n\nKarim el Amrani, bewoner van de binnenstad",
+          "question": "Waarom zijn veel winkeliers tegen het plan?",
+          "options": [
+            "Zij kunnen hun winkels dan niet meer bevoorraden",
+            "Zij zijn bang klanten te verliezen",
+            "Zij vinden het pendelbusje te duur"
+          ],
+          "correct": 1,
+          "explanation": "The first paragraph states that many shopkeepers oppose the plan because they fear losing customers. Deliveries are addressed later via an exemption, and the shuttle bus would be free."
+        },
+        {
+          "passage": "opinie_auto",
+          "passageTitle": "Minder auto's in de binnenstad",
+          "text": "Minder auto's in de binnenstad? Juist goed voor iedereen\n\nVolgende maand beslist de gemeenteraad of het centrum van onze stad autovrij wordt. Veel winkeliers zijn tegen het plan, omdat zij bang zijn klanten te verliezen. Die angst begrijp ik, maar volgens mij is ze onterecht.\n\nUit onderzoek in andere steden blijkt namelijk dat winkels in autovrije straten juist méér klanten krijgen. Mensen blijven langer in een straat waar het rustig en veilig is. Bovendien komen de meeste bezoekers van ons centrum nu al met de fiets of met het openbaar vervoer; slechts twintig procent komt met de auto.\n\nEr zijn nog meer voordelen. De lucht in de binnenstad wordt schoner, waardoor bewoners gezonder leven. Kinderen kunnen veiliger naar school fietsen. En op de plek van parkeerplaatsen komt ruimte voor bomen en bankjes.\n\nNatuurlijk zijn er ook nadelen. Voor ouderen en mensen die slecht ter been zijn, moet het centrum bereikbaar blijven. Daarom stel ik voor dat er een gratis pendelbusje gaat rijden vanaf de parkeerplaatsen aan de rand van de stad. Ook moeten bewoners van het centrum en leveranciers een ontheffing kunnen krijgen, zodat zij er wél mogen rijden.\n\nIk hoop dat de gemeenteraad volgende maand een moedig besluit neemt. Onze binnenstad is te mooi om vol te staan met auto's.\n\nKarim el Amrani, bewoner van de binnenstad",
+          "question": "Wat blijkt uit onderzoek in andere steden?",
+          "options": [
+            "Winkels in autovrije straten krijgen juist meer klanten",
+            "De meeste bezoekers komen met de auto naar het centrum",
+            "Autovrije straten zorgen voor minder bezoekers"
+          ],
+          "correct": 0,
+          "explanation": "The text cites research showing that shops in car-free streets actually attract more customers; only twenty percent of visitors currently come by car."
+        },
+        {
+          "passage": "opinie_auto",
+          "passageTitle": "Minder auto's in de binnenstad",
+          "text": "Minder auto's in de binnenstad? Juist goed voor iedereen\n\nVolgende maand beslist de gemeenteraad of het centrum van onze stad autovrij wordt. Veel winkeliers zijn tegen het plan, omdat zij bang zijn klanten te verliezen. Die angst begrijp ik, maar volgens mij is ze onterecht.\n\nUit onderzoek in andere steden blijkt namelijk dat winkels in autovrije straten juist méér klanten krijgen. Mensen blijven langer in een straat waar het rustig en veilig is. Bovendien komen de meeste bezoekers van ons centrum nu al met de fiets of met het openbaar vervoer; slechts twintig procent komt met de auto.\n\nEr zijn nog meer voordelen. De lucht in de binnenstad wordt schoner, waardoor bewoners gezonder leven. Kinderen kunnen veiliger naar school fietsen. En op de plek van parkeerplaatsen komt ruimte voor bomen en bankjes.\n\nNatuurlijk zijn er ook nadelen. Voor ouderen en mensen die slecht ter been zijn, moet het centrum bereikbaar blijven. Daarom stel ik voor dat er een gratis pendelbusje gaat rijden vanaf de parkeerplaatsen aan de rand van de stad. Ook moeten bewoners van het centrum en leveranciers een ontheffing kunnen krijgen, zodat zij er wél mogen rijden.\n\nIk hoop dat de gemeenteraad volgende maand een moedig besluit neemt. Onze binnenstad is te mooi om vol te staan met auto's.\n\nKarim el Amrani, bewoner van de binnenstad",
+          "question": "Waarom stelt Karim een gratis pendelbusje voor?",
+          "options": [
+            "zodat winkeliers hun producten kunnen laten bezorgen",
+            "zodat bezoekers sneller een parkeerplaats vinden in het centrum",
+            "zodat het centrum bereikbaar blijft voor ouderen en mensen die slecht ter been zijn"
+          ],
+          "correct": 2,
+          "explanation": "He introduces the shuttle bus directly after saying the centre must remain accessible for the elderly and people who have difficulty walking (\"Daarom stel ik voor...\")."
+        },
+        {
+          "passage": "opinie_auto",
+          "passageTitle": "Minder auto's in de binnenstad",
+          "text": "Minder auto's in de binnenstad? Juist goed voor iedereen\n\nVolgende maand beslist de gemeenteraad of het centrum van onze stad autovrij wordt. Veel winkeliers zijn tegen het plan, omdat zij bang zijn klanten te verliezen. Die angst begrijp ik, maar volgens mij is ze onterecht.\n\nUit onderzoek in andere steden blijkt namelijk dat winkels in autovrije straten juist méér klanten krijgen. Mensen blijven langer in een straat waar het rustig en veilig is. Bovendien komen de meeste bezoekers van ons centrum nu al met de fiets of met het openbaar vervoer; slechts twintig procent komt met de auto.\n\nEr zijn nog meer voordelen. De lucht in de binnenstad wordt schoner, waardoor bewoners gezonder leven. Kinderen kunnen veiliger naar school fietsen. En op de plek van parkeerplaatsen komt ruimte voor bomen en bankjes.\n\nNatuurlijk zijn er ook nadelen. Voor ouderen en mensen die slecht ter been zijn, moet het centrum bereikbaar blijven. Daarom stel ik voor dat er een gratis pendelbusje gaat rijden vanaf de parkeerplaatsen aan de rand van de stad. Ook moeten bewoners van het centrum en leveranciers een ontheffing kunnen krijgen, zodat zij er wél mogen rijden.\n\nIk hoop dat de gemeenteraad volgende maand een moedig besluit neemt. Onze binnenstad is te mooi om vol te staan met auto's.\n\nKarim el Amrani, bewoner van de binnenstad",
+          "question": "'Ook moeten bewoners van het centrum en leveranciers een ontheffing kunnen krijgen.' Wat is een 'ontheffing'?",
+          "options": [
+            "een korting op de parkeerkosten",
+            "een toestemming om iets te doen dat normaal niet mag",
+            "een boete voor het rijden in een autovrij gebied"
+          ],
+          "correct": 1,
+          "explanation": "An \"ontheffing\" is an exemption: official permission to do something that is normally forbidden — here, driving in the car-free centre (\"zodat zij er wél mogen rijden\")."
+        },
+        {
+          "passage": "spoorwerk",
+          "passageTitle": "Werkzaamheden op het spoor",
+          "text": "Werkzaamheden tussen Rijnstad en Zuidburg\n\nVan zaterdag 3 oktober tot en met zondag 11 oktober rijden er geen treinen tussen Rijnstad en Zuidburg. ProRail vervangt in deze periode de rails en vernieuwt twee overwegen. Dit onderhoud is nodig omdat het spoor op dit traject meer dan dertig jaar oud is.\n\nReist u in deze periode tussen Rijnstad en Zuidburg? Dan kunt u gebruikmaken van vervangende bussen. Er rijden twee soorten bussen: de snelbus, die zonder tussenstops van Rijnstad naar Zuidburg rijdt, en de stopbus, die ook stopt bij de stations Veldhoven-Oost en Meerdijk. Houd rekening met ongeveer dertig minuten extra reistijd. In de spits kan dit oplopen tot een uur.\n\nDe bussen vertrekken aan de achterzijde van het station; volg hiervoor de gele borden. Uw gewone treinkaartje of OV-chipkaart is geldig in de bus. In- en uitchecken doet u op het station, niet in de bus. Let op: in de vervangende bussen mag u geen fiets meenemen. Een vouwfiets mag wel, mits opgevouwen.\n\nWij raden u aan uw reis vooraf te plannen met de reisplanner in de app. Daarin ziet u de actuele vertrektijden van de bussen.\n\nWij bieden onze excuses aan voor het ongemak.",
+          "question": "Wat is het doel van deze tekst?",
+          "options": [
+            "reizigers waarschuwen dat treinkaartjes tijdelijk duurder worden",
+            "reizigers informeren over de werkzaamheden en het vervangende vervoer",
+            "reizigers adviseren om in oktober niet met het openbaar vervoer te reizen"
+          ],
+          "correct": 1,
+          "explanation": "The announcement explains when there are no trains and how travellers can use replacement buses. It does not advise against travelling, and normal tickets remain valid."
+        },
+        {
+          "passage": "spoorwerk",
+          "passageTitle": "Werkzaamheden op het spoor",
+          "text": "Werkzaamheden tussen Rijnstad en Zuidburg\n\nVan zaterdag 3 oktober tot en met zondag 11 oktober rijden er geen treinen tussen Rijnstad en Zuidburg. ProRail vervangt in deze periode de rails en vernieuwt twee overwegen. Dit onderhoud is nodig omdat het spoor op dit traject meer dan dertig jaar oud is.\n\nReist u in deze periode tussen Rijnstad en Zuidburg? Dan kunt u gebruikmaken van vervangende bussen. Er rijden twee soorten bussen: de snelbus, die zonder tussenstops van Rijnstad naar Zuidburg rijdt, en de stopbus, die ook stopt bij de stations Veldhoven-Oost en Meerdijk. Houd rekening met ongeveer dertig minuten extra reistijd. In de spits kan dit oplopen tot een uur.\n\nDe bussen vertrekken aan de achterzijde van het station; volg hiervoor de gele borden. Uw gewone treinkaartje of OV-chipkaart is geldig in de bus. In- en uitchecken doet u op het station, niet in de bus. Let op: in de vervangende bussen mag u geen fiets meenemen. Een vouwfiets mag wel, mits opgevouwen.\n\nWij raden u aan uw reis vooraf te plannen met de reisplanner in de app. Daarin ziet u de actuele vertrektijden van de bussen.\n\nWij bieden onze excuses aan voor het ongemak.",
+          "question": "Waarom is het onderhoud nodig?",
+          "options": [
+            "omdat het spoor op dit traject meer dan dertig jaar oud is",
+            "omdat er een nieuw station wordt gebouwd bij Meerdijk",
+            "omdat er in de spits te veel treinen rijden"
+          ],
+          "correct": 0,
+          "explanation": "The first paragraph gives the reason directly: the track on this route is more than thirty years old, so the rails and two level crossings are being replaced."
+        },
+        {
+          "passage": "spoorwerk",
+          "passageTitle": "Werkzaamheden op het spoor",
+          "text": "Werkzaamheden tussen Rijnstad en Zuidburg\n\nVan zaterdag 3 oktober tot en met zondag 11 oktober rijden er geen treinen tussen Rijnstad en Zuidburg. ProRail vervangt in deze periode de rails en vernieuwt twee overwegen. Dit onderhoud is nodig omdat het spoor op dit traject meer dan dertig jaar oud is.\n\nReist u in deze periode tussen Rijnstad en Zuidburg? Dan kunt u gebruikmaken van vervangende bussen. Er rijden twee soorten bussen: de snelbus, die zonder tussenstops van Rijnstad naar Zuidburg rijdt, en de stopbus, die ook stopt bij de stations Veldhoven-Oost en Meerdijk. Houd rekening met ongeveer dertig minuten extra reistijd. In de spits kan dit oplopen tot een uur.\n\nDe bussen vertrekken aan de achterzijde van het station; volg hiervoor de gele borden. Uw gewone treinkaartje of OV-chipkaart is geldig in de bus. In- en uitchecken doet u op het station, niet in de bus. Let op: in de vervangende bussen mag u geen fiets meenemen. Een vouwfiets mag wel, mits opgevouwen.\n\nWij raden u aan uw reis vooraf te plannen met de reisplanner in de app. Daarin ziet u de actuele vertrektijden van de bussen.\n\nWij bieden onze excuses aan voor het ongemak.",
+          "question": "Wat is het verschil tussen de snelbus en de stopbus?",
+          "options": [
+            "De snelbus vertrekt aan de voorzijde van het station",
+            "De stopbus is alleen bedoeld voor reizigers met een fiets",
+            "De stopbus stopt ook bij de stations Veldhoven-Oost en Meerdijk"
+          ],
+          "correct": 2,
+          "explanation": "The fast bus runs non-stop between Rijnstad and Zuidburg, while the stopbus also calls at Veldhoven-Oost and Meerdijk. Both leave from the rear of the station, and neither takes regular bikes."
+        },
+        {
+          "passage": "spoorwerk",
+          "passageTitle": "Werkzaamheden op het spoor",
+          "text": "Werkzaamheden tussen Rijnstad en Zuidburg\n\nVan zaterdag 3 oktober tot en met zondag 11 oktober rijden er geen treinen tussen Rijnstad en Zuidburg. ProRail vervangt in deze periode de rails en vernieuwt twee overwegen. Dit onderhoud is nodig omdat het spoor op dit traject meer dan dertig jaar oud is.\n\nReist u in deze periode tussen Rijnstad en Zuidburg? Dan kunt u gebruikmaken van vervangende bussen. Er rijden twee soorten bussen: de snelbus, die zonder tussenstops van Rijnstad naar Zuidburg rijdt, en de stopbus, die ook stopt bij de stations Veldhoven-Oost en Meerdijk. Houd rekening met ongeveer dertig minuten extra reistijd. In de spits kan dit oplopen tot een uur.\n\nDe bussen vertrekken aan de achterzijde van het station; volg hiervoor de gele borden. Uw gewone treinkaartje of OV-chipkaart is geldig in de bus. In- en uitchecken doet u op het station, niet in de bus. Let op: in de vervangende bussen mag u geen fiets meenemen. Een vouwfiets mag wel, mits opgevouwen.\n\nWij raden u aan uw reis vooraf te plannen met de reisplanner in de app. Daarin ziet u de actuele vertrektijden van de bussen.\n\nWij bieden onze excuses aan voor het ongemak.",
+          "question": "Wat is waar over het meenemen van een fiets in de vervangende bus?",
+          "options": [
+            "Alle fietsen mogen mee als de bus niet vol is",
+            "Een gewone fiets mag niet mee, een opgevouwen vouwfiets wel",
+            "Fietsen mogen alleen mee in de stopbus"
+          ],
+          "correct": 1,
+          "explanation": "The text says bikes are not allowed on the replacement buses, with one exception: a folding bike is allowed provided it is folded (\"mits opgevouwen\")."
+        },
+        {
+          "passage": "spoorwerk",
+          "passageTitle": "Werkzaamheden op het spoor",
+          "text": "Werkzaamheden tussen Rijnstad en Zuidburg\n\nVan zaterdag 3 oktober tot en met zondag 11 oktober rijden er geen treinen tussen Rijnstad en Zuidburg. ProRail vervangt in deze periode de rails en vernieuwt twee overwegen. Dit onderhoud is nodig omdat het spoor op dit traject meer dan dertig jaar oud is.\n\nReist u in deze periode tussen Rijnstad en Zuidburg? Dan kunt u gebruikmaken van vervangende bussen. Er rijden twee soorten bussen: de snelbus, die zonder tussenstops van Rijnstad naar Zuidburg rijdt, en de stopbus, die ook stopt bij de stations Veldhoven-Oost en Meerdijk. Houd rekening met ongeveer dertig minuten extra reistijd. In de spits kan dit oplopen tot een uur.\n\nDe bussen vertrekken aan de achterzijde van het station; volg hiervoor de gele borden. Uw gewone treinkaartje of OV-chipkaart is geldig in de bus. In- en uitchecken doet u op het station, niet in de bus. Let op: in de vervangende bussen mag u geen fiets meenemen. Een vouwfiets mag wel, mits opgevouwen.\n\nWij raden u aan uw reis vooraf te plannen met de reisplanner in de app. Daarin ziet u de actuele vertrektijden van de bussen.\n\nWij bieden onze excuses aan voor het ongemak.",
+          "question": "Mevrouw Kaya reist op maandag om 8.00 uur van Rijnstad naar Zuidburg. Waarmee moet zij rekening houden?",
+          "options": [
+            "met extra reistijd die kan oplopen tot een uur",
+            "met precies dertig minuten extra reistijd",
+            "met een bus die alleen op het hele uur vertrekt"
+          ],
+          "correct": 0,
+          "explanation": "Monday 8.00 is rush hour (\"de spits\"), and the text warns that the extra travel time of about thirty minutes can then increase to an hour."
+        }
+      ],
+      "sectionNames": {
+        "rooster": "1. Nieuw roostersysteem",
+        "afval": "2. Nieuwe afvalinzameling",
+        "cursus": "3. Avondcursus Nederlands",
+        "zorgverzekering": "4. Wijziging zorgverzekering",
+        "opinie_auto": "5. Minder auto's in de binnenstad",
+        "spoorwerk": "6. Werkzaamheden op het spoor"
+      }
+    },
+    "exam2": {
+      "name": "B1 Lezen Oefenexamen 2",
+      "questions": [
+        {
+          "passage": "contract",
+          "passageTitle": "Verlenging arbeidscontract",
+          "text": "Verlenging arbeidscontract\n\nGeachte heer Tavares,\n\nUw arbeidscontract bij Zonneveld Installatietechniek loopt op 31 december af. Wij zijn tevreden over uw werk en bieden u daarom een nieuw contract aan voor de duur van één jaar.\n\nIn het nieuwe contract verandert er een aantal zaken. U gaat 36 uur per week werken in plaats van 32 uur. Uw brutosalaris stijgt naar € 2.980 per maand op basis van deze 36 uur. Daarnaast komt u vanaf 1 januari in aanmerking voor een reiskostenvergoeding, omdat deze regeling is uitgebreid naar alle medewerkers met een contract van minimaal 32 uur.\n\nUw overige arbeidsvoorwaarden, zoals het aantal vakantiedagen en de pensioenregeling, blijven ongewijzigd.\n\nWilt u het nieuwe contract accepteren? Log dan vóór 15 december in op het personeelsportaal en onderteken het contract digitaal. Reageert u niet vóór deze datum, dan gaan wij ervan uit dat u het aanbod niet accepteert. Uw huidige contract eindigt in dat geval automatisch op 31 december.\n\nHeeft u vragen over het aanbod, of wilt u over de inhoud praten? Maak dan een afspraak met uw leidinggevende, Peter de Wit. Hij kan u ook meer vertellen over de mogelijkheden voor een vast contract in de toekomst.\n\nMet vriendelijke groet,\nAnouk Zonneveld\nDirecteur",
+          "question": "Waarom heeft meneer Tavares deze brief ontvangen?",
+          "options": [
+            "Zijn werkgever biedt hem een nieuw contract aan",
+            "Zijn werkgever wil het huidige contract eerder beëindigen",
+            "Zijn werkgever nodigt hem uit voor een beoordelingsgesprek"
+          ],
+          "correct": 0,
+          "explanation": "The employer is satisfied with his work and offers him a new one-year contract. The current contract simply expires on 31 December; nothing is ended early."
+        },
+        {
+          "passage": "contract",
+          "passageTitle": "Verlenging arbeidscontract",
+          "text": "Verlenging arbeidscontract\n\nGeachte heer Tavares,\n\nUw arbeidscontract bij Zonneveld Installatietechniek loopt op 31 december af. Wij zijn tevreden over uw werk en bieden u daarom een nieuw contract aan voor de duur van één jaar.\n\nIn het nieuwe contract verandert er een aantal zaken. U gaat 36 uur per week werken in plaats van 32 uur. Uw brutosalaris stijgt naar € 2.980 per maand op basis van deze 36 uur. Daarnaast komt u vanaf 1 januari in aanmerking voor een reiskostenvergoeding, omdat deze regeling is uitgebreid naar alle medewerkers met een contract van minimaal 32 uur.\n\nUw overige arbeidsvoorwaarden, zoals het aantal vakantiedagen en de pensioenregeling, blijven ongewijzigd.\n\nWilt u het nieuwe contract accepteren? Log dan vóór 15 december in op het personeelsportaal en onderteken het contract digitaal. Reageert u niet vóór deze datum, dan gaan wij ervan uit dat u het aanbod niet accepteert. Uw huidige contract eindigt in dat geval automatisch op 31 december.\n\nHeeft u vragen over het aanbod, of wilt u over de inhoud praten? Maak dan een afspraak met uw leidinggevende, Peter de Wit. Hij kan u ook meer vertellen over de mogelijkheden voor een vast contract in de toekomst.\n\nMet vriendelijke groet,\nAnouk Zonneveld\nDirecteur",
+          "question": "Wat verandert er in het nieuwe contract?",
+          "options": [
+            "het aantal vakantiedagen",
+            "de pensioenregeling",
+            "het aantal uren dat hij per week werkt"
+          ],
+          "correct": 2,
+          "explanation": "The new contract raises his working hours from 32 to 36 per week. The text explicitly says holidays and the pension scheme remain unchanged (\"blijven ongewijzigd\")."
+        },
+        {
+          "passage": "contract",
+          "passageTitle": "Verlenging arbeidscontract",
+          "text": "Verlenging arbeidscontract\n\nGeachte heer Tavares,\n\nUw arbeidscontract bij Zonneveld Installatietechniek loopt op 31 december af. Wij zijn tevreden over uw werk en bieden u daarom een nieuw contract aan voor de duur van één jaar.\n\nIn het nieuwe contract verandert er een aantal zaken. U gaat 36 uur per week werken in plaats van 32 uur. Uw brutosalaris stijgt naar € 2.980 per maand op basis van deze 36 uur. Daarnaast komt u vanaf 1 januari in aanmerking voor een reiskostenvergoeding, omdat deze regeling is uitgebreid naar alle medewerkers met een contract van minimaal 32 uur.\n\nUw overige arbeidsvoorwaarden, zoals het aantal vakantiedagen en de pensioenregeling, blijven ongewijzigd.\n\nWilt u het nieuwe contract accepteren? Log dan vóór 15 december in op het personeelsportaal en onderteken het contract digitaal. Reageert u niet vóór deze datum, dan gaan wij ervan uit dat u het aanbod niet accepteert. Uw huidige contract eindigt in dat geval automatisch op 31 december.\n\nHeeft u vragen over het aanbod, of wilt u over de inhoud praten? Maak dan een afspraak met uw leidinggevende, Peter de Wit. Hij kan u ook meer vertellen over de mogelijkheden voor een vast contract in de toekomst.\n\nMet vriendelijke groet,\nAnouk Zonneveld\nDirecteur",
+          "question": "'U komt in aanmerking voor een reiskostenvergoeding.' Wat betekent dit?",
+          "options": [
+            "Hij krijgt de vergoeding alleen als de directeur dat goedkeurt",
+            "Hij kan de reiskostenvergoeding krijgen",
+            "Hij moet zijn reiskosten voortaan zelf betalen"
+          ],
+          "correct": 1,
+          "explanation": "\"In aanmerking komen voor\" means to qualify for / be eligible for something: from 1 January he is entitled to the travel allowance because the scheme now covers contracts of 32 hours or more."
+        },
+        {
+          "passage": "contract",
+          "passageTitle": "Verlenging arbeidscontract",
+          "text": "Verlenging arbeidscontract\n\nGeachte heer Tavares,\n\nUw arbeidscontract bij Zonneveld Installatietechniek loopt op 31 december af. Wij zijn tevreden over uw werk en bieden u daarom een nieuw contract aan voor de duur van één jaar.\n\nIn het nieuwe contract verandert er een aantal zaken. U gaat 36 uur per week werken in plaats van 32 uur. Uw brutosalaris stijgt naar € 2.980 per maand op basis van deze 36 uur. Daarnaast komt u vanaf 1 januari in aanmerking voor een reiskostenvergoeding, omdat deze regeling is uitgebreid naar alle medewerkers met een contract van minimaal 32 uur.\n\nUw overige arbeidsvoorwaarden, zoals het aantal vakantiedagen en de pensioenregeling, blijven ongewijzigd.\n\nWilt u het nieuwe contract accepteren? Log dan vóór 15 december in op het personeelsportaal en onderteken het contract digitaal. Reageert u niet vóór deze datum, dan gaan wij ervan uit dat u het aanbod niet accepteert. Uw huidige contract eindigt in dat geval automatisch op 31 december.\n\nHeeft u vragen over het aanbod, of wilt u over de inhoud praten? Maak dan een afspraak met uw leidinggevende, Peter de Wit. Hij kan u ook meer vertellen over de mogelijkheden voor een vast contract in de toekomst.\n\nMet vriendelijke groet,\nAnouk Zonneveld\nDirecteur",
+          "question": "Meneer Tavares reageert niet vóór 15 december. Wat gebeurt er dan?",
+          "options": [
+            "Zijn huidige contract eindigt automatisch op 31 december",
+            "Zijn huidige contract wordt automatisch met één jaar verlengd",
+            "Hij krijgt een herinnering van de afdeling personeelszaken"
+          ],
+          "correct": 0,
+          "explanation": "The letter states that no response before 15 December is treated as declining the offer, in which case the current contract ends automatically on 31 December."
+        },
+        {
+          "passage": "contract",
+          "passageTitle": "Verlenging arbeidscontract",
+          "text": "Verlenging arbeidscontract\n\nGeachte heer Tavares,\n\nUw arbeidscontract bij Zonneveld Installatietechniek loopt op 31 december af. Wij zijn tevreden over uw werk en bieden u daarom een nieuw contract aan voor de duur van één jaar.\n\nIn het nieuwe contract verandert er een aantal zaken. U gaat 36 uur per week werken in plaats van 32 uur. Uw brutosalaris stijgt naar € 2.980 per maand op basis van deze 36 uur. Daarnaast komt u vanaf 1 januari in aanmerking voor een reiskostenvergoeding, omdat deze regeling is uitgebreid naar alle medewerkers met een contract van minimaal 32 uur.\n\nUw overige arbeidsvoorwaarden, zoals het aantal vakantiedagen en de pensioenregeling, blijven ongewijzigd.\n\nWilt u het nieuwe contract accepteren? Log dan vóór 15 december in op het personeelsportaal en onderteken het contract digitaal. Reageert u niet vóór deze datum, dan gaan wij ervan uit dat u het aanbod niet accepteert. Uw huidige contract eindigt in dat geval automatisch op 31 december.\n\nHeeft u vragen over het aanbod, of wilt u over de inhoud praten? Maak dan een afspraak met uw leidinggevende, Peter de Wit. Hij kan u ook meer vertellen over de mogelijkheden voor een vast contract in de toekomst.\n\nMet vriendelijke groet,\nAnouk Zonneveld\nDirecteur",
+          "question": "Wat moet meneer Tavares doen als hij over de inhoud van het aanbod wil praten?",
+          "options": [
+            "inloggen op het personeelsportaal",
+            "een brief schrijven aan directeur Anouk Zonneveld",
+            "een afspraak maken met zijn leidinggevende, Peter de Wit"
+          ],
+          "correct": 2,
+          "explanation": "For questions or a conversation about the offer, the letter directs him to make an appointment with his supervisor Peter de Wit; the portal is only for signing the contract."
+        },
+        {
+          "passage": "zorgtoeslag",
+          "passageTitle": "Controleer uw zorgtoeslag",
+          "text": "Controleer uw zorgtoeslag\n\nGeachte heer Nowak,\n\nU ontvangt zorgtoeslag. Met deze brief vragen wij u om uw gegevens voor volgend jaar te controleren. Zo voorkomt u dat u geld moet terugbetalen.\n\nDe hoogte van uw zorgtoeslag hangt af van uw inkomen. Voor volgend jaar zijn wij uitgegaan van een geschat inkomen van € 24.000. Dit bedrag is gebaseerd op uw inkomen van dit jaar. Klopt deze schatting niet meer, bijvoorbeeld omdat u meer bent gaan werken of een hoger salaris heeft gekregen? Geef uw nieuwe inkomen dan vóór 1 december aan ons door.\n\nWaarom is dit belangrijk? Als uw werkelijke inkomen hoger is dan de schatting, heeft u recht op minder toeslag. Ontvangt u toch het hogere bedrag, dan moet u het verschil na afloop van het jaar terugbetalen. Dat kan om honderden euro's gaan.\n\nOok veranderingen in uw persoonlijke situatie kunnen gevolgen hebben voor uw toeslag. Gaat u bijvoorbeeld samenwonen of verhuist u naar het buitenland? Geef dit dan binnen vier weken door.\n\nWijzigingen geeft u door via Mijn Toeslagen op onze website. U logt in met uw DigiD. Lukt het niet om in te loggen, bel dan de BelastingTelefoon.\n\nControleer uw gegevens ook als er niets is veranderd. Zo weet u zeker dat uw toeslag klopt.\n\nMet vriendelijke groet,\nBelastingdienst/Toeslagen",
+          "question": "Wat wil de Belastingdienst dat meneer Nowak doet?",
+          "options": [
+            "zijn zorgtoeslag vóór 1 december stopzetten",
+            "een hoger bedrag aan zorgtoeslag aanvragen",
+            "zijn gegevens controleren en veranderingen doorgeven"
+          ],
+          "correct": 2,
+          "explanation": "The letter asks him to check his details for next year and to report changes in income or personal situation, so that he does not have to pay money back later."
+        },
+        {
+          "passage": "zorgtoeslag",
+          "passageTitle": "Controleer uw zorgtoeslag",
+          "text": "Controleer uw zorgtoeslag\n\nGeachte heer Nowak,\n\nU ontvangt zorgtoeslag. Met deze brief vragen wij u om uw gegevens voor volgend jaar te controleren. Zo voorkomt u dat u geld moet terugbetalen.\n\nDe hoogte van uw zorgtoeslag hangt af van uw inkomen. Voor volgend jaar zijn wij uitgegaan van een geschat inkomen van € 24.000. Dit bedrag is gebaseerd op uw inkomen van dit jaar. Klopt deze schatting niet meer, bijvoorbeeld omdat u meer bent gaan werken of een hoger salaris heeft gekregen? Geef uw nieuwe inkomen dan vóór 1 december aan ons door.\n\nWaarom is dit belangrijk? Als uw werkelijke inkomen hoger is dan de schatting, heeft u recht op minder toeslag. Ontvangt u toch het hogere bedrag, dan moet u het verschil na afloop van het jaar terugbetalen. Dat kan om honderden euro's gaan.\n\nOok veranderingen in uw persoonlijke situatie kunnen gevolgen hebben voor uw toeslag. Gaat u bijvoorbeeld samenwonen of verhuist u naar het buitenland? Geef dit dan binnen vier weken door.\n\nWijzigingen geeft u door via Mijn Toeslagen op onze website. U logt in met uw DigiD. Lukt het niet om in te loggen, bel dan de BelastingTelefoon.\n\nControleer uw gegevens ook als er niets is veranderd. Zo weet u zeker dat uw toeslag klopt.\n\nMet vriendelijke groet,\nBelastingdienst/Toeslagen",
+          "question": "Waarop is het geschatte inkomen van € 24.000 gebaseerd?",
+          "options": [
+            "op het salaris dat zijn werkgever heeft doorgegeven",
+            "op zijn inkomen van dit jaar",
+            "op het gemiddelde inkomen in Nederland"
+          ],
+          "correct": 1,
+          "explanation": "The text says the estimate is based on his income of the current year (\"Dit bedrag is gebaseerd op uw inkomen van dit jaar\")."
+        },
+        {
+          "passage": "zorgtoeslag",
+          "passageTitle": "Controleer uw zorgtoeslag",
+          "text": "Controleer uw zorgtoeslag\n\nGeachte heer Nowak,\n\nU ontvangt zorgtoeslag. Met deze brief vragen wij u om uw gegevens voor volgend jaar te controleren. Zo voorkomt u dat u geld moet terugbetalen.\n\nDe hoogte van uw zorgtoeslag hangt af van uw inkomen. Voor volgend jaar zijn wij uitgegaan van een geschat inkomen van € 24.000. Dit bedrag is gebaseerd op uw inkomen van dit jaar. Klopt deze schatting niet meer, bijvoorbeeld omdat u meer bent gaan werken of een hoger salaris heeft gekregen? Geef uw nieuwe inkomen dan vóór 1 december aan ons door.\n\nWaarom is dit belangrijk? Als uw werkelijke inkomen hoger is dan de schatting, heeft u recht op minder toeslag. Ontvangt u toch het hogere bedrag, dan moet u het verschil na afloop van het jaar terugbetalen. Dat kan om honderden euro's gaan.\n\nOok veranderingen in uw persoonlijke situatie kunnen gevolgen hebben voor uw toeslag. Gaat u bijvoorbeeld samenwonen of verhuist u naar het buitenland? Geef dit dan binnen vier weken door.\n\nWijzigingen geeft u door via Mijn Toeslagen op onze website. U logt in met uw DigiD. Lukt het niet om in te loggen, bel dan de BelastingTelefoon.\n\nControleer uw gegevens ook als er niets is veranderd. Zo weet u zeker dat uw toeslag klopt.\n\nMet vriendelijke groet,\nBelastingdienst/Toeslagen",
+          "question": "Meneer Nowak krijgt een hoger salaris, maar geeft dit niet door. Wat gebeurt er waarschijnlijk?",
+          "options": [
+            "Hij moet na afloop van het jaar geld terugbetalen",
+            "Zijn zorgtoeslag stopt automatisch",
+            "Hij krijgt direct een boete van de Belastingdienst"
+          ],
+          "correct": 0,
+          "explanation": "With a higher real income he is entitled to less allowance; if he still receives the higher amount, he must repay the difference after the end of the year — possibly hundreds of euros."
+        },
+        {
+          "passage": "zorgtoeslag",
+          "passageTitle": "Controleer uw zorgtoeslag",
+          "text": "Controleer uw zorgtoeslag\n\nGeachte heer Nowak,\n\nU ontvangt zorgtoeslag. Met deze brief vragen wij u om uw gegevens voor volgend jaar te controleren. Zo voorkomt u dat u geld moet terugbetalen.\n\nDe hoogte van uw zorgtoeslag hangt af van uw inkomen. Voor volgend jaar zijn wij uitgegaan van een geschat inkomen van € 24.000. Dit bedrag is gebaseerd op uw inkomen van dit jaar. Klopt deze schatting niet meer, bijvoorbeeld omdat u meer bent gaan werken of een hoger salaris heeft gekregen? Geef uw nieuwe inkomen dan vóór 1 december aan ons door.\n\nWaarom is dit belangrijk? Als uw werkelijke inkomen hoger is dan de schatting, heeft u recht op minder toeslag. Ontvangt u toch het hogere bedrag, dan moet u het verschil na afloop van het jaar terugbetalen. Dat kan om honderden euro's gaan.\n\nOok veranderingen in uw persoonlijke situatie kunnen gevolgen hebben voor uw toeslag. Gaat u bijvoorbeeld samenwonen of verhuist u naar het buitenland? Geef dit dan binnen vier weken door.\n\nWijzigingen geeft u door via Mijn Toeslagen op onze website. U logt in met uw DigiD. Lukt het niet om in te loggen, bel dan de BelastingTelefoon.\n\nControleer uw gegevens ook als er niets is veranderd. Zo weet u zeker dat uw toeslag klopt.\n\nMet vriendelijke groet,\nBelastingdienst/Toeslagen",
+          "question": "Meneer Nowak gaat samenwonen. Binnen hoeveel tijd moet hij dit doorgeven?",
+          "options": [
+            "vóór 1 december",
+            "binnen een jaar",
+            "binnen vier weken"
+          ],
+          "correct": 2,
+          "explanation": "Changes in personal circumstances, such as moving in together, must be reported within four weeks; the 1 December deadline applies to income changes."
+        },
+        {
+          "passage": "zorgtoeslag",
+          "passageTitle": "Controleer uw zorgtoeslag",
+          "text": "Controleer uw zorgtoeslag\n\nGeachte heer Nowak,\n\nU ontvangt zorgtoeslag. Met deze brief vragen wij u om uw gegevens voor volgend jaar te controleren. Zo voorkomt u dat u geld moet terugbetalen.\n\nDe hoogte van uw zorgtoeslag hangt af van uw inkomen. Voor volgend jaar zijn wij uitgegaan van een geschat inkomen van € 24.000. Dit bedrag is gebaseerd op uw inkomen van dit jaar. Klopt deze schatting niet meer, bijvoorbeeld omdat u meer bent gaan werken of een hoger salaris heeft gekregen? Geef uw nieuwe inkomen dan vóór 1 december aan ons door.\n\nWaarom is dit belangrijk? Als uw werkelijke inkomen hoger is dan de schatting, heeft u recht op minder toeslag. Ontvangt u toch het hogere bedrag, dan moet u het verschil na afloop van het jaar terugbetalen. Dat kan om honderden euro's gaan.\n\nOok veranderingen in uw persoonlijke situatie kunnen gevolgen hebben voor uw toeslag. Gaat u bijvoorbeeld samenwonen of verhuist u naar het buitenland? Geef dit dan binnen vier weken door.\n\nWijzigingen geeft u door via Mijn Toeslagen op onze website. U logt in met uw DigiD. Lukt het niet om in te loggen, bel dan de BelastingTelefoon.\n\nControleer uw gegevens ook als er niets is veranderd. Zo weet u zeker dat uw toeslag klopt.\n\nMet vriendelijke groet,\nBelastingdienst/Toeslagen",
+          "question": "'Wij zijn uitgegaan van een geschat inkomen.' Wat is een 'geschat' inkomen?",
+          "options": [
+            "het laagste inkomen waarvoor u toeslag kunt krijgen",
+            "een bedrag dat ongeveer is berekend, maar nog niet precies vaststaat",
+            "het bedrag dat iemand vorig jaar precies heeft verdiend"
+          ],
+          "correct": 1,
+          "explanation": "A \"schatting\" is an estimate: an approximate calculation of next year's income, which is why the letter asks him to correct it if it no longer matches reality."
+        },
+        {
+          "passage": "opleiding",
+          "passageTitle": "Deeltijdopleiding Zorg en Welzijn",
+          "text": "Werken en leren in de zorg\n\nStart in september met de opleiding Helpende Zorg en Welzijn (bbl)\n\nWilt u graag in de zorg werken, maar heeft u nog geen diploma? Bij ROC Rijnstad kunt u werken en leren combineren. U werkt drie dagen per week bij een zorginstelling en gaat één dag per week naar school. Omdat u tijdens de opleiding al werkt, ontvangt u vanaf de eerste dag salaris.\n\nDe opleiding duurt twee jaar en leidt op tot een mbo-diploma op niveau 2. Na het behalen van uw diploma kunt u doorstromen naar niveau 3.\n\nOm te kunnen starten, moet u aan een aantal voorwaarden voldoen. U bent minimaal 18 jaar oud. U beheerst de Nederlandse taal op niveau B1, omdat u in uw werk veel met cliënten praat en rapportages schrijft. Daarnaast vraagt de zorginstelling een Verklaring Omtrent het Gedrag (VOG) voor u aan; de kosten hiervan betaalt de werkgever.\n\nHet aantal plaatsen is beperkt. Meld u daarom uiterlijk 1 juni aan via onze website. Na uw aanmelding nodigen wij u uit voor een intakegesprek. Tijdens dit gesprek bespreken wij uw motivatie en kijken wij samen welke zorginstelling bij u past.\n\nTwijfelt u nog? Kom dan naar onze informatieavond op donderdag 15 mei om 19.00 uur. Aanmelden hiervoor is niet nodig.\n\nMeer informatie: www.rocrijnstad.nl/zorg",
+          "question": "Voor wie is deze tekst vooral bedoeld?",
+          "options": [
+            "voor studenten die al een mbo-diploma op niveau 3 hebben",
+            "voor mensen die in de zorg willen werken, maar nog geen diploma hebben",
+            "voor zorginstellingen die nieuw personeel zoeken"
+          ],
+          "correct": 1,
+          "explanation": "The opening question addresses people who want to work in care but have no diploma yet; the course leads to an mbo level 2 diploma, so level 3 graduates are not the audience."
+        },
+        {
+          "passage": "opleiding",
+          "passageTitle": "Deeltijdopleiding Zorg en Welzijn",
+          "text": "Werken en leren in de zorg\n\nStart in september met de opleiding Helpende Zorg en Welzijn (bbl)\n\nWilt u graag in de zorg werken, maar heeft u nog geen diploma? Bij ROC Rijnstad kunt u werken en leren combineren. U werkt drie dagen per week bij een zorginstelling en gaat één dag per week naar school. Omdat u tijdens de opleiding al werkt, ontvangt u vanaf de eerste dag salaris.\n\nDe opleiding duurt twee jaar en leidt op tot een mbo-diploma op niveau 2. Na het behalen van uw diploma kunt u doorstromen naar niveau 3.\n\nOm te kunnen starten, moet u aan een aantal voorwaarden voldoen. U bent minimaal 18 jaar oud. U beheerst de Nederlandse taal op niveau B1, omdat u in uw werk veel met cliënten praat en rapportages schrijft. Daarnaast vraagt de zorginstelling een Verklaring Omtrent het Gedrag (VOG) voor u aan; de kosten hiervan betaalt de werkgever.\n\nHet aantal plaatsen is beperkt. Meld u daarom uiterlijk 1 juni aan via onze website. Na uw aanmelding nodigen wij u uit voor een intakegesprek. Tijdens dit gesprek bespreken wij uw motivatie en kijken wij samen welke zorginstelling bij u past.\n\nTwijfelt u nog? Kom dan naar onze informatieavond op donderdag 15 mei om 19.00 uur. Aanmelden hiervoor is niet nodig.\n\nMeer informatie: www.rocrijnstad.nl/zorg",
+          "question": "Waarom ontvangen studenten vanaf de eerste dag salaris?",
+          "options": [
+            "omdat zij tijdens de opleiding al bij een zorginstelling werken",
+            "omdat de opleiding wordt betaald door de gemeente",
+            "omdat zij eerst een intakegesprek hebben gehad"
+          ],
+          "correct": 0,
+          "explanation": "The text links the salary directly to the work component: students work three days a week at a care institution during the course (\"Omdat u tijdens de opleiding al werkt\")."
+        },
+        {
+          "passage": "opleiding",
+          "passageTitle": "Deeltijdopleiding Zorg en Welzijn",
+          "text": "Werken en leren in de zorg\n\nStart in september met de opleiding Helpende Zorg en Welzijn (bbl)\n\nWilt u graag in de zorg werken, maar heeft u nog geen diploma? Bij ROC Rijnstad kunt u werken en leren combineren. U werkt drie dagen per week bij een zorginstelling en gaat één dag per week naar school. Omdat u tijdens de opleiding al werkt, ontvangt u vanaf de eerste dag salaris.\n\nDe opleiding duurt twee jaar en leidt op tot een mbo-diploma op niveau 2. Na het behalen van uw diploma kunt u doorstromen naar niveau 3.\n\nOm te kunnen starten, moet u aan een aantal voorwaarden voldoen. U bent minimaal 18 jaar oud. U beheerst de Nederlandse taal op niveau B1, omdat u in uw werk veel met cliënten praat en rapportages schrijft. Daarnaast vraagt de zorginstelling een Verklaring Omtrent het Gedrag (VOG) voor u aan; de kosten hiervan betaalt de werkgever.\n\nHet aantal plaatsen is beperkt. Meld u daarom uiterlijk 1 juni aan via onze website. Na uw aanmelding nodigen wij u uit voor een intakegesprek. Tijdens dit gesprek bespreken wij uw motivatie en kijken wij samen welke zorginstelling bij u past.\n\nTwijfelt u nog? Kom dan naar onze informatieavond op donderdag 15 mei om 19.00 uur. Aanmelden hiervoor is niet nodig.\n\nMeer informatie: www.rocrijnstad.nl/zorg",
+          "question": "Waarom is taalniveau B1 nodig voor deze opleiding?",
+          "options": [
+            "omdat de intaketoets Nederlands op niveau B1 is",
+            "omdat je anders geen VOG kunt aanvragen",
+            "omdat je in het werk veel met cliënten praat en rapportages schrijft"
+          ],
+          "correct": 2,
+          "explanation": "The requirement is explained in the text: the work involves a lot of talking with clients and writing reports. The VOG and the intake interview have nothing to do with language level."
+        },
+        {
+          "passage": "opleiding",
+          "passageTitle": "Deeltijdopleiding Zorg en Welzijn",
+          "text": "Werken en leren in de zorg\n\nStart in september met de opleiding Helpende Zorg en Welzijn (bbl)\n\nWilt u graag in de zorg werken, maar heeft u nog geen diploma? Bij ROC Rijnstad kunt u werken en leren combineren. U werkt drie dagen per week bij een zorginstelling en gaat één dag per week naar school. Omdat u tijdens de opleiding al werkt, ontvangt u vanaf de eerste dag salaris.\n\nDe opleiding duurt twee jaar en leidt op tot een mbo-diploma op niveau 2. Na het behalen van uw diploma kunt u doorstromen naar niveau 3.\n\nOm te kunnen starten, moet u aan een aantal voorwaarden voldoen. U bent minimaal 18 jaar oud. U beheerst de Nederlandse taal op niveau B1, omdat u in uw werk veel met cliënten praat en rapportages schrijft. Daarnaast vraagt de zorginstelling een Verklaring Omtrent het Gedrag (VOG) voor u aan; de kosten hiervan betaalt de werkgever.\n\nHet aantal plaatsen is beperkt. Meld u daarom uiterlijk 1 juni aan via onze website. Na uw aanmelding nodigen wij u uit voor een intakegesprek. Tijdens dit gesprek bespreken wij uw motivatie en kijken wij samen welke zorginstelling bij u past.\n\nTwijfelt u nog? Kom dan naar onze informatieavond op donderdag 15 mei om 19.00 uur. Aanmelden hiervoor is niet nodig.\n\nMeer informatie: www.rocrijnstad.nl/zorg",
+          "question": "Wie betaalt de Verklaring Omtrent het Gedrag (VOG)?",
+          "options": [
+            "het ROC",
+            "de werkgever",
+            "de student"
+          ],
+          "correct": 1,
+          "explanation": "The care institution applies for the VOG and, according to the text, the employer pays the costs (\"de kosten hiervan betaalt de werkgever\")."
+        },
+        {
+          "passage": "opleiding",
+          "passageTitle": "Deeltijdopleiding Zorg en Welzijn",
+          "text": "Werken en leren in de zorg\n\nStart in september met de opleiding Helpende Zorg en Welzijn (bbl)\n\nWilt u graag in de zorg werken, maar heeft u nog geen diploma? Bij ROC Rijnstad kunt u werken en leren combineren. U werkt drie dagen per week bij een zorginstelling en gaat één dag per week naar school. Omdat u tijdens de opleiding al werkt, ontvangt u vanaf de eerste dag salaris.\n\nDe opleiding duurt twee jaar en leidt op tot een mbo-diploma op niveau 2. Na het behalen van uw diploma kunt u doorstromen naar niveau 3.\n\nOm te kunnen starten, moet u aan een aantal voorwaarden voldoen. U bent minimaal 18 jaar oud. U beheerst de Nederlandse taal op niveau B1, omdat u in uw werk veel met cliënten praat en rapportages schrijft. Daarnaast vraagt de zorginstelling een Verklaring Omtrent het Gedrag (VOG) voor u aan; de kosten hiervan betaalt de werkgever.\n\nHet aantal plaatsen is beperkt. Meld u daarom uiterlijk 1 juni aan via onze website. Na uw aanmelding nodigen wij u uit voor een intakegesprek. Tijdens dit gesprek bespreken wij uw motivatie en kijken wij samen welke zorginstelling bij u past.\n\nTwijfelt u nog? Kom dan naar onze informatieavond op donderdag 15 mei om 19.00 uur. Aanmelden hiervoor is niet nodig.\n\nMeer informatie: www.rocrijnstad.nl/zorg",
+          "question": "Waarom moet u zich uiterlijk 1 juni aanmelden?",
+          "options": [
+            "omdat het aantal plaatsen beperkt is",
+            "omdat de informatieavond dan al is geweest",
+            "omdat de opleiding op 1 juni begint"
+          ],
+          "correct": 0,
+          "explanation": "The deadline follows directly from the limited number of places (\"Het aantal plaatsen is beperkt. Meld u daarom uiterlijk 1 juni aan\"). The course itself starts in September."
+        },
+        {
+          "passage": "deelscooters",
+          "passageTitle": "Overlast van deelscooters",
+          "text": "Gemeente pakt overlast van deelscooters aan\n\nRIJNSTAD — Het aantal deelscooters in Rijnstad is in twee jaar tijd gegroeid van 300 naar ruim 1.200. Veel inwoners zijn blij met de scooters, omdat ze een snelle en goedkope manier zijn om door de stad te reizen. Toch groeit ook het aantal klachten. Vorig jaar ontving de gemeente meer dan 900 meldingen over deelscooters die op de stoep of voor ingangen geparkeerd stonden.\n\nVooral voor mensen met een rollator, rolstoel of kinderwagen zijn verkeerd geparkeerde scooters een probleem. 'Ik moet soms de straat op om erlangs te komen. Dat is gevaarlijk', vertelt bewoonster Fatima Yilmaz.\n\nDe gemeente heeft daarom nieuwe regels opgesteld. Vanaf 1 juli mogen deelscooters alleen nog geparkeerd worden in speciale vakken. Deze vakken komen bij stations, winkelcentra en grote kruispunten. Gebruikers die hun scooter buiten een vak achterlaten, kunnen hun rit niet afsluiten en betalen door. Daarnaast moeten de verhuurbedrijven verkeerd geparkeerde scooters binnen zes uur verplaatsen; doen zij dat niet, dan krijgt het bedrijf een boete van € 100 per scooter.\n\nDe verhuurbedrijven reageren verdeeld. Het bedrijf GoScoot noemt de regels 'streng maar eerlijk'. Concurrent Zoomy vreest dat klanten afhaken, omdat er in woonwijken weinig parkeervakken komen.\n\nDe gemeente evalueert de nieuwe regels na een jaar. Als het aantal klachten dan niet is gedaald, overweegt de gemeente het aantal deelscooters in de stad te beperken.",
+          "question": "Waar gaat dit artikel vooral over?",
+          "options": [
+            "nieuwe regels van de gemeente tegen overlast van deelscooters",
+            "de groei van het aantal deelscooters in heel Nederland",
+            "een conflict tussen de verhuurbedrijven GoScoot en Zoomy"
+          ],
+          "correct": 0,
+          "explanation": "The article centres on the new municipal rules (parking zones, fines) introduced because of the growing number of complaints. The growth figures and company reactions support that main topic."
+        },
+        {
+          "passage": "deelscooters",
+          "passageTitle": "Overlast van deelscooters",
+          "text": "Gemeente pakt overlast van deelscooters aan\n\nRIJNSTAD — Het aantal deelscooters in Rijnstad is in twee jaar tijd gegroeid van 300 naar ruim 1.200. Veel inwoners zijn blij met de scooters, omdat ze een snelle en goedkope manier zijn om door de stad te reizen. Toch groeit ook het aantal klachten. Vorig jaar ontving de gemeente meer dan 900 meldingen over deelscooters die op de stoep of voor ingangen geparkeerd stonden.\n\nVooral voor mensen met een rollator, rolstoel of kinderwagen zijn verkeerd geparkeerde scooters een probleem. 'Ik moet soms de straat op om erlangs te komen. Dat is gevaarlijk', vertelt bewoonster Fatima Yilmaz.\n\nDe gemeente heeft daarom nieuwe regels opgesteld. Vanaf 1 juli mogen deelscooters alleen nog geparkeerd worden in speciale vakken. Deze vakken komen bij stations, winkelcentra en grote kruispunten. Gebruikers die hun scooter buiten een vak achterlaten, kunnen hun rit niet afsluiten en betalen door. Daarnaast moeten de verhuurbedrijven verkeerd geparkeerde scooters binnen zes uur verplaatsen; doen zij dat niet, dan krijgt het bedrijf een boete van € 100 per scooter.\n\nDe verhuurbedrijven reageren verdeeld. Het bedrijf GoScoot noemt de regels 'streng maar eerlijk'. Concurrent Zoomy vreest dat klanten afhaken, omdat er in woonwijken weinig parkeervakken komen.\n\nDe gemeente evalueert de nieuwe regels na een jaar. Als het aantal klachten dan niet is gedaald, overweegt de gemeente het aantal deelscooters in de stad te beperken.",
+          "question": "Voor wie zijn verkeerd geparkeerde scooters volgens de tekst vooral een probleem?",
+          "options": [
+            "voor automobilisten die een parkeerplaats zoeken",
+            "voor de medewerkers van de verhuurbedrijven",
+            "voor mensen met een rollator, rolstoel of kinderwagen"
+          ],
+          "correct": 2,
+          "explanation": "The text says badly parked scooters are a problem especially for people with a walker, wheelchair or pram, who sometimes have to step onto the road to get past."
+        },
+        {
+          "passage": "deelscooters",
+          "passageTitle": "Overlast van deelscooters",
+          "text": "Gemeente pakt overlast van deelscooters aan\n\nRIJNSTAD — Het aantal deelscooters in Rijnstad is in twee jaar tijd gegroeid van 300 naar ruim 1.200. Veel inwoners zijn blij met de scooters, omdat ze een snelle en goedkope manier zijn om door de stad te reizen. Toch groeit ook het aantal klachten. Vorig jaar ontving de gemeente meer dan 900 meldingen over deelscooters die op de stoep of voor ingangen geparkeerd stonden.\n\nVooral voor mensen met een rollator, rolstoel of kinderwagen zijn verkeerd geparkeerde scooters een probleem. 'Ik moet soms de straat op om erlangs te komen. Dat is gevaarlijk', vertelt bewoonster Fatima Yilmaz.\n\nDe gemeente heeft daarom nieuwe regels opgesteld. Vanaf 1 juli mogen deelscooters alleen nog geparkeerd worden in speciale vakken. Deze vakken komen bij stations, winkelcentra en grote kruispunten. Gebruikers die hun scooter buiten een vak achterlaten, kunnen hun rit niet afsluiten en betalen door. Daarnaast moeten de verhuurbedrijven verkeerd geparkeerde scooters binnen zes uur verplaatsen; doen zij dat niet, dan krijgt het bedrijf een boete van € 100 per scooter.\n\nDe verhuurbedrijven reageren verdeeld. Het bedrijf GoScoot noemt de regels 'streng maar eerlijk'. Concurrent Zoomy vreest dat klanten afhaken, omdat er in woonwijken weinig parkeervakken komen.\n\nDe gemeente evalueert de nieuwe regels na een jaar. Als het aantal klachten dan niet is gedaald, overweegt de gemeente het aantal deelscooters in de stad te beperken.",
+          "question": "Wat gebeurt er als een gebruiker zijn scooter buiten een parkeervak achterlaat?",
+          "options": [
+            "Zijn account wordt geblokkeerd door het verhuurbedrijf",
+            "Hij kan zijn rit niet afsluiten en blijft betalen",
+            "Hij krijgt direct een boete van € 100"
+          ],
+          "correct": 1,
+          "explanation": "Users who leave a scooter outside a zone cannot end their ride and keep paying. The € 100 fine applies to the rental company, not to the user."
+        },
+        {
+          "passage": "deelscooters",
+          "passageTitle": "Overlast van deelscooters",
+          "text": "Gemeente pakt overlast van deelscooters aan\n\nRIJNSTAD — Het aantal deelscooters in Rijnstad is in twee jaar tijd gegroeid van 300 naar ruim 1.200. Veel inwoners zijn blij met de scooters, omdat ze een snelle en goedkope manier zijn om door de stad te reizen. Toch groeit ook het aantal klachten. Vorig jaar ontving de gemeente meer dan 900 meldingen over deelscooters die op de stoep of voor ingangen geparkeerd stonden.\n\nVooral voor mensen met een rollator, rolstoel of kinderwagen zijn verkeerd geparkeerde scooters een probleem. 'Ik moet soms de straat op om erlangs te komen. Dat is gevaarlijk', vertelt bewoonster Fatima Yilmaz.\n\nDe gemeente heeft daarom nieuwe regels opgesteld. Vanaf 1 juli mogen deelscooters alleen nog geparkeerd worden in speciale vakken. Deze vakken komen bij stations, winkelcentra en grote kruispunten. Gebruikers die hun scooter buiten een vak achterlaten, kunnen hun rit niet afsluiten en betalen door. Daarnaast moeten de verhuurbedrijven verkeerd geparkeerde scooters binnen zes uur verplaatsen; doen zij dat niet, dan krijgt het bedrijf een boete van € 100 per scooter.\n\nDe verhuurbedrijven reageren verdeeld. Het bedrijf GoScoot noemt de regels 'streng maar eerlijk'. Concurrent Zoomy vreest dat klanten afhaken, omdat er in woonwijken weinig parkeervakken komen.\n\nDe gemeente evalueert de nieuwe regels na een jaar. Als het aantal klachten dan niet is gedaald, overweegt de gemeente het aantal deelscooters in de stad te beperken.",
+          "question": "Zoomy 'vreest dat klanten afhaken'. Wat betekent 'afhaken' hier?",
+          "options": [
+            "stoppen met het gebruiken van de deelscooters",
+            "klagen bij de gemeente over de nieuwe regels",
+            "hun scooter buiten een parkeervak zetten"
+          ],
+          "correct": 0,
+          "explanation": "\"Afhaken\" means to drop out or give up: Zoomy fears customers will stop using the scooters because there will be few parking zones in residential areas."
+        },
+        {
+          "passage": "deelscooters",
+          "passageTitle": "Overlast van deelscooters",
+          "text": "Gemeente pakt overlast van deelscooters aan\n\nRIJNSTAD — Het aantal deelscooters in Rijnstad is in twee jaar tijd gegroeid van 300 naar ruim 1.200. Veel inwoners zijn blij met de scooters, omdat ze een snelle en goedkope manier zijn om door de stad te reizen. Toch groeit ook het aantal klachten. Vorig jaar ontving de gemeente meer dan 900 meldingen over deelscooters die op de stoep of voor ingangen geparkeerd stonden.\n\nVooral voor mensen met een rollator, rolstoel of kinderwagen zijn verkeerd geparkeerde scooters een probleem. 'Ik moet soms de straat op om erlangs te komen. Dat is gevaarlijk', vertelt bewoonster Fatima Yilmaz.\n\nDe gemeente heeft daarom nieuwe regels opgesteld. Vanaf 1 juli mogen deelscooters alleen nog geparkeerd worden in speciale vakken. Deze vakken komen bij stations, winkelcentra en grote kruispunten. Gebruikers die hun scooter buiten een vak achterlaten, kunnen hun rit niet afsluiten en betalen door. Daarnaast moeten de verhuurbedrijven verkeerd geparkeerde scooters binnen zes uur verplaatsen; doen zij dat niet, dan krijgt het bedrijf een boete van € 100 per scooter.\n\nDe verhuurbedrijven reageren verdeeld. Het bedrijf GoScoot noemt de regels 'streng maar eerlijk'. Concurrent Zoomy vreest dat klanten afhaken, omdat er in woonwijken weinig parkeervakken komen.\n\nDe gemeente evalueert de nieuwe regels na een jaar. Als het aantal klachten dan niet is gedaald, overweegt de gemeente het aantal deelscooters in de stad te beperken.",
+          "question": "Wat doet de gemeente als het aantal klachten na een jaar niet is gedaald?",
+          "options": [
+            "Dan verhoogt zij de boete naar € 200 per scooter",
+            "Dan verbiedt zij deelscooters in de hele stad",
+            "Dan overweegt zij het aantal deelscooters te beperken"
+          ],
+          "correct": 2,
+          "explanation": "The final paragraph says the municipality will evaluate after a year and, if complaints have not decreased, will consider limiting the number of shared scooters — not an outright ban."
+        },
+        {
+          "passage": "thuiswerken",
+          "passageTitle": "Thuiswerken moet blijven",
+          "text": "Laat het thuiswerken niet verdwijnen\n\nSteeds meer bedrijven roepen hun personeel terug naar kantoor. Sommige directeuren willen zelfs dat iedereen weer vijf dagen per week aanwezig is. Volgens mij is dat een grote stap terug.\n\nThuiswerken heeft de afgelopen jaren bewezen dat het werkt. Werknemers verliezen geen tijd meer aan lange autoritten of volle treinen. Die gewonnen uren gebruiken zij om te sporten, voor hun kinderen te zorgen of gewoon uit te rusten. Bovendien kunnen veel mensen zich thuis beter concentreren dan in een druk kantoor, waar telefoons rinkelen en collega's overleggen. Ook het milieu profiteert: minder woon-werkverkeer betekent minder files en minder uitstoot.\n\nNatuurlijk begrijp ik de zorgen van werkgevers. Zij zijn bang dat het contact tussen collega's verdwijnt en dat nieuwe medewerkers het bedrijf niet goed leren kennen. Die zorgen zijn terecht, maar het antwoord is niet iedereen verplicht terugroepen. Het antwoord is slim organiseren: spreek vaste kantoordagen af waarop het hele team aanwezig is, en gebruik die dagen voor overleg en samenwerking. De overige dagen werkt iedereen daar waar hij het productiefst is.\n\nOnderzoek laat bovendien zien dat bedrijven die thuiswerken toestaan, aantrekkelijker zijn voor nieuw personeel. Wie in deze krappe arbeidsmarkt goede mensen wil vinden, moet dus flexibel zijn.\n\nThuiswerken is geen tijdelijke oplossing uit een crisis, maar een blijvende verbetering. Laten we die niet weggooien.\n\nSanne de Boer",
+          "question": "Wat is de mening van Sanne de Boer?",
+          "options": [
+            "Iedereen moet weer vijf dagen per week naar kantoor",
+            "Thuiswerken was alleen een goede oplossing tijdens een crisis",
+            "Thuiswerken moet gedeeltelijk blijven bestaan"
+          ],
+          "correct": 2,
+          "explanation": "She argues that working from home is a lasting improvement that should not be thrown away, combined with fixed office days — the opposite of a full return to the office."
+        },
+        {
+          "passage": "thuiswerken",
+          "passageTitle": "Thuiswerken moet blijven",
+          "text": "Laat het thuiswerken niet verdwijnen\n\nSteeds meer bedrijven roepen hun personeel terug naar kantoor. Sommige directeuren willen zelfs dat iedereen weer vijf dagen per week aanwezig is. Volgens mij is dat een grote stap terug.\n\nThuiswerken heeft de afgelopen jaren bewezen dat het werkt. Werknemers verliezen geen tijd meer aan lange autoritten of volle treinen. Die gewonnen uren gebruiken zij om te sporten, voor hun kinderen te zorgen of gewoon uit te rusten. Bovendien kunnen veel mensen zich thuis beter concentreren dan in een druk kantoor, waar telefoons rinkelen en collega's overleggen. Ook het milieu profiteert: minder woon-werkverkeer betekent minder files en minder uitstoot.\n\nNatuurlijk begrijp ik de zorgen van werkgevers. Zij zijn bang dat het contact tussen collega's verdwijnt en dat nieuwe medewerkers het bedrijf niet goed leren kennen. Die zorgen zijn terecht, maar het antwoord is niet iedereen verplicht terugroepen. Het antwoord is slim organiseren: spreek vaste kantoordagen af waarop het hele team aanwezig is, en gebruik die dagen voor overleg en samenwerking. De overige dagen werkt iedereen daar waar hij het productiefst is.\n\nOnderzoek laat bovendien zien dat bedrijven die thuiswerken toestaan, aantrekkelijker zijn voor nieuw personeel. Wie in deze krappe arbeidsmarkt goede mensen wil vinden, moet dus flexibel zijn.\n\nThuiswerken is geen tijdelijke oplossing uit een crisis, maar een blijvende verbetering. Laten we die niet weggooien.\n\nSanne de Boer",
+          "question": "Welk voordeel van thuiswerken noemt de schrijfster?",
+          "options": [
+            "Bedrijven hebben minder kantoorruimte nodig",
+            "Veel mensen kunnen zich thuis beter concentreren",
+            "Werknemers verdienen thuis een hoger salaris"
+          ],
+          "correct": 1,
+          "explanation": "The text names better concentration at home (away from ringing phones and talking colleagues) as an advantage. Salaries and office space are not mentioned."
+        },
+        {
+          "passage": "thuiswerken",
+          "passageTitle": "Thuiswerken moet blijven",
+          "text": "Laat het thuiswerken niet verdwijnen\n\nSteeds meer bedrijven roepen hun personeel terug naar kantoor. Sommige directeuren willen zelfs dat iedereen weer vijf dagen per week aanwezig is. Volgens mij is dat een grote stap terug.\n\nThuiswerken heeft de afgelopen jaren bewezen dat het werkt. Werknemers verliezen geen tijd meer aan lange autoritten of volle treinen. Die gewonnen uren gebruiken zij om te sporten, voor hun kinderen te zorgen of gewoon uit te rusten. Bovendien kunnen veel mensen zich thuis beter concentreren dan in een druk kantoor, waar telefoons rinkelen en collega's overleggen. Ook het milieu profiteert: minder woon-werkverkeer betekent minder files en minder uitstoot.\n\nNatuurlijk begrijp ik de zorgen van werkgevers. Zij zijn bang dat het contact tussen collega's verdwijnt en dat nieuwe medewerkers het bedrijf niet goed leren kennen. Die zorgen zijn terecht, maar het antwoord is niet iedereen verplicht terugroepen. Het antwoord is slim organiseren: spreek vaste kantoordagen af waarop het hele team aanwezig is, en gebruik die dagen voor overleg en samenwerking. De overige dagen werkt iedereen daar waar hij het productiefst is.\n\nOnderzoek laat bovendien zien dat bedrijven die thuiswerken toestaan, aantrekkelijker zijn voor nieuw personeel. Wie in deze krappe arbeidsmarkt goede mensen wil vinden, moet dus flexibel zijn.\n\nThuiswerken is geen tijdelijke oplossing uit een crisis, maar een blijvende verbetering. Laten we die niet weggooien.\n\nSanne de Boer",
+          "question": "Waar zijn werkgevers volgens de tekst bang voor?",
+          "options": [
+            "dat het contact tussen collega's verdwijnt",
+            "dat werknemers thuis minder uren werken",
+            "dat thuiswerken te duur wordt voor het bedrijf"
+          ],
+          "correct": 0,
+          "explanation": "The author acknowledges two employer worries: losing contact between colleagues and new employees not getting to know the company. Working fewer hours or costs are not mentioned."
+        },
+        {
+          "passage": "thuiswerken",
+          "passageTitle": "Thuiswerken moet blijven",
+          "text": "Laat het thuiswerken niet verdwijnen\n\nSteeds meer bedrijven roepen hun personeel terug naar kantoor. Sommige directeuren willen zelfs dat iedereen weer vijf dagen per week aanwezig is. Volgens mij is dat een grote stap terug.\n\nThuiswerken heeft de afgelopen jaren bewezen dat het werkt. Werknemers verliezen geen tijd meer aan lange autoritten of volle treinen. Die gewonnen uren gebruiken zij om te sporten, voor hun kinderen te zorgen of gewoon uit te rusten. Bovendien kunnen veel mensen zich thuis beter concentreren dan in een druk kantoor, waar telefoons rinkelen en collega's overleggen. Ook het milieu profiteert: minder woon-werkverkeer betekent minder files en minder uitstoot.\n\nNatuurlijk begrijp ik de zorgen van werkgevers. Zij zijn bang dat het contact tussen collega's verdwijnt en dat nieuwe medewerkers het bedrijf niet goed leren kennen. Die zorgen zijn terecht, maar het antwoord is niet iedereen verplicht terugroepen. Het antwoord is slim organiseren: spreek vaste kantoordagen af waarop het hele team aanwezig is, en gebruik die dagen voor overleg en samenwerking. De overige dagen werkt iedereen daar waar hij het productiefst is.\n\nOnderzoek laat bovendien zien dat bedrijven die thuiswerken toestaan, aantrekkelijker zijn voor nieuw personeel. Wie in deze krappe arbeidsmarkt goede mensen wil vinden, moet dus flexibel zijn.\n\nThuiswerken is geen tijdelijke oplossing uit een crisis, maar een blijvende verbetering. Laten we die niet weggooien.\n\nSanne de Boer",
+          "question": "Welke oplossing stelt de schrijfster voor?",
+          "options": [
+            "alle vergaderingen voortaan online houden",
+            "nieuwe medewerkers de eerste maanden thuis laten werken",
+            "vaste kantoordagen afspreken waarop het hele team aanwezig is"
+          ],
+          "correct": 2,
+          "explanation": "Her answer to the employers' concerns is \"slim organiseren\": agree fixed office days for the whole team and use those days for meetings and collaboration."
+        },
+        {
+          "passage": "thuiswerken",
+          "passageTitle": "Thuiswerken moet blijven",
+          "text": "Laat het thuiswerken niet verdwijnen\n\nSteeds meer bedrijven roepen hun personeel terug naar kantoor. Sommige directeuren willen zelfs dat iedereen weer vijf dagen per week aanwezig is. Volgens mij is dat een grote stap terug.\n\nThuiswerken heeft de afgelopen jaren bewezen dat het werkt. Werknemers verliezen geen tijd meer aan lange autoritten of volle treinen. Die gewonnen uren gebruiken zij om te sporten, voor hun kinderen te zorgen of gewoon uit te rusten. Bovendien kunnen veel mensen zich thuis beter concentreren dan in een druk kantoor, waar telefoons rinkelen en collega's overleggen. Ook het milieu profiteert: minder woon-werkverkeer betekent minder files en minder uitstoot.\n\nNatuurlijk begrijp ik de zorgen van werkgevers. Zij zijn bang dat het contact tussen collega's verdwijnt en dat nieuwe medewerkers het bedrijf niet goed leren kennen. Die zorgen zijn terecht, maar het antwoord is niet iedereen verplicht terugroepen. Het antwoord is slim organiseren: spreek vaste kantoordagen af waarop het hele team aanwezig is, en gebruik die dagen voor overleg en samenwerking. De overige dagen werkt iedereen daar waar hij het productiefst is.\n\nOnderzoek laat bovendien zien dat bedrijven die thuiswerken toestaan, aantrekkelijker zijn voor nieuw personeel. Wie in deze krappe arbeidsmarkt goede mensen wil vinden, moet dus flexibel zijn.\n\nThuiswerken is geen tijdelijke oplossing uit een crisis, maar een blijvende verbetering. Laten we die niet weggooien.\n\nSanne de Boer",
+          "question": "'Wie in deze krappe arbeidsmarkt goede mensen wil vinden, moet flexibel zijn.' Wat betekent een 'krappe arbeidsmarkt'?",
+          "options": [
+            "De salarissen op de arbeidsmarkt zijn laag",
+            "Het is voor bedrijven moeilijk om personeel te vinden",
+            "Er zijn te weinig banen voor mensen die werk zoeken"
+          ],
+          "correct": 1,
+          "explanation": "A \"krappe arbeidsmarkt\" is a tight labour market: there are more vacancies than candidates, so companies struggle to find staff — which is why being flexible attracts new personnel."
+        },
+        {
+          "passage": "huurverhoging",
+          "passageTitle": "Jaarlijkse huurverhoging",
+          "text": "Jaarlijkse huurverhoging\n\nGeachte heer en mevrouw Ozdemir,\n\nElk jaar mag de huur van uw woning worden verhoogd. In deze brief leest u wat dit voor u betekent.\n\nPer 1 juli verhogen wij de huur van uw woning aan de Lindenstraat 24 met 3,1%. Uw kale huur stijgt daardoor van € 640,00 naar € 659,84 per maand. De servicekosten, bijvoorbeeld voor de schoonmaak van het trappenhuis, veranderen niet. Uw totale maandbedrag wordt € 704,84.\n\nDe verhoging is niet hoger dan het maximale percentage dat de overheid dit jaar heeft vastgesteld. Betaalt u via automatische incasso? Dan passen wij het bedrag automatisch aan; u hoeft niets te doen.\n\nBent u het niet eens met de huurverhoging? Dan kunt u bezwaar maken. Dit kan alleen schriftelijk en vóór 1 juli. Bezwaar maken heeft alleen zin als de verhoging niet volgens de regels is, bijvoorbeeld als het percentage te hoog is of als deze brief te laat is verstuurd. Klachten over achterstallig onderhoud zijn geen reden voor bezwaar; hiervoor kunt u een reparatieverzoek indienen via onze website.\n\nOntvangt u huurtoeslag? De verhoging kan gevolgen hebben voor de hoogte van uw toeslag. Geef uw nieuwe huurprijs daarom door aan de Belastingdienst.\n\nHeeft u vragen? Bel ons op werkdagen tussen 9.00 en 17.00 uur via 088-234 56 78.\n\nMet vriendelijke groet,\nWoonstichting De Linde",
+          "question": "Waarom hebben meneer en mevrouw Ozdemir deze brief gekregen?",
+          "options": [
+            "De woonstichting vraagt hen om bezwaar te maken tegen de huurverhoging",
+            "De woonstichting informeert hen over de jaarlijkse huurverhoging",
+            "De woonstichting waarschuwt hen omdat zij de huur te laat hebben betaald"
+          ],
+          "correct": 1,
+          "explanation": "The letter announces the yearly rent increase of 3.1% per 1 July and explains what it means for them. Objecting is described as an option, not a request."
+        },
+        {
+          "passage": "huurverhoging",
+          "passageTitle": "Jaarlijkse huurverhoging",
+          "text": "Jaarlijkse huurverhoging\n\nGeachte heer en mevrouw Ozdemir,\n\nElk jaar mag de huur van uw woning worden verhoogd. In deze brief leest u wat dit voor u betekent.\n\nPer 1 juli verhogen wij de huur van uw woning aan de Lindenstraat 24 met 3,1%. Uw kale huur stijgt daardoor van € 640,00 naar € 659,84 per maand. De servicekosten, bijvoorbeeld voor de schoonmaak van het trappenhuis, veranderen niet. Uw totale maandbedrag wordt € 704,84.\n\nDe verhoging is niet hoger dan het maximale percentage dat de overheid dit jaar heeft vastgesteld. Betaalt u via automatische incasso? Dan passen wij het bedrag automatisch aan; u hoeft niets te doen.\n\nBent u het niet eens met de huurverhoging? Dan kunt u bezwaar maken. Dit kan alleen schriftelijk en vóór 1 juli. Bezwaar maken heeft alleen zin als de verhoging niet volgens de regels is, bijvoorbeeld als het percentage te hoog is of als deze brief te laat is verstuurd. Klachten over achterstallig onderhoud zijn geen reden voor bezwaar; hiervoor kunt u een reparatieverzoek indienen via onze website.\n\nOntvangt u huurtoeslag? De verhoging kan gevolgen hebben voor de hoogte van uw toeslag. Geef uw nieuwe huurprijs daarom door aan de Belastingdienst.\n\nHeeft u vragen? Bel ons op werkdagen tussen 9.00 en 17.00 uur via 088-234 56 78.\n\nMet vriendelijke groet,\nWoonstichting De Linde",
+          "question": "Wat verandert er per 1 juli NIET?",
+          "options": [
+            "de servicekosten",
+            "de kale huur",
+            "het totale maandbedrag"
+          ],
+          "correct": 0,
+          "explanation": "The text says the service costs, for example for cleaning the staircase, stay the same; the basic rent rises to € 659,84 and the total monthly amount becomes € 704,84."
+        },
+        {
+          "passage": "huurverhoging",
+          "passageTitle": "Jaarlijkse huurverhoging",
+          "text": "Jaarlijkse huurverhoging\n\nGeachte heer en mevrouw Ozdemir,\n\nElk jaar mag de huur van uw woning worden verhoogd. In deze brief leest u wat dit voor u betekent.\n\nPer 1 juli verhogen wij de huur van uw woning aan de Lindenstraat 24 met 3,1%. Uw kale huur stijgt daardoor van € 640,00 naar € 659,84 per maand. De servicekosten, bijvoorbeeld voor de schoonmaak van het trappenhuis, veranderen niet. Uw totale maandbedrag wordt € 704,84.\n\nDe verhoging is niet hoger dan het maximale percentage dat de overheid dit jaar heeft vastgesteld. Betaalt u via automatische incasso? Dan passen wij het bedrag automatisch aan; u hoeft niets te doen.\n\nBent u het niet eens met de huurverhoging? Dan kunt u bezwaar maken. Dit kan alleen schriftelijk en vóór 1 juli. Bezwaar maken heeft alleen zin als de verhoging niet volgens de regels is, bijvoorbeeld als het percentage te hoog is of als deze brief te laat is verstuurd. Klachten over achterstallig onderhoud zijn geen reden voor bezwaar; hiervoor kunt u een reparatieverzoek indienen via onze website.\n\nOntvangt u huurtoeslag? De verhoging kan gevolgen hebben voor de hoogte van uw toeslag. Geef uw nieuwe huurprijs daarom door aan de Belastingdienst.\n\nHeeft u vragen? Bel ons op werkdagen tussen 9.00 en 17.00 uur via 088-234 56 78.\n\nMet vriendelijke groet,\nWoonstichting De Linde",
+          "question": "Wanneer heeft bezwaar maken zin?",
+          "options": [
+            "als de huurders vinden dat de woning te klein is",
+            "als de huurders de nieuwe huur niet kunnen betalen",
+            "als de verhoging niet volgens de regels is"
+          ],
+          "correct": 2,
+          "explanation": "According to the letter, an objection only makes sense if the increase does not follow the rules, for instance a percentage that is too high or a letter sent too late."
+        },
+        {
+          "passage": "huurverhoging",
+          "passageTitle": "Jaarlijkse huurverhoging",
+          "text": "Jaarlijkse huurverhoging\n\nGeachte heer en mevrouw Ozdemir,\n\nElk jaar mag de huur van uw woning worden verhoogd. In deze brief leest u wat dit voor u betekent.\n\nPer 1 juli verhogen wij de huur van uw woning aan de Lindenstraat 24 met 3,1%. Uw kale huur stijgt daardoor van € 640,00 naar € 659,84 per maand. De servicekosten, bijvoorbeeld voor de schoonmaak van het trappenhuis, veranderen niet. Uw totale maandbedrag wordt € 704,84.\n\nDe verhoging is niet hoger dan het maximale percentage dat de overheid dit jaar heeft vastgesteld. Betaalt u via automatische incasso? Dan passen wij het bedrag automatisch aan; u hoeft niets te doen.\n\nBent u het niet eens met de huurverhoging? Dan kunt u bezwaar maken. Dit kan alleen schriftelijk en vóór 1 juli. Bezwaar maken heeft alleen zin als de verhoging niet volgens de regels is, bijvoorbeeld als het percentage te hoog is of als deze brief te laat is verstuurd. Klachten over achterstallig onderhoud zijn geen reden voor bezwaar; hiervoor kunt u een reparatieverzoek indienen via onze website.\n\nOntvangt u huurtoeslag? De verhoging kan gevolgen hebben voor de hoogte van uw toeslag. Geef uw nieuwe huurprijs daarom door aan de Belastingdienst.\n\nHeeft u vragen? Bel ons op werkdagen tussen 9.00 en 17.00 uur via 088-234 56 78.\n\nMet vriendelijke groet,\nWoonstichting De Linde",
+          "question": "In de badkamer van de familie Ozdemir zit al maanden schimmel. Wat kunnen zij volgens de brief het beste doen?",
+          "options": [
+            "de huurverhoging niet betalen",
+            "een reparatieverzoek indienen via de website",
+            "schriftelijk bezwaar maken vóór 1 juli"
+          ],
+          "correct": 1,
+          "explanation": "The letter states that complaints about overdue maintenance are not a valid reason for objecting to the rent increase; for those, tenants should submit a repair request via the website."
+        },
+        {
+          "passage": "huurverhoging",
+          "passageTitle": "Jaarlijkse huurverhoging",
+          "text": "Jaarlijkse huurverhoging\n\nGeachte heer en mevrouw Ozdemir,\n\nElk jaar mag de huur van uw woning worden verhoogd. In deze brief leest u wat dit voor u betekent.\n\nPer 1 juli verhogen wij de huur van uw woning aan de Lindenstraat 24 met 3,1%. Uw kale huur stijgt daardoor van € 640,00 naar € 659,84 per maand. De servicekosten, bijvoorbeeld voor de schoonmaak van het trappenhuis, veranderen niet. Uw totale maandbedrag wordt € 704,84.\n\nDe verhoging is niet hoger dan het maximale percentage dat de overheid dit jaar heeft vastgesteld. Betaalt u via automatische incasso? Dan passen wij het bedrag automatisch aan; u hoeft niets te doen.\n\nBent u het niet eens met de huurverhoging? Dan kunt u bezwaar maken. Dit kan alleen schriftelijk en vóór 1 juli. Bezwaar maken heeft alleen zin als de verhoging niet volgens de regels is, bijvoorbeeld als het percentage te hoog is of als deze brief te laat is verstuurd. Klachten over achterstallig onderhoud zijn geen reden voor bezwaar; hiervoor kunt u een reparatieverzoek indienen via onze website.\n\nOntvangt u huurtoeslag? De verhoging kan gevolgen hebben voor de hoogte van uw toeslag. Geef uw nieuwe huurprijs daarom door aan de Belastingdienst.\n\nHeeft u vragen? Bel ons op werkdagen tussen 9.00 en 17.00 uur via 088-234 56 78.\n\nMet vriendelijke groet,\nWoonstichting De Linde",
+          "question": "Wat moeten huurders die huurtoeslag ontvangen doen?",
+          "options": [
+            "de nieuwe huurprijs doorgeven aan de Belastingdienst",
+            "de huurtoeslag opnieuw aanvragen bij de woonstichting",
+            "vóór 1 juli hun automatische incasso stopzetten"
+          ],
+          "correct": 0,
+          "explanation": "Because the increase can affect the amount of housing benefit, the letter tells tenants to pass on the new rent to the Belastingdienst. The woonstichting does not handle huurtoeslag."
+        }
+      ],
+      "sectionNames": {
+        "contract": "1. Verlenging arbeidscontract",
+        "zorgtoeslag": "2. Controleer uw zorgtoeslag",
+        "opleiding": "3. Deeltijdopleiding Zorg en Welzijn",
+        "deelscooters": "4. Overlast van deelscooters",
+        "thuiswerken": "5. Thuiswerken moet blijven",
+        "huurverhoging": "6. Jaarlijkse huurverhoging"
+      }
+    }
+  }
+}
