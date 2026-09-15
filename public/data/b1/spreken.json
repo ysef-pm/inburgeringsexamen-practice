@@ -1,0 +1,379 @@
+{
+    "exams": {
+        "exam1": {
+            "title": "B1 Spreken Oefenexamen 1",
+            "parts": [
+                {
+                    "partNumber": 1,
+                    "title": "Vragen beantwoorden",
+                    "description": "Beantwoord de vraag. Geef uw mening en een reden. U hebt 30 seconden.",
+                    "prepTime": 10,
+                    "responseTime": 30,
+                    "exercises": [
+                        {
+                            "id": "b1-s1-p1-q1",
+                            "taskType": "short",
+                            "prompt": "Wat vindt u belangrijker: een hoog salaris of leuk werk? Waarom?",
+                            "images": [],
+                            "tipText": "State your choice in one sentence, then give a clear reason with 'omdat' or 'want'. Two to three sentences is enough at B1."
+                        },
+                        {
+                            "id": "b1-s1-p1-q2",
+                            "taskType": "short",
+                            "prompt": "Werkt u liever in een team of liever alleen? Leg uit waarom.",
+                            "images": [],
+                            "tipText": "Give your preference plus one concrete reason, for example something about samenwerken or concentratie. Avoid a bare yes/no answer."
+                        },
+                        {
+                            "id": "b1-s1-p1-q3",
+                            "taskType": "short",
+                            "prompt": "Wat is volgens u belangrijker bij het vinden van een baan: werkervaring of een diploma? Waarom?",
+                            "images": [],
+                            "tipText": "Pick one side and defend it with a reason; you can briefly acknowledge the other side with 'hoewel' for extra B1 credit."
+                        },
+                        {
+                            "id": "b1-s1-p1-q4",
+                            "taskType": "short",
+                            "prompt": "Zou u een cursus in de avond willen volgen naast uw werk? Waarom wel of niet?",
+                            "images": [],
+                            "tipText": "Answer with wel/niet, then explain with a reason about tijd, energie or leren. Aim for two or three full sentences."
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 2,
+                    "title": "Korte mening geven",
+                    "description": "Beantwoord de vraag in twee of drie zinnen. Geef altijd een reden. U hebt 30 seconden.",
+                    "prepTime": 10,
+                    "responseTime": 30,
+                    "exercises": [
+                        {
+                            "id": "b1-s1-p2-q1",
+                            "taskType": "short",
+                            "prompt": "Vindt u dat kinderen op de basisschool al Engels moeten leren? Waarom wel of niet?",
+                            "images": [],
+                            "tipText": "Give a clear opinion ('Ik vind dat...') and support it with one reason. A short example makes the answer stronger."
+                        },
+                        {
+                            "id": "b1-s1-p2-q2",
+                            "taskType": "short",
+                            "prompt": "Wat zou u doen als uw buren vaak veel lawaai maken? Leg uit waarom u dat zou doen.",
+                            "images": [],
+                            "tipText": "Use the conditional ('Ik zou eerst...') and explain why that step is sensible. Answer plus reason, not just the action."
+                        },
+                        {
+                            "id": "b1-s1-p2-q3",
+                            "taskType": "short",
+                            "prompt": "Wat wilt u over vijf jaar bereikt hebben? Noem één doel en leg uit waarom dat doel belangrijk voor u is.",
+                            "images": [],
+                            "tipText": "Name one concrete goal and give the reason it matters to you. Future forms like 'ik wil' or 'ik ga' plus 'omdat' show B1 control."
+                        },
+                        {
+                            "id": "b1-s1-p2-q4",
+                            "taskType": "short",
+                            "prompt": "Vindt u het belangrijk dat mensen vrijwilligerswerk doen? Waarom?",
+                            "images": [],
+                            "tipText": "State your view and give a reason about what volunteering brings to society or to the volunteer. Two to three sentences."
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 3,
+                    "title": "Uitgebreid antwoorden — geef uw mening met redenen",
+                    "description": "Geef een uitgebreid antwoord met uw mening en twee argumenten. U hebt 75 seconden.",
+                    "prepTime": 20,
+                    "responseTime": 75,
+                    "exercises": [
+                        {
+                            "id": "b1-s1-p3-q1",
+                            "taskType": "long",
+                            "prompt": "Uw buurt heeft geld gekregen van de gemeente voor één verbetering: een speeltuin, meer groen of extra verlichting. Wat zou u kiezen? Leg uit waarom en noem twee voordelen van uw keuze.",
+                            "images": [],
+                            "tipText": "Structure your answer: open with your choice, give two advantages linked with 'ten eerste... ten tweede' or 'daarom', and close with a short conclusion."
+                        },
+                        {
+                            "id": "b1-s1-p3-q2",
+                            "taskType": "long",
+                            "prompt": "Uw werkgever wil dat alle werknemers weer vijf dagen per week naar kantoor komen. Bent u het daarmee eens? Geef uw mening en ondersteun die met twee argumenten.",
+                            "images": [],
+                            "tipText": "Take a clear position, then develop two separate arguments using connectors like 'omdat' and 'bovendien'. End with one summarising sentence."
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 4,
+                    "title": "Een situatie uitleggen",
+                    "description": "Vertel uitgebreid over de situatie. Gebruik een duidelijke structuur: begin, uitleg met redenen, slot. U hebt 75 seconden.",
+                    "prepTime": 20,
+                    "responseTime": 75,
+                    "exercises": [
+                        {
+                            "id": "b1-s1-p4-q1",
+                            "taskType": "long",
+                            "prompt": "Vertel over een cursus of opleiding die u heeft gevolgd. Wat heeft u geleerd, wat vond u moeilijk, en wat heeft u er later aan gehad?",
+                            "images": [],
+                            "tipText": "Follow the three questions as your structure: what you learned, what was hard, what it gave you. Past tenses and 'daardoor'/'daarna' keep the story coherent."
+                        },
+                        {
+                            "id": "b1-s1-p4-q2",
+                            "taskType": "long",
+                            "prompt": "In uw straat rijden auto's vaak veel te hard. Beschrijf het probleem en leg uit welke oplossing u aan de gemeente zou voorstellen. Noem twee redenen waarom uw oplossing goed is.",
+                            "images": [],
+                            "tipText": "Open by describing the problem, propose one solution, then give two reasons with 'omdat' or 'daardoor'. A closing sentence rounds off the answer."
+                        }
+                    ]
+                }
+            ]
+        },
+        "exam2": {
+            "title": "B1 Spreken Oefenexamen 2",
+            "parts": [
+                {
+                    "partNumber": 1,
+                    "title": "Vragen beantwoorden",
+                    "description": "Beantwoord de vraag. Geef uw mening en een reden. U hebt 30 seconden.",
+                    "prepTime": 10,
+                    "responseTime": 30,
+                    "exercises": [
+                        {
+                            "id": "b1-s2-p1-q1",
+                            "taskType": "short",
+                            "prompt": "Vindt u dat werknemers zelf mogen kiezen of ze thuiswerken? Waarom wel of niet?",
+                            "images": [],
+                            "tipText": "State your opinion and back it with one reason about vrijheid, samenwerking or productiviteit. Two to three sentences."
+                        },
+                        {
+                            "id": "b1-s2-p1-q2",
+                            "taskType": "short",
+                            "prompt": "Vindt u het belangrijk om op het werk Nederlands te spreken? Waarom?",
+                            "images": [],
+                            "tipText": "Give a clear answer plus a reason, for example about contact with colleagues or learning faster. Avoid answering with only 'ja' or 'nee'."
+                        },
+                        {
+                            "id": "b1-s2-p1-q3",
+                            "taskType": "short",
+                            "prompt": "Leert u liever in een klas met een docent of liever online? Leg uit waarom.",
+                            "images": [],
+                            "tipText": "Choose one option and explain the advantage that matters most to you. A contrast with the other option ('terwijl...') lifts the answer to B1."
+                        },
+                        {
+                            "id": "b1-s2-p1-q4",
+                            "taskType": "short",
+                            "prompt": "Wat vindt u van een werkweek van vier dagen? Noem een reden voor uw mening.",
+                            "images": [],
+                            "tipText": "Give your opinion and one supporting reason, for example about rust, gezin or salaris. Keep it to two or three complete sentences."
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 2,
+                    "title": "Korte mening geven",
+                    "description": "Beantwoord de vraag in twee of drie zinnen. Geef altijd een reden. U hebt 30 seconden.",
+                    "prepTime": 10,
+                    "responseTime": 30,
+                    "exercises": [
+                        {
+                            "id": "b1-s2-p2-q1",
+                            "taskType": "short",
+                            "prompt": "Vindt u dat winkels op zondag open moeten zijn? Waarom wel of niet?",
+                            "images": [],
+                            "tipText": "Take a position and give one reason, for example convenience for workers or rest for shop staff. Answer plus reason is the B1 expectation."
+                        },
+                        {
+                            "id": "b1-s2-p2-q2",
+                            "taskType": "short",
+                            "prompt": "Vindt u dat de gemeente meer moet doen tegen zwerfafval op straat? Waarom?",
+                            "images": [],
+                            "tipText": "Say what you think and why; you can add what the gemeente could concretely do. Two to three sentences with 'omdat' or 'daarom'."
+                        },
+                        {
+                            "id": "b1-s2-p2-q3",
+                            "taskType": "short",
+                            "prompt": "Zou u later een eigen bedrijf willen beginnen? Waarom wel of niet?",
+                            "images": [],
+                            "tipText": "Use 'Ik zou (geen)... willen' and justify it with a reason about vrijheid, risico or geld. Keep the answer short but complete."
+                        },
+                        {
+                            "id": "b1-s2-p2-q4",
+                            "taskType": "short",
+                            "prompt": "Vindt u dat jongeren te veel tijd op hun telefoon doorbrengen? Waarom?",
+                            "images": [],
+                            "tipText": "Give an opinion with a reason, and if you can, one short example from daily life. Do not just list problems — explain one properly."
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 3,
+                    "title": "Uitgebreid antwoorden — geef uw mening met redenen",
+                    "description": "Geef een uitgebreid antwoord met uw mening en twee argumenten. U hebt 75 seconden.",
+                    "prepTime": 20,
+                    "responseTime": 75,
+                    "exercises": [
+                        {
+                            "id": "b1-s2-p3-q1",
+                            "taskType": "long",
+                            "prompt": "Een goede vriend wil stoppen met zijn opleiding om direct te gaan werken. Wat zou u hem adviseren? Geef uw advies en ondersteun het met twee argumenten.",
+                            "images": [],
+                            "tipText": "Open with your advice ('Ik zou hem adviseren om...'), then give two distinct arguments joined with 'ten eerste... daarnaast'. Close with a brief conclusion."
+                        },
+                        {
+                            "id": "b1-s2-p3-q2",
+                            "taskType": "long",
+                            "prompt": "Uw werkgever vraagt alle medewerkers om ideeën om het bedrijf duurzamer te maken. Welk idee zou u voorstellen? Leg uit waarom en noem twee voordelen van uw idee.",
+                            "images": [],
+                            "tipText": "Present one concrete idea, explain why you chose it, and name two advantages using 'daardoor' or 'bovendien'. Finish with a summarising sentence."
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 4,
+                    "title": "Een situatie uitleggen",
+                    "description": "Vertel uitgebreid over de situatie. Gebruik een duidelijke structuur: begin, uitleg met redenen, slot. U hebt 75 seconden.",
+                    "prepTime": 20,
+                    "responseTime": 75,
+                    "exercises": [
+                        {
+                            "id": "b1-s2-p4-q1",
+                            "taskType": "long",
+                            "prompt": "Vertel over een moeilijke situatie op uw werk of tijdens uw studie. Wat gebeurde er, wat heeft u gedaan, en wat heeft u ervan geleerd?",
+                            "images": [],
+                            "tipText": "Tell it as a short story in the past tense: situation, your action, the lesson. Connectors like 'eerst', 'daarna' and 'uiteindelijk' give it structure."
+                        },
+                        {
+                            "id": "b1-s2-p4-q2",
+                            "taskType": "long",
+                            "prompt": "De bibliotheek in uw wijk dreigt te sluiten. Leg uit waarom de bibliotheek volgens u belangrijk is en wat de gemeente zou moeten doen. Geef twee argumenten.",
+                            "images": [],
+                            "tipText": "Start with your position, develop two arguments about what the library offers, and end by saying what the gemeente should do. Use 'omdat' and 'bovendien'."
+                        }
+                    ]
+                }
+            ]
+        },
+        "exam3": {
+            "title": "B1 Spreken Oefenexamen 3",
+            "parts": [
+                {
+                    "partNumber": 1,
+                    "title": "Vragen beantwoorden",
+                    "description": "Beantwoord de vraag. Geef uw mening en een reden. U hebt 30 seconden.",
+                    "prepTime": 10,
+                    "responseTime": 30,
+                    "exercises": [
+                        {
+                            "id": "b1-s3-p1-q1",
+                            "taskType": "short",
+                            "prompt": "Vindt u dat volwassenen moeten blijven leren, ook als ze al werken? Waarom?",
+                            "images": [],
+                            "tipText": "Give a clear opinion with one reason, for example about changing jobs or staying up to date. Two to three sentences with 'omdat'."
+                        },
+                        {
+                            "id": "b1-s3-p1-q2",
+                            "taskType": "short",
+                            "prompt": "Werkt u liever bij een groot bedrijf of bij een klein bedrijf? Leg uit waarom.",
+                            "images": [],
+                            "tipText": "Choose one and give the reason that matters most to you, such as sfeer, doorgroeimogelijkheden or zekerheid. Answer plus reason."
+                        },
+                        {
+                            "id": "b1-s3-p1-q3",
+                            "taskType": "short",
+                            "prompt": "Wat vindt u belangrijker: dicht bij uw familie wonen of wonen waar het werk is? Waarom?",
+                            "images": [],
+                            "tipText": "State your priority and justify it; a short 'hoewel...' clause acknowledging the other side shows B1-level nuance."
+                        },
+                        {
+                            "id": "b1-s3-p1-q4",
+                            "taskType": "short",
+                            "prompt": "Vindt u een stage belangrijk voor studenten? Waarom wel of niet?",
+                            "images": [],
+                            "tipText": "Answer with your view plus one reason about ervaring, contacten or leren in de praktijk. Keep it to two or three sentences."
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 2,
+                    "title": "Korte mening geven",
+                    "description": "Beantwoord de vraag in twee of drie zinnen. Geef altijd een reden. U hebt 30 seconden.",
+                    "prepTime": 10,
+                    "responseTime": 30,
+                    "exercises": [
+                        {
+                            "id": "b1-s3-p2-q1",
+                            "taskType": "short",
+                            "prompt": "Vindt u dat mensen minder vlees moeten eten voor het milieu? Waarom?",
+                            "images": [],
+                            "tipText": "Give your opinion and one clear reason. You may soften or strengthen it with 'misschien' or 'zeker' — but always explain why."
+                        },
+                        {
+                            "id": "b1-s3-p2-q2",
+                            "taskType": "short",
+                            "prompt": "Vindt u dat het openbaar vervoer goedkoper moet worden? Waarom wel of niet?",
+                            "images": [],
+                            "tipText": "State your position and support it with one reason, for example about auto's, milieu or mensen met een laag inkomen."
+                        },
+                        {
+                            "id": "b1-s3-p2-q3",
+                            "taskType": "short",
+                            "prompt": "Wat is uw plan om uw Nederlands verder te verbeteren? Leg uit waarom die manier voor u werkt.",
+                            "images": [],
+                            "tipText": "Name one concrete method and explain why it suits you. 'Ik ga...' plus 'omdat' covers the B1 expectation of answer plus reason."
+                        },
+                        {
+                            "id": "b1-s3-p2-q4",
+                            "taskType": "short",
+                            "prompt": "Vindt u het belangrijk om uw buren goed te kennen? Waarom?",
+                            "images": [],
+                            "tipText": "Give an opinion with a reason, for example helping each other or feeling safe. A brief example from your own street works well."
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 3,
+                    "title": "Uitgebreid antwoorden — geef uw mening met redenen",
+                    "description": "Geef een uitgebreid antwoord met uw mening en twee argumenten. U hebt 75 seconden.",
+                    "prepTime": 20,
+                    "responseTime": 75,
+                    "exercises": [
+                        {
+                            "id": "b1-s3-p3-q1",
+                            "taskType": "long",
+                            "prompt": "De gemeente heeft een leeg terrein in uw wijk en twijfelt tussen twee plannen: sportvelden of nieuwe woningen. Wat zou u kiezen? Geef uw mening met twee argumenten.",
+                            "images": [],
+                            "tipText": "Open with your choice, give two arguments ('ten eerste... ten tweede'), and briefly mention why the other plan convinces you less. Close with a conclusion."
+                        },
+                        {
+                            "id": "b1-s3-p3-q2",
+                            "taskType": "long",
+                            "prompt": "Sommige mensen vinden dat kinderen onder de vijftien geen sociale media mogen gebruiken. Bent u het daarmee eens? Geef uw mening en ondersteun die met twee argumenten.",
+                            "images": [],
+                            "tipText": "Take a clear position and develop two separate arguments with 'omdat' and 'bovendien'. One closing sentence restating your view completes the structure."
+                        }
+                    ]
+                },
+                {
+                    "partNumber": 4,
+                    "title": "Een situatie uitleggen",
+                    "description": "Vertel uitgebreid over de situatie. Gebruik een duidelijke structuur: begin, uitleg met redenen, slot. U hebt 75 seconden.",
+                    "prepTime": 20,
+                    "responseTime": 75,
+                    "exercises": [
+                        {
+                            "id": "b1-s3-p4-q1",
+                            "taskType": "long",
+                            "prompt": "U wilt volgend jaar iets nieuws leren, bijvoorbeeld een opleiding of een cursus. Vertel wat u wilt leren, waarom u dat wilt, en welke stappen u gaat nemen.",
+                            "images": [],
+                            "tipText": "Structure the answer around the three questions: what, why, and which steps. Future forms ('ik ga eerst... daarna...') keep the plan coherent."
+                        },
+                        {
+                            "id": "b1-s3-p4-q2",
+                            "taskType": "long",
+                            "prompt": "Veel ouderen in uw buurt voelen zich eenzaam. Beschrijf het probleem en stel een activiteit voor die kan helpen. Leg uit waarom en noem twee voordelen van uw voorstel.",
+                            "images": [],
+                            "tipText": "Describe the problem first, propose one concrete activity, then give two advantages with 'daardoor' or 'bovendien'. End with a short concluding sentence."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
