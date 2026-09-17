@@ -289,18 +289,16 @@ async function run(browser, viewport, tag) {
         assert((await storedLevel(page)) === null, 'no level chosen');
     });
 
-    // 7. Existing user (rmd-inline-state) → silently A2, no sheet
-    await scenario('existing user (rmd-inline-state) skips sheet, gets A2', {
+    // 7. rmd-inline-state is written by the scorecard's inline writing demo
+    // (public/js/inline-practice.js) — scorecard converts are NOT existing
+    // practice users, so it must NOT suppress the level chooser.
+    await scenario('inline-state-only visitor (scorecard demo) still gets level sheet', {
         seed: { 'rmd-inline-state': '{"mode":"schrijven"}' },
     }, async (page) => {
         await page.goto(BASE);
         await click(page, '.mode-btn.lezen');
-        await waitForSelector(page, '.reading-text');
-        assert(!(await sheetVisible(page)), 'no level sheet');
-        assert((await storedLevel(page)) === 'a2', 'silently defaulted to a2');
-        assert((await badgeText(page)).startsWith('A2'), 'badge A2');
-        const items = await page.$$eval('#exam-sidebar .exercise-item', (l) => l.length);
-        assert(items === a2Lezen.exams.exam1.questions.length, `A2 lezen exam1 ${a2Lezen.exams.exam1.questions.length}q (got ${items})`);
+        await waitFor(page, () => sheetVisible(page), 'level sheet');
+        assert((await storedLevel(page)) === null, 'no level auto-set');
     });
 
     // 8. Existing user (progress key) → silently A2, no sheet

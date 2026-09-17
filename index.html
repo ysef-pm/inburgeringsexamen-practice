@@ -3175,11 +3175,12 @@
             const GATED_MODES = ['schrijven', 'lezen', 'spreken', 'luisteren'];
             // Any of these in localStorage means this visitor practiced before
             // the B1 launch — everything they saw was A2, so default silently.
-            // Scorecard keys (rmd-scorecard-sid, rmd-last-result) are deliberately
-            // excluded: they're funnel/survey signals written before any practice,
-            // and B1 ad converts arriving via the scorecard must see the chooser.
+            // Scorecard keys (rmd-scorecard-sid, rmd-last-result, rmd-inline-state)
+            // are deliberately excluded: they're funnel/survey signals written
+            // before any real practice — rmd-inline-state comes from the scorecard's
+            // inline writing demo (public/js/inline-practice.js) — and B1 ad
+            // converts arriving via the scorecard must see the chooser.
             const EXISTING_USER_KEYS = [
-                'rmd-inline-state',        // inline practice state
                 'rmd-progress-spreken',    // ProgressTracker (shared.js)
                 'rmd-progress-luisteren',
                 'rmd-progress-knm'
