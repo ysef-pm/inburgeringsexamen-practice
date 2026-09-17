@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Generate TTS audio for luisteren exercises and DALL-E images for spreken exercises.
- * Usage: OPENAI_API_KEY=your_key node scripts/generate-assets.js [--tts] [--images] [--exam exam2]
+ * Usage: OPENAI_API_KEY=your_key node scripts/generate-assets.js [--tts] [--images] [--exam exam2] [--level b1]
  */
 
 const fs = require('fs');
@@ -17,6 +17,7 @@ const args = process.argv.slice(2);
 const doTTS = args.includes('--tts') || (!args.includes('--images'));
 const doImages = args.includes('--images') || (!args.includes('--tts'));
 const examFilter = args.includes('--exam') ? args[args.indexOf('--exam') + 1] : null;
+const level = args.includes('--level') ? args[args.indexOf('--level') + 1] : 'a2';
 
 async function generateTTS(text, outputPath) {
     const dir = path.dirname(outputPath);
@@ -118,9 +119,9 @@ const IMAGE_PROMPTS = {
 };
 
 async function runTTS() {
-    console.log('\n=== Generating TTS Audio for Luisteren ===\n');
+    console.log(`\n=== Generating TTS Audio for Luisteren (${level}) ===\n`);
     const luisterenData = JSON.parse(fs.readFileSync(
-        path.join(__dirname, '..', 'public', 'data', 'a2', 'luisteren.json'), 'utf8'
+        path.join(__dirname, '..', 'public', 'data', level, 'luisteren.json'), 'utf8'
     ));
 
     for (const [examKey, exam] of Object.entries(luisterenData.exams)) {
