@@ -1,0 +1,319 @@
+{
+    "exams": {
+        "exam1": {
+            "title": "B1 Luisteren Oefenexamen 1",
+            "questions": [
+                {
+                    "id": "b1-l1-q1",
+                    "questionText": "Wat verandert er in het rooster van de vrouw?",
+                    "audioFile": "b1-luisteren/exam1/q1.mp3",
+                    "transcript": "Man: Heb je het nieuwe rooster al gezien? Er zijn een paar dingen veranderd.\nVrouw: Nee, nog niet. Ik hoop dat mijn dinsdag gewoon blijft, want dan breng ik mijn dochter naar zwemles.\nMan: Helaas, juist die dag is gewijzigd. Vanaf volgende maand werk je op donderdag in plaats van op dinsdag. De begintijden blijven wel hetzelfde, dus je hoeft niet eerder te beginnen.\nVrouw: Dat is vervelend, maar goed dat ik het nu weet. Dan kan ik de zwemles nog verzetten.\nMan: Als het echt niet lukt, kun je met de planner overleggen. Misschien kan iemand met je ruilen.",
+                    "readingTime": 10,
+                    "options": ["Zij werkt voortaan op donderdag in plaats van op dinsdag", "Zij moet elke dag een uur eerder beginnen", "Zij krijgt er een extra werkdag bij"],
+                    "correctAnswer": 0,
+                    "explanation": "The man says her Tuesday shift moves to Thursday from next month. He explicitly adds that starting times stay the same, so she does not have to begin earlier."
+                },
+                {
+                    "id": "b1-l1-q2",
+                    "questionText": "Wat moet meneer Aydin vandaag doen?",
+                    "audioFile": "b1-luisteren/exam1/q2.mp3",
+                    "transcript": "Goedemiddag, u spreekt met Sandra van uitzendbureau Werkplus. Dit bericht is voor meneer Aydin. Ik bel u omdat we een baan voor u hebben gevonden in een magazijn in Diemen. U kunt daar maandag beginnen, maar dan moet ik vandaag nog een paar dingen met u regelen. Belt u mij daarom terug vóór vijf uur? Ons nummer is 020 555 31 31. Neemt u op maandag ook uw identiteitsbewijs mee, want de werkgever moet daarvan een kopie maken. Alvast bedankt en tot snel.",
+                    "readingTime": 10,
+                    "options": ["Direct naar het magazijn in Diemen gaan", "Vóór vijf uur terugbellen naar het uitzendbureau", "Een kopie van zijn identiteitsbewijs opsturen"],
+                    "correctAnswer": 1,
+                    "explanation": "Sandra asks him to call back before five o'clock today so she can arrange the final details. Starting at the warehouse and bringing his ID both happen on Monday, not today."
+                },
+                {
+                    "id": "b1-l1-q3",
+                    "questionText": "Op welke dag wordt het restafval voortaan opgehaald?",
+                    "audioFile": "b1-luisteren/exam1/q3.mp3",
+                    "transcript": "Dit is een bericht van de gemeente. Vanaf 1 maart verandert de afvalinzameling in de wijk Oosterpark. Tot nu toe werd het restafval op maandag opgehaald, maar omdat de routes efficiënter worden ingedeeld, gebeurt dat voortaan op woensdag. Papier en karton halen wij één keer per maand op, op de eerste vrijdag. Zet uw container vóór half acht 's ochtends aan de straat, anders wordt hij niet geleegd. Heeft u vragen? Kijk dan op de website van de gemeente of bel het algemene nummer.",
+                    "readingTime": 10,
+                    "options": ["Op maandag", "Op woensdag", "Op vrijdag"],
+                    "correctAnswer": 1,
+                    "explanation": "The announcement says residual waste will from now on be collected on Wednesday. Monday was the old collection day and Friday is only for paper and cardboard once a month."
+                },
+                {
+                    "id": "b1-l1-q4",
+                    "questionText": "Wanneer kan de man bij de dokter terecht?",
+                    "audioFile": "b1-luisteren/exam1/q4.mp3",
+                    "transcript": "Vrouw: Huisartsenpraktijk De Linde, goedemorgen.\nMan: Goedemorgen, ik wil graag een afspraak maken. Ik heb al een week last van mijn schouder.\nVrouw: Is het dringend? Vandaag hebben we namelijk alleen plek voor spoedgevallen, omdat één van de artsen ziek is.\nMan: Nee, spoed is het niet, maar ik wil wel graag deze week komen.\nVrouw: Dat begrijp ik. Donderdag om half tien heb ik nog een plekje bij dokter Jansen. Schikt dat?\nMan: Ja, dat komt goed uit.\nVrouw: Prima, dan zet ik u op donderdag in de agenda. Als de pijn erger wordt, moet u wel eerder bellen.",
+                    "readingTime": 10,
+                    "options": ["Donderdag om half tien", "Vandaag nog, bij een spoedafspraak", "Volgende week, omdat de arts ziek is"],
+                    "correctAnswer": 0,
+                    "explanation": "The assistant offers him Thursday at half past nine and he accepts. Today is reserved for urgent cases only, and his complaint is not urgent."
+                },
+                {
+                    "id": "b1-l1-q5",
+                    "questionText": "Wat is het belangrijkste nieuws in dit bericht?",
+                    "audioFile": "b1-luisteren/exam1/q5.mp3",
+                    "transcript": "En dan nu het verkeersnieuws. Door de zware storm van vannacht rijden er vandaag in het hele land minder treinen. Op verschillende trajecten zijn bomen op het spoor gevallen, waardoor treinen moeten omrijden of helemaal niet kunnen rijden. De spoorwegen verwachten dat de problemen tot het einde van de middag duren. Reizigers wordt aangeraden om voor vertrek de reisplanner te controleren en rekening te houden met een langere reistijd. Volgens het KNMI neemt de wind in de loop van de dag af, maar blijft het onstuimig weer tot morgenochtend.",
+                    "readingTime": 10,
+                    "options": ["Het blijft de hele week hard waaien", "Er is een ernstig ongeluk gebeurd op het spoor", "Er rijden vandaag minder treinen door de storm"],
+                    "correctAnswer": 2,
+                    "explanation": "The main point is that fewer trains are running today because of the storm. The wind actually decreases during the day, and trees on the track are storm damage, not an accident."
+                },
+                {
+                    "id": "b1-l1-q6",
+                    "questionText": "Waarom stuurt de school dit bericht?",
+                    "audioFile": "b1-luisteren/exam1/q6.mp3",
+                    "transcript": "Beste ouders, dit is een bericht van basisschool De Regenboog. De ouderavond van dinsdag 12 november kan helaas niet doorgaan, omdat er die avond een probleem is met de verwarming in het gebouw. Daarom verplaatsen wij de avond naar donderdag 21 november, van zeven tot negen uur. U hoeft zich niet opnieuw aan te melden; uw aanmelding blijft gewoon geldig. Kunt u op de nieuwe datum niet komen? Stuur dan een e-mail naar de leerkracht van uw kind, zodat we een ander moment kunnen afspreken.",
+                    "readingTime": 10,
+                    "options": ["De ouders moeten zich opnieuw aanmelden voor de ouderavond", "De ouderavond is verplaatst naar een andere datum", "De verwarming van de school wordt volgende week gerepareerd"],
+                    "correctAnswer": 1,
+                    "explanation": "The purpose of the message is to announce that the parents' evening moves to 21 November. Parents explicitly do not need to register again, and the heating is only mentioned as the reason."
+                },
+                {
+                    "id": "b1-l1-q7",
+                    "questionText": "Hoeveel gaat de vrouw voortaan per maand betalen?",
+                    "audioFile": "b1-luisteren/exam1/q7.mp3",
+                    "transcript": "Vrouw: Goedemiddag, ik bel omdat ik een brief heb gekregen over mijn maandbedrag. Ik begrijp niet waarom het omhoog gaat.\nMan: Dat kan ik voor u nakijken. Een moment... Ik zie het. U betaalt nu 120 euro per maand, maar omdat u het afgelopen jaar meer energie heeft verbruikt dan verwacht, wordt uw nieuwe maandbedrag 145 euro.\nVrouw: Dat is een flink verschil.\nMan: Dat klopt, het is 25 euro meer. Als u het bedrag te hoog vindt, kunt u het in de app zelf aanpassen. Maar dan is de kans groot dat u volgend jaar moet bijbetalen.\nVrouw: Nee, laat dan maar zo staan. Bedankt voor de uitleg.",
+                    "readingTime": 10,
+                    "options": ["145 euro", "120 euro", "25 euro"],
+                    "correctAnswer": 0,
+                    "explanation": "Her new monthly amount is 145 euros. 120 euros is what she paid until now, and 25 euros is only the difference between the two amounts."
+                },
+                {
+                    "id": "b1-l1-q8",
+                    "questionText": "Wat moeten reizigers naar Utrecht doen?",
+                    "audioFile": "b1-luisteren/exam1/q8.mp3",
+                    "transcript": "Dames en heren, mag ik uw aandacht. De intercity naar Utrecht van 14.32 uur vertrekt vandaag niet van spoor 5, maar van spoor 8. Ik herhaal: de intercity naar Utrecht vertrekt van spoor 8. Deze wijziging komt door een defecte trein op spoor 5. Reizigers naar Almere hoeven niet over te stappen; hun trein vertrekt gewoon volgens het schema. Onze excuses voor het ongemak en wij wensen u een goede reis.",
+                    "readingTime": 10,
+                    "options": ["Op spoor 5 blijven wachten", "In Almere overstappen", "Naar spoor 8 gaan"],
+                    "correctAnswer": 2,
+                    "explanation": "The intercity to Utrecht now departs from platform 8 instead of platform 5. Almere is mentioned only to reassure those travellers that nothing changes for them."
+                },
+                {
+                    "id": "b1-l1-q9",
+                    "questionText": "Wat spreken de buren af?",
+                    "audioFile": "b1-luisteren/exam1/q9.mp3",
+                    "transcript": "Vrouw: Hoi Ahmed, heb je even? Ik wil iets met je bespreken over je verbouwing.\nMan: Natuurlijk. Is er iets aan de hand?\nVrouw: Ja, het boren 's avonds is best storend. Mijn zoontje gaat om zeven uur naar bed en hij kan door het lawaai niet slapen.\nMan: Oh, dat wist ik niet. Sorry! Ik werk overdag, daarom klus ik meestal 's avonds.\nVrouw: Dat snap ik, maar zou je het zware werk in het weekend overdag kunnen doen?\nMan: Dat is een goed idee. Ik beloof dat ik na zeven uur 's avonds niet meer boor. Volgende maand ben ik trouwens klaar, dan is het lawaai voorbij.\nVrouw: Fijn, bedankt voor je begrip.",
+                    "readingTime": 10,
+                    "options": ["De man stopt meteen met de verbouwing", "De man boort 's avonds na zeven uur niet meer", "De man verbouwt voortaan alleen nog in het weekend"],
+                    "correctAnswer": 1,
+                    "explanation": "Ahmed promises not to drill after seven in the evening any more. The renovation itself continues until next month, and working only at weekends was a suggestion, not the agreement."
+                },
+                {
+                    "id": "b1-l1-q10",
+                    "questionText": "Tot wanneer kunnen klanten hun zorgverzekering aanpassen?",
+                    "audioFile": "b1-luisteren/exam1/q10.mp3",
+                    "transcript": "Dit is een informatiebericht van zorgverzekeraar Gezond Samen. In november ontvangt u van ons de nieuwe polis voor volgend jaar. Daarin staat wat er verandert in uw premie en in de vergoedingen. Wilt u uw verzekering aanpassen of overstappen naar een andere verzekeraar? Dat kan tot en met 31 december. Daarna zit u weer een heel jaar aan uw keuze vast. Vanaf 15 november kunt u in onze app alle pakketten rustig vergelijken. Heeft u hulp nodig bij het kiezen? Onze medewerkers zijn op werkdagen bereikbaar tussen negen en vijf uur.",
+                    "readingTime": 10,
+                    "options": ["Tot 1 november", "Tot 15 november", "Tot en met 31 december"],
+                    "correctAnswer": 2,
+                    "explanation": "Changing or switching insurance is possible until 31 December. November is when the new policy arrives, and 15 November is only when the comparison tool opens in the app."
+                }
+            ]
+        },
+        "exam2": {
+            "title": "B1 Luisteren Oefenexamen 2",
+            "questions": [
+                {
+                    "id": "b1-l2-q1",
+                    "questionText": "Waarom belt de assistente van de tandarts?",
+                    "audioFile": "b1-luisteren/exam2/q1.mp3",
+                    "transcript": "Goedemorgen, u spreekt met de assistente van tandartspraktijk Molenwijk. Dit is een bericht voor mevrouw Silva. U heeft aanstaande vrijdag om kwart voor elf een afspraak voor een controle, maar helaas moeten wij die verzetten, omdat de tandarts die dag op cursus is. Wij hebben u alvast een nieuwe afspraak gegeven op dinsdag 4 juni om tien uur. Als die datum niet uitkomt, kunt u ons bellen om een ander moment te kiezen. Wij zijn elke werkdag bereikbaar van acht tot vijf. Fijne dag verder.",
+                    "readingTime": 10,
+                    "options": ["De afspraak van mevrouw Silva wordt verzet", "Zij wil mevrouw Silva herinneren aan de controle van vrijdag", "Zij wil vragen of mevrouw Silva de rekening al heeft betaald"],
+                    "correctAnswer": 0,
+                    "explanation": "The assistant calls to move the Friday check-up to a new date, because the dentist is on a course that day. It is not a reminder — the Friday appointment is cancelled."
+                },
+                {
+                    "id": "b1-l2-q2",
+                    "questionText": "Wat moet de man doen als hij morgen ziek is?",
+                    "audioFile": "b1-luisteren/exam2/q2.mp3",
+                    "transcript": "Man: Ik voel me niet zo lekker. Als ik morgen nog ziek ben, wat moet ik dan precies doen? Ik werk hier pas twee weken.\nVrouw: Dan bel je vóór negen uur rechtstreeks met je leidinggevende. Een berichtje sturen is niet genoeg, want ze wil je even spreken.\nMan: Oké. En moet ik ook een briefje van de dokter hebben?\nVrouw: Nee, dat hoeft in Nederland meestal niet. Maar als je langer dan een week ziek bent, neemt de bedrijfsarts contact met je op.\nMan: Duidelijk, bedankt. Hopelijk is het morgen gewoon over.",
+                    "readingTime": 10,
+                    "options": ["Een berichtje sturen naar zijn leidinggevende", "Vóór negen uur zijn leidinggevende bellen", "Een briefje van de dokter inleveren"],
+                    "correctAnswer": 1,
+                    "explanation": "He must call his supervisor directly before nine o'clock. Sending a message is explicitly said to be not enough, and a doctor's note is usually not required."
+                },
+                {
+                    "id": "b1-l2-q3",
+                    "questionText": "Wanneer is het taalcafé in de bibliotheek?",
+                    "audioFile": "b1-luisteren/exam2/q3.mp3",
+                    "transcript": "Welkom bij bibliotheek Centrum. Graag informeren wij u over onze nieuwe activiteiten. Vanaf volgende maand organiseren wij elke vrijdagochtend van tien tot twaalf een taalcafé. Daar kunt u in een gezellige groep Nederlands oefenen onder begeleiding van vrijwilligers. Deelname is gratis en u hoeft zich niet aan te melden. Verder zijn onze openingstijden veranderd: op maandag openen wij voortaan pas om één uur 's middags, omdat er 's ochtends weinig bezoekers waren. Op woensdagmiddag is er zoals altijd voorlezen voor kinderen. Meer informatie vindt u op onze website.",
+                    "readingTime": 10,
+                    "options": ["Op maandagmiddag", "Op woensdagmiddag", "Op vrijdagochtend"],
+                    "correctAnswer": 2,
+                    "explanation": "The language café takes place every Friday morning from ten to twelve. Monday afternoon relates to the new opening hours and Wednesday afternoon is the children's story time."
+                },
+                {
+                    "id": "b1-l2-q4",
+                    "questionText": "Wat moet de vrouw meenemen naar haar afspraak?",
+                    "audioFile": "b1-luisteren/exam2/q4.mp3",
+                    "transcript": "Vrouw: Goedemiddag, ik wil graag een nieuw paspoort aanvragen. Mijn oude is bijna verlopen.\nMan: Dat kan, maar daarvoor moet u eerst online een afspraak maken. Zonder afspraak kunnen we u helaas niet helpen.\nVrouw: Oké. Wat moet ik meenemen naar de afspraak?\nMan: U neemt een recente pasfoto mee en uw oude paspoort. De foto mag niet ouder zijn dan zes maanden en moet aan de officiële eisen voldoen.\nVrouw: En hoe lang duurt het voordat het klaar is?\nMan: Na de aanvraag kunt u het paspoort na vijf werkdagen ophalen. Betalen doet u direct bij de aanvraag; dat kost 83 euro.\nVrouw: Helder, dan maak ik vanavond een afspraak. Dank u wel.",
+                    "readingTime": 10,
+                    "options": ["Een recente pasfoto en haar oude paspoort", "Alleen 83 euro voor de betaling", "Een bewijs van haar online afspraak"],
+                    "correctAnswer": 0,
+                    "explanation": "The clerk says she must bring a recent passport photo and her old passport. The 83 euros is the fee she pays at the counter, not the only thing she needs."
+                },
+                {
+                    "id": "b1-l2-q5",
+                    "questionText": "Hoe lang duren de werkzaamheden aan de A12?",
+                    "audioFile": "b1-luisteren/exam2/q5.mp3",
+                    "transcript": "Dan het verkeer. Automobilisten op de A12 moeten dit weekend rekening houden met flinke vertraging. De weg is tussen Zoetermeer en Den Haag in beide richtingen afgesloten, omdat het asfalt wordt vernieuwd. De werkzaamheden beginnen vrijdagavond om acht uur en duren het hele weekend, tot maandagochtend vijf uur. Het verkeer wordt omgeleid over de N11; houd rekening met ongeveer een half uur extra reistijd. Wie met de trein reist, heeft dit weekend geen last van de werkzaamheden. Volgende week vrijdag wordt er één nacht gewerkt aan de verlichting.",
+                    "readingTime": 10,
+                    "options": ["Eén nacht", "Ongeveer een half uur", "Het hele weekend, tot maandagochtend"],
+                    "correctAnswer": 2,
+                    "explanation": "The resurfacing works last the whole weekend, from Friday evening until Monday morning. One night refers to next week's lighting works, and half an hour is the extra travel time."
+                },
+                {
+                    "id": "b1-l2-q6",
+                    "questionText": "Wat moeten de kinderen volgende week meenemen?",
+                    "audioFile": "b1-luisteren/exam2/q6.mp3",
+                    "transcript": "Beste ouders, volgende week is het bij kinderdagverblijf De Vlinder themaweek. Het thema is de natuur en daarom gaan we elke ochtend naar buiten, ook als het regent. Wilt u uw kind daarom laarzen en oude kleren meegeven die vies mogen worden? Voor het eten hoeft u niets te regelen; fruit en lunch krijgen de kinderen zoals altijd van ons. Op donderdag komt er een imker op bezoek die alles vertelt over bijen. Ouders die willen meelopen tijdens de boswandeling van woensdag, kunnen zich melden bij de leiding.",
+                    "readingTime": 10,
+                    "options": ["Fruit en een lunchpakket", "Laarzen en oude kleren", "Niets, het kinderdagverblijf regelt alles"],
+                    "correctAnswer": 1,
+                    "explanation": "Parents are asked to give their child boots and old clothes that may get dirty. Fruit and lunch are provided by the daycare as usual, so option A is exactly what they should not bring."
+                },
+                {
+                    "id": "b1-l2-q7",
+                    "questionText": "Wanneer komt de monteur langs?",
+                    "audioFile": "b1-luisteren/exam2/q7.mp3",
+                    "transcript": "Man: Goedemiddag, met meneer De Boer van woningstichting Thuis. U had gebeld over een lekkage?\nVrouw: Ja, klopt. Er komt water uit het plafond van de badkamer, vooral als de buren douchen.\nMan: Vervelend. Ik kan morgenochtend een monteur sturen, tussen acht en twaalf. Bent u dan thuis?\nVrouw: Ik moet eigenlijk werken, maar dit is belangrijker. Kan het echt niet vandaag nog?\nMan: Helaas niet, alle monteurs zitten vandaag vol. Zet u wel een emmer onder het lek en droog de vloer, zodat het water geen schade veroorzaakt.\nVrouw: Dat heb ik al gedaan. Dan zie ik de monteur morgen wel.\nMan: Prima, hij belt een half uur voordat hij komt.",
+                    "readingTime": 10,
+                    "options": ["Morgenochtend tussen acht en twaalf", "Vandaag nog, voor het einde van de dag", "Over een half uur"],
+                    "correctAnswer": 0,
+                    "explanation": "The technician comes tomorrow morning between eight and twelve. Today is not possible because all technicians are fully booked; the half hour is only the advance phone call before arrival."
+                },
+                {
+                    "id": "b1-l2-q8",
+                    "questionText": "Wat wordt er in dit bericht gevraagd?",
+                    "audioFile": "b1-luisteren/exam2/q8.mp3",
+                    "transcript": "Dames en heren, uw aandacht alstublieft voor een mededeling. Wil de eigenaar van de blauwe personenauto met kenteken 5-XKL-22 zijn auto verplaatsen? De auto staat voor de nooduitgang aan de achterkant van het gebouw en blokkeert de doorgang. Als de auto niet binnen vijftien minuten wordt weggehaald, zijn wij helaas verplicht de auto te laten wegslepen. De kosten daarvan zijn voor de eigenaar. Wij danken u voor uw medewerking en wensen u verder een prettige dag in ons warenhuis.",
+                    "readingTime": 10,
+                    "options": ["Klanten moeten via de achterkant naar buiten gaan", "De nooduitgang is vandaag gesloten", "De eigenaar van een auto moet zijn auto verplaatsen"],
+                    "correctAnswer": 2,
+                    "explanation": "The announcement asks the owner of the blue car to move it within fifteen minutes because it blocks the emergency exit. The exit itself is not closed and customers are not asked to do anything."
+                },
+                {
+                    "id": "b1-l2-q9",
+                    "questionText": "Wat moet de vrouw doen om de cursus vergoed te krijgen?",
+                    "audioFile": "b1-luisteren/exam2/q9.mp3",
+                    "transcript": "Vrouw: Ik wil graag een cursus Nederlands op een hoger niveau doen. Weet jij of het bedrijf dat betaalt?\nMan: Ja, dat kan via het opleidingsbudget. Ik heb vorig jaar zo een cursus Excel gedaan.\nVrouw: Hoe werkt dat dan?\nMan: Je moet vooraf toestemming vragen aan je manager. Als zij akkoord gaat, betaalt het bedrijf de cursus rechtstreeks; je hoeft dus niets voor te schieten.\nVrouw: En zijn er nog voorwaarden?\nMan: Je moet de cursus wel afmaken. Stop je halverwege zonder goede reden, dan moet je de kosten terugbetalen.\nVrouw: Dat lijkt me logisch. Dan mail ik mijn manager vandaag nog.",
+                    "readingTime": 10,
+                    "options": ["De cursus eerst zelf betalen en de rekening indienen", "Vooraf toestemming vragen aan haar manager", "Beloven dat ze de kosten later terugbetaalt"],
+                    "correctAnswer": 1,
+                    "explanation": "She must ask her manager for permission in advance; the company then pays the course directly. Paying it herself first is not needed, and repayment only applies if she quits halfway."
+                },
+                {
+                    "id": "b1-l2-q10",
+                    "questionText": "Wat moet mevrouw Osei doen?",
+                    "audioFile": "b1-luisteren/exam2/q10.mp3",
+                    "transcript": "Goedemiddag, dit is een bericht van zorgverzekeraar Vita voor mevrouw Osei. U heeft bij ons een vergoeding aangevraagd voor fysiotherapie. Wij hebben uw aanvraag ontvangen, maar we kunnen deze nog niet verwerken, omdat de handtekening op het formulier ontbreekt. Wilt u het formulier daarom opnieuw ondertekenen en naar ons opsturen? Dat kan per post, maar het gaat sneller via onze website. Zodra wij het complete formulier hebben, betalen wij het bedrag binnen tien werkdagen aan u terug. Heeft u vragen, dan kunt u ons bellen op werkdagen tussen half negen en vijf uur.",
+                    "readingTime": 10,
+                    "options": ["Het formulier ondertekenen en opnieuw opsturen", "De rekening van de fysiotherapeut zelf betalen", "Binnen tien werkdagen een nieuwe aanvraag doen"],
+                    "correctAnswer": 0,
+                    "explanation": "The signature is missing, so she must sign the form again and send it back. The ten working days refer to how quickly the insurer pays out once the complete form arrives."
+                }
+            ]
+        },
+        "exam3": {
+            "title": "B1 Luisteren Oefenexamen 3",
+            "questions": [
+                {
+                    "id": "b1-l3-q1",
+                    "questionText": "Waar moet mevrouw Nowak zich zaterdag melden?",
+                    "audioFile": "b1-luisteren/exam3/q1.mp3",
+                    "transcript": "Goedemorgen, u spreekt met Peter van restaurant De Haven. Dit bericht is voor mevrouw Nowak. Zoals afgesproken kunt u aanstaande zaterdag komen meewerken, zodat we kunnen kijken of het werk bij u past. We beginnen om tien uur. Let op: u komt niet binnen via de hoofdingang aan de voorkant, want die is 's ochtends nog dicht. Gebruikt u de personeelsingang aan de zijkant van het gebouw; daar kunt u aanbellen. Draag makkelijke schoenen, want u staat de hele dag. Werkkleding krijgt u van ons. Tot zaterdag!",
+                    "readingTime": 10,
+                    "options": ["Bij de hoofdingang aan de voorkant", "Bij de receptie in het restaurant", "Bij de personeelsingang aan de zijkant"],
+                    "correctAnswer": 2,
+                    "explanation": "She must use the staff entrance at the side of the building and ring the bell there. The main entrance at the front is still closed in the morning."
+                },
+                {
+                    "id": "b1-l3-q2",
+                    "questionText": "Wat gaat de leerkracht doen om Sara te helpen?",
+                    "audioFile": "b1-luisteren/exam3/q2.mp3",
+                    "transcript": "Vrouw: Fijn dat u er bent. Ik wil graag met u praten over Sara. Met rekenen gaat het heel goed, maar lezen vindt ze nog moeilijk.\nMan: Dat herken ik, thuis pakt ze ook nooit zelf een boek.\nVrouw: Daarom wil ik haar extra oefeningen meegeven voor thuis. Als jullie elke dag een kwartiertje samen lezen, gaat ze snel vooruit.\nMan: Dat willen wij zeker doen. Moet ze ook naar bijles?\nVrouw: Nee, dat is nu nog niet nodig. We kijken er over drie maanden opnieuw naar. Als het dan nog niet beter gaat, kan de leesjuf op school haar extra begeleiden.\nMan: Goed, dank u wel voor de uitleg.",
+                    "readingTime": 10,
+                    "options": ["Extra oefeningen voor thuis meegeven", "Sara naar bijles sturen", "Sara meteen extra les geven op school"],
+                    "correctAnswer": 0,
+                    "explanation": "The teacher will give Sara extra reading exercises to do at home. Tutoring is said to be not necessary yet, and extra help from the reading teacher only happens if there is no improvement in three months."
+                },
+                {
+                    "id": "b1-l3-q3",
+                    "questionText": "Wat kunnen de bewoners donderdag verwachten?",
+                    "audioFile": "b1-luisteren/exam3/q3.mp3",
+                    "transcript": "Dit is een bericht van de gemeente voor de bewoners van de Julianastraat en omgeving. Op donderdag 14 mei voeren wij werkzaamheden uit aan de waterleiding. Daardoor heeft u die ochtend van acht tot ongeveer twaalf uur geen water. Wij raden u aan om van tevoren wat water af te tappen, bijvoorbeeld in flessen of in een emmer. De straat blijft gewoon open voor verkeer, al kan er soms een korte stop zijn bij het werkvak. Duurt de storing langer dan gepland, dan informeren wij u via een brief in de bus.",
+                    "readingTime": 10,
+                    "options": ["De straat is de hele dag afgesloten voor auto's", "Er is die ochtend geen water", "De stroom wordt van acht tot twaalf uitgeschakeld"],
+                    "correctAnswer": 1,
+                    "explanation": "Because of works on the water pipes, there will be no water on Thursday morning from eight until about twelve. The street stays open to traffic and electricity is not mentioned at all."
+                },
+                {
+                    "id": "b1-l3-q4",
+                    "questionText": "Wanneer kan de man zijn medicijnen ophalen?",
+                    "audioFile": "b1-luisteren/exam3/q4.mp3",
+                    "transcript": "Man: Goedemiddag, ik kom medicijnen ophalen. De huisarts heeft vanochtend een recept gestuurd.\nVrouw: Even kijken... Ja, ik zie het recept. Alleen hebben we één van de twee medicijnen op dit moment niet op voorraad.\nMan: Oh, dat komt slecht uit. Mijn oude doosje is bijna leeg.\nVrouw: We bestellen het vandaag nog, dan wordt het morgen vóór twee uur geleverd. U kunt beide medicijnen dus morgen na twee uur ophalen.\nMan: Moet ik daarvoor opnieuw betalen?\nVrouw: Nee hoor, de kosten gaan gewoon via uw verzekering. Als u wilt, sturen we een berichtje zodra alles klaarligt.\nMan: Ja, graag. Tot morgen dan.",
+                    "readingTime": 10,
+                    "options": ["Vandaag nog, na de bestelling", "Over een week, als het doosje leeg is", "Morgen na twee uur"],
+                    "correctAnswer": 2,
+                    "explanation": "One medicine is out of stock; it will be delivered tomorrow before two o'clock, so he can collect both tomorrow after two. The order is placed today, but collection is not possible today."
+                },
+                {
+                    "id": "b1-l3-q5",
+                    "questionText": "Wat is dinsdag het gevolg van de staking?",
+                    "audioFile": "b1-luisteren/exam3/q5.mp3",
+                    "transcript": "Het regionale nieuws. Reizigers in de regio moeten dinsdag rekening houden met grote problemen in het openbaar vervoer. Het personeel van het streekvervoer legt die dag het werk neer, omdat de vakbonden en de werkgevers het niet eens worden over een nieuw contract. Daardoor rijden er dinsdag geen bussen en trams in de hele regio. De treinen rijden wél volgens het normale schema, omdat het spoorpersoneel niet meestaakt. De vakbond sluit niet uit dat er volgende maand opnieuw acties komen als de gesprekken niets opleveren.",
+                    "readingTime": 10,
+                    "options": ["Alle treinen rijden volgens een aangepast schema", "De bussen rijden alleen 's avonds niet", "Er rijden geen bussen en trams in de regio"],
+                    "correctAnswer": 2,
+                    "explanation": "Because of the strike, no buses or trams will run in the region on Tuesday, the whole day. Trains run according to the normal timetable since rail staff are not striking."
+                },
+                {
+                    "id": "b1-l3-q6",
+                    "questionText": "Hoeveel contributie betaalt een volwassen lid per maand?",
+                    "audioFile": "b1-luisteren/exam3/q6.mp3",
+                    "transcript": "Welkom bij voetbalvereniging Sportief. In dit bericht hoort u hoe u lid kunt worden. Inschrijven kan het hele jaar via het formulier op onze website. De contributie voor volwassenen is 18 euro per maand; jeugdleden tot en met zeventien jaar betalen 12 euro. Daarnaast betaalt ieder nieuw lid eenmalig 10 euro inschrijfkosten. Voor gezinnen met een laag inkomen kan de gemeente via het Sportfonds meebetalen aan de contributie; op onze website leest u hoe u dat aanvraagt. Nieuwe leden mogen eerst twee keer gratis meetrainen voordat ze beslissen.",
+                    "readingTime": 10,
+                    "options": ["18 euro", "12 euro", "10 euro"],
+                    "correctAnswer": 0,
+                    "explanation": "Adults pay 18 euros per month. 12 euros is the youth rate, and 10 euros is the one-off registration fee for every new member."
+                },
+                {
+                    "id": "b1-l3-q7",
+                    "questionText": "Waarom kan de man niet in augustus op vakantie?",
+                    "audioFile": "b1-luisteren/exam3/q7.mp3",
+                    "transcript": "Man: Balen! Ik wilde in augustus drie weken naar Marokko, maar mijn aanvraag is afgekeurd.\nVrouw: Hoe kan dat? Je hebt toch nog genoeg vakantiedagen?\nMan: Ja, dagen genoeg. Maar er hebben al te veel collega's vrij gevraagd in augustus, en er moeten minimaal vier mensen per dienst aanwezig zijn.\nVrouw: Wat vervelend. Kun je niet in september gaan? Dan is het rustiger, en de tickets zijn dan ook goedkoper.\nMan: Dat is misschien wel een idee. De kinderen hebben dan wel school, dus ik moet het eerst thuis overleggen.\nVrouw: Doe dat. En vraag het snel aan, voordat september ook vol zit.",
+                    "readingTime": 10,
+                    "options": ["Hij heeft geen vakantiedagen meer over", "Er hebben al te veel collega's vrij gevraagd", "Zijn kinderen hebben dan school"],
+                    "correctAnswer": 1,
+                    "explanation": "His request was rejected because too many colleagues already booked leave in August and a minimum crew must be present. He has enough days left, and school is a concern about September, not August."
+                },
+                {
+                    "id": "b1-l3-q8",
+                    "questionText": "Wat krijgen de bezoekers omdat het zwembad eerder sluit?",
+                    "audioFile": "b1-luisteren/exam3/q8.mp3",
+                    "transcript": "Beste bezoekers, mag ik even uw aandacht. Vanwege een technische storing in de installatie sluit het zwembad vandaag eerder dan normaal. Wij sluiten om vier uur in plaats van om negen uur 's avonds. Wilt u op tijd uit het water komen en de kleedkamers gebruiken vóór half vijf? Omdat u vandaag korter kunt zwemmen, ontvangt u bij de uitgang een gratis kaartje voor een volgend bezoek. Uw geld terugvragen is helaas niet mogelijk. Wij hopen dat de storing morgen is opgelost en bieden onze excuses aan voor het ongemak.",
+                    "readingTime": 10,
+                    "options": ["Hun geld terug bij de kassa", "Een gratis kaartje voor een volgend bezoek", "Een extra uur zwemtijd morgen"],
+                    "correctAnswer": 1,
+                    "explanation": "Visitors receive a free ticket for a next visit at the exit. Refunds are explicitly not possible, and nothing is promised about extra swimming time tomorrow."
+                },
+                {
+                    "id": "b1-l3-q9",
+                    "questionText": "Hoe ontvangt de vrouw haar nieuwe bankpas?",
+                    "audioFile": "b1-luisteren/exam3/q9.mp3",
+                    "transcript": "Vrouw: Goedemiddag, mijn portemonnee is gisteren gestolen en mijn bankpas zat erin. Wat moet ik nu doen?\nMan: Vervelend voor u. Heeft u de pas al geblokkeerd?\nVrouw: Ja, dat heb ik gisteren meteen via de app gedaan.\nMan: Heel goed, dan kan niemand er geld mee opnemen. Ik vraag nu direct een nieuwe pas voor u aan. Die ontvangt u binnen vijf werkdagen per post.\nVrouw: Kan ik geen pas meekrijgen aan de balie? Ik moet boodschappen doen.\nMan: Nee, dat kan helaas niet. Maar u kunt tot die tijd wel betalen met uw telefoon, als u mobiel betalen instelt in de app. Zal ik laten zien hoe dat werkt?\nVrouw: Ja, graag.",
+                    "readingTime": 10,
+                    "options": ["Per post, binnen vijf werkdagen", "Direct aan de balie van de bank", "Via de app op haar telefoon"],
+                    "correctAnswer": 0,
+                    "explanation": "The new card arrives by post within five working days. Getting one at the counter is not possible; the app is only a temporary way to pay with her phone until the card arrives."
+                },
+                {
+                    "id": "b1-l3-q10",
+                    "questionText": "Hoe kunnen cursisten zich aanmelden voor de examentraining?",
+                    "audioFile": "b1-luisteren/exam3/q10.mp3",
+                    "transcript": "Dit is een bericht van taalschool Taalrijk voor alle cursisten. In april organiseren wij een extra examentraining voor het Staatsexamen. Tijdens vier bijeenkomsten oefent u met oude examenopgaven en krijgt u tips van onze docenten voor de onderdelen luisteren en lezen. De training is op woensdagavond van zeven tot half tien en kost 45 euro. Omdat er maar twintig plaatsen zijn, is aanmelden verplicht. Dat doet u vóór 20 maart via het formulier op onze website. Bellen of langskomen om u aan te melden is niet mogelijk. Wie zich te laat aanmeldt, komt op de wachtlijst.",
+                    "readingTime": 10,
+                    "options": ["Door te bellen met de taalschool", "Door langs te komen bij de balie", "Via het formulier op de website, vóór 20 maart"],
+                    "correctAnswer": 2,
+                    "explanation": "Registration is only possible via the form on the website, before 20 March. Calling or coming by in person is explicitly said not to be possible."
+                }
+            ]
+        }
+    }
+}
