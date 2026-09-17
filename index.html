@@ -2080,6 +2080,13 @@
                         sections[key] = exam.questions.filter(q => q.passage === key);
                     }
                     lezenExams[id] = { name: exam.name, questions: exam.questions, sections, sectionNames: exam.sectionNames };
+                    // Completion tracking needs an array per exam/section; the
+                    // static initializer below only knows the A2 exams, so B1's
+                    // exams/passages must be seeded here (mirrors schrijven).
+                    if (!completedLezenExercises[id]) completedLezenExercises[id] = {};
+                    for (const key of Object.keys(exam.sectionNames)) {
+                        if (!completedLezenExercises[id][key]) completedLezenExercises[id][key] = [];
+                    }
                 }
             }
         }
@@ -2131,8 +2138,9 @@
                     <div style="padding: 10px; border-bottom: 1px solid #ddd;">
                         <label style="display: block; font-weight: bold; margin-bottom: 5px;">📖 Select Exam:</label>
                         <select id="exam-selector" onchange="switchLezenExam(this.value)" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px;">
-                            <option value="exam1" ${currentLezenExam === 'exam1' ? 'selected' : ''}>DUO Lezen Exam 1 (25 questions)</option>
-                            <option value="exam2" ${currentLezenExam === 'exam2' ? 'selected' : ''}>DUO Lezen Exam 2 (25 questions)</option>
+                            ${Object.entries(lezenExams).map(([id, ex]) =>
+                                `<option value="${id}" ${currentLezenExam === id ? 'selected' : ''}>${ex.name} (${ex.questions.length} questions)</option>`
+                            ).join('')}
                         </select>
                     </div>
                 `;
