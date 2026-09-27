@@ -95,6 +95,24 @@ app.get('/guides/am-i-ready-inburgering-speaking-exam', (req, res) => {
 app.get('/guides/two-weeks-before-inburgeringsexamen', (req, res) => {
     res.sendFile(path.join(__dirname, 'guide-two-weeks.html'));
 });
+app.get('/guides/inburgeringsexamen-schrijven-a2', (req, res) => {
+    res.sendFile(path.join(__dirname, 'guide-schrijven-a2.html'));
+});
+app.get('/guides/knm-exam-practice', (req, res) => {
+    res.sendFile(path.join(__dirname, 'guide-knm.html'));
+});
+app.get('/guides/inburgeringsexamen-lezen-a2', (req, res) => {
+    res.sendFile(path.join(__dirname, 'guide-lezen-a2.html'));
+});
+app.get('/guides/inburgeringsexamen-luisteren-a2', (req, res) => {
+    res.sendFile(path.join(__dirname, 'guide-luisteren-a2.html'));
+});
+app.get('/guides/b1-inburgering-exam-staatsexamen-nt2', (req, res) => {
+    res.sendFile(path.join(__dirname, 'guide-b1-staatsexamen.html'));
+});
+app.get('/guides', (req, res) => {
+    res.sendFile(path.join(__dirname, 'guides.html'));
+});
 
 // Privacy policy (required by ad platforms' app review / Live mode)
 app.get('/privacy', (req, res) => {
