@@ -7,7 +7,8 @@
                     "id": "k1-q1",
                     "category": "Gezondheid",
                     "scenario": "Uw kind heeft koorts (39 graden) en hoest al twee dagen. U maakt zich zorgen.",
-                    "image": "knm/gezondheid-1.jpg",
+                    "image": "scenes/knm/k1-q1.webp",
+                    "imageAlt": "Bezorgde ouder kijkt naar zieke kind op de bank",
                     "questionText": "Wat doet u eerst?",
                     "options": ["U belt 112", "U belt de huisarts", "U gaat naar de Eerste Hulp in het ziekenhuis"],
                     "correctAnswer": 1,
@@ -15,6 +16,8 @@
                 },
                 {
                     "id": "k1-q2",
+                    "image": "scenes/knm/k1-q2.webp",
+                    "imageAlt": "Persoon kijkt naar een kaart op straat",
                     "category": "Gezondheid",
                     "scenario": "U bent ziek en kunt niet naar uw werk. U wilt medicijnen kopen.",
                     "questionText": "Waar kunt u medicijnen kopen zonder recept?",
@@ -24,6 +27,8 @@
                 },
                 {
                     "id": "k1-q3",
+                    "image": "scenes/knm/k1-q3.webp",
+                    "imageAlt": "Drie mensen in een kantoor bespreken een document",
                     "category": "Werk & Inkomen",
                     "scenario": "U heeft een baan gevonden. Uw werkgever geeft u een arbeidscontract.",
                     "questionText": "Wat staat er NIET in een arbeidscontract?",
@@ -33,6 +38,8 @@
                 },
                 {
                     "id": "k1-q4",
+                    "image": "scenes/knm/k1-q4.webp",
+                    "imageAlt": "Persoon zit op de bank en denkt na",
                     "category": "Werk & Inkomen",
                     "scenario": "U werkt in een winkel. U bent al twee weken ziek thuis.",
                     "questionText": "Wie betaalt uw salaris als u ziek bent?",
@@ -42,6 +49,8 @@
                 },
                 {
                     "id": "k1-q5",
+                    "image": "scenes/knm/k1-q5.webp",
+                    "imageAlt": "Vrouw kijkt naar een informatiebord bij een buurthuis",
                     "category": "Wonen",
                     "scenario": "U wilt een huurwoning. U heeft niet veel geld.",
                     "questionText": "Waar schrijft u zich in voor een sociale huurwoning?",
@@ -51,6 +60,8 @@
                 },
                 {
                     "id": "k1-q6",
+                    "image": "scenes/knm/k1-q6.webp",
+                    "imageAlt": "Een persoon kijkt bezorgd naar de muur in de woonkamer",
                     "category": "Wonen",
                     "scenario": "Het is 23:00 uur. Uw buurman speelt heel harde muziek.",
                     "questionText": "Wat doet u het beste eerst?",
@@ -60,6 +71,8 @@
                 },
                 {
                     "id": "k1-q7",
+                    "image": "scenes/knm/k1-q7.webp",
+                    "imageAlt": "Gezin in de woonkamer met een spelend kind",
                     "category": "Onderwijs",
                     "scenario": "Uw kind is 5 jaar oud.",
                     "questionText": "Moet uw kind naar school?",
@@ -69,6 +82,8 @@
                 },
                 {
                     "id": "k1-q8",
+                    "image": "scenes/knm/k1-q8.webp",
+                    "imageAlt": "Ouders praten buiten de school met elkaar",
                     "category": "Onderwijs",
                     "scenario": "Uw kind zit op de basisschool. De school organiseert een oudergesprek.",
                     "questionText": "Waarom is het oudergesprek belangrijk?",
@@ -78,6 +93,8 @@
                 },
                 {
                     "id": "k1-q9",
+                    "image": "scenes/knm/k1-q9.webp",
+                    "imageAlt": "Vrouw bij bushalte kijkt nadenkend om zich heen",
                     "category": "Overheid & Recht",
                     "scenario": "U woont in Nederland en u bent 18 jaar of ouder.",
                     "questionText": "Wat MOET u altijd bij u hebben?",
@@ -87,6 +104,8 @@
                 },
                 {
                     "id": "k1-q10",
+                    "image": "scenes/knm/k1-q10.webp",
+                    "imageAlt": "Drie mensen in een woonkamer met verhuisdozen",
                     "category": "Overheid & Recht",
                     "scenario": "U verhuist naar een andere stad in Nederland.",
                     "questionText": "Wat moet u doen binnen 5 dagen na uw verhuizing?",
@@ -96,6 +115,8 @@
                 },
                 {
                     "id": "k1-q11",
+                    "image": "scenes/knm/k1-q11.webp",
+                    "imageAlt": "Persoon wacht bij bushalte en kijkt naar een kaart",
                     "category": "Normen & Waarden",
                     "scenario": "U heeft een afspraak om 14:00 uur bij de tandarts.",
                     "questionText": "Hoe laat komt u het beste?",
@@ -105,6 +126,8 @@
                 },
                 {
                     "id": "k1-q12",
+                    "image": "scenes/knm/k1-q12.webp",
+                    "imageAlt": "Collega's in een kantoor met een nieuwe kapsel",
                     "category": "Normen & Waarden",
                     "scenario": "Uw collega vraagt: 'Hoe vind je mijn nieuwe kapsel?' U vindt het niet mooi.",
                     "questionText": "Wat past het beste bij de Nederlandse cultuur?",
@@ -114,6 +137,8 @@
                 },
                 {
                     "id": "k1-q13",
+                    "image": "scenes/knm/k1-q13.webp",
+                    "imageAlt": "Drie mensen in een wachtkamer met informatie over gezondheid",
                     "category": "Gezondheid",
                     "scenario": "U wilt naar een specialist in het ziekenhuis.",
                     "questionText": "Wat heeft u nodig om naar een specialist te gaan?",
@@ -123,6 +148,8 @@
                 },
                 {
                     "id": "k1-q14",
+                    "image": "scenes/knm/k1-q14.webp",
+                    "imageAlt": "Drie mensen staan bij een druk kruispunt in de stad",
                     "category": "Werk & Inkomen",
                     "scenario": "U heeft geen werk en zoekt een baan.",
                     "questionText": "Waar kunt u zich inschrijven als werkzoekende?",
@@ -132,6 +159,8 @@
                 },
                 {
                     "id": "k1-q15",
+                    "image": "scenes/knm/k1-q15.webp",
+                    "imageAlt": "Buren bekijken een aankondiging in de gang",
                     "category": "Wonen",
                     "scenario": "U woont in een flat. Er is een vergadering van de Vereniging van Eigenaren (VvE).",
                     "questionText": "Waarom is het belangrijk om naar de VvE-vergadering te gaan?",
@@ -141,6 +170,8 @@
                 },
                 {
                     "id": "k1-q16",
+                    "image": "scenes/knm/k1-q16.webp",
+                    "imageAlt": "Drie mensen praten in het park over stemmen",
                     "category": "Overheid & Recht",
                     "scenario": "Er zijn gemeenteraadsverkiezingen in uw stad.",
                     "questionText": "Wie mag stemmen bij de gemeenteraadsverkiezingen?",
@@ -159,6 +190,8 @@
                 },
                 {
                     "id": "k1-q18",
+                    "image": "scenes/knm/k1-q18.webp",
+                    "imageAlt": "Een ouder kijkt bezorgd naar een ziek kind op de bank",
                     "category": "Onderwijs",
                     "scenario": "Uw kind is ziek en kan niet naar school.",
                     "questionText": "Wat moet u doen?",
@@ -168,6 +201,8 @@
                 },
                 {
                     "id": "k1-q19",
+                    "image": "scenes/knm/k1-q19.webp",
+                    "imageAlt": "Vrouw leidt een vergadering met diverse collega's",
                     "category": "Normen & Waarden",
                     "scenario": "U ziet dat een vrouw een leidinggevende positie heeft op uw werk.",
                     "questionText": "Wat is normaal in Nederland?",
@@ -177,6 +212,8 @@
                 },
                 {
                     "id": "k1-q20",
+                    "image": "scenes/knm/k1-q20.webp",
+                    "imageAlt": "Een persoon denkt na bij een verkeerslicht",
                     "category": "Overheid & Recht",
                     "scenario": "U krijgt een boete omdat u door rood licht fietste.",
                     "questionText": "Wat moet u doen met de boete?",

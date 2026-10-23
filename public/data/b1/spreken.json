@@ -12,6 +12,8 @@
                     "exercises": [
                         {
                             "id": "b1-s1-p1-q1",
+                            "image": "scenes/b1/spreken/b1-s1-p1-q1.webp",
+                            "imageAlt": "Vrienden praten in een gezellig café",
                             "taskType": "short",
                             "prompt": "Wat vindt u belangrijker: een hoog salaris of leuk werk? Waarom?",
                             "images": [],
@@ -19,6 +21,8 @@
                         },
                         {
                             "id": "b1-s1-p1-q2",
+                            "image": "scenes/b1/spreken/b1-s1-p1-q2.webp",
+                            "imageAlt": "Twee mensen praten in een café, iemand schrijft alleen",
                             "taskType": "short",
                             "prompt": "Werkt u liever in een team of liever alleen? Leg uit waarom.",
                             "images": [],
@@ -26,6 +30,8 @@
                         },
                         {
                             "id": "b1-s1-p1-q3",
+                            "image": "scenes/b1/spreken/b1-s1-p1-q3.webp",
+                            "imageAlt": "Drie mensen praten in een gezellig café",
                             "taskType": "short",
                             "prompt": "Wat is volgens u belangrijker bij het vinden van een baan: werkervaring of een diploma? Waarom?",
                             "images": [],
@@ -33,6 +39,8 @@
                         },
                         {
                             "id": "b1-s1-p1-q4",
+                            "image": "scenes/b1/spreken/b1-s1-p1-q4.webp",
+                            "imageAlt": "Drie mensen praten in een gezellig café",
                             "taskType": "short",
                             "prompt": "Zou u een cursus in de avond willen volgen naast uw werk? Waarom wel of niet?",
                             "images": [],
@@ -49,6 +57,8 @@
                     "exercises": [
                         {
                             "id": "b1-s1-p2-q1",
+                            "image": "scenes/b1/spreken/b1-s1-p2-q1.webp",
+                            "imageAlt": "Kinderen spelen samen in het park met een vlieger",
                             "taskType": "short",
                             "prompt": "Vindt u dat kinderen op de basisschool al Engels moeten leren? Waarom wel of niet?",
                             "images": [],
@@ -63,6 +73,8 @@
                         },
                         {
                             "id": "b1-s1-p2-q3",
+                            "image": "scenes/b1/spreken/b1-s1-p2-q3.webp",
+                            "imageAlt": "Vrienden praten in een gezellige woonkamer",
                             "taskType": "short",
                             "prompt": "Wat wilt u over vijf jaar bereikt hebben? Noem één doel en leg uit waarom dat doel belangrijk voor u is.",
                             "images": [],
@@ -70,6 +82,8 @@
                         },
                         {
                             "id": "b1-s1-p2-q4",
+                            "image": "scenes/b1/spreken/b1-s1-p2-q4.webp",
+                            "imageAlt": "Verschillende mensen hebben een picknick in het park",
                             "taskType": "short",
                             "prompt": "Vindt u het belangrijk dat mensen vrijwilligerswerk doen? Waarom?",
                             "images": [],
@@ -86,6 +100,8 @@
                     "exercises": [
                         {
                             "id": "b1-s1-p3-q1",
+                            "image": "scenes/b1/spreken/b1-s1-p3-q1.webp",
+                            "imageAlt": "Buren bespreken verbeteringen in het park met elkaar",
                             "taskType": "long",
                             "prompt": "Uw buurt heeft geld gekregen van de gemeente voor één verbetering: een speeltuin, meer groen of extra verlichting. Wat zou u kiezen? Leg uit waarom en noem twee voordelen van uw keuze.",
                             "images": [],
@@ -93,6 +109,8 @@
                         },
                         {
                             "id": "b1-s1-p3-q2",
+                            "image": "scenes/b1/spreken/b1-s1-p3-q2.webp",
+                            "imageAlt": "Collega's bespreken hun mening in een kantoor",
                             "taskType": "long",
                             "prompt": "Uw werkgever wil dat alle werknemers weer vijf dagen per week naar kantoor komen. Bent u het daarmee eens? Geef uw mening en ondersteun die met twee argumenten.",
                             "images": [],
@@ -109,6 +127,8 @@
                     "exercises": [
                         {
                             "id": "b1-s1-p4-q1",
+                            "image": "scenes/b1/spreken/b1-s1-p4-q1.webp",
+                            "imageAlt": "Vrouw vertelt over haar cursus in een café",
                             "taskType": "long",
                             "prompt": "Vertel over een cursus of opleiding die u heeft gevolgd. Wat heeft u geleerd, wat vond u moeilijk, en wat heeft u er later aan gehad?",
                             "images": [],
@@ -116,6 +136,8 @@
                         },
                         {
                             "id": "b1-s1-p4-q2",
+                            "image": "scenes/b1/spreken/b1-s1-p4-q2.webp",
+                            "imageAlt": "Buren kijken naar een rustige straat met spelende kinderen",
                             "taskType": "long",
                             "prompt": "In uw straat rijden auto's vaak veel te hard. Beschrijf het probleem en leg uit welke oplossing u aan de gemeente zou voorstellen. Noem twee redenen waarom uw oplossing goed is.",
                             "images": [],
@@ -137,6 +159,8 @@
                     "exercises": [
                         {
                             "id": "b1-s2-p1-q1",
+                            "image": "scenes/b1/spreken/b1-s2-p1-q1.webp",
+                            "imageAlt": "Vrienden praten in een gezellig café",
                             "taskType": "short",
                             "prompt": "Vindt u dat werknemers zelf mogen kiezen of ze thuiswerken? Waarom wel of niet?",
                             "images": [],
@@ -144,6 +168,8 @@
                         },
                         {
                             "id": "b1-s2-p1-q2",
+                            "image": "scenes/b1/spreken/b1-s2-p1-q2.webp",
+                            "imageAlt": "Collega's praten samen in een modern kantoor",
                             "taskType": "short",
                             "prompt": "Vindt u het belangrijk om op het werk Nederlands te spreken? Waarom?",
                             "images": [],
@@ -151,6 +177,8 @@
                         },
                         {
                             "id": "b1-s2-p1-q3",
+                            "image": "scenes/b1/spreken/b1-s2-p1-q3.webp",
+                            "imageAlt": "Drie mensen praten gezellig in een café",
                             "taskType": "short",
                             "prompt": "Leert u liever in een klas met een docent of liever online? Leg uit waarom.",
                             "images": [],
@@ -158,6 +186,8 @@
                         },
                         {
                             "id": "b1-s2-p1-q4",
+                            "image": "scenes/b1/spreken/b1-s2-p1-q4.webp",
+                            "imageAlt": "Vrienden praten gezellig in een café buiten",
                             "taskType": "short",
                             "prompt": "Wat vindt u van een werkweek van vier dagen? Noem een reden voor uw mening.",
                             "images": [],
@@ -174,6 +204,8 @@
                     "exercises": [
                         {
                             "id": "b1-s2-p2-q1",
+                            "image": "scenes/b1/spreken/b1-s2-p2-q1.webp",
+                            "imageAlt": "Vrienden praten gezellig in een café buiten",
                             "taskType": "short",
                             "prompt": "Vindt u dat winkels op zondag open moeten zijn? Waarom wel of niet?",
                             "images": [],
@@ -181,6 +213,8 @@
                         },
                         {
                             "id": "b1-s2-p2-q2",
+                            "image": "scenes/b1/spreken/b1-s2-p2-q2.webp",
+                            "imageAlt": "Drie mensen praten in een park met kinderen en een hond",
                             "taskType": "short",
                             "prompt": "Vindt u dat de gemeente meer moet doen tegen zwerfafval op straat? Waarom?",
                             "images": [],
@@ -188,6 +222,8 @@
                         },
                         {
                             "id": "b1-s2-p2-q3",
+                            "image": "scenes/b1/spreken/b1-s2-p2-q3.webp",
+                            "imageAlt": "Vrienden praten in een café over hun toekomst",
                             "taskType": "short",
                             "prompt": "Zou u later een eigen bedrijf willen beginnen? Waarom wel of niet?",
                             "images": [],
@@ -195,6 +231,8 @@
                         },
                         {
                             "id": "b1-s2-p2-q4",
+                            "image": "scenes/b1/spreken/b1-s2-p2-q4.webp",
+                            "imageAlt": "Vrienden praten in een gezellig café met drankjes",
                             "taskType": "short",
                             "prompt": "Vindt u dat jongeren te veel tijd op hun telefoon doorbrengen? Waarom?",
                             "images": [],
@@ -211,6 +249,8 @@
                     "exercises": [
                         {
                             "id": "b1-s2-p3-q1",
+                            "image": "scenes/b1/spreken/b1-s2-p3-q1.webp",
+                            "imageAlt": "Vrienden praten in een café over werk en opleiding",
                             "taskType": "long",
                             "prompt": "Een goede vriend wil stoppen met zijn opleiding om direct te gaan werken. Wat zou u hem adviseren? Geef uw advies en ondersteun het met twee argumenten.",
                             "images": [],
@@ -218,6 +258,8 @@
                         },
                         {
                             "id": "b1-s2-p3-q2",
+                            "image": "scenes/b1/spreken/b1-s2-p3-q2.webp",
+                            "imageAlt": "Collega's bespreken duurzame ideeën in een kantoor",
                             "taskType": "long",
                             "prompt": "Uw werkgever vraagt alle medewerkers om ideeën om het bedrijf duurzamer te maken. Welk idee zou u voorstellen? Leg uit waarom en noem twee voordelen van uw idee.",
                             "images": [],
@@ -234,6 +276,8 @@
                     "exercises": [
                         {
                             "id": "b1-s2-p4-q1",
+                            "image": "scenes/b1/spreken/b1-s2-p4-q1.webp",
+                            "imageAlt": "Collega's delen verhalen in een modern kantoor",
                             "taskType": "long",
                             "prompt": "Vertel over een moeilijke situatie op uw werk of tijdens uw studie. Wat gebeurde er, wat heeft u gedaan, en wat heeft u ervan geleerd?",
                             "images": [],
@@ -241,6 +285,8 @@
                         },
                         {
                             "id": "b1-s2-p4-q2",
+                            "image": "scenes/b1/spreken/b1-s2-p4-q2.webp",
+                            "imageAlt": "Drie mensen praten in een gezellige ruimte met koffie",
                             "taskType": "long",
                             "prompt": "De bibliotheek in uw wijk dreigt te sluiten. Leg uit waarom de bibliotheek volgens u belangrijk is en wat de gemeente zou moeten doen. Geef twee argumenten.",
                             "images": [],
@@ -262,6 +308,8 @@
                     "exercises": [
                         {
                             "id": "b1-s3-p1-q1",
+                            "image": "scenes/b1/spreken/b1-s3-p1-q1.webp",
+                            "imageAlt": "Drie volwassenen praten in een gezellig café",
                             "taskType": "short",
                             "prompt": "Vindt u dat volwassenen moeten blijven leren, ook als ze al werken? Waarom?",
                             "images": [],
@@ -269,6 +317,8 @@
                         },
                         {
                             "id": "b1-s3-p1-q2",
+                            "image": "scenes/b1/spreken/b1-s3-p1-q2.webp",
+                            "imageAlt": "Vrienden praten gezellig in een café",
                             "taskType": "short",
                             "prompt": "Werkt u liever bij een groot bedrijf of bij een klein bedrijf? Leg uit waarom.",
                             "images": [],
@@ -276,6 +326,8 @@
                         },
                         {
                             "id": "b1-s3-p1-q3",
+                            "image": "scenes/b1/spreken/b1-s3-p1-q3.webp",
+                            "imageAlt": "Vrienden praten in een gezellige woonkamer",
                             "taskType": "short",
                             "prompt": "Wat vindt u belangrijker: dicht bij uw familie wonen of wonen waar het werk is? Waarom?",
                             "images": [],
@@ -283,6 +335,8 @@
                         },
                         {
                             "id": "b1-s3-p1-q4",
+                            "image": "scenes/b1/spreken/b1-s3-p1-q4.webp",
+                            "imageAlt": "Drie jongeren praten aan een tafel in een café",
                             "taskType": "short",
                             "prompt": "Vindt u een stage belangrijk voor studenten? Waarom wel of niet?",
                             "images": [],
@@ -299,6 +353,8 @@
                     "exercises": [
                         {
                             "id": "b1-s3-p2-q1",
+                            "image": "scenes/b1/spreken/b1-s3-p2-q1.webp",
+                            "imageAlt": "Vrienden delen een maaltijd in het park",
                             "taskType": "short",
                             "prompt": "Vindt u dat mensen minder vlees moeten eten voor het milieu? Waarom?",
                             "images": [],
@@ -306,6 +362,8 @@
                         },
                         {
                             "id": "b1-s3-p2-q2",
+                            "image": "scenes/b1/spreken/b1-s3-p2-q2.webp",
+                            "imageAlt": "Drie vrienden praten gezellig bij een café",
                             "taskType": "short",
                             "prompt": "Vindt u dat het openbaar vervoer goedkoper moet worden? Waarom wel of niet?",
                             "images": [],
@@ -313,6 +371,8 @@
                         },
                         {
                             "id": "b1-s3-p2-q3",
+                            "image": "scenes/b1/spreken/b1-s3-p2-q3.webp",
+                            "imageAlt": "Vrienden praten in een gezellig café",
                             "taskType": "short",
                             "prompt": "Wat is uw plan om uw Nederlands verder te verbeteren? Leg uit waarom die manier voor u werkt.",
                             "images": [],
@@ -320,6 +380,8 @@
                         },
                         {
                             "id": "b1-s3-p2-q4",
+                            "image": "scenes/b1/spreken/b1-s3-p2-q4.webp",
+                            "imageAlt": "Buren praten gezellig in de tuin",
                             "taskType": "short",
                             "prompt": "Vindt u het belangrijk om uw buren goed te kennen? Waarom?",
                             "images": [],
@@ -336,6 +398,8 @@
                     "exercises": [
                         {
                             "id": "b1-s3-p3-q1",
+                            "image": "scenes/b1/spreken/b1-s3-p3-q1.webp",
+                            "imageAlt": "Mensen praten in een park over een leeg terrein",
                             "taskType": "long",
                             "prompt": "De gemeente heeft een leeg terrein in uw wijk en twijfelt tussen twee plannen: sportvelden of nieuwe woningen. Wat zou u kiezen? Geef uw mening met twee argumenten.",
                             "images": [],
@@ -343,6 +407,8 @@
                         },
                         {
                             "id": "b1-s3-p3-q2",
+                            "image": "scenes/b1/spreken/b1-s3-p3-q2.webp",
+                            "imageAlt": "Kinderen spelen in het park met een volwassene in de buurt",
                             "taskType": "long",
                             "prompt": "Sommige mensen vinden dat kinderen onder de vijftien geen sociale media mogen gebruiken. Bent u het daarmee eens? Geef uw mening en ondersteun die met twee argumenten.",
                             "images": [],
@@ -359,6 +425,8 @@
                     "exercises": [
                         {
                             "id": "b1-s3-p4-q1",
+                            "image": "scenes/b1/spreken/b1-s3-p4-q1.webp",
+                            "imageAlt": "Drie mensen praten in een café over leren",
                             "taskType": "long",
                             "prompt": "U wilt volgend jaar iets nieuws leren, bijvoorbeeld een opleiding of een cursus. Vertel wat u wilt leren, waarom u dat wilt, en welke stappen u gaat nemen.",
                             "images": [],
@@ -366,6 +434,8 @@
                         },
                         {
                             "id": "b1-s3-p4-q2",
+                            "image": "scenes/b1/spreken/b1-s3-p4-q2.webp",
+                            "imageAlt": "Ouderen praten samen in het park met kunstspullen",
                             "taskType": "long",
                             "prompt": "Veel ouderen in uw buurt voelen zich eenzaam. Beschrijf het probleem en stel een activiteit voor die kan helpen. Leg uit waarom en noem twee voordelen van uw voorstel.",
                             "images": [],

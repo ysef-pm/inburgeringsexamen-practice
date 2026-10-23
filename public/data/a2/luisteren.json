@@ -5,6 +5,8 @@
             "questions": [
                 {
                     "id": "l1-q1",
+                    "image": "scenes/a2/luisteren/l1-q1.webp",
+                    "imageAlt": "Vrouw en man praten op een drukke straat",
                     "questionText": "Waar gaat de vrouw naartoe?",
                     "audioFile": "luisteren/exam1/q1.mp3",
                     "transcript": "Man: Ga je mee naar de markt?\nVrouw: Nee, ik moet eerst naar de apotheek. Ik heb medicijnen nodig.\nMan: Oké, dan zie ik je later.",
@@ -15,6 +17,8 @@
                 },
                 {
                     "id": "l1-q2",
+                    "image": "scenes/a2/luisteren/l1-q2.webp",
+                    "imageAlt": "Een vrouw en een man praten in een klaslokaal",
                     "questionText": "Hoe laat begint de les?",
                     "audioFile": "luisteren/exam1/q2.mp3",
                     "transcript": "Vrouw: Wanneer begint de Nederlandse les?\nMan: De les begint om half tien. Maar je moet er om kwart over negen zijn.\nVrouw: Oké, dan kom ik vroeg.",
@@ -25,6 +29,8 @@
                 },
                 {
                     "id": "l1-q3",
+                    "image": "scenes/a2/luisteren/l1-q3.webp",
+                    "imageAlt": "Vrouw en man praten in een gezellige woonkamer",
                     "questionText": "Wat is het probleem?",
                     "audioFile": "luisteren/exam1/q3.mp3",
                     "transcript": "Vrouw: Goedemorgen, ik bel over mijn bestelling. Ik heb vorige week een tafel besteld, maar ik heb een stoel gekregen.\nMan: Oh, dat spijt me. Ik zoek het voor u uit.",
@@ -35,6 +41,8 @@
                 },
                 {
                     "id": "l1-q4",
+                    "image": "scenes/a2/luisteren/l1-q4.webp",
+                    "imageAlt": "Een vrouw en een man praten in een woonkamer",
                     "questionText": "Wat moet de man doen?",
                     "audioFile": "luisteren/exam1/q4.mp3",
                     "transcript": "Vrouw: Je hebt morgen een afspraak bij de tandarts om twee uur.\nMan: Oh, ik was het vergeten. Moet ik iets meenemen?\nVrouw: Ja, neem je paspoort en je verzekeringspas mee.",
@@ -45,6 +53,8 @@
                 },
                 {
                     "id": "l1-q5",
+                    "image": "scenes/a2/luisteren/l1-q5.webp",
+                    "imageAlt": "Vrouw en man praten in een woonkamer",
                     "questionText": "Waarom kan de man niet komen?",
                     "audioFile": "luisteren/exam1/q5.mp3",
                     "transcript": "Vrouw: Kom je zaterdag naar het feest?\nMan: Nee, helaas niet. Ik moet werken dit weekend.\nVrouw: Jammer! Volgende keer dan.",
@@ -55,6 +65,8 @@
                 },
                 {
                     "id": "l1-q6",
+                    "image": "scenes/a2/luisteren/l1-q6.webp",
+                    "imageAlt": "Vrouw en man praten in een kledingwinkel",
                     "questionText": "Wat wil de vrouw kopen?",
                     "audioFile": "luisteren/exam1/q6.mp3",
                     "transcript": "Man: Kan ik u helpen?\nVrouw: Ja, ik zoek een winterjas. Heeft u iets in maat 40?\nMan: Ja, hier hangen een paar jassen. Deze blauwe is in de aanbieding.",
@@ -75,6 +87,8 @@
                 },
                 {
                     "id": "l1-q8",
+                    "image": "scenes/a2/luisteren/l1-q8.webp",
+                    "imageAlt": "Man en vrouw praten in een woonkamer",
                     "questionText": "Wat is het weer vandaag?",
                     "audioFile": "luisteren/exam1/q8.mp3",
                     "transcript": "Man: Zullen we naar het strand gaan?\nVrouw: Vandaag niet. Het regent de hele dag. Misschien morgen, dan wordt het zonnig.\nMan: Oké, dan gaan we morgen.",
@@ -85,6 +99,8 @@
                 },
                 {
                     "id": "l1-q9",
+                    "image": "scenes/a2/luisteren/l1-q9.webp",
+                    "imageAlt": "Een man en een vrouw praten in een woonkamer",
                     "questionText": "Hoeveel kinderen heeft de vrouw?",
                     "audioFile": "luisteren/exam1/q9.mp3",
                     "transcript": "Man: Heeft u kinderen?\nVrouw: Ja, ik heb drie kinderen. Twee jongens en een meisje.\nMan: Leuk! Hoe oud zijn ze?\nVrouw: Vijf, acht en twaalf.",
@@ -95,6 +111,8 @@
                 },
                 {
                     "id": "l1-q10",
+                    "image": "scenes/a2/luisteren/l1-q10.webp",
+                    "imageAlt": "Een medewerker praat met een klant in de supermarkt",
                     "questionText": "Wanneer is de winkel open?",
                     "audioFile": "luisteren/exam1/q10.mp3",
                     "transcript": "Dit is een bericht van Albert Heijn. Wij zijn geopend van maandag tot en met zaterdag van acht uur 's ochtends tot negen uur 's avonds. Op zondag zijn wij gesloten.",
@@ -110,6 +128,8 @@
             "questions": [
                 {
                     "id": "l2-q1",
+                    "image": "scenes/a2/luisteren/l2-q1.webp",
+                    "imageAlt": "Vrouw spreekt met de receptioniste in een kantoor",
                     "questionText": "Waarom belt de vrouw?",
                     "audioFile": "luisteren/exam2/q1.mp3",
                     "transcript": "Vrouw: Goedemiddag, ik bel om een afspraak te maken bij de huisarts.\nReceptionist: Wanneer wilt u komen?\nVrouw: Kan het morgenochtend? Ik heb al drie dagen hoofdpijn.\nReceptionist: Morgen om negen uur kan. Neemt u uw verzekeringspas mee.",
@@ -120,6 +140,8 @@
                 },
                 {
                     "id": "l2-q2",
+                    "image": "scenes/a2/luisteren/l2-q2.webp",
+                    "imageAlt": "Man en vrouw praten bij een servicebalie",
                     "questionText": "Wat is het probleem met het pakket?",
                     "audioFile": "luisteren/exam2/q2.mp3",
                     "transcript": "Man: Ik heb vorige week een pakket besteld, maar het is nog niet aangekomen.\nVrouw: Wat is uw bestelnummer?\nMan: Eendrievier-zevenacht.\nVrouw: Ik zie het. Uw pakket is onderweg. Het komt morgen.",
@@ -130,6 +152,8 @@
                 },
                 {
                     "id": "l2-q3",
+                    "image": "scenes/a2/luisteren/l2-q3.webp",
+                    "imageAlt": "Leraar en leerling praten in een klaslokaal",
                     "questionText": "Waar gaat het gesprek over?",
                     "audioFile": "luisteren/exam2/q3.mp3",
                     "transcript": "Leraar: Volgende week hebben we een excursie naar het museum.\nLeerling: Leuk! Hoe laat moeten we er zijn?\nLeraar: Om tien uur. We gaan met de bus. Vergeet niet om eten en drinken mee te nemen.\nLeerling: Moet ik geld meenemen?\nLeraar: Nee, de school betaalt alles.",
@@ -140,6 +164,8 @@
                 },
                 {
                     "id": "l2-q4",
+                    "image": "scenes/a2/luisteren/l2-q4.webp",
+                    "imageAlt": "Vrouw en man praten in een druk treinstation",
                     "questionText": "Hoe laat vertrekt de trein?",
                     "audioFile": "luisteren/exam2/q4.mp3",
                     "transcript": "Reizigers, let op. De trein naar Amsterdam Centraal van kwart over elf vertrekt vandaag vijf minuten later, om twintig over elf, vanaf spoor drie. Wij bieden onze excuses aan voor het ongemak.",
@@ -150,6 +176,8 @@
                 },
                 {
                     "id": "l2-q5",
+                    "image": "scenes/a2/luisteren/l2-q5.webp",
+                    "imageAlt": "Een man en een vrouw praten in een café",
                     "questionText": "Wat wil de man bestellen?",
                     "audioFile": "luisteren/exam2/q5.mp3",
                     "transcript": "Vrouw: Goedemiddag, wat mag het zijn?\nMan: Ik wil graag een broodje kaas en een kop koffie.\nVrouw: Met melk en suiker?\nMan: Alleen melk, geen suiker alstublieft.\nVrouw: Dat is dan vier euro vijftig.",
@@ -160,6 +188,8 @@
                 },
                 {
                     "id": "l2-q6",
+                    "image": "scenes/a2/luisteren/l2-q6.webp",
+                    "imageAlt": "Vrouw en man praten in een gezellige keuken",
                     "questionText": "Wanneer is de verjaardag?",
                     "audioFile": "luisteren/exam2/q6.mp3",
                     "transcript": "Vrouw: Hoi, ik bel even om te zeggen dat we zaterdag een verjaardagsfeest hebben voor Sanne.\nMan: Leuk! Hoe laat?\nVrouw: Om drie uur 's middags. Bij ons thuis. Kun je een salade meenemen?\nMan: Ja, natuurlijk. Tot zaterdag!",
@@ -170,6 +200,8 @@
                 },
                 {
                     "id": "l2-q7",
+                    "image": "scenes/a2/luisteren/l2-q7.webp",
+                    "imageAlt": "Man en vrouw praten in een café",
                     "questionText": "Wat moet de vrouw doen voor haar nieuwe baan?",
                     "audioFile": "luisteren/exam2/q7.mp3",
                     "transcript": "Man: Gefeliciteerd met je nieuwe baan! Wanneer begin je?\nVrouw: Volgende week maandag. Maar ik moet eerst nog een paar formulieren invullen en een kopie van mijn diploma opsturen.\nMan: Dat klinkt goed. Veel succes!",
@@ -180,6 +212,8 @@
                 },
                 {
                     "id": "l2-q8",
+                    "image": "scenes/a2/luisteren/l2-q8.webp",
+                    "imageAlt": "Een man en vrouw praten bezorgd op de stoep",
                     "questionText": "Wat is er met de buurman?",
                     "audioFile": "luisteren/exam2/q8.mp3",
                     "transcript": "Vrouw: Heb je gehoord? Meneer Jansen van hiernaast is gevallen op straat.\nMan: Oh nee! Is het erg?\nVrouw: Hij heeft zijn been gebroken. Hij ligt nu in het ziekenhuis.\nMan: Zullen we bloemen voor hem kopen?\nVrouw: Goed idee.",
@@ -190,6 +224,8 @@
                 },
                 {
                     "id": "l2-q9",
+                    "image": "scenes/a2/luisteren/l2-q9.webp",
+                    "imageAlt": "Een man en een vrouw praten in een woonkamer",
                     "questionText": "Wat moet de man vanavond doen?",
                     "audioFile": "luisteren/exam2/q9.mp3",
                     "transcript": "Vrouw: Vergeet niet dat je vanavond de kinderen van school moet halen.\nMan: Hoe laat is de school uit?\nVrouw: Om half vier. En daarna moeten ze naar zwemles om vier uur.\nMan: Oké, ik haal ze op en breng ze naar het zwembad.",
@@ -200,6 +236,8 @@
                 },
                 {
                     "id": "l2-q10",
+                    "image": "scenes/a2/luisteren/l2-q10.webp",
+                    "imageAlt": "Drie mensen praten buiten een gebouw",
                     "questionText": "Waarom kan de bibliotheek niet open?",
                     "audioFile": "luisteren/exam2/q10.mp3",
                     "transcript": "Beste bezoekers, de bibliotheek is vandaag gesloten wegens een waterleidingbreuk. Morgen zijn we weer open vanaf negen uur. Boeken die vandaag teruggebracht moeten worden, kunt u in de brievenbus bij de ingang doen. Excuses voor het ongemak.",
@@ -215,6 +253,8 @@
             "questions": [
                 {
                     "id": "l3-q1",
+                    "image": "scenes/a2/luisteren/l3-q1.webp",
+                    "imageAlt": "Man en vrouw praten op de stoep in de buurt",
                     "questionText": "Wat wil de man weten?",
                     "audioFile": "luisteren/exam3/q1.mp3",
                     "transcript": "Man: Goedemorgen, ik ben nieuw in deze buurt. Kunt u mij vertellen waar de dichtstbijzijnde huisarts is?\nVrouw: Ja hoor, er is een huisartspraktijk aan de Hoofdstraat, naast de apotheek.\nMan: Dank u wel. Zijn ze ook op zaterdag open?\nVrouw: Nee, alleen doordeweeks.",
@@ -225,6 +265,8 @@
                 },
                 {
                     "id": "l3-q2",
+                    "image": "scenes/a2/luisteren/l3-q2.webp",
+                    "imageAlt": "Vrouw en man praten bij de receptie van een centrum",
                     "questionText": "Hoeveel kost de cursus?",
                     "audioFile": "luisteren/exam3/q2.mp3",
                     "transcript": "Vrouw: Ik wil me graag inschrijven voor de zwemcursus.\nMan: De cursus is op dinsdag en donderdag van zes tot zeven uur. Het kost vijfenveertig euro per maand.\nVrouw: Oké, en moet ik zelf een badpak meenemen?\nMan: Ja, en ook een handdoek.",
@@ -235,6 +277,8 @@
                 },
                 {
                     "id": "l3-q3",
+                    "image": "scenes/a2/luisteren/l3-q3.webp",
+                    "imageAlt": "Man en vrouw praten in een gezellige woonkamer",
                     "questionText": "Waarom kan de vrouw niet naar het feest?",
                     "audioFile": "luisteren/exam3/q3.mp3",
                     "transcript": "Man: We geven vrijdagavond een feest. Kun je komen?\nVrouw: Vrijdag kan ik helaas niet. Ik moet oppassen op de kinderen van mijn zus.\nMan: Jammer! Misschien een andere keer.\nVrouw: Ja, leuk. Veel plezier vrijdag!",
@@ -245,6 +289,8 @@
                 },
                 {
                     "id": "l3-q4",
+                    "image": "scenes/a2/luisteren/l3-q4.webp",
+                    "imageAlt": "Vrouw en man praten bij de balie van het gemeentehuis",
                     "questionText": "Wat moet de man meenemen naar het gemeentehuis?",
                     "audioFile": "luisteren/exam3/q4.mp3",
                     "transcript": "Vrouw: U wilt zich inschrijven bij de gemeente? Dan moet u een afspraak maken.\nMan: Oké, wat moet ik meenemen?\nVrouw: Uw paspoort, een pasfoto, en een bewijs van uw adres. Dat kan een huurcontract zijn.\nMan: Goed, ik maak een afspraak.",
@@ -255,6 +301,8 @@
                 },
                 {
                     "id": "l3-q5",
+                    "image": "scenes/a2/luisteren/l3-q5.webp",
+                    "imageAlt": "Man en vrouw praten in een café",
                     "questionText": "Waar werkt de vrouw?",
                     "audioFile": "luisteren/exam3/q5.mp3",
                     "transcript": "Man: Wat voor werk doe je?\nVrouw: Ik werk in een ziekenhuis als verpleegkundige. Ik werk drie dagen per week.\nMan: Vind je het leuk?\nVrouw: Ja, het is soms zwaar, maar ik vind het mooi om mensen te helpen.",
@@ -265,6 +313,8 @@
                 },
                 {
                     "id": "l3-q6",
+                    "image": "scenes/a2/luisteren/l3-q6.webp",
+                    "imageAlt": "Vrouw en man praten in een gezellige woonkamer",
                     "questionText": "Hoe laat moet de man bij de garage zijn?",
                     "audioFile": "luisteren/exam3/q6.mp3",
                     "transcript": "Vrouw: Je auto staat morgen klaar bij de garage.\nMan: Hoe laat kan ik hem ophalen?\nVrouw: Vanaf half drie 's middags. Vergeet niet om de factuur contant te betalen.\nMan: Oké, ik kom om drie uur.",
@@ -275,6 +325,8 @@
                 },
                 {
                     "id": "l3-q7",
+                    "image": "scenes/a2/luisteren/l3-q7.webp",
+                    "imageAlt": "Twee volwassenen praten in een gezellige woonkamer",
                     "questionText": "Wat is er veranderd?",
                     "audioFile": "luisteren/exam3/q7.mp3",
                     "transcript": "Beste ouders, de schoolreis van volgende week woensdag gaat niet door vanwege het slechte weer. De nieuwe datum is vrijdag twee mei. De kinderen moeten om half negen op school zijn. Neem lunchpakketten en drinken mee.",
@@ -295,6 +347,8 @@
                 },
                 {
                     "id": "l3-q9",
+                    "image": "scenes/a2/luisteren/l3-q9.webp",
+                    "imageAlt": "Man en vrouw praten in een gezellige woonkamer",
                     "questionText": "Waar gaan ze naartoe in het weekend?",
                     "audioFile": "luisteren/exam3/q9.mp3",
                     "transcript": "Man: Zullen we dit weekend iets leuks doen?\nVrouw: Ja, goed idee! Zullen we naar de dierentuin gaan? De kinderen vinden dat altijd leuk.\nMan: Oké, dan gaan we zondag. Is het weer goed?\nVrouw: Ja, het wordt droog en een beetje bewolkt.",
@@ -305,6 +359,8 @@
                 },
                 {
                     "id": "l3-q10",
+                    "image": "scenes/a2/luisteren/l3-q10.webp",
+                    "imageAlt": "Man en vrouw praten in een druk treinstation",
                     "questionText": "Wat heeft de man verloren?",
                     "audioFile": "luisteren/exam3/q10.mp3",
                     "transcript": "Man: Ik ben mijn portemonnee kwijt. Ik denk dat ik hem in de bus heb laten liggen.\nVrouw: Heb je al gebeld naar het vervoersbedrijf?\nMan: Nee, nog niet. Heb je het telefoonnummer?\nVrouw: Ja, wacht even. Het nummer is nul-negen-honderd-achttien-achttien.",
