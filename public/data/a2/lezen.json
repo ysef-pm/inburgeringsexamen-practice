@@ -13,7 +13,9 @@
             "een planning maken",
             "een rustige plek zoeken"
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam1-tips_leren.webp",
+          "imageAlt": "Drie mensen leren samen in een rustige studeerkamer"
         },
         {
           "passage": "tips_leren",
@@ -26,7 +28,9 @@
             "'s avonds",
             "Dat moet je zelf bepalen."
           ],
-          "correct": 3
+          "correct": 3,
+          "image": "scenes/a2/lezen/exam1-tips_leren.webp",
+          "imageAlt": "Drie mensen leren samen in een rustige studeerkamer"
         },
         {
           "passage": "tips_leren",
@@ -39,7 +43,9 @@
             "Leer lang achter elkaar door en lees elk stuk tekst twee keer.",
             "Leer met andere mensen en lees elke dag samen hetzelfde stuk tekst."
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam1-tips_leren.webp",
+          "imageAlt": "Drie mensen leren samen in een rustige studeerkamer"
         },
         {
           "passage": "hardloopwedstrijd",
@@ -51,7 +57,9 @@
             "Hij wil ze informatie geven over alles rondom de hardloopwedstrijd.",
             "Hij wil ze oproepen met z'n allen naar de hardlopers te komen kijken."
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam1-hardloopwedstrijd.webp",
+          "imageAlt": "Dorpsplein met mensen en hardlopers voor een wedstrijd"
         },
         {
           "passage": "hardloopwedstrijd",
@@ -64,7 +72,9 @@
             "voor 16.00 uur",
             "voor 17.00 uur"
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam1-hardloopwedstrijd.webp",
+          "imageAlt": "Dorpsplein met mensen en hardlopers voor een wedstrijd"
         },
         {
           "passage": "transportservice",
@@ -77,7 +87,9 @@
             "€104,-",
             "€144,-"
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam1-transportservice.webp",
+          "imageAlt": "Drie mensen in een woonkamer met meubels"
         },
         {
           "passage": "transportservice",
@@ -89,7 +101,9 @@
             "op het moment dat zij de meubels koopt",
             "op de dag van de bezorging"
           ],
-          "correct": 2
+          "correct": 2,
+          "image": "scenes/a2/lezen/exam1-transportservice.webp",
+          "imageAlt": "Drie mensen in een woonkamer met meubels"
         },
         {
           "passage": "kanovaren",
@@ -102,7 +116,9 @@
             "eten en drinken",
             "extra kleding"
           ],
-          "correct": 3
+          "correct": 3,
+          "image": "scenes/a2/lezen/exam1-kanovaren.webp",
+          "imageAlt": "Collega's bereiden zich voor op een kanotocht"
         },
         {
           "passage": "kanovaren",
@@ -115,7 +131,9 @@
             "aan Jan",
             "aan Ingmar"
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam1-kanovaren.webp",
+          "imageAlt": "Collega's bereiden zich voor op een kanotocht"
         },
         {
           "passage": "tas_vergeten",
@@ -127,7 +145,9 @@
             "Bij de portier.",
             "In de trein."
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam1-tas_vergeten.webp",
+          "imageAlt": "Drukke trein station met reizigers op het perron"
         },
         {
           "passage": "tas_vergeten",
@@ -140,7 +160,9 @@
             "Boek, bril en portemonnee",
             "Telefoon, boek en bril"
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam1-tas_vergeten.webp",
+          "imageAlt": "Drukke trein station met reizigers op het perron"
         },
         {
           "passage": "sportdag",
@@ -153,7 +175,9 @@
             "wat te drinken voor de pauze",
             "geld voor de barbecue"
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam1-sportdag.webp",
+          "imageAlt": "Gezellige sportdag in het park met spelende kinderen"
         },
         {
           "passage": "sportdag",
@@ -166,7 +190,9 @@
             "voetbal",
             "basketbal"
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam1-sportdag.webp",
+          "imageAlt": "Gezellige sportdag in het park met spelende kinderen"
         },
         {
           "passage": "sportdag",
@@ -179,7 +205,9 @@
             "zich aanmelden bij Mo",
             "Niets, hij mag niet mee barbecueën."
           ],
-          "correct": 2
+          "correct": 2,
+          "image": "scenes/a2/lezen/exam1-sportdag.webp",
+          "imageAlt": "Gezellige sportdag in het park met spelende kinderen"
         },
         {
           "passage": "bruiloft",
@@ -191,7 +219,9 @@
             "bij David",
             "bij William"
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam1-bruiloft.webp",
+          "imageAlt": "Collega's bespreken een bruiloft in de pauze"
         },
         {
           "passage": "bruiloft",
@@ -203,7 +233,9 @@
             "geld",
             "Dat moeten ze nog kiezen."
           ],
-          "correct": 2
+          "correct": 2,
+          "image": "scenes/a2/lezen/exam1-bruiloft.webp",
+          "imageAlt": "Collega's bespreken een bruiloft in de pauze"
         },
         {
           "passage": "bruiloft",
@@ -215,7 +247,9 @@
             "om nog wat taken te verdelen",
             "om te vragen wie er nog meer bij de feestcommissie wil"
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam1-bruiloft.webp",
+          "imageAlt": "Collega's bespreken een bruiloft in de pauze"
         },
         {
           "passage": "ehbo",
@@ -227,7 +261,9 @@
             "cursus EHBO II",
             "cursus EHBO III"
           ],
-          "correct": 2
+          "correct": 2,
+          "image": "scenes/a2/lezen/exam1-ehbo.webp",
+          "imageAlt": "Drie mensen leren eerste hulp in een klaslokaal"
         },
         {
           "passage": "ehbo",
@@ -240,7 +276,9 @@
             "vier",
             "zes"
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam1-ehbo.webp",
+          "imageAlt": "Drie mensen leren eerste hulp in een klaslokaal"
         },
         {
           "passage": "ehbo",
@@ -252,7 +290,9 @@
             "cursus EHBO II",
             "cursus EHBO III"
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam1-ehbo.webp",
+          "imageAlt": "Drie mensen leren eerste hulp in een klaslokaal"
         },
         {
           "passage": "kringloop",
@@ -264,7 +304,9 @@
             "die proberen ze te repareren",
             "die gooien ze weg"
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam1-kringloop.webp",
+          "imageAlt": "Mensen kijken rond in een kringloopcentrum met spullen"
         },
         {
           "passage": "kringloop",
@@ -276,7 +318,9 @@
             "niets",
             "Dat ligt aan het soort spullen."
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam1-kringloop.webp",
+          "imageAlt": "Mensen kijken rond in een kringloopcentrum met spullen"
         },
         {
           "passage": "kringloop",
@@ -288,7 +332,9 @@
             "naar verschillende goede doelen",
             "naar kinderboerderij 'Het bokje'"
           ],
-          "correct": 2
+          "correct": 2,
+          "image": "scenes/a2/lezen/exam1-kringloop.webp",
+          "imageAlt": "Mensen kijken rond in een kringloopcentrum met spullen"
         },
         {
           "passage": "ziekmelding",
@@ -300,7 +346,9 @@
             "Ze moet naar huis gaan en zich de volgende werkdag ziek melden.",
             "Ze moet zich ziek melden en dan naar huis gaan."
           ],
-          "correct": 2
+          "correct": 2,
+          "image": "scenes/a2/lezen/exam1-ziekmelding.webp",
+          "imageAlt": "Collega's in een kantoor, een vrouw voelt zich ziek"
         },
         {
           "passage": "ziekmelding",
@@ -312,7 +360,9 @@
             "wanneer hij denkt dat hij weer kan werken",
             "wat voor werk hij misschien nog wel kan doen"
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam1-ziekmelding.webp",
+          "imageAlt": "Collega's in een kantoor, een vrouw voelt zich ziek"
         }
       ],
       "sectionNames": {
@@ -342,7 +392,9 @@
             "bellen naar het noodnummer",
             "direct naar de praktijk gaan"
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam2-tandarts.webp",
+          "imageAlt": "Een vriendelijke tandartspraktijk met een receptie en wachtende patiënten"
         },
         {
           "passage": "tandarts",
@@ -355,7 +407,9 @@
             "Javier Barnet",
             "Peter de Vries"
           ],
-          "correct": 2
+          "correct": 2,
+          "image": "scenes/a2/lezen/exam2-tandarts.webp",
+          "imageAlt": "Een vriendelijke tandartspraktijk met een receptie en wachtende patiënten"
         },
         {
           "passage": "cv",
@@ -367,7 +421,9 @@
             "Omdat zij al een baan heeft.",
             "Omdat zij geen baan heeft."
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam2-cv.webp",
+          "imageAlt": "Een vrouw schrijft in een notitieboek in een café"
         },
         {
           "passage": "cv",
@@ -379,7 +435,9 @@
             "Bij werkervaring.",
             "Bij persoonlijke gegevens."
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam2-cv.webp",
+          "imageAlt": "Een vrouw schrijft in een notitieboek in een café"
         },
         {
           "passage": "cv",
@@ -391,7 +449,9 @@
             "Bij overig.",
             "Bij werkervaring."
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam2-cv.webp",
+          "imageAlt": "Een vrouw schrijft in een notitieboek in een café"
         },
         {
           "passage": "talenschool",
@@ -467,7 +527,9 @@
             "om 21:00 uur",
             "om 22:00 uur"
           ],
-          "correct": 2
+          "correct": 2,
+          "image": "scenes/a2/lezen/exam2-buurt.webp",
+          "imageAlt": "Buurtbewoners genieten van een bijeenkomst in het park"
         },
         {
           "passage": "buurt",
@@ -480,7 +542,9 @@
             "op de avond zelf",
             "Ze hoeft zich niet op te geven."
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam2-buurt.webp",
+          "imageAlt": "Buurtbewoners genieten van een bijeenkomst in het park"
         },
         {
           "passage": "sport",
@@ -517,7 +581,9 @@
             "hoe ze haar familie met de taal kan helpen",
             "de Nederlandse taal beter en vaker te gebruiken"
           ],
-          "correct": 3
+          "correct": 3,
+          "image": "scenes/a2/lezen/exam2-brief_samira.webp",
+          "imageAlt": "Samira oefent Nederlands met haar man en kinderen"
         },
         {
           "passage": "brief_samira",
@@ -530,7 +596,9 @@
             "Ze vindt dat de lessen te moeilijk waren.",
             "Ze vindt dat de cursus te lang duurde."
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam2-brief_samira.webp",
+          "imageAlt": "Samira oefent Nederlands met haar man en kinderen"
         },
         {
           "passage": "huisarts",
@@ -543,7 +611,9 @@
             "tussen 13:30 en 14:30 uur",
             "vóór 13:30 uur of ná 14:30 uur"
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam2-huisarts.webp",
+          "imageAlt": "Vrouwen en mannen praten voor de huisartsenpraktijk"
         },
         {
           "passage": "huisarts",
@@ -556,7 +626,9 @@
             "naar de centrale huisartsenpost bellen",
             "naar het alarmnummer voor noodgevallen bellen"
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam2-huisarts.webp",
+          "imageAlt": "Vrouwen en mannen praten voor de huisartsenpraktijk"
         },
         {
           "passage": "woorden",
@@ -569,7 +641,9 @@
             "alleen van boven naar beneden",
             "in allerlei verschillende volgordes"
           ],
-          "correct": 3
+          "correct": 3,
+          "image": "scenes/a2/lezen/exam2-woorden.webp",
+          "imageAlt": "Vrienden leren samen nieuwe woorden in een woonkamer"
         },
         {
           "passage": "woorden",
@@ -581,7 +655,9 @@
             "de kaartjesmethode",
             "het woordnet"
           ],
-          "correct": 2
+          "correct": 2,
+          "image": "scenes/a2/lezen/exam2-woorden.webp",
+          "imageAlt": "Vrienden leren samen nieuwe woorden in een woonkamer"
         },
         {
           "passage": "rooster",
@@ -594,7 +670,9 @@
             "van 14.00 uur tot 23.00 uur",
             "van 18.30 uur tot 23.00 uur"
           ],
-          "correct": 2
+          "correct": 2,
+          "image": "scenes/a2/lezen/exam2-rooster.webp",
+          "imageAlt": "Hotel medewerkers helpen gasten in de lobby"
         },
         {
           "passage": "rooster",
@@ -607,7 +685,9 @@
             "met Juul",
             "met niemand"
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam2-rooster.webp",
+          "imageAlt": "Hotel medewerkers helpen gasten in de lobby"
         },
         {
           "passage": "bloemen",
@@ -619,7 +699,9 @@
             "Jantine en Ricardo",
             "Omar en Moniek"
           ],
-          "correct": 1
+          "correct": 1,
+          "image": "scenes/a2/lezen/exam2-bloemen.webp",
+          "imageAlt": "Drie medewerkers werken in een bloemenwinkel"
         },
         {
           "passage": "bloemen",
@@ -632,7 +714,9 @@
             "€10,-",
             "€15,-"
           ],
-          "correct": 0
+          "correct": 0,
+          "image": "scenes/a2/lezen/exam2-bloemen.webp",
+          "imageAlt": "Drie medewerkers werken in een bloemenwinkel"
         },
         {
           "passage": "bloemen",
@@ -644,7 +728,9 @@
             "altijd twee keer per week",
             "twee of drie keer per week"
           ],
-          "correct": 2
+          "correct": 2,
+          "image": "scenes/a2/lezen/exam2-bloemen.webp",
+          "imageAlt": "Drie medewerkers werken in een bloemenwinkel"
         }
       ],
       "sectionNames": {

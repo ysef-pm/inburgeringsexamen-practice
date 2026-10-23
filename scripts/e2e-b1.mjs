@@ -450,6 +450,59 @@ async function run(browser, viewport, tag) {
         assert(items === knm.exams.exam1.questions.length, `KNM ${knm.exams.exam1.questions.length}q listed (got ${items})`);
     });
 
+    // 17b. Visual refresh: every mode renders its scene illustration and it loads
+    await scenario('scene illustrations render + load in all 5 modes', { seed: { 'rmd-level': 'a2' } }, async (page) => {
+        const loaded = (sel) => page.$eval(sel, (img) => img.complete && img.naturalWidth > 0).catch(() => false);
+        const expectScene = async (label, sel, src) => {
+            await waitFor(page, () => loaded(sel), `${label} image loaded`, 10000);
+            const got = await page.$eval(sel, (img) => img.getAttribute('src'));
+            assert(got === `/images/${src}`, `${label} src ${got} === /images/${src}`);
+            const alt = await page.$eval(sel, (img) => img.alt);
+            assert(alt && alt.length > 3, `${label} has alt text`);
+        };
+        await page.goto(BASE);
+        await click(page, '.mode-btn.lezen');
+        await waitForSelector(page, '.reading-text');
+        await expectScene('lezen', '#question-content .scene-card img', a2Lezen.exams.exam1.questions[0].image);
+        await click(page, '.mode-btn.schrijven');
+        await waitForText(page, '.prompt', A2_Q1_SNIPPET);
+        await expectScene('schrijven', '#question-content .scene-card img', a2Schrijven.questions[0].image);
+        await click(page, '.mode-btn.luisteren');
+        await waitForSelector(page, '#exam-sidebar .exercise-item');
+        await page.evaluate(() => window.luisterenStart(0));
+        await expectScene('luisteren', '#question-content .scene-card img', a2Luisteren.exams.exam1.questions[0].image);
+        await click(page, '.mode-btn.knm');
+        await waitForSelector(page, '#exam-sidebar .exercise-item');
+        await page.evaluate(() => window.knmStart(0));
+        await expectScene('knm', '.scenario-block .scene-card img', knm.exams.exam1.questions[0].image);
+        await click(page, '.mode-btn.spreken');
+        await waitForSelector(page, '#exam-sidebar .exercise-item');
+        await page.evaluate(() => window.sprekenStart(1, 0)); // part 2: picture exercise
+        await waitFor(page, () => loaded('.exercise-image img'), 'spreken picture loaded', 10000);
+        const pic = await page.$eval('.exercise-image img', (img) => img.getAttribute('src'));
+        assert(/^\/images\/scenes\/.+\.webp$/.test(pic), `spreken picture is an illustration (${pic})`);
+        const broken = await page.$$eval('img', (l) => l.filter((i) => i.complete && i.naturalWidth === 0).length);
+        assert(broken === 0, `no broken images (got ${broken})`);
+    });
+
+    // 17c. Luisteren end-of-set result: score + count-up target rendered
+    await scenario('luisteren last question shows a result summary', { seed: { 'rmd-level': 'a2' } }, async (page) => {
+        await page.goto(BASE);
+        await click(page, '.mode-btn.luisteren');
+        await waitForSelector(page, '#exam-sidebar .exercise-item');
+        const last = a2Luisteren.exams.exam1.questions.length - 1;
+        await page.evaluate((i) => window.luisterenStart(i), last);
+        // skip the reading/audio phase: enable options the way the module does
+        await page.evaluate(() => document.querySelectorAll('.option-btn').forEach((b) => { b.disabled = false; }));
+        await page.evaluate(() => { document.getElementById('action-area').innerHTML = '<button class="btn btn-primary" id="check-btn" onclick="window.luisterenCheck()">x</button>'; });
+        const q = a2Luisteren.exams.exam1.questions[last];
+        await page.evaluate((c) => { window.luisterenSelect(c); window.luisterenCheck(); window.luisterenNext(); }, q.correctAnswer);
+        await waitForSelector(page, '.rmd-result');
+        const total = await page.$eval('.rmd-result', (el) => el.dataset.total);
+        const correct = await page.$eval('.rmd-result', (el) => el.dataset.correct);
+        assert(total === '1' && correct === '1', `result 1/1 (got ${correct}/${total})`);
+    });
+
     // 18. B1 lezen structure: 2 exams × 30 q / 6 passages + answer flow works
     await scenario('B1 lezen structure (2×30q, 6 passages) + answer flow', {
         seed: { 'rmd-level': 'b1' },

@@ -1798,6 +1798,164 @@
                 padding: 20px;
             }
         }
+
+        /* ===== Visual refresh (2026-10-23): illustrations + tasteful motion =====
+           Design: docs/plans/2026-10-23-visual-refresh-design.md. Every motion
+           rule lives under prefers-reduced-motion: no-preference. */
+
+        /* Canal hero: illustration at low opacity, faded into the navy. */
+        .hero { overflow: hidden; isolation: isolate; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: -3%;
+            background: url('/images/scenes/hero-canal.webp') center 62% / cover no-repeat;
+            opacity: 0.12;
+            z-index: -2;
+            transform-origin: 50% 60%;
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 64% 46% at 50% 46%, rgba(26,35,50,0.75), rgba(26,35,50,0) 74%),
+                linear-gradient(to bottom, rgba(26,35,50,0.45) 0%, rgba(26,35,50,0) 28%, rgba(26,35,50,0) 58%, var(--navy-deep) 100%);
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .scroll-indicator { z-index: 1; }
+        @keyframes rmd-kenburns {
+            from { transform: scale(1) translate3d(0, 0, 0); }
+            to { transform: scale(1.08) translate3d(-1.5%, -1%, 0); }
+        }
+
+        /* Scene illustration card (rendered by renderSceneImage/sceneImageHTML) */
+        .scene-card {
+            display: block;
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 16 / 10;
+            margin: 0 auto var(--space-md);
+            border-radius: 16px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f1eadf 0%, #e7dfd2 100%);
+            box-shadow: 0 1px 2px rgba(26,35,50,0.06), 0 10px 28px -14px rgba(26,35,50,0.35);
+        }
+        .scene-card img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 42%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .scene-card.is-loaded img { opacity: 1; }
+        .scenario-block .scene-card { margin-bottom: var(--space-sm); }
+        @media (max-width: 600px) {
+            /* The 3-row mode bar was sticky under a 2-line header and covered
+               ~40% of a phone screen; let it scroll away so the question (and
+               its illustration) stays above the fold. Navigation stays one
+               scroll away; the exercise drawer pill is unaffected. */
+            .mode-selector { position: static; box-shadow: none; }
+            /* Short banner on phones so the question stays above the fold */
+            .scene-card { aspect-ratio: 2 / 1; max-width: none; border-radius: 12px; margin-bottom: var(--space-sm); }
+        }
+
+        /* Spreken pictures: fixed square boxes, soft fade-in */
+        .exercise-image img {
+            aspect-ratio: 1 / 1;
+            height: auto;
+            object-fit: cover;
+            background: var(--cream-dark);
+            border-radius: 12px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .exercise-image img.is-loaded { opacity: 1; }
+
+        /* Progress bar */
+        .progress-fill {
+            background: linear-gradient(90deg, var(--soft-gold), var(--dutch-orange));
+            transition: width 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+        .score-fill { transition: width 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+        /* Mode tiles */
+        .mode-btn { transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+
+        /* Results (lezen / luisteren / KNM) */
+        .rmd-result { text-align: center; padding: var(--space-lg) var(--space-sm); }
+        .rmd-result-title { font-family: var(--font-display); font-size: var(--text-h2); margin-bottom: var(--space-sm); }
+        .rmd-result-score { font-family: var(--font-display); color: var(--navy-deep); line-height: 1.1; }
+        .rmd-result-num { font-size: clamp(3rem, 9vw, 4.5rem); font-variant-numeric: tabular-nums; }
+        .rmd-result-of { font-size: 1.6rem; color: var(--text-muted); margin-left: 0.35rem; }
+        .rmd-result-bar { height: 10px; max-width: 360px; margin: var(--space-md) auto var(--space-sm); background: var(--cream-dark); border-radius: 999px; overflow: hidden; }
+        .rmd-result-fill { height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--soft-gold), var(--dutch-orange)); transition: width 1s cubic-bezier(0.2, 0.7, 0.2, 1); }
+        .rmd-result.passed .rmd-result-fill { background: linear-gradient(90deg, #7fb38f, #2e9e5b); }
+        .rmd-result-verdict { font-family: var(--font-ui); font-size: 1.25rem; font-weight: 600; color: var(--navy-mid); margin-bottom: var(--space-md); }
+        .rmd-result.passed .rmd-result-verdict { color: #2e7d4f; }
+        .rmd-result-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .rmd-result-sub { color: var(--text-muted); }
+        .rmd-confetti { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 1200; }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hero::before { animation: rmd-kenburns 40s ease-in-out infinite alternate; }
+            .scene-card img { transform: scale(1.03); transition: opacity 0.5s ease, transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); }
+            .scene-card.is-loaded img { transform: none; }
+
+            /* staggered entrance: mode tiles + welcome cards */
+            .mode-btn { animation: rmd-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
+            .mode-btn:nth-child(2) { animation-delay: 0.06s; }
+            .mode-btn:nth-child(3) { animation-delay: 0.12s; }
+            .mode-btn:nth-child(4) { animation-delay: 0.18s; }
+            .mode-btn:nth-child(5) { animation-delay: 0.24s; }
+            .mode-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px -6px rgba(0,0,0,0.45); }
+            .mode-btn:active { transform: translateY(0); }
+            #welcome { animation: rmd-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s backwards; }
+            #welcome .tips, #welcome > div { animation: rmd-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.32s backwards; }
+
+            /* smooth transitions between questions: every re-render fades in */
+            #question-content > * { animation: rmd-fade 0.35s ease backwards; }
+            #question-content > *:nth-child(2) { animation-delay: 0.05s; }
+            #question-content > *:nth-child(3) { animation-delay: 0.1s; }
+            .options > .option, .knm-options > .option-btn, .luisteren-options > .option-btn { animation: rmd-rise 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
+            .options > .option:nth-child(2), .knm-options > .option-btn:nth-child(2), .luisteren-options > .option-btn:nth-child(2) { animation-delay: 0.05s; }
+            .options > .option:nth-child(3), .knm-options > .option-btn:nth-child(3), .luisteren-options > .option-btn:nth-child(3) { animation-delay: 0.1s; }
+            .options > .option:nth-child(4), .knm-options > .option-btn:nth-child(4), .luisteren-options > .option-btn:nth-child(4) { animation-delay: 0.15s; }
+            .option:hover, .option-btn:hover:not(:disabled) { transform: translateY(-1px); }
+            .option, .option-btn { transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; }
+
+            /* answer feedback: gentle shake on wrong, green pulse on right */
+            .option.incorrect, .option-btn.incorrect { animation: rmd-shake 0.45s ease; }
+            .option.correct, .option-btn.correct { animation: rmd-pulse-ok 0.7s ease; }
+            .feedback { animation: rmd-fade 0.3s ease backwards; }
+            #feedback-area .feedback.correct { animation: rmd-pop 0.4s cubic-bezier(0.2, 0.7, 0.2, 1.3) backwards; }
+            .rmd-result { animation: rmd-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-content, .hero-title, .hero-tagline, .hero-cta, .scroll-indicator, .exam-content { animation: none !important; }
+            .scene-card img, .exercise-image img, .progress-fill, .score-fill, .rmd-result-fill { transition: none !important; }
+        }
+        @keyframes rmd-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes rmd-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+        @keyframes rmd-pop { 0% { opacity: 0; transform: scale(0.97); } 100% { opacity: 1; transform: none; } }
+        @keyframes rmd-shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-6px); }
+            40% { transform: translateX(5px); }
+            60% { transform: translateX(-3px); }
+            80% { transform: translateX(2px); }
+        }
+        @keyframes rmd-pulse-ok {
+            0% { box-shadow: 0 0 0 0 rgba(46, 158, 91, 0.45); }
+            70% { box-shadow: 0 0 0 10px rgba(46, 158, 91, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(46, 158, 91, 0); }
+        }
     </style>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
@@ -2101,6 +2259,14 @@
             exam2: { tandarts: [], cv: [], talenschool: [], ziekmelding_werk: [], buurtbijeenkomst: [], sportcentrum: [], brief_samira: [], huisarts: [], woorden_leren: [], werkrooster: [], bloemenwinkel: [] }
         };
 
+        // Per-exam lezen answers this session: { exam1: { 'section:index': true|false } }
+        let lezenResults = {};
+        function updateLezenProgress() {
+            if (!window.RMDVisual || !lezenExams) return;
+            const total = lezenExams[currentLezenExam].questions.length;
+            RMDVisual.setProgress(Object.keys(lezenResults[currentLezenExam] || {}).length / total);
+        }
+
         function switchLezenExam(examKey) {
             currentLezenExam = examKey;
             const sections = Object.keys(lezenExams[examKey].sections);
@@ -2231,8 +2397,10 @@
 
             document.getElementById('counter').textContent = `${currentExamData.sectionNames[currentLezenSection]} - Question ${currentLezenIndex + 1} of ${totalInSection}`;
             document.getElementById('question-type').textContent = 'Lezen - Multiple Choice';
+            updateLezenProgress();
 
             const content = `
+                ${window.RMDVisual ? RMDVisual.sceneImageHTML(q.image, q.imageAlt) : ''}
                 <div class="reading-text">
                     <h4>${q.passageTitle}</h4>
                     ${q.text.replace(/\n/g, '<br>')}
@@ -2295,6 +2463,9 @@
             if (!completedLezenExercises[currentLezenExam][currentLezenSection].includes(currentLezenIndex)) {
                 completedLezenExercises[currentLezenExam][currentLezenSection].push(currentLezenIndex);
             }
+            if (!lezenResults[currentLezenExam]) lezenResults[currentLezenExam] = {};
+            lezenResults[currentLezenExam][`${currentLezenSection}:${currentLezenIndex}`] = isCorrect;
+            updateLezenProgress();
 
             document.getElementById('check-btn').style.display = 'none';
             document.getElementById('next-btn').style.display = 'inline-block';
@@ -2349,13 +2520,25 @@
             }
             const totalQuestions = currentExamData.questions.length;
 
-            document.getElementById('question-content').innerHTML = `
-                <div style="text-align: center; padding: 40px;">
-                    <h2>🎉 Exam Complete!</h2>
+            const res = Object.values(lezenResults[currentLezenExam] || {});
+            document.getElementById('counter').textContent = currentExamData.name;
+            document.getElementById('question-type').textContent = 'Lezen - Result';
+            const correctCount = res.filter(Boolean).length;
+            const summaryText = `
                     <p>You have completed ${totalCompleted} of ${totalQuestions} questions in ${currentExamData.name}.</p>
-                    <p>Use the sidebar to review any questions or try another exam from the dropdown.</p>
-                </div>
-            `;
+                    <p>Use the sidebar to review any questions or try another exam from the dropdown.</p>`;
+            document.getElementById('question-content').innerHTML = (window.RMDVisual && res.length)
+                ? RMDVisual.resultHTML({
+                    correct: correctCount, total: res.length, passFraction: 0.6,
+                    title: 'Exam complete!',
+                    passText: 'You would pass! (about 60% needed)',
+                    failText: 'Keep practising — about 60% is needed to pass.',
+                    actions: `<div class="rmd-result-sub">${summaryText}</div>`
+                })
+                : `<div style="text-align: center; padding: 40px;">
+                    <h2>🎉 Exam Complete!</h2>${summaryText}
+                </div>`;
+            if (window.RMDVisual) RMDVisual.animateResult(document.getElementById('question-content'));
             document.getElementById('buttons').innerHTML = `
                 <button class="btn" onclick="backToMenu()">← Back to Menu</button>
             `;
@@ -2368,8 +2551,13 @@
 
             document.getElementById('counter').textContent = `${currentSection.toUpperCase()} - Exercise ${currentExerciseIndex + 1} of ${totalInSection}`;
             document.getElementById('question-type').textContent = q.type;
+            if (window.RMDVisual) {
+                const all = Object.values(examSections).flat();
+                RMDVisual.setProgress(all.indexOf(q) / all.length);
+            }
 
             let html = `
+                ${window.RMDVisual ? RMDVisual.sceneImageHTML(q.image, q.imageAlt) : ''}
                 <div class="prompt">${q.prompt.replace(/\n/g, '<br>')}</div>
                 ${q.wordGuidance ? `<div style="color: #777; font-size: 0.9em; margin: -8px 0 10px;">Richtlijn: ${q.wordGuidance}</div>` : ''}
                 <textarea class="writing-area" id="user-answer" placeholder="Schrijf hier je antwoord...">${userAnswers[`${currentSection}_${currentExerciseIndex}`] || ''}</textarea>
@@ -2990,6 +3178,10 @@
             html += `</div>`;
 
             gradingArea.innerHTML = html;
+            if (window.RMDVisual) {
+                const totalEl = gradingArea.querySelector('.ai-total-score .number');
+                if (totalEl) RMDVisual.countUp(totalEl, Number(grading.total) || 0, { format: (n) => `${n}/10` });
+            }
         }
 
         function nextQuestion() {

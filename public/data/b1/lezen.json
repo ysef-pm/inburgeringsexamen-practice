@@ -14,7 +14,9 @@
             "om te vragen wie er in maart vrije dagen wil opnemen"
           ],
           "correct": 0,
-          "explanation": "The email announces that from 1 March the company switches to the FlexRooster system and explains what changes for employees. The information sessions are explicitly not mandatory, and nobody is asked about days off."
+          "explanation": "The email announces that from 1 March the company switches to the FlexRooster system and explains what changes for employees. The information sessions are explicitly not mandatory, and nobody is asked about days off.",
+          "image": "scenes/b1/lezen/exam1-rooster.webp",
+          "imageAlt": "Collega's bespreken een nieuw roostersysteem in kantoor"
         },
         {
           "passage": "rooster",
@@ -27,7 +29,9 @@
             "Het rooster staat drie weken van tevoren online in de app"
           ],
           "correct": 2,
-          "explanation": "The text says the roster will be online three weeks in advance and that employees no longer receive it by e-mail; they view it in the app or on the website."
+          "explanation": "The text says the roster will be online three weeks in advance and that employees no longer receive it by e-mail; they view it in the app or on the website.",
+          "image": "scenes/b1/lezen/exam1-rooster.webp",
+          "imageAlt": "Collega's bespreken een nieuw roostersysteem in kantoor"
         },
         {
           "passage": "rooster",
@@ -40,7 +44,9 @@
             "zodra een collega akkoord gaat met de ruil"
           ],
           "correct": 1,
-          "explanation": "According to the text, a shift swap is only final (\"pas definitief\") once the team leader has approved it; arranging it in the app with a colleague is not enough."
+          "explanation": "According to the text, a shift swap is only final (\"pas definitief\") once the team leader has approved it; arranging it in the app with a colleague is not enough.",
+          "image": "scenes/b1/lezen/exam1-rooster.webp",
+          "imageAlt": "Collega's bespreken een nieuw roostersysteem in kantoor"
         },
         {
           "passage": "rooster",
@@ -53,7 +59,9 @@
             "Hij moet zijn aanvraag per e-mail naar Sandra Vermeer sturen"
           ],
           "correct": 0,
-          "explanation": "Days off must be requested at least four weeks in advance; the text warns that later requests cannot always be approved because the roster is already fixed."
+          "explanation": "Days off must be requested at least four weeks in advance; the text warns that later requests cannot always be approved because the roster is already fixed.",
+          "image": "scenes/b1/lezen/exam1-rooster.webp",
+          "imageAlt": "Collega's bespreken een nieuw roostersysteem in kantoor"
         },
         {
           "passage": "rooster",
@@ -66,7 +74,9 @@
             "Medewerkers kiezen zelf welke bijeenkomst zij bezoeken"
           ],
           "correct": 2,
-          "explanation": "The text states that no registration is needed and employees choose which session to attend; attendance is recommended but not compulsory for anyone."
+          "explanation": "The text states that no registration is needed and employees choose which session to attend; attendance is recommended but not compulsory for anyone.",
+          "image": "scenes/b1/lezen/exam1-rooster.webp",
+          "imageAlt": "Collega's bespreken een nieuw roostersysteem in kantoor"
         },
         {
           "passage": "afval",
@@ -79,7 +89,9 @@
             "inwoners informeren over veranderingen in de afvalinzameling"
           ],
           "correct": 2,
-          "explanation": "The letter explains what will change in waste collection from 1 May. The fine and the pass are details; the pass is sent automatically and does not need to be requested."
+          "explanation": "The letter explains what will change in waste collection from 1 May. The fine and the pass are details; the pass is sent automatically and does not need to be requested.",
+          "image": "scenes/b1/lezen/exam1-afval.webp",
+          "imageAlt": "Drie mensen bij een ondergrondse afvalcontainer in een park"
         },
         {
           "passage": "afval",
@@ -92,7 +104,9 @@
             "het ophalen van restafval"
           ],
           "correct": 1,
-          "explanation": "The text explicitly says gft, paper and cardboard will still be collected as usual (\"Hiervoor verandert er dus niets\"), while residual waste must now be brought to an underground container."
+          "explanation": "The text explicitly says gft, paper and cardboard will still be collected as usual (\"Hiervoor verandert er dus niets\"), while residual waste must now be brought to an underground container.",
+          "image": "scenes/b1/lezen/exam1-afval.webp",
+          "imageAlt": "Drie mensen bij een ondergrondse afvalcontainer in een park"
         },
         {
           "passage": "afval",
@@ -105,7 +119,9 @@
             "U kunt geen restafval meer wegbrengen"
           ],
           "correct": 0,
-          "explanation": "The letter warns residents to keep the pass safe because a new pass costs € 10,00; a replacement is possible, but not free."
+          "explanation": "The letter warns residents to keep the pass safe because a new pass costs € 10,00; a replacement is possible, but not free.",
+          "image": "scenes/b1/lezen/exam1-afval.webp",
+          "imageAlt": "Drie mensen bij een ondergrondse afvalcontainer in een park"
         },
         {
           "passage": "afval",
@@ -118,7 +134,9 @@
             "afval dat los op straat ligt"
           ],
           "correct": 2,
-          "explanation": "The sentence links \"zwerfvuil op straat\" to rubbish bags no longer standing outside, so it refers to litter lying loose in the street. Large items like furniture are called \"grofvuil\"."
+          "explanation": "The sentence links \"zwerfvuil op straat\" to rubbish bags no longer standing outside, so it refers to litter lying loose in the street. Large items like furniture are called \"grofvuil\".",
+          "image": "scenes/b1/lezen/exam1-afval.webp",
+          "imageAlt": "Drie mensen bij een ondergrondse afvalcontainer in een park"
         },
         {
           "passage": "afval",
@@ -131,7 +149,9 @@
             "De kast wordt binnen een week gratis opgehaald"
           ],
           "correct": 1,
-          "explanation": "The text says bulky waste (\"grofvuil\") must never be placed next to the container and that you can get a fine for this; free collection only happens by appointment."
+          "explanation": "The text says bulky waste (\"grofvuil\") must never be placed next to the container and that you can get a fine for this; free collection only happens by appointment.",
+          "image": "scenes/b1/lezen/exam1-afval.webp",
+          "imageAlt": "Drie mensen bij een ondergrondse afvalcontainer in een park"
         },
         {
           "passage": "cursus",
@@ -144,7 +164,9 @@
             "voor werkgevers die een cursus willen betalen voor hun medewerkers"
           ],
           "correct": 1,
-          "explanation": "The opening line addresses people who want to improve their Dutch for work or study, working towards B2. Beginners would be advised to take a different course after the intake test."
+          "explanation": "The opening line addresses people who want to improve their Dutch for work or study, working towards B2. Beginners would be advised to take a different course after the intake test.",
+          "image": "scenes/b1/lezen/exam1-cursus.webp",
+          "imageAlt": "Groep volwassenen in een klaslokaal, leren samen"
         },
         {
           "passage": "cursus",
@@ -157,7 +179,9 @@
             "omdat de toets verplicht is voor het officiële examen"
           ],
           "correct": 0,
-          "explanation": "The text states directly that the intake test is used to determine whether the course matches your level (\"bepalen wij of de cursus bij uw niveau past\")."
+          "explanation": "The text states directly that the intake test is used to determine whether the course matches your level (\"bepalen wij of de cursus bij uw niveau past\").",
+          "image": "scenes/b1/lezen/exam1-cursus.webp",
+          "imageAlt": "Groep volwassenen in een klaslokaal, leren samen"
         },
         {
           "passage": "cursus",
@@ -170,7 +194,9 @@
             "de helft van het cursusgeld"
           ],
           "correct": 2,
-          "explanation": "Cancelling is only free up to two weeks before the start date; after that you pay 50% of the course fee. The full amount is only due once the course has started."
+          "explanation": "Cancelling is only free up to two weeks before the start date; after that you pay 50% of the course fee. The full amount is only due once the course has started.",
+          "image": "scenes/b1/lezen/exam1-cursus.webp",
+          "imageAlt": "Groep volwassenen in een klaslokaal, leren samen"
         },
         {
           "passage": "cursus",
@@ -183,7 +209,9 @@
             "als u alle lessen heeft gevolgd en het examengeld heeft betaald"
           ],
           "correct": 1,
-          "explanation": "The certificate has two conditions in the text: at least 80% attendance and a sufficient final assignment. The official exam comes after the certificate, not before."
+          "explanation": "The certificate has two conditions in the text: at least 80% attendance and a sufficient final assignment. The official exam comes after the certificate, not before.",
+          "image": "scenes/b1/lezen/exam1-cursus.webp",
+          "imageAlt": "Groep volwassenen in een klaslokaal, leren samen"
         },
         {
           "passage": "cursus",
@@ -196,7 +224,9 @@
             "hoewel"
           ],
           "correct": 0,
-          "explanation": "\"Mits\" means \"provided that\" / \"on the condition that\": paying in two instalments is only possible if you indicate this when enrolling."
+          "explanation": "\"Mits\" means \"provided that\" / \"on the condition that\": paying in two instalments is only possible if you indicate this when enrolling.",
+          "image": "scenes/b1/lezen/exam1-cursus.webp",
+          "imageAlt": "Groep volwassenen in een klaslokaal, leren samen"
         },
         {
           "passage": "zorgverzekering",
@@ -209,7 +239,9 @@
             "om mevrouw Jansen te waarschuwen dat zij niet meer verzekerd is"
           ],
           "correct": 0,
-          "explanation": "The letter informs the customer about changes taking effect on 1 January and her options. Switching is presented as a possibility, not advice, and she is currently still insured."
+          "explanation": "The letter informs the customer about changes taking effect on 1 January and her options. Switching is presented as a possibility, not advice, and she is currently still insured.",
+          "image": "scenes/b1/lezen/exam1-zorgverzekering.webp",
+          "imageAlt": "Drie mensen bespreken zorgverzekering in een woonkamer"
         },
         {
           "passage": "zorgverzekering",
@@ -222,7 +254,9 @@
             "het verplicht eigen risico"
           ],
           "correct": 2,
-          "explanation": "The text says the mandatory deductible stays € 385 per year, while the basic premium rises and the number of reimbursed physiotherapy sessions drops from nine to six."
+          "explanation": "The text says the mandatory deductible stays € 385 per year, while the basic premium rises and the number of reimbursed physiotherapy sessions drops from nine to six.",
+          "image": "scenes/b1/lezen/exam1-zorgverzekering.webp",
+          "imageAlt": "Drie mensen bespreken zorgverzekering in een woonkamer"
         },
         {
           "passage": "zorgverzekering",
@@ -235,7 +269,9 @@
             "omdat het eigen risico lager is geworden"
           ],
           "correct": 1,
-          "explanation": "The letter gives the reason explicitly: the increase is mainly due to higher costs of hospital care and medicines."
+          "explanation": "The letter gives the reason explicitly: the increase is mainly due to higher costs of hospital care and medicines.",
+          "image": "scenes/b1/lezen/exam1-zorgverzekering.webp",
+          "imageAlt": "Drie mensen bespreken zorgverzekering in een woonkamer"
         },
         {
           "passage": "zorgverzekering",
@@ -248,7 +284,9 @@
             "haar aanvullende verzekering aanpassen"
           ],
           "correct": 0,
-          "explanation": "According to the text she must cancel her current insurance by 31 December at the latest; taking out the new policy can wait until 1 February."
+          "explanation": "According to the text she must cancel her current insurance by 31 December at the latest; taking out the new policy can wait until 1 February.",
+          "image": "scenes/b1/lezen/exam1-zorgverzekering.webp",
+          "imageAlt": "Drie mensen bespreken zorgverzekering in een woonkamer"
         },
         {
           "passage": "zorgverzekering",
@@ -261,7 +299,9 @@
             "De verzekering geldt ook voor de periode vóór het moment van afsluiten"
           ],
           "correct": 2,
-          "explanation": "\"Met terugwerkende kracht\" means retroactively: even if the new policy is signed in January, it counts as valid from 1 January."
+          "explanation": "\"Met terugwerkende kracht\" means retroactively: even if the new policy is signed in January, it counts as valid from 1 January.",
+          "image": "scenes/b1/lezen/exam1-zorgverzekering.webp",
+          "imageAlt": "Drie mensen bespreken zorgverzekering in een woonkamer"
         },
         {
           "passage": "opinie_auto",
@@ -274,7 +314,9 @@
             "De binnenstad moet autovrij worden"
           ],
           "correct": 2,
-          "explanation": "The whole piece argues in favour of a car-free centre and ends with the hope that the council takes a \"moedig besluit\". He calls the shopkeepers' fear understandable but unjustified."
+          "explanation": "The whole piece argues in favour of a car-free centre and ends with the hope that the council takes a \"moedig besluit\". He calls the shopkeepers' fear understandable but unjustified.",
+          "image": "scenes/b1/lezen/exam1-opinie_auto.webp",
+          "imageAlt": "Drukke binnenstad met mensen, fietsen en bomen"
         },
         {
           "passage": "opinie_auto",
@@ -287,7 +329,9 @@
             "Zij vinden het pendelbusje te duur"
           ],
           "correct": 1,
-          "explanation": "The first paragraph states that many shopkeepers oppose the plan because they fear losing customers. Deliveries are addressed later via an exemption, and the shuttle bus would be free."
+          "explanation": "The first paragraph states that many shopkeepers oppose the plan because they fear losing customers. Deliveries are addressed later via an exemption, and the shuttle bus would be free.",
+          "image": "scenes/b1/lezen/exam1-opinie_auto.webp",
+          "imageAlt": "Drukke binnenstad met mensen, fietsen en bomen"
         },
         {
           "passage": "opinie_auto",
@@ -300,7 +344,9 @@
             "Autovrije straten zorgen voor minder bezoekers"
           ],
           "correct": 0,
-          "explanation": "The text cites research showing that shops in car-free streets actually attract more customers; only twenty percent of visitors currently come by car."
+          "explanation": "The text cites research showing that shops in car-free streets actually attract more customers; only twenty percent of visitors currently come by car.",
+          "image": "scenes/b1/lezen/exam1-opinie_auto.webp",
+          "imageAlt": "Drukke binnenstad met mensen, fietsen en bomen"
         },
         {
           "passage": "opinie_auto",
@@ -313,7 +359,9 @@
             "zodat het centrum bereikbaar blijft voor ouderen en mensen die slecht ter been zijn"
           ],
           "correct": 2,
-          "explanation": "He introduces the shuttle bus directly after saying the centre must remain accessible for the elderly and people who have difficulty walking (\"Daarom stel ik voor...\")."
+          "explanation": "He introduces the shuttle bus directly after saying the centre must remain accessible for the elderly and people who have difficulty walking (\"Daarom stel ik voor...\").",
+          "image": "scenes/b1/lezen/exam1-opinie_auto.webp",
+          "imageAlt": "Drukke binnenstad met mensen, fietsen en bomen"
         },
         {
           "passage": "opinie_auto",
@@ -326,7 +374,9 @@
             "een boete voor het rijden in een autovrij gebied"
           ],
           "correct": 1,
-          "explanation": "An \"ontheffing\" is an exemption: official permission to do something that is normally forbidden — here, driving in the car-free centre (\"zodat zij er wél mogen rijden\")."
+          "explanation": "An \"ontheffing\" is an exemption: official permission to do something that is normally forbidden — here, driving in the car-free centre (\"zodat zij er wél mogen rijden\").",
+          "image": "scenes/b1/lezen/exam1-opinie_auto.webp",
+          "imageAlt": "Drukke binnenstad met mensen, fietsen en bomen"
         },
         {
           "passage": "spoorwerk",
@@ -339,7 +389,9 @@
             "reizigers adviseren om in oktober niet met het openbaar vervoer te reizen"
           ],
           "correct": 1,
-          "explanation": "The announcement explains when there are no trains and how travellers can use replacement buses. It does not advise against travelling, and normal tickets remain valid."
+          "explanation": "The announcement explains when there are no trains and how travellers can use replacement buses. It does not advise against travelling, and normal tickets remain valid.",
+          "image": "scenes/b1/lezen/exam1-spoorwerk.webp",
+          "imageAlt": "Drukke stationsomgeving met wachtende reizigers en bussen"
         },
         {
           "passage": "spoorwerk",
@@ -352,7 +404,9 @@
             "omdat er in de spits te veel treinen rijden"
           ],
           "correct": 0,
-          "explanation": "The first paragraph gives the reason directly: the track on this route is more than thirty years old, so the rails and two level crossings are being replaced."
+          "explanation": "The first paragraph gives the reason directly: the track on this route is more than thirty years old, so the rails and two level crossings are being replaced.",
+          "image": "scenes/b1/lezen/exam1-spoorwerk.webp",
+          "imageAlt": "Drukke stationsomgeving met wachtende reizigers en bussen"
         },
         {
           "passage": "spoorwerk",
@@ -365,7 +419,9 @@
             "De stopbus stopt ook bij de stations Veldhoven-Oost en Meerdijk"
           ],
           "correct": 2,
-          "explanation": "The fast bus runs non-stop between Rijnstad and Zuidburg, while the stopbus also calls at Veldhoven-Oost and Meerdijk. Both leave from the rear of the station, and neither takes regular bikes."
+          "explanation": "The fast bus runs non-stop between Rijnstad and Zuidburg, while the stopbus also calls at Veldhoven-Oost and Meerdijk. Both leave from the rear of the station, and neither takes regular bikes.",
+          "image": "scenes/b1/lezen/exam1-spoorwerk.webp",
+          "imageAlt": "Drukke stationsomgeving met wachtende reizigers en bussen"
         },
         {
           "passage": "spoorwerk",
@@ -378,7 +434,9 @@
             "Fietsen mogen alleen mee in de stopbus"
           ],
           "correct": 1,
-          "explanation": "The text says bikes are not allowed on the replacement buses, with one exception: a folding bike is allowed provided it is folded (\"mits opgevouwen\")."
+          "explanation": "The text says bikes are not allowed on the replacement buses, with one exception: a folding bike is allowed provided it is folded (\"mits opgevouwen\").",
+          "image": "scenes/b1/lezen/exam1-spoorwerk.webp",
+          "imageAlt": "Drukke stationsomgeving met wachtende reizigers en bussen"
         },
         {
           "passage": "spoorwerk",
@@ -391,7 +449,9 @@
             "met een bus die alleen op het hele uur vertrekt"
           ],
           "correct": 0,
-          "explanation": "Monday 8.00 is rush hour (\"de spits\"), and the text warns that the extra travel time of about thirty minutes can then increase to an hour."
+          "explanation": "Monday 8.00 is rush hour (\"de spits\"), and the text warns that the extra travel time of about thirty minutes can then increase to an hour.",
+          "image": "scenes/b1/lezen/exam1-spoorwerk.webp",
+          "imageAlt": "Drukke stationsomgeving met wachtende reizigers en bussen"
         }
       ],
       "sectionNames": {
@@ -417,7 +477,9 @@
             "Zijn werkgever nodigt hem uit voor een beoordelingsgesprek"
           ],
           "correct": 0,
-          "explanation": "The employer is satisfied with his work and offers him a new one-year contract. The current contract simply expires on 31 December; nothing is ended early."
+          "explanation": "The employer is satisfied with his work and offers him a new one-year contract. The current contract simply expires on 31 December; nothing is ended early.",
+          "image": "scenes/b1/lezen/exam2-contract.webp",
+          "imageAlt": "Collega's bespreken iets belangrijks in een kantoor"
         },
         {
           "passage": "contract",
@@ -430,7 +492,9 @@
             "het aantal uren dat hij per week werkt"
           ],
           "correct": 2,
-          "explanation": "The new contract raises his working hours from 32 to 36 per week. The text explicitly says holidays and the pension scheme remain unchanged (\"blijven ongewijzigd\")."
+          "explanation": "The new contract raises his working hours from 32 to 36 per week. The text explicitly says holidays and the pension scheme remain unchanged (\"blijven ongewijzigd\").",
+          "image": "scenes/b1/lezen/exam2-contract.webp",
+          "imageAlt": "Collega's bespreken iets belangrijks in een kantoor"
         },
         {
           "passage": "contract",
@@ -443,7 +507,9 @@
             "Hij moet zijn reiskosten voortaan zelf betalen"
           ],
           "correct": 1,
-          "explanation": "\"In aanmerking komen voor\" means to qualify for / be eligible for something: from 1 January he is entitled to the travel allowance because the scheme now covers contracts of 32 hours or more."
+          "explanation": "\"In aanmerking komen voor\" means to qualify for / be eligible for something: from 1 January he is entitled to the travel allowance because the scheme now covers contracts of 32 hours or more.",
+          "image": "scenes/b1/lezen/exam2-contract.webp",
+          "imageAlt": "Collega's bespreken iets belangrijks in een kantoor"
         },
         {
           "passage": "contract",
@@ -456,7 +522,9 @@
             "Hij krijgt een herinnering van de afdeling personeelszaken"
           ],
           "correct": 0,
-          "explanation": "The letter states that no response before 15 December is treated as declining the offer, in which case the current contract ends automatically on 31 December."
+          "explanation": "The letter states that no response before 15 December is treated as declining the offer, in which case the current contract ends automatically on 31 December.",
+          "image": "scenes/b1/lezen/exam2-contract.webp",
+          "imageAlt": "Collega's bespreken iets belangrijks in een kantoor"
         },
         {
           "passage": "contract",
@@ -469,7 +537,9 @@
             "een afspraak maken met zijn leidinggevende, Peter de Wit"
           ],
           "correct": 2,
-          "explanation": "For questions or a conversation about the offer, the letter directs him to make an appointment with his supervisor Peter de Wit; the portal is only for signing the contract."
+          "explanation": "For questions or a conversation about the offer, the letter directs him to make an appointment with his supervisor Peter de Wit; the portal is only for signing the contract.",
+          "image": "scenes/b1/lezen/exam2-contract.webp",
+          "imageAlt": "Collega's bespreken iets belangrijks in een kantoor"
         },
         {
           "passage": "zorgtoeslag",
@@ -482,7 +552,9 @@
             "zijn gegevens controleren en veranderingen doorgeven"
           ],
           "correct": 2,
-          "explanation": "The letter asks him to check his details for next year and to report changes in income or personal situation, so that he does not have to pay money back later."
+          "explanation": "The letter asks him to check his details for next year and to report changes in income or personal situation, so that he does not have to pay money back later.",
+          "image": "scenes/b1/lezen/exam2-zorgtoeslag.webp",
+          "imageAlt": "Drie mensen bespreken financiële zaken in een woonkamer"
         },
         {
           "passage": "zorgtoeslag",
@@ -495,7 +567,9 @@
             "op het gemiddelde inkomen in Nederland"
           ],
           "correct": 1,
-          "explanation": "The text says the estimate is based on his income of the current year (\"Dit bedrag is gebaseerd op uw inkomen van dit jaar\")."
+          "explanation": "The text says the estimate is based on his income of the current year (\"Dit bedrag is gebaseerd op uw inkomen van dit jaar\").",
+          "image": "scenes/b1/lezen/exam2-zorgtoeslag.webp",
+          "imageAlt": "Drie mensen bespreken financiële zaken in een woonkamer"
         },
         {
           "passage": "zorgtoeslag",
@@ -508,7 +582,9 @@
             "Hij krijgt direct een boete van de Belastingdienst"
           ],
           "correct": 0,
-          "explanation": "With a higher real income he is entitled to less allowance; if he still receives the higher amount, he must repay the difference after the end of the year — possibly hundreds of euros."
+          "explanation": "With a higher real income he is entitled to less allowance; if he still receives the higher amount, he must repay the difference after the end of the year — possibly hundreds of euros.",
+          "image": "scenes/b1/lezen/exam2-zorgtoeslag.webp",
+          "imageAlt": "Drie mensen bespreken financiële zaken in een woonkamer"
         },
         {
           "passage": "zorgtoeslag",
@@ -521,7 +597,9 @@
             "binnen vier weken"
           ],
           "correct": 2,
-          "explanation": "Changes in personal circumstances, such as moving in together, must be reported within four weeks; the 1 December deadline applies to income changes."
+          "explanation": "Changes in personal circumstances, such as moving in together, must be reported within four weeks; the 1 December deadline applies to income changes.",
+          "image": "scenes/b1/lezen/exam2-zorgtoeslag.webp",
+          "imageAlt": "Drie mensen bespreken financiële zaken in een woonkamer"
         },
         {
           "passage": "zorgtoeslag",
@@ -534,7 +612,9 @@
             "het bedrag dat iemand vorig jaar precies heeft verdiend"
           ],
           "correct": 1,
-          "explanation": "A \"schatting\" is an estimate: an approximate calculation of next year's income, which is why the letter asks him to correct it if it no longer matches reality."
+          "explanation": "A \"schatting\" is an estimate: an approximate calculation of next year's income, which is why the letter asks him to correct it if it no longer matches reality.",
+          "image": "scenes/b1/lezen/exam2-zorgtoeslag.webp",
+          "imageAlt": "Drie mensen bespreken financiële zaken in een woonkamer"
         },
         {
           "passage": "opleiding",
@@ -547,7 +627,9 @@
             "voor zorginstellingen die nieuw personeel zoeken"
           ],
           "correct": 1,
-          "explanation": "The opening question addresses people who want to work in care but have no diploma yet; the course leads to an mbo level 2 diploma, so level 3 graduates are not the audience."
+          "explanation": "The opening question addresses people who want to work in care but have no diploma yet; the course leads to an mbo level 2 diploma, so level 3 graduates are not the audience.",
+          "image": "scenes/b1/lezen/exam2-opleiding.webp",
+          "imageAlt": "Drie mensen leren samen in een klaslokaal"
         },
         {
           "passage": "opleiding",
@@ -560,7 +642,9 @@
             "omdat zij eerst een intakegesprek hebben gehad"
           ],
           "correct": 0,
-          "explanation": "The text links the salary directly to the work component: students work three days a week at a care institution during the course (\"Omdat u tijdens de opleiding al werkt\")."
+          "explanation": "The text links the salary directly to the work component: students work three days a week at a care institution during the course (\"Omdat u tijdens de opleiding al werkt\").",
+          "image": "scenes/b1/lezen/exam2-opleiding.webp",
+          "imageAlt": "Drie mensen leren samen in een klaslokaal"
         },
         {
           "passage": "opleiding",
@@ -573,7 +657,9 @@
             "omdat je in het werk veel met cliënten praat en rapportages schrijft"
           ],
           "correct": 2,
-          "explanation": "The requirement is explained in the text: the work involves a lot of talking with clients and writing reports. The VOG and the intake interview have nothing to do with language level."
+          "explanation": "The requirement is explained in the text: the work involves a lot of talking with clients and writing reports. The VOG and the intake interview have nothing to do with language level.",
+          "image": "scenes/b1/lezen/exam2-opleiding.webp",
+          "imageAlt": "Drie mensen leren samen in een klaslokaal"
         },
         {
           "passage": "opleiding",
@@ -586,7 +672,9 @@
             "de student"
           ],
           "correct": 1,
-          "explanation": "The care institution applies for the VOG and, according to the text, the employer pays the costs (\"de kosten hiervan betaalt de werkgever\")."
+          "explanation": "The care institution applies for the VOG and, according to the text, the employer pays the costs (\"de kosten hiervan betaalt de werkgever\").",
+          "image": "scenes/b1/lezen/exam2-opleiding.webp",
+          "imageAlt": "Drie mensen leren samen in een klaslokaal"
         },
         {
           "passage": "opleiding",
@@ -599,7 +687,9 @@
             "omdat de opleiding op 1 juni begint"
           ],
           "correct": 0,
-          "explanation": "The deadline follows directly from the limited number of places (\"Het aantal plaatsen is beperkt. Meld u daarom uiterlijk 1 juni aan\"). The course itself starts in September."
+          "explanation": "The deadline follows directly from the limited number of places (\"Het aantal plaatsen is beperkt. Meld u daarom uiterlijk 1 juni aan\"). The course itself starts in September.",
+          "image": "scenes/b1/lezen/exam2-opleiding.webp",
+          "imageAlt": "Drie mensen leren samen in een klaslokaal"
         },
         {
           "passage": "deelscooters",
@@ -612,7 +702,9 @@
             "een conflict tussen de verhuurbedrijven GoScoot en Zoomy"
           ],
           "correct": 0,
-          "explanation": "The article centres on the new municipal rules (parking zones, fines) introduced because of the growing number of complaints. The growth figures and company reactions support that main topic."
+          "explanation": "The article centres on the new municipal rules (parking zones, fines) introduced because of the growing number of complaints. The growth figures and company reactions support that main topic.",
+          "image": "scenes/b1/lezen/exam2-deelscooters.webp",
+          "imageAlt": "Drukke straat met mensen en een deelscooter op de stoep"
         },
         {
           "passage": "deelscooters",
@@ -625,7 +717,9 @@
             "voor mensen met een rollator, rolstoel of kinderwagen"
           ],
           "correct": 2,
-          "explanation": "The text says badly parked scooters are a problem especially for people with a walker, wheelchair or pram, who sometimes have to step onto the road to get past."
+          "explanation": "The text says badly parked scooters are a problem especially for people with a walker, wheelchair or pram, who sometimes have to step onto the road to get past.",
+          "image": "scenes/b1/lezen/exam2-deelscooters.webp",
+          "imageAlt": "Drukke straat met mensen en een deelscooter op de stoep"
         },
         {
           "passage": "deelscooters",
@@ -638,7 +732,9 @@
             "Hij krijgt direct een boete van € 100"
           ],
           "correct": 1,
-          "explanation": "Users who leave a scooter outside a zone cannot end their ride and keep paying. The € 100 fine applies to the rental company, not to the user."
+          "explanation": "Users who leave a scooter outside a zone cannot end their ride and keep paying. The € 100 fine applies to the rental company, not to the user.",
+          "image": "scenes/b1/lezen/exam2-deelscooters.webp",
+          "imageAlt": "Drukke straat met mensen en een deelscooter op de stoep"
         },
         {
           "passage": "deelscooters",
@@ -651,7 +747,9 @@
             "hun scooter buiten een parkeervak zetten"
           ],
           "correct": 0,
-          "explanation": "\"Afhaken\" means to drop out or give up: Zoomy fears customers will stop using the scooters because there will be few parking zones in residential areas."
+          "explanation": "\"Afhaken\" means to drop out or give up: Zoomy fears customers will stop using the scooters because there will be few parking zones in residential areas.",
+          "image": "scenes/b1/lezen/exam2-deelscooters.webp",
+          "imageAlt": "Drukke straat met mensen en een deelscooter op de stoep"
         },
         {
           "passage": "deelscooters",
@@ -664,7 +762,9 @@
             "Dan overweegt zij het aantal deelscooters te beperken"
           ],
           "correct": 2,
-          "explanation": "The final paragraph says the municipality will evaluate after a year and, if complaints have not decreased, will consider limiting the number of shared scooters — not an outright ban."
+          "explanation": "The final paragraph says the municipality will evaluate after a year and, if complaints have not decreased, will consider limiting the number of shared scooters — not an outright ban.",
+          "image": "scenes/b1/lezen/exam2-deelscooters.webp",
+          "imageAlt": "Drukke straat met mensen en een deelscooter op de stoep"
         },
         {
           "passage": "thuiswerken",
@@ -677,7 +777,9 @@
             "Thuiswerken moet gedeeltelijk blijven bestaan"
           ],
           "correct": 2,
-          "explanation": "She argues that working from home is a lasting improvement that should not be thrown away, combined with fixed office days — the opposite of a full return to the office."
+          "explanation": "She argues that working from home is a lasting improvement that should not be thrown away, combined with fixed office days — the opposite of a full return to the office.",
+          "image": "scenes/b1/lezen/exam2-thuiswerken.webp",
+          "imageAlt": "Mensen genieten van een park met werk en spel"
         },
         {
           "passage": "thuiswerken",
@@ -690,7 +792,9 @@
             "Werknemers verdienen thuis een hoger salaris"
           ],
           "correct": 1,
-          "explanation": "The text names better concentration at home (away from ringing phones and talking colleagues) as an advantage. Salaries and office space are not mentioned."
+          "explanation": "The text names better concentration at home (away from ringing phones and talking colleagues) as an advantage. Salaries and office space are not mentioned.",
+          "image": "scenes/b1/lezen/exam2-thuiswerken.webp",
+          "imageAlt": "Mensen genieten van een park met werk en spel"
         },
         {
           "passage": "thuiswerken",
@@ -703,7 +807,9 @@
             "dat thuiswerken te duur wordt voor het bedrijf"
           ],
           "correct": 0,
-          "explanation": "The author acknowledges two employer worries: losing contact between colleagues and new employees not getting to know the company. Working fewer hours or costs are not mentioned."
+          "explanation": "The author acknowledges two employer worries: losing contact between colleagues and new employees not getting to know the company. Working fewer hours or costs are not mentioned.",
+          "image": "scenes/b1/lezen/exam2-thuiswerken.webp",
+          "imageAlt": "Mensen genieten van een park met werk en spel"
         },
         {
           "passage": "thuiswerken",
@@ -716,7 +822,9 @@
             "vaste kantoordagen afspreken waarop het hele team aanwezig is"
           ],
           "correct": 2,
-          "explanation": "Her answer to the employers' concerns is \"slim organiseren\": agree fixed office days for the whole team and use those days for meetings and collaboration."
+          "explanation": "Her answer to the employers' concerns is \"slim organiseren\": agree fixed office days for the whole team and use those days for meetings and collaboration.",
+          "image": "scenes/b1/lezen/exam2-thuiswerken.webp",
+          "imageAlt": "Mensen genieten van een park met werk en spel"
         },
         {
           "passage": "thuiswerken",
@@ -729,7 +837,9 @@
             "Er zijn te weinig banen voor mensen die werk zoeken"
           ],
           "correct": 1,
-          "explanation": "A \"krappe arbeidsmarkt\" is a tight labour market: there are more vacancies than candidates, so companies struggle to find staff — which is why being flexible attracts new personnel."
+          "explanation": "A \"krappe arbeidsmarkt\" is a tight labour market: there are more vacancies than candidates, so companies struggle to find staff — which is why being flexible attracts new personnel.",
+          "image": "scenes/b1/lezen/exam2-thuiswerken.webp",
+          "imageAlt": "Mensen genieten van een park met werk en spel"
         },
         {
           "passage": "huurverhoging",
