@@ -1,4 +1,4 @@
-import { ProgressTracker } from './shared.js';
+import { ProgressTracker, sceneImageHTML, setProgress, resultHTML, animateResult } from './shared.js';
 
 const progress = new ProgressTracker('knm');
 let exerciseData = null;
@@ -7,6 +7,7 @@ let currentQuestionIndex = 0;
 let selectedOption = null;
 let answered = false;
 let inQuestion = false;
+let results = {}; // question id -> answered correctly (this session)
 
 // Category colors for visual grouping
 const categoryColors = {
@@ -23,6 +24,7 @@ export async function init(contentArea) {
     exerciseData = await resp.json();
     currentQuestionIndex = 0;
     inQuestion = false;
+    results = {};
     showOverviewContent(contentArea);
     renderSidebar();
 }
@@ -85,6 +87,8 @@ export function startQuestion(contentArea, questionIndex) {
 
     const exam = exerciseData.exams[currentExam];
     const q = exam.questions[questionIndex];
+    if (questionIndex === 0) results = {}; // starting from question 1 = a new run
+    setProgress(questionIndex / exam.questions.length);
 
     contentArea.innerHTML = `
         <div class="knm-exercise">
@@ -93,8 +97,7 @@ export function startQuestion(contentArea, questionIndex) {
                 <span class="cat-badge" style="--cat-color: ${categoryColors[q.category] || '#888'}">${q.category}</span>
             </div>
             <div class="scenario-block">
-                ${q.image ? `<img src="/images/${q.image}" alt="Scenario" class="scenario-image"
-                    onerror="this.style.display='none'">` : ''}
+                ${sceneImageHTML(q.image, q.imageAlt || q.scenario)}
                 <p class="scenario-text">${q.scenario}</p>
             </div>
             <div class="question-prompt">
@@ -147,6 +150,8 @@ export function checkAnswer(contentArea) {
     `;
 
     progress.markCompleted(q.id);
+    results[q.id] = correct;
+    setProgress((currentQuestionIndex + 1) / exam.questions.length);
     renderSidebar();
 
     const actionArea = document.getElementById('action-area');
@@ -160,6 +165,25 @@ export function nextQuestion(contentArea) {
     if (currentQuestionIndex < exam.questions.length - 1) {
         startQuestion(contentArea, currentQuestionIndex + 1);
     } else {
-        renderQuestionList(contentArea);
+        showResult(contentArea);
     }
+}
+
+// End-of-set result: score over the questions answered this session.
+function showResult(contentArea) {
+    const exam = exerciseData.exams[currentExam];
+    const answered = exam.questions.filter(q => q.id in results);
+    if (answered.length === 0) { renderQuestionList(contentArea); return; }
+    inQuestion = false;
+    renderSidebar();
+    const correct = answered.filter(q => results[q.id]).length;
+    contentArea.innerHTML = resultHTML({
+        correct, total: answered.length, passFraction: 0.65,
+        title: 'KNM — resultaat',
+        passText: 'Goed gedaan! Op het echte examen heeft u 65% nodig (26 van 40).',
+        failText: 'Blijf oefenen — op het echte examen heeft u 65% nodig (26 van 40).',
+        actions: `<div class="rmd-result-actions"><button class="btn btn-primary" onclick="window.knmStart(0)">Opnieuw oefenen</button>
+            <button class="btn btn-secondary" onclick="window.knmBack()">Alle vragen</button></div>`,
+    });
+    animateResult(contentArea);
 }

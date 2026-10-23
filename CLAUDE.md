@@ -62,6 +62,25 @@ public/
 - Mode switching via `startMode()` — extended by module script for new modes
 - Shared utilities in `public/js/shared.js`: CountdownTimer, AudioRecorder, OneTimeAudioPlayer, ProgressTracker
 
+## Scene Illustrations (visual refresh, 2026-10-23)
+
+Design: `docs/plans/2026-10-23-visual-refresh-design.md`. Every exercise has a warm flat
+illustration (no text in images; rule: *show the situation, never the answer*).
+- Files: `public/images/scenes/{a2,b1}/{lezen,luisteren,schrijven,spreken}/…webp`,
+  `scenes/knm/`, Spreken pictures in `scenes/a2/spreken/pictures/`, hero `scenes/hero-canal.webp`.
+  The old photoreal `public/images/spreken/*.jpg` stay on disk but are no longer referenced.
+- JSON fields: `image` + `imageAlt` (paths relative to `/images/`); Spreken picture
+  exercises use `images` + parallel `imageAlts`. Lezen questions sharing a passage share one image.
+- Generator: `node scripts/generate-scene-images.js` (gpt-image-1 medium, briefs by gpt-4o-mini from the
+  stem only, vision audit by gpt-4.1-mini for text/anatomy/answer leakage). Idempotent; `--only <section>`,
+  `--ids a,b`, `--force <id> [--note "..."]`, `--dry-run`, `--writeback`. Cost + briefs + audits in
+  `scripts/scene-manifest.json`; review sheet `docs/plans/scene-contact-sheet.html`.
+- Rendering: `sceneImageHTML()/renderSceneImage()` in `public/js/shared.js` (also `window.RMDVisual` for the
+  inline schrijven/lezen JS) plus `setProgress`, `countUp`, `confetti`, `resultHTML/animateResult`.
+  All motion CSS sits under `prefers-reduced-motion: no-preference`.
+- `test/scene-images.test.js` fails if any exercise lacks an existing image. Screenshots:
+  `node scripts/visual-screenshots.mjs --base http://localhost:3456 --tag after`.
+
 ## Paywall Architecture
 
 One-time €24 purchase unlocks AI-powered features (Stripe Checkout + Firebase Auth + Firestore entitlements). Owner setup runbook: `docs/SETUP-PAYWALL.md`. Firestore security rules: `firestore.rules`.

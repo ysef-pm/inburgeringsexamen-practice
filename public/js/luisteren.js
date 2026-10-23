@@ -1,4 +1,4 @@
-import { CountdownTimer, OneTimeAudioPlayer, ProgressTracker } from './shared.js';
+import { CountdownTimer, OneTimeAudioPlayer, ProgressTracker, sceneImageHTML, setProgress, resultHTML, animateResult } from './shared.js';
 
 const progress = new ProgressTracker('luisteren');
 let exerciseData = null;
@@ -7,6 +7,7 @@ let currentQuestionIndex = 0;
 let selectedOption = null;
 let answered = false;
 let inQuestion = false;
+let results = {}; // question id -> answered correctly (this session)
 
 export async function init(contentArea) {
     exerciseData = await window.RMDContent.loadContent('luisteren');
@@ -22,6 +23,7 @@ export function switchExam(examKey, contentArea) {
     selectedOption = null;
     answered = false;
     inQuestion = false;
+    results = {};
     showOverviewContent(contentArea);
     renderSidebar();
 }
@@ -83,12 +85,15 @@ export function startQuestion(contentArea, questionIndex) {
 
     const exam = exerciseData.exams[currentExam];
     const q = exam.questions[questionIndex];
+    if (questionIndex === 0) results = {}; // starting from question 1 = a new run
+    setProgress(questionIndex / exam.questions.length);
 
     contentArea.innerHTML = `
         <div class="luisteren-exercise">
             <div class="exercise-header">
                 <span class="exercise-label">Vraag ${questionIndex + 1} / ${exam.questions.length}</span>
             </div>
+            ${sceneImageHTML(q.image, q.imageAlt)}
             <div class="question-prompt">
                 <h3>${q.questionText}</h3>
             </div>
@@ -210,6 +215,8 @@ export function checkAnswer(contentArea) {
     `;
 
     progress.markCompleted(q.id);
+    results[q.id] = correct;
+    setProgress((currentQuestionIndex + 1) / exam.questions.length);
     renderSidebar();
 
     const actionArea = document.getElementById('action-area');
@@ -223,6 +230,27 @@ export function nextQuestion(contentArea) {
     if (currentQuestionIndex < exam.questions.length - 1) {
         startQuestion(contentArea, currentQuestionIndex + 1);
     } else {
-        renderQuestionList(contentArea);
+        showResult(contentArea);
     }
+}
+
+// End-of-set result: score over the questions answered this session.
+function showResult(contentArea) {
+    const exam = exerciseData.exams[currentExam];
+    const answered = exam.questions.filter(q => q.id in results);
+    if (answered.length === 0) { renderQuestionList(contentArea); return; }
+    inQuestion = false;
+    renderSidebar();
+    const correct = answered.filter(q => results[q.id]).length;
+    const isA2 = !window.RMDContent || window.RMDContent.getLevel() === 'a2';
+    contentArea.innerHTML = resultHTML({
+        correct, total: answered.length, passFraction: 0.72,
+        title: `${exam.title} — resultaat`,
+        // A2 pass mark is known (18-19 of 25); B1 copy stays generic.
+        passText: isA2 ? 'Goed gedaan! Op het echte A2-examen heeft u ongeveer 72% nodig (18 van 25).' : 'Goed gedaan! Probeer ook de andere oefenexamens.',
+        failText: isA2 ? 'Blijf oefenen — op het echte A2-examen heeft u ongeveer 72% nodig (18 van 25).' : 'Blijf oefenen — lees de uitleg bij de vragen die fout gingen.',
+        actions: `<div class="rmd-result-actions"><button class="btn btn-primary" onclick="window.luisterenStart(0)">Opnieuw oefenen</button>
+            <button class="btn btn-secondary" onclick="window.luisterenBack()">Alle vragen</button></div>`,
+    });
+    animateResult(contentArea);
 }

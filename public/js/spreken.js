@@ -1,4 +1,4 @@
-import { CountdownTimer, AudioRecorder, ProgressTracker } from './shared.js';
+import { CountdownTimer, AudioRecorder, ProgressTracker, sceneImageHTML, setProgress, countUp } from './shared.js';
 
 const progress = new ProgressTracker('spreken');
 let exerciseData = null;
@@ -104,19 +104,24 @@ export async function startExercise(contentArea, partIndex, exerciseIndex) {
     renderSidebar();
     const part = getExam().parts[partIndex];
     const exercise = part.exercises[exerciseIndex];
+    const allExercises = getExam().parts.flatMap(p => p.exercises);
+    setProgress(allExercises.indexOf(exercise) / allExercises.length);
+    const altFor = (i) => (exercise.imageAlts && exercise.imageAlts[i]) || `Afbeelding ${i + 1} bij de oefening`;
 
     contentArea.innerHTML = `
         <div class="spreken-exercise">
             <div class="exercise-header">
                 <span class="exercise-label">Deel ${part.partNumber}: ${part.title} — Oefening ${exerciseIndex + 1}</span>
             </div>
+            ${exercise.images.length === 0 ? sceneImageHTML(exercise.image, exercise.imageAlt) : ''}
             <div class="exercise-prompt">
                 <p>${exercise.prompt}</p>
                 ${exercise.images.length > 0 ? `
-                    <div class="exercise-images">
-                        ${exercise.images.map(img => `
+                    <div class="exercise-images count-${exercise.images.length}">
+                        ${exercise.images.map((img, i) => `
                             <div class="exercise-image">
-                                <img src="/images/${img}" alt="Oefening afbeelding"
+                                <img src="/images/${img}" alt="${altFor(i).replace(/"/g, '&quot;')}" width="1024" height="1024" decoding="async"
+                                     onload="this.classList.add('is-loaded')"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                                 <div class="image-placeholder" style="display:none;">
                                     <p>${exercise.tipText || 'Afbeelding niet beschikbaar'}</p>
@@ -297,7 +302,7 @@ function displayGrading(container, grading, transcription, level) {
                 <span class="score-label">${cat.label}</span>
                 <span class="score-value">${s.score}/${cat.max}</span>
             </div>
-            <div class="score-bar"><div class="score-fill" style="width: ${(s.score / cat.max) * 100}%"></div></div>
+            <div class="score-bar"><div class="score-fill" data-width="${(s.score / cat.max) * 100}" style="width: 0%"></div></div>
             <p class="score-justification">${s.justification}</p>
         </div>`;
     }).join('');
@@ -310,7 +315,7 @@ function displayGrading(container, grading, transcription, level) {
             </div>
             <div class="total-score">
                 <span class="total-label">Totaal</span>
-                <span class="total-value">${grading.total}/10</span>
+                <span class="total-value" data-total="${grading.total}">${grading.total}/10</span>
             </div>
             <p class="rubric-level-badge" style="font-size: 0.8rem; color: #888; margin: 4px 0 12px;">${rubricBadge}</p>
             <div class="scores-grid">${scoresHtml}</div>
@@ -335,6 +340,16 @@ function displayGrading(container, grading, transcription, level) {
             </div>
         </div>
     `;
+    animateScores(container, (n) => `${n}/10`, '.total-value');
+}
+
+// Count the total up and grow the rubric bars from 0 (reduced motion: instant).
+function animateScores(container, format, totalSel) {
+    const total = container.querySelector(totalSel);
+    if (total) countUp(total, Number(total.dataset.total) || 0, { format });
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+        container.querySelectorAll('.score-fill[data-width]').forEach(el => { el.style.width = `${el.dataset.width}%`; });
+    }));
 }
 
 export function nextExercise(contentArea) {
