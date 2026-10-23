@@ -468,15 +468,15 @@ async function run(browser, viewport, tag) {
         await waitForText(page, '.prompt', A2_Q1_SNIPPET);
         await expectScene('schrijven', '#question-content .scene-card img', a2Schrijven.questions[0].image);
         await click(page, '.mode-btn.luisteren');
-        await waitForSelector(page, '#exam-sidebar .exercise-item');
+        await waitForText(page, '#exam-sidebar h3', 'Luisteren Vragen'); // this mode's data is loaded
         await page.evaluate(() => window.luisterenStart(0));
         await expectScene('luisteren', '#question-content .scene-card img', a2Luisteren.exams.exam1.questions[0].image);
         await click(page, '.mode-btn.knm');
-        await waitForSelector(page, '#exam-sidebar .exercise-item');
+        await waitForText(page, '#exam-sidebar h3', 'KNM Vragen'); // this mode's data is loaded
         await page.evaluate(() => window.knmStart(0));
         await expectScene('knm', '.scenario-block .scene-card img', knm.exams.exam1.questions[0].image);
         await click(page, '.mode-btn.spreken');
-        await waitForSelector(page, '#exam-sidebar .exercise-item');
+        await waitForText(page, '#exam-sidebar h3', 'Spreken Exercises'); // this mode's data is loaded
         await page.evaluate(() => window.sprekenStart(1, 0)); // part 2: picture exercise
         await waitFor(page, () => loaded('.exercise-image img'), 'spreken picture loaded', 10000);
         const pic = await page.$eval('.exercise-image img', (img) => img.getAttribute('src'));
@@ -489,7 +489,7 @@ async function run(browser, viewport, tag) {
     await scenario('luisteren last question shows a result summary', { seed: { 'rmd-level': 'a2' } }, async (page) => {
         await page.goto(BASE);
         await click(page, '.mode-btn.luisteren');
-        await waitForSelector(page, '#exam-sidebar .exercise-item');
+        await waitForText(page, '#exam-sidebar h3', 'Luisteren Vragen'); // this mode's data is loaded
         const last = a2Luisteren.exams.exam1.questions.length - 1;
         await page.evaluate((i) => window.luisterenStart(i), last);
         // skip the reading/audio phase: enable options the way the module does
