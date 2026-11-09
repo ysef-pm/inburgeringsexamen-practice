@@ -169,6 +169,9 @@ export async function startRecording() {
     }
 
     recorder.startRecording();
+    window.rmdAnalytics?.capture('recording_started', {
+        mode: 'spreken', level: window.RMDContent?.getLevel(), exercise_id: exercise.id,
+    });
     actionArea.innerHTML = `<button class="btn btn-secondary" onclick="window.sprekenStopEarly()">Stop eerder</button>`;
 
     const responseTimer = new CountdownTimer(timerArea, part.responseTime, {
@@ -191,6 +194,10 @@ async function stopAndGrade() {
     const actionArea = document.getElementById('action-area');
     actionArea.innerHTML = '<p>Transcriberen en beoordelen...</p>';
 
+    window.rmdAnalytics?.capture('answer_checked', {
+        mode: 'spreken', level: window.RMDContent?.getLevel(),
+        exercise_id: getExam().parts[currentPartIndex].exercises[currentExerciseIndex].id,
+    });
     const audioBlob = await recorder.stopRecording();
     recorder.cleanup();
     recorder = null;
@@ -266,7 +273,7 @@ async function stopAndGrade() {
         if (e && e.code === 'payment_required' && window.showUpgradeModal) {
             resultArea.innerHTML = '';
             actionArea.innerHTML = `<button class="btn btn-primary" onclick="window.sprekenRecord()">Probeer opnieuw</button>`;
-            window.showUpgradeModal();
+            window.showUpgradeModal('spreken_grade');
             return;
         }
         if (e && (e.code === 'auth_required' || e.code === 'invalid_token') && window.showSignInModal) {

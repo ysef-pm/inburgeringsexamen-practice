@@ -28,12 +28,22 @@ function identifySubscriber(ph) {
     } catch (e) { /* storage blocked */ }
 }
 
+// Events fired right before `location.href = <Stripe>` are lost from the batch
+// queue; BEACON sends them immediately and survives the navigation.
+var BEACON = { send_instantly: true, transport: 'sendBeacon' };
+
 window.rmdAnalytics = {
-    capture: function (name, props) {
-        try { if (window.posthog) posthog.capture(name, props); } catch (e) {}
+    BEACON: BEACON,
+    capture: function (name, props, options) {
+        try { if (window.posthog) posthog.capture(name, props, options); } catch (e) {}
     },
     identify: function (id) {
         try { if (id && window.posthog) posthog.identify(String(id)); } catch (e) {}
+    },
+    // Login/signup on the practice app: same subscriber-id join key, if this
+    // browser has one. Never the Firebase email.
+    identifyStored: function () {
+        try { if (window.posthog) identifySubscriber(posthog); } catch (e) {}
     },
 };
 

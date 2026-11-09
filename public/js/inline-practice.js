@@ -154,6 +154,7 @@ function requireEmailOnly({ focus, onReady }) {
             if (!data.success) throw new Error(data.error || 'Something went wrong.');
             localStorage.setItem('rmd-scorecard-sid', data.subscriberId);
             try { localStorage.setItem('rmd-email', email); } catch {}
+            window.rmdAnalytics?.identify(data.subscriberId);
             const outcome = await sessionAuth(data.subscriberId);
             if (outcome === 'ok') {
                 track('signup_completed', { focus, method: 'session' });
@@ -285,7 +286,7 @@ async function openCheckout(focus, btn, via) {
         window.rmdAnalytics?.capture('checkout_opened', {
             focus, via: via || 'card',
             currency: data.currency, locale: data.locale, country: data.country,
-        });
+        }, window.rmdAnalytics?.BEACON);
         saveState({ stage: 'checkout' });
         // Same-tab navigation: Meta's in-app browsers kill new tabs/popups.
         location.href = data.url;
@@ -353,6 +354,9 @@ function paywallCard(container, focus, headline) {
             ${quotes}
         </div>`);
     track('paywall_viewed', { focus, headline });
+    // Cross-surface paywall event (the app's upgrade modal fires it too).
+    // PostHog only: /api/events allowlists its names.
+    window.rmdAnalytics?.capture('paywall_shown', { surface: 'scorecard', trigger: 'inline_card', focus });
     document.getElementById('paywall-btn').onclick = (e) => openCheckout(focus, e.target);
     ensureStickyUnlock(container, focus);
 }

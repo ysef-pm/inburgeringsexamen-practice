@@ -1992,7 +1992,7 @@
                 <button class="auth-btn" id="auth-signin-btn" onclick="showSignInModal()">Sign in</button>
                 <span class="auth-email hidden" id="auth-user-email"></span>
                 <span class="pro-badge hidden" id="auth-pro-badge">Pro</span>
-                <button class="auth-btn auth-btn-upgrade hidden" id="auth-upgrade-btn" onclick="showUpgradeModal()">Upgrade &euro;24</button>
+                <button class="auth-btn auth-btn-upgrade hidden" id="auth-upgrade-btn" onclick="showUpgradeModal('header_button')">Upgrade &euro;24</button>
                 <button class="auth-btn hidden" id="auth-signout-btn">Sign out</button>
             </div>
             </div>
@@ -2088,7 +2088,7 @@
     <!-- Upgrade modal -->
     <div class="rmd-modal-overlay hidden" id="upgrade-modal">
         <div class="rmd-modal">
-            <button class="rmd-modal-close" onclick="closeUpgradeModal()" aria-label="Close">&times;</button>
+            <button class="rmd-modal-close" onclick="closeUpgradeModal('close_button')" aria-label="Close">&times;</button>
             <h3>Unlock AI grading</h3>
             <ul class="upgrade-features">
                 <li>AI writing grading with the official DUO rubric</li>
@@ -2443,6 +2443,10 @@
             const currentExamData = lezenExams[currentLezenExam];
             const q = currentExamData.sections[currentLezenSection][currentLezenIndex];
             const isCorrect = selectedLezenOption === q.correct;
+            window.rmdAnalytics && window.rmdAnalytics.capture('answer_checked', {
+                mode: 'lezen', level: window.RMDContent.getLevel(), exam: currentLezenExam,
+                question_id: `${currentLezenSection}-${currentLezenIndex}`, correct: isCorrect,
+            });
 
             document.querySelectorAll('.option').forEach((opt, i) => {
                 if (i === q.correct) {
@@ -2751,6 +2755,9 @@
             const q = currentQuestions[currentIndex];
             const selected = userAnswers[currentIndex];
             const isCorrect = selected === q.correct;
+            window.rmdAnalytics && window.rmdAnalytics.capture('answer_checked', {
+                mode: currentMode, level: window.RMDContent.getLevel(), question_id: String(currentIndex), correct: isCorrect,
+            });
 
             if (isCorrect) score++;
 
@@ -2984,6 +2991,10 @@
                 alert('Please write your answer first!');
                 return;
             }
+            window.rmdAnalytics && window.rmdAnalytics.capture('answer_checked', {
+                mode: currentMode, level: window.RMDContent.getLevel(), type: 'ai_grade',
+                words: userAnswer.split(/\s+/).length,
+            });
 
             const btn = document.getElementById('ai-grade-btn');
             btn.disabled = true;
@@ -3036,7 +3047,7 @@
             } catch (error) {
                 if (error && error.code === 'payment_required' && window.showUpgradeModal) {
                     gradingArea.innerHTML = '';
-                    window.showUpgradeModal();
+                    window.showUpgradeModal(currentMode + '_grade');
                 } else if (error && (error.code === 'auth_required' || error.code === 'invalid_token') && window.showSignInModal) {
                     gradingArea.innerHTML = '';
                     window.showSignInModal();
@@ -3350,15 +3361,24 @@
             document.getElementById('signin-modal').classList.add('hidden');
         };
 
-        window.showUpgradeModal = function () {
+        // trigger/reason feed paywall_shown/paywall_closed; internal closes
+        // (handing off to sign-in or checkout) pass no reason and aren't counted.
+        window.showUpgradeModal = function (trigger) {
             const errEl = document.getElementById('upgrade-error');
             errEl.classList.add('hidden');
             errEl.textContent = '';
             document.getElementById('upgrade-modal').classList.remove('hidden');
+            window.rmdAnalytics && window.rmdAnalytics.capture('paywall_shown', {
+                surface: 'app', trigger: typeof trigger === 'string' ? trigger : 'unknown',
+            });
         };
 
-        window.closeUpgradeModal = function () {
-            document.getElementById('upgrade-modal').classList.add('hidden');
+        window.closeUpgradeModal = function (reason) {
+            const modal = document.getElementById('upgrade-modal');
+            if (reason && !modal.classList.contains('hidden') && window.rmdAnalytics) {
+                window.rmdAnalytics.capture('paywall_closed', { surface: 'app', reason });
+            }
+            modal.classList.add('hidden');
         };
 
         // ===== Level chooser sheet (A2 / B1) =====
@@ -3506,7 +3526,9 @@
             ['signin-modal', 'upgrade-modal'].forEach((id) => {
                 const overlay = document.getElementById(id);
                 overlay.addEventListener('click', (e) => {
-                    if (e.target === overlay) overlay.classList.add('hidden');
+                    if (e.target !== overlay) return;
+                    if (id === 'upgrade-modal') closeUpgradeModal('backdrop');
+                    else overlay.classList.add('hidden');
                 });
             });
 
@@ -3562,6 +3584,28 @@
                 });
             }
 
+            // Observe only: startMode + the level gate still run unchanged.
+            ['schrijven', 'spreken'].forEach((mode) => {
+                const btn = document.querySelector(`.mode-btn.${mode}`);
+                if (!btn) return;
+                btn.addEventListener('click', () => {
+                    if (!btn.querySelector('.lock-badge')) return;
+                    window.rmdAnalytics && window.rmdAnalytics.capture('locked_feature_clicked', {
+                        mode, signed_in: !!window.RMDAuth.getUser(),
+                    });
+                }, true);
+            });
+
+            // Sign-in modal success: identify by the stored subscriber id (never
+            // the email) + mirror the scorecard's signup_completed.
+            function trackAuth(method, cred) {
+                window.rmdAnalytics && window.rmdAnalytics.identifyStored();
+                window.rmdAnalytics && window.rmdAnalytics.capture('signup_completed', {
+                    surface: 'app', method,
+                    new_user: !!(cred && cred.additionalUserInfo && cred.additionalUserInfo.isNewUser),
+                });
+            }
+
             window.RMDAuth.onChange(({ user, paid }) => {
                 signinBtn.classList.toggle('hidden', !!user);
                 emailEl.classList.toggle('hidden', !user);
@@ -3584,7 +3628,7 @@
 
             document.getElementById('google-signin-btn').addEventListener('click', async () => {
                 try {
-                    await window.RMDAuth.signInGoogle();
+                    trackAuth('google', await window.RMDAuth.signInGoogle());
                     closeSignInModal();
                 } catch (err) { showSignInError(err); }
             });
@@ -3593,7 +3637,7 @@
                 const email = document.getElementById('signin-email').value.trim();
                 const password = document.getElementById('signin-password').value;
                 try {
-                    await window.RMDAuth.signInEmail(email, password);
+                    trackAuth('email', await window.RMDAuth.signInEmail(email, password));
                     closeSignInModal();
                 } catch (err) { showSignInError(err); }
             });
@@ -3602,7 +3646,7 @@
                 const email = document.getElementById('signin-email').value.trim();
                 const password = document.getElementById('signin-password').value;
                 try {
-                    await window.RMDAuth.signUpEmail(email, password);
+                    trackAuth('email_signup', await window.RMDAuth.signUpEmail(email, password));
                     closeSignInModal();
                 } catch (err) { showSignInError(err); }
             });

@@ -149,6 +149,9 @@ export function checkAnswer(contentArea) {
         </div>
     `;
 
+    window.rmdAnalytics?.capture('answer_checked', {
+        mode: 'knm', exam: currentExam, question_id: q.id, correct,
+    });
     progress.markCompleted(q.id);
     results[q.id] = correct;
     setProgress((currentQuestionIndex + 1) / exam.questions.length);
