@@ -53,8 +53,15 @@
             });
             const data = await resp.json();
             if (data.alreadyPaid) { await this.refresh(); return; }
-            if (data.url) window.location.href = data.url;
-            else throw new Error(data.error || 'checkout_failed');
+            if (!data.url) throw new Error(data.error || 'checkout_failed');
+            // PostHog mirror of the scorecard's checkout_opened (inline-practice.js).
+            if (window.rmdAnalytics) {
+                window.rmdAnalytics.capture('checkout_opened', {
+                    surface: 'app', via: 'upgrade_modal',
+                    currency: data.currency, locale: data.locale, country: data.country,
+                }, window.rmdAnalytics.BEACON);
+            }
+            window.location.href = data.url;
         },
         // Fetch wrapper for gated endpoints: attaches token, surfaces 401/402 as typed errors.
         async authedFetch(url, options = {}) {
