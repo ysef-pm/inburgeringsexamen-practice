@@ -3361,14 +3361,14 @@
             document.getElementById('signin-modal').classList.add('hidden');
         };
 
-        // trigger/reason feed paywall_shown/paywall_closed; internal closes
+        // trigger/reason feed paywall_viewed/paywall_closed; internal closes
         // (handing off to sign-in or checkout) pass no reason and aren't counted.
         window.showUpgradeModal = function (trigger) {
             const errEl = document.getElementById('upgrade-error');
             errEl.classList.add('hidden');
             errEl.textContent = '';
             document.getElementById('upgrade-modal').classList.remove('hidden');
-            window.rmdAnalytics && window.rmdAnalytics.capture('paywall_shown', {
+            window.rmdAnalytics && window.rmdAnalytics.capture('paywall_viewed', {
                 surface: 'app', trigger: typeof trigger === 'string' ? trigger : 'unknown',
             });
         };

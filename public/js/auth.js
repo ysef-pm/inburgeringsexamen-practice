@@ -49,7 +49,10 @@
             const token = await this.getToken();
             if (!token) throw new Error('not_signed_in');
             const resp = await fetch('/api/create-checkout-session', {
-                method: 'POST', headers: { Authorization: `Bearer ${token}` },
+                method: 'POST',
+                headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+                // Consent + PostHog id for the webhook's purchase_completed.
+                body: JSON.stringify((window.rmdAnalytics && window.rmdAnalytics.checkoutContext()) || {}),
             });
             const data = await resp.json();
             if (data.alreadyPaid) { await this.refresh(); return; }

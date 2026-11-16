@@ -19,6 +19,14 @@
       "dest": "https://ratemydutch.firebaseapp.com/__/firebase/$1"
     },
     {
+      "src": "/ingest/static/(.*)",
+      "dest": "https://eu-assets.i.posthog.com/static/$1"
+    },
+    {
+      "src": "/ingest/(.*)",
+      "dest": "https://eu.i.posthog.com/$1"
+    },
+    {
       "src": "/js/(.*)",
       "dest": "/public/js/$1"
     },

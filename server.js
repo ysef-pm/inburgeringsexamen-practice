@@ -10,6 +10,7 @@ const { createScorecardRouter } = require('./lib/scorecard');
 const { createSessionAuth } = require('./lib/session-auth');
 const { buildCheckoutSessionParams, prefillCountry } = require('./lib/checkout');
 const { sendPurchaseEmail } = require('./lib/email');
+const { capturePurchase } = require('./lib/posthog-server');
 const gp = require('./lib/grading-prompts');
 
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
@@ -48,6 +49,12 @@ async function onEntitlementGranted(session) {
         });
     } catch (err) {
         console.error('product_activated event write failed:', err.message);
+    }
+    // PostHog purchase_completed — consenting buyers only (see lib/posthog-server.js).
+    try {
+        await capturePurchase(session);
+    } catch (err) {
+        console.error('purchase_completed PostHog capture failed:', err.message);
     }
     const buyerEmail = (session.customer_details && session.customer_details.email) || null;
     if (buyerEmail) {
@@ -190,6 +197,11 @@ app.post('/api/create-checkout-session', requireAuth, async (req, res) => {
             subscriberId: str(body.subscriberId),
             anonId: str(body.anonId),
             focus: str(body.focus, 20),
+            analytics: {
+                consent: body.analyticsConsent === true,
+                distinctId: str(body.phDistinctId, 200),
+                firstTouch: body.firstTouch,
+            },
         });
         const session = await stripe.checkout.sessions.create(params);
 
