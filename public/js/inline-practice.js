@@ -276,6 +276,8 @@ async function openCheckout(focus, btn, via) {
                 anonId: localStorage.getItem('rmd-anon-id') || undefined,
                 focus,
                 via: via || 'card',
+                // Consent + PostHog id for the webhook's purchase_completed.
+                ...(window.rmdAnalytics?.checkoutContext?.() || {}),
             }),
         });
         const data = await resp.json();
@@ -353,10 +355,9 @@ function paywallCard(container, focus, headline) {
             useful. Email support@ratemydutch.com — no questions asked.</p>
             ${quotes}
         </div>`);
-    track('paywall_viewed', { focus, headline });
-    // Cross-surface paywall event (the app's upgrade modal fires it too).
-    // PostHog only: /api/events allowlists its names.
-    window.rmdAnalytics?.capture('paywall_shown', { surface: 'scorecard', trigger: 'inline_card', focus });
+    // Mirrored to PostHog by track(); the app's upgrade modal fires the same
+    // paywall_viewed name with surface: 'app'.
+    track('paywall_viewed', { focus, headline, surface: 'scorecard', trigger: 'inline_card' });
     document.getElementById('paywall-btn').onclick = (e) => openCheckout(focus, e.target);
     ensureStickyUnlock(container, focus);
 }

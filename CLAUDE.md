@@ -130,6 +130,7 @@ One-time €24 purchase unlocks AI-powered features (Stripe Checkout + Firebase 
 | `EMAIL_FROM` | No | Scorecard email sender (default `RateMyDutch <scorecard@ratemydutch.com>`; domain must be verified in Resend) |
 | `SCORECARD_SECRET` | Production | HMAC secret for unsubscribe links (falls back to a hash of the service account if unset) |
 | `NURTURE_CRON_SECRET` | Production | Bearer secret for `POST /api/nurture/run` (called daily by n8n workflow `vezAywIDCBHWKToR`, 09:00 Europe/Amsterdam) |
+| `POSTHOG_PROJECT_KEY` / `POSTHOG_HOST` | No | Server-side `purchase_completed` capture (defaults: the public project key, `https://eu.i.posthog.com`) |
 
 ## Acquisition Scorecard (consent-first funnel)
 
@@ -141,3 +142,14 @@ Firestore collections: `subscribers`, `consent_events` (append-only ledger),
 `assessments`, `funnel_events`. Scoring is deterministic — no AI in the loop.
 
 Without the paywall vars the app still serves all free modes; gated endpoints return 401/500 instead of crashing.
+
+## PostHog analytics (consent-gated)
+
+`public/js/analytics.js` — PostHog EU behind the opt-in banner (privacy.html). `window.rmdAnalytics.capture()`
+buffers events in memory while consent is *pending* (the SDK itself discards captures made while opted out —
+that silently lost the funnel events until 2026-11) and flushes them with original timestamps on Accept; Decline
+drops them. First-touch `utm_*` + `fbclid` persist (only after consent) in localStorage `rmd-first-touch`, are registered as super
+properties and attached to every event. On production hosts the SDK talks to the first-party `/ingest` proxy
+(vercel.json) so ad blockers don't drop requests. `purchase_completed` is sent server-side from the Stripe
+webhook hook (`lib/posthog-server.js`), only when checkout metadata carries `ph_consent: '1'` (set from
+`rmdAnalytics.checkoutContext()`). Tests: `test/analytics.test.js`, `test/posthog-server.test.js`.

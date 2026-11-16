@@ -33,8 +33,9 @@ let startedEventSent = false;
 
 function track(event_name, properties) {
     // Mirror into PostHog (public/js/analytics.js) — Firestore below stays the
-    // source of truth for the ads-agent.
-    window.rmdAnalytics?.capture(event_name, { source, ...utm, ...properties });
+    // source of truth for the ads-agent. analytics.js attaches the persisted
+    // first-touch UTMs (+ fbclid), so they aren't spread from this URL here.
+    window.rmdAnalytics?.capture(event_name, { source, ...properties });
     const payload = { event_name, anonId, subscriberId, source, ...utm, properties };
     // sendBeacon survives navigation; fetch is the fallback.
     const body = JSON.stringify(payload);
