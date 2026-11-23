@@ -3,6 +3,10 @@
 //   answer -> Google sign-up sheet -> free AI feedback -> paywall -> Stripe Checkout.
 // Design: docs/plans/2026-08-10-mobile-conversion-redesign.md
 // State survives reloads/auth redirects via localStorage 'rmd-inline-state'.
+// One-tap unlock (2026-11): a tap on "€24" ends on Stripe Checkout. Sign-in,
+// when needed, is chained in between and the checkout resumes by itself —
+// including after a full-page Google redirect (window.RMDCheckout intent,
+// public/js/checkout-flow.js).
 
 const STATE_KEY = 'rmd-inline-state';
 let exercises = null;
@@ -35,25 +39,37 @@ function authReady() {
     });
 }
 
+const RC = () => window.RMDCheckout;
+
 // Facebook/Instagram in-app browsers: Google blocks OAuth entirely
 // (403 disallowed_useragent), so the Google button must not be offered there.
 function inBlockedWebview() {
-    return /FBAN|FBAV|FB_IAB|Instagram|Line\/|MicroMessenger/i.test(navigator.userAgent);
+    return RC() ? RC().inAppBrowser() : /FBAN|FBAV|FB_IAB|Instagram|Line\/|MicroMessenger/i.test(navigator.userAgent);
 }
 
-async function signInGoogle() {
+// `checkoutIntent` (when the sign-in was started by a €24 tap) is persisted
+// before any redirect so the checkout resumes on return without a second tap.
+async function signInGoogle(checkoutIntent) {
     ensureFirebase();
     const provider = new firebase.auth.GoogleAuthProvider();
+    const redirect = async () => {
+        saveState({ pendingRedirect: true });
+        if (checkoutIntent && RC()) RC().markForRedirect(checkoutIntent);
+        await firebase.auth().signInWithRedirect(provider);
+        return null; // page navigates away
+    };
+    // Phones and WebViews: straight to the full-page redirect — a popup there
+    // opens a new tab (iOS) or is blocked outright.
+    if (RC() && RC().prefersRedirect()) return redirect();
     try {
         const cred = await firebase.auth().signInWithPopup(provider);
         return cred.user;
     } catch (err) {
-        if (['auth/popup-blocked', 'auth/popup-closed-by-user', 'auth/cancelled-popup-request',
-             'auth/operation-not-supported-in-this-environment'].includes(err.code)) {
-            saveState({ pendingRedirect: true });
-            await firebase.auth().signInWithRedirect(provider);
-            return null; // page navigates away
-        }
+        // A closed popup during a €24 tap means "cancel", not "try redirect".
+        const fallback = ['auth/popup-blocked', 'auth/cancelled-popup-request',
+            'auth/operation-not-supported-in-this-environment'];
+        if (!checkoutIntent) fallback.push('auth/popup-closed-by-user');
+        if (fallback.includes(err.code)) return redirect();
         throw err;
     }
 }
@@ -97,42 +113,65 @@ async function sessionAuth(sid) {
     return 'failed';
 }
 
+// Sheet copy per reason for signing in: the free feedback, or the €24 tap.
+const SHEET_COPY = {
+    feedback: {
+        signInSubtitle: 'This email already has an account. Continue with Google or your password to see your feedback.',
+        emailTitle: 'Where should your feedback go?',
+        emailBody: 'Enter your email to see your graded answer — no password, no account form.',
+        emailBtn: 'Show my feedback',
+    },
+    checkout: {
+        signInSubtitle: 'This email already has an account. Sign in and we take you straight to secure checkout.',
+        emailTitle: 'Which email should your access go to?',
+        emailBody: 'Your €24 unlock is saved to this email — then straight on to secure checkout. No password.',
+        emailBtn: 'Continue to checkout',
+    },
+};
+
 // Get a signed-in user with as little friction as the situation allows:
 // already signed in → session from the Q3 email → email-only sheet (no
 // password) → full sign-in sheet only for existing accounts.
-async function ensureAuthed(focus, onReady) {
+// opts: { purpose: 'feedback'|'checkout', intent, onSheet, onCancel } —
+// onSheet fires when a visible sheet takes over (the caller resets its
+// button), onCancel when the visitor dismisses it.
+async function ensureAuthed(focus, onReady, opts = {}) {
+    const copy = SHEET_COPY[opts.purpose] || SHEET_COPY.feedback;
+    const shown = () => { if (typeof opts.onSheet === 'function') opts.onSheet(); };
     const user = await authReady();
     if (user) return onReady(user);
     const sid = localStorage.getItem('rmd-scorecard-sid');
     if (sid) {
         const outcome = await sessionAuth(sid);
         if (outcome === 'ok') {
-            track('signup_completed', { focus, method: 'session' });
+            track('signup_completed', { focus, method: 'session', purpose: opts.purpose || 'feedback' });
             return onReady(firebase.auth().currentUser);
         }
         if (outcome === 'requiresSignIn') {
+            shown();
             return requireSignIn({
                 title: 'Welcome back — sign in',
-                subtitle: 'This email already has an account. Continue with Google or your password to see your feedback.',
-                focus, onSignedIn: onReady,
+                subtitle: copy.signInSubtitle,
+                focus, onSignedIn: onReady, intent: opts.intent, onCancel: opts.onCancel,
             });
         }
     }
-    requireEmailOnly({ focus, onReady });
+    shown();
+    requireEmailOnly({ focus, onReady, copy, intent: opts.intent, onCancel: opts.onCancel });
 }
 
 // Email-only fallback when the scorecard subscriber id is missing (cleared
 // storage, different device): one field, no password. Spec: "ask for email
 // once, not email then password".
-function requireEmailOnly({ focus, onReady }) {
-    track('signup_sheet_shown', { focus, variant: 'email_only' });
+function requireEmailOnly({ focus, onReady, copy = SHEET_COPY.feedback, intent, onCancel }) {
+    track('signup_sheet_shown', { focus, variant: 'email_only', purpose: intent ? 'checkout' : 'feedback' });
     const el = sheet(`
-        <h2>Where should your feedback go?</h2>
-        <p>Enter your email to see your graded answer — no password, no account form.</p>
+        <h2>${copy.emailTitle}</h2>
+        <p>${copy.emailBody}</p>
         <form id="sheet-email-form">
             <input type="email" id="sheet-email" required autocomplete="email" placeholder="you@example.com"
                    value="${(localStorage.getItem('rmd-email') || '').replace(/"/g, '')}">
-            <button class="btn" type="submit" id="sheet-email-btn" style="width:100%;margin-top:.5rem">Show my feedback</button>
+            <button class="btn" type="submit" id="sheet-email-btn" style="width:100%;margin-top:.5rem">${copy.emailBtn}</button>
         </form>
         <div class="error" id="sheet-error"></div>
         <button class="btn-ghost-link" id="sheet-close">Not now</button>
@@ -164,8 +203,9 @@ function requireEmailOnly({ focus, onReady }) {
             if (outcome === 'requiresSignIn') {
                 return requireSignIn({
                     title: 'Welcome back — sign in',
-                    subtitle: 'This email already has an account. Continue with Google or your password.',
-                    focus, onSignedIn: onReady,
+                    subtitle: intent ? copy.signInSubtitle
+                        : 'This email already has an account. Continue with Google or your password.',
+                    focus, onSignedIn: onReady, intent, onCancel,
                 });
             }
             throw new Error('Could not start your session, please try again.');
@@ -175,8 +215,18 @@ function requireEmailOnly({ focus, onReady }) {
             btn.disabled = false;
         }
     };
-    el.querySelector('#sheet-close').onclick = closeSheet;
-    el.querySelector('.sheet-backdrop').onclick = closeSheet;
+    bindDismiss(el, onCancel);
+}
+
+// "Not now" / backdrop: the €24 tap is abandoned, so its pending intent must
+// not fire a checkout later.
+function bindDismiss(el, onCancel) {
+    const dismiss = () => {
+        closeSheet();
+        if (typeof onCancel === 'function') onCancel();
+    };
+    el.querySelector('#sheet-close').onclick = dismiss;
+    el.querySelector('.sheet-backdrop').onclick = dismiss;
 }
 
 const AUTH_ERROR_COPY = {
@@ -196,9 +246,9 @@ function sheet(html) {
 }
 function closeSheet() { document.getElementById('rmd-sheet')?.remove(); }
 
-function requireSignIn({ title, subtitle, onSignedIn, focus }) {
+function requireSignIn({ title, subtitle, onSignedIn, focus, intent, onCancel }) {
     const webview = inBlockedWebview();
-    track('signup_sheet_shown', { focus, webview });
+    track('signup_sheet_shown', { focus, webview, purpose: intent ? 'checkout' : 'feedback' });
     const googleBtn = `
         <button class="btn btn-google" id="sheet-google">
             <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.1 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.8 6.1C12.3 13.4 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.4 5.8c4.4-4.1 7.2-10.1 7.2-17.5z"/><path fill="#FBBC05" d="M10.4 28.7a14.5 14.5 0 0 1 0-9.4l-7.8-6.1a24 24 0 0 0 0 21.6l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.1 0 11.2-2 15-5.5l-7.4-5.8c-2 1.4-4.6 2.2-7.6 2.2-6.3 0-11.7-3.9-13.6-9.4l-7.8 6.1C6.5 42.6 14.6 48 24 48z"/></svg>
@@ -211,7 +261,7 @@ function requireSignIn({ title, subtitle, onSignedIn, focus }) {
             <input type="password" id="sheet-password" required autocomplete="new-password"
                    placeholder="Choose a password (6+ characters)" minlength="6"
                    style="width:100%;font-family:var(--font-body);font-size:1.05rem;padding:.7rem .9rem;border:1px solid var(--cream-dark);border-radius:5px;background:var(--warm-white);margin:.35rem 0 .75rem">
-            <button class="btn" type="submit" id="sheet-email-btn" style="width:100%">Create my free account</button>
+            <button class="btn" type="submit" id="sheet-email-btn" style="width:100%">${intent ? 'Sign in and continue to checkout' : 'Create my free account'}</button>
         </form>`;
     const el = sheet(`
         <h2>${title}</h2>
@@ -236,7 +286,7 @@ function requireSignIn({ title, subtitle, onSignedIn, focus }) {
         el.querySelector('#sheet-error').textContent = '';
         track('signup_google_tapped', { focus });
         try {
-            const user = await signInGoogle();
+            const user = await signInGoogle(intent);
             if (user) succeed(user, 'google');
         } catch (err) { fail(err, 'google'); }
     });
@@ -256,15 +306,56 @@ function requireSignIn({ title, subtitle, onSignedIn, focus }) {
             succeed(user, 'email');
         } catch (err) { fail(err, 'email'); btn.disabled = false; }
     };
-    el.querySelector('#sheet-close').onclick = closeSheet;
-    el.querySelector('.sheet-backdrop').onclick = closeSheet;
+    bindDismiss(el, onCancel);
 }
 
-async function openCheckout(focus, btn, via) {
-    const label = btn ? btn.textContent : '';
-    if (btn) { btn.disabled = true; btn.textContent = 'Opening secure checkout…'; }
+function checkoutError(err) {
+    const msg = RC() ? RC().friendlyError(err) : (err.message || 'Checkout failed, please try again.');
+    const el = document.getElementById('paywall-error');
+    if (el && el.offsetParent !== null) {
+        el.textContent = msg;
+        el.scrollIntoView?.({ block: 'center', behavior: 'smooth' });
+    } else {
+        alert(msg);
+    }
+}
+
+// THE €24 tap. One tap → Stripe Checkout: signed in → straight there; not
+// signed in → silent session from the Q3 email → there; only an existing
+// real account (or lost storage) sees a sheet, and finishing it continues
+// into checkout on its own (also across a Google redirect).
+async function unlock(focus, btn, via) {
+    const restore = RC() ? RC().busy(btn) : () => {};
+    const errEl = document.getElementById('paywall-error');
+    if (errEl) errEl.textContent = '';
+    let user = null;
     try {
-        const idToken = await firebase.auth().currentUser.getIdToken();
+        // Waits for Firebase to restore a saved session — a reload/back
+        // navigation used to hit currentUser === null here and crash.
+        user = await authReady();
+    } catch (err) {
+        restore();
+        track('checkout_failed', { focus, via: via || 'card', code: 'auth_unavailable' });
+        return checkoutError(err);
+    }
+    if (user) return openCheckout(focus, btn, via);
+    const intent = { surface: 'scorecard', focus, via: via || 'card' };
+    RC()?.save(intent);
+    ensureAuthed(focus, () => openCheckout(focus, btn, via, { afterSignIn: true }), {
+        purpose: 'checkout', intent,
+        onSheet: restore,
+        onCancel: () => { RC()?.clear(); restore(); },
+    });
+}
+
+async function openCheckout(focus, btn, via, { afterSignIn = false, resumed = false } = {}) {
+    RC()?.clear(); // the pending intent (if any) is being fulfilled right now
+    const restore = RC() ? RC().busy(btn) : () => {};
+    via = via || 'card';
+    try {
+        const user = firebase.auth().currentUser || await authReady();
+        if (!user) throw Object.assign(new Error('not_signed_in'), { code: 'not_signed_in' });
+        const idToken = await user.getIdToken();
         const resp = await fetch('/api/create-checkout-session', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
@@ -275,26 +366,33 @@ async function openCheckout(focus, btn, via) {
                 subscriberId: localStorage.getItem('rmd-scorecard-sid') || undefined,
                 anonId: localStorage.getItem('rmd-anon-id') || undefined,
                 focus,
-                via: via || 'card',
+                via,
                 // Consent + PostHog id for the webhook's purchase_completed.
                 ...(window.rmdAnalytics?.checkoutContext?.() || {}),
             }),
         });
-        const data = await resp.json();
+        const data = await resp.json().catch(() => ({}));
         if (data.alreadyPaid) { location.href = '/?src=scorecard'; return; }
-        if (!data.success || !data.url) throw new Error(data.error || 'Could not start checkout.');
+        if (!data.success || !data.url) {
+            throw Object.assign(new Error(data.error || 'checkout_failed'), { code: data.error || 'checkout_failed' });
+        }
         // Firestore checkout_opened is written server-side when the session is
         // actually created; this is only the PostHog mirror with the same props.
+        // BEACON: sent immediately, survives the navigation below.
         window.rmdAnalytics?.capture('checkout_opened', {
-            focus, via: via || 'card',
+            focus, via,
             currency: data.currency, locale: data.locale, country: data.country,
+            after_sign_in: afterSignIn, resumed, in_app_browser: inBlockedWebview(),
         }, window.rmdAnalytics?.BEACON);
         saveState({ stage: 'checkout' });
-        // Same-tab navigation: Meta's in-app browsers kill new tabs/popups.
+        // Same-tab full-page navigation: Meta's in-app browsers kill new
+        // tabs/popups. The button stays busy until we leave (or pageshow /
+        // the timeout in checkout-flow.js recovers it).
         location.href = data.url;
     } catch (err) {
-        if (btn) { btn.disabled = false; btn.textContent = label; }
-        alert(err.message || 'Checkout failed, please try again.');
+        restore();
+        track('checkout_failed', { focus, via, code: err.code || null, after_sign_in: afterSignIn, resumed });
+        checkoutError(err);
     }
 }
 
@@ -348,6 +446,7 @@ function paywallCard(container, focus, headline) {
                 <li>Yours until you pass — one payment, no subscription</li>
             </ul>
             <button class="btn" id="paywall-btn" style="margin-top:.75rem;width:100%">Unlock everything — €24 once</button>
+            <div class="error" id="paywall-error" role="alert"></div>
             <p class="pay-methods"><span class="pay-chip ideal">iDEAL</span>
                 <span class="pay-chip">Cards</span> <span class="pay-chip">Apple&nbsp;Pay</span>
                 <span class="muted">via Stripe</span></p>
@@ -358,7 +457,7 @@ function paywallCard(container, focus, headline) {
     // Mirrored to PostHog by track(); the app's upgrade modal fires the same
     // paywall_viewed name with surface: 'app'.
     track('paywall_viewed', { focus, headline, surface: 'scorecard', trigger: 'inline_card' });
-    document.getElementById('paywall-btn').onclick = (e) => openCheckout(focus, e.target);
+    document.getElementById('paywall-btn').onclick = (e) => unlock(focus, e.currentTarget);
     ensureStickyUnlock(container, focus);
 }
 
@@ -374,7 +473,7 @@ function ensureStickyUnlock(container, focus) {
         <button class="btn" id="unlock-bar-btn">Unlock — €24 once</button>`;
     document.body.appendChild(bar);
     document.body.style.paddingBottom = '4.5rem';
-    bar.querySelector('#unlock-bar-btn').onclick = (e) => openCheckout(focus, e.target, 'sticky');
+    bar.querySelector('#unlock-bar-btn').onclick = (e) => unlock(focus, e.currentTarget, 'sticky');
     // Hide the bar while the full paywall card is on screen — one offer at a time.
     const card = container.querySelector('.inline-paywall');
     if (card && 'IntersectionObserver' in window) {
@@ -462,6 +561,16 @@ function renderGraded(container, ex, focus, resumeAnswer) {
     };
 }
 
+function mcqScoreHtml(container, ex, score) {
+    container.innerHTML = `
+        <div class="card">
+            <p class="muted">Your warm-up result</p>
+            <h2>${score} of ${ex.questions.length} correct</h2>
+            <p>${score === ex.questions.length ? 'Sterk! Now push your level with the full exam sets.'
+                : 'Good start — the full exam sets train exactly these questions until they stick.'}</p>
+        </div>`;
+}
+
 function renderMcq(container, ex, focus) {
     let idx = 0;
     const picks = [];
@@ -469,13 +578,7 @@ function renderMcq(container, ex, focus) {
     const showScore = () => {
         const score = picks.filter((p, i) => p === ex.questions[i].answer).length;
         saveState({ stage: 'graded', mcqScore: score });
-        container.innerHTML = `
-            <div class="card">
-                <p class="muted">Your warm-up result</p>
-                <h2>${score} of ${ex.questions.length} correct</h2>
-                <p>${score === ex.questions.length ? 'Sterk! Now push your level with the full exam sets.'
-                    : 'Good start — the full exam sets train exactly these questions until they stick.'}</p>
-            </div>`;
+        mcqScoreHtml(container, ex, score);
         track('first_feedback_viewed', { focus, total: score });
         paywallCard(container, focus, 'Keep practising where it counts');
     };
@@ -528,16 +631,31 @@ export async function renderInlinePractice(container, focus) {
     const state = loadState();
 
     // Resume after Google auth redirect: finish what the tap started.
+    let redirectError = null;
     if (state.pendingRedirect) {
         saveState({ pendingRedirect: false });
-        try { ensureFirebase(); await firebase.auth().getRedirectResult(); } catch {}
+        try {
+            ensureFirebase();
+            const cred = await firebase.auth().getRedirectResult();
+            if (cred && cred.user) track('signup_completed', { focus, method: 'google', redirect: true });
+        } catch (err) {
+            redirectError = err;
+            track('signup_failed', { focus, method: 'google', redirect: true, code: err.code || null });
+        }
     }
 
     if (state.stage === 'graded' && state.grading) {
         container.innerHTML = '<div class="card"><div id="inline-grade-area"></div></div>';
         container.querySelector('#inline-grade-area').innerHTML = feedbackHtml(state.grading);
         paywallCard(container, focus, 'That was your free feedback — want it on every answer?');
-        return;
+        return resumePendingCheckout(focus, redirectError);
+    }
+    // MCQ warm-up already scored (reload, or back from a Google redirect that
+    // a €24 tap started): show the score + paywall, never restart the quiz.
+    if (state.stage === 'graded' && typeof state.mcqScore === 'number' && ex.type === 'mcq') {
+        mcqScoreHtml(container, ex, state.mcqScore);
+        paywallCard(container, focus, 'Keep practising where it counts');
+        return resumePendingCheckout(focus, redirectError);
     }
     // Bounced off Stripe (back button, closed tab): the paywall must come
     // back, never a dead "Opening secure checkout…" screen.
@@ -547,12 +665,16 @@ export async function renderInlinePractice(container, focus) {
             container.querySelector('#inline-grade-area').innerHTML = feedbackHtml(state.grading);
         }
         paywallCard(container, focus, 'Finish unlocking — you were almost there');
-        return;
+        return resumePendingCheckout(focus, redirectError);
     }
     if (state.stage === 'paywalled') {
         paywallCard(container, focus, 'Pick up where you left off');
-        return;
+        return resumePendingCheckout(focus, redirectError);
     }
+    // A pending scorecard €24 intent without a paywall stage to resume into
+    // is stale (an app-surface intent is the app's business).
+    const stale = RC()?.peek();
+    if (stale && (!stale.surface || stale.surface === 'scorecard')) RC().clear();
     if (ex.type === 'mcq') return renderMcq(container, ex, focus);
     const resume = state.stage === 'answered' ? state.answer : '';
     renderGraded(container, ex, focus, resume);
@@ -560,6 +682,25 @@ export async function renderInlinePractice(container, focus) {
     if (resume && await authReady()) {
         container.querySelector('#inline-submit').click();
     }
+}
+
+// Back on the page with a pending €24 intent (Google redirect, or a reload
+// mid sign-in): signed in now → continue into checkout with no second tap.
+// Not signed in (redirect cancelled/failed) → drop the intent, keep the
+// paywall, and say why.
+async function resumePendingCheckout(focus, redirectError, fallbackBtnId = 'paywall-btn') {
+    const intent = RC()?.peek();
+    if (!intent) return;
+    if (intent.surface && intent.surface !== 'scorecard') return;
+    const user = await authReady().catch(() => null);
+    if (!user) {
+        RC().clear();
+        if (redirectError) checkoutError({ message: 'Sign-in did not finish — tap the button to try again.' });
+        return;
+    }
+    const btn = (intent.via === 'sticky' && document.getElementById('unlock-bar-btn'))
+        || document.getElementById(fallbackBtnId);
+    return openCheckout(intent.focus || focus, btn, intent.via || 'card', { afterSignIn: true, resumed: true });
 }
 
 // Post-checkout continuation rendered instead of the landing page.
@@ -588,9 +729,10 @@ export function renderCheckoutReturn(app, ok) {
                 <p style="margin-top:.25rem"><button class="btn" id="retry-checkout">Back to checkout — €24 once</button></p>
                 <p class="muted" style="margin-top:.5rem"><a href="/?src=scorecard#${mode}">Or keep using the free exercises</a></p>
             </div>`;
-        document.getElementById('retry-checkout').onclick = async (e) => {
-            ensureAuthed(st.focus, () => openCheckout(st.focus, e.target));
-        };
+        document.getElementById('retry-checkout').onclick = (e) => unlock(st.focus, e.currentTarget, 'retry');
+        // Back here from a Google redirect that the retry tap started.
+        if (st.pendingRedirect) saveState({ pendingRedirect: false });
+        resumePendingCheckout(st.focus, null, 'retry-checkout').catch(() => {});
     }
 }
 

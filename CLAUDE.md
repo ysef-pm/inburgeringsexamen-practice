@@ -93,6 +93,13 @@ One-time €24 purchase unlocks AI-powered features (Stripe Checkout + Firebase 
 - `server.js` — mounts `/api/stripe-webhook` with `express.raw()` **before** `express.json()`; `/api/create-checkout-session` (requireAuth) and `/api/me` (requireAuth); gates `/api/grade-writing`, `/api/transcribe-speech`, `/api/grade-speaking` with `requirePaid`.
 - Free vs paid split: lezen, luisteren, and KNM practice (static JSON + audio) stay free; AI grading and transcription (schrijven writing feedback, spreken transcribe + grade) require payment.
 - Frontend: `public/js/auth.js` (Firebase client auth widget, upgrade modal, checkout return handling) + `public/js/firebase-config.js` (web app config, safe to commit).
+- One-tap upgrade (2026-11): every €24 button (scorecard paywall card, sticky bar, cancelled-retry; app upgrade modal + header
+  "Upgrade €24") goes straight to Stripe Checkout in the same tab. Signed out → silent session from the Q3 email when possible,
+  otherwise a sign-in sheet; a pending intent (`public/js/checkout-flow.js`, `window.RMDCheckout`: local+sessionStorage
+  `rmd-pending-checkout`, 15-min TTL, plus `?checkout_intent=1` on the URL before a Google redirect) resumes checkout
+  automatically after sign-in. Phones/WebViews use `signInWithRedirect`; Google is hidden in Instagram/Facebook WebViews.
+  Auth-first by design (no guest checkout): the webhook keys entitlements on the Firebase uid. Tests: `test/checkout-flow.test.js`,
+  `test/one-tap-checkout.test.js`, `test/auth-checkout.test.js`.
 - Tests: `npm test` runs the unit suites in `test/` (paywall middleware, webhook handler, smoke).
 
 ## DUO Grading Rubrics
