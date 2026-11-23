@@ -375,8 +375,14 @@ const savedResult = (() => {
 
 if (checkoutParam === 'success' || checkoutParam === 'cancelled') {
     // Back from Stripe: resume the funnel, not the landing page.
+    // Read before render: resuming a pending checkout strips checkout_intent.
+    const backFromAuthRedirect = params.get('checkout_intent') === '1';
     renderCheckoutReturn(app, checkoutParam === 'success');
-    track(checkoutParam === 'success' ? 'checkout_returned_success' : 'checkout_returned_cancelled');
+    // Back on the cancelled page from a sign-in the retry tap started is not
+    // a second return from Stripe.
+    if (!backFromAuthRedirect) {
+        track(checkoutParam === 'success' ? 'checkout_returned_success' : 'checkout_returned_cancelled');
+    }
 } else if (savedResult && (loadState().pendingRedirect || (flowV2 && loadState().stage))) {
     // Back from a Google auth redirect (or reload mid-funnel): re-render the
     // result screen so the inline flow can pick up where the tap left off.

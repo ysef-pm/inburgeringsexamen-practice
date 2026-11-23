@@ -29,6 +29,9 @@ server-side writes. Common fields: `event_name`, `ts`, `anon_id` (random client 
 | `result_viewed` | Result screen rendered | — |
 | `cta_clicked` | Result-screen CTA to the app | — |
 | `product_activated` | Main app: mode started with `?src=scorecard` present | — |
+| `paywall_viewed` | Paywall card rendered (scorecard) / upgrade modal opened (app, PostHog only); the app header "Upgrade €24" goes straight to checkout and fires it with `trigger: 'header_button', one_tap: true` | — |
+| `checkout_opened` | Server when a Checkout Session is created; PostHog mirror (sendBeacon) right before the same-tab redirect to Stripe. Props: `via` (`card`/`sticky`/`retry`/`upgrade_modal`/`header_button`), `after_sign_in`, `resumed` (continued automatically after a sign-in redirect), `in_app_browser` | — |
+| `checkout_failed` | A €24 tap that did not reach Stripe (API error, network, auth unavailable). Props: `via`, `code` | — |
 | `purchase_completed` | Existing Stripe webhook (join on `entitlements`) | — |
 
 **Qualified opt-in** (primary metric) = `consent_confirmed` where the subscriber's

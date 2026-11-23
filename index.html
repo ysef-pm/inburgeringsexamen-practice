@@ -1960,6 +1960,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
     <script src="/js/firebase-config.js"></script>
+    <script src="/js/checkout-flow.js"></script>
     <script src="/js/auth.js"></script>
     <script src="/js/analytics.js"></script>
     <script src="/js/content.js"></script>
@@ -1992,7 +1993,7 @@
                 <button class="auth-btn" id="auth-signin-btn" onclick="showSignInModal()">Sign in</button>
                 <span class="auth-email hidden" id="auth-user-email"></span>
                 <span class="pro-badge hidden" id="auth-pro-badge">Pro</span>
-                <button class="auth-btn auth-btn-upgrade hidden" id="auth-upgrade-btn" onclick="showUpgradeModal('header_button')">Upgrade &euro;24</button>
+                <button class="auth-btn auth-btn-upgrade hidden" id="auth-upgrade-btn" onclick="oneTapUpgrade(this, 'header_button')">Upgrade &euro;24</button>
                 <button class="auth-btn hidden" id="auth-signout-btn">Sign out</button>
             </div>
             </div>
@@ -2071,8 +2072,9 @@
     <!-- Sign-in modal -->
     <div class="rmd-modal-overlay hidden" id="signin-modal">
         <div class="rmd-modal">
-            <button class="rmd-modal-close" onclick="closeSignInModal()" aria-label="Close">&times;</button>
+            <button class="rmd-modal-close" onclick="dismissSignInModal()" aria-label="Close">&times;</button>
             <h3>Sign in to RateMyDutch</h3>
+            <p class="rmd-auth-note hidden" id="signin-checkout-note">Sign in and we take you straight to secure checkout (&euro;24 once).</p>
             <div class="rmd-auth-note hidden" id="signin-unconfigured-note">Sign-in isn't set up on this deployment yet.</div>
             <button class="btn btn-primary btn-block" id="google-signin-btn">Continue with Google</button>
             <div class="rmd-divider">or</div>
@@ -2097,7 +2099,7 @@
             </ul>
             <div class="upgrade-price">&euro;24 <small>one-time payment, lifetime access</small></div>
             <div class="rmd-auth-error hidden" id="upgrade-error"></div>
-            <button class="btn btn-primary btn-block" id="upgrade-checkout-btn">Unlock with Stripe</button>
+            <button class="btn btn-primary btn-block" id="upgrade-checkout-btn">Unlock now &mdash; &euro;24 once</button>
         </div>
     </div>
 
@@ -3346,7 +3348,9 @@
         }
 
         // Exposed as window globals (called from module scripts in other files too)
-        window.showSignInModal = function () {
+        // opts.checkout: this sign-in was started by a €24 tap — say that
+        // checkout follows automatically.
+        window.showSignInModal = function (opts) {
             const errEl = document.getElementById('signin-error');
             errEl.classList.add('hidden');
             errEl.textContent = '';
@@ -3354,11 +3358,27 @@
             const note = document.getElementById('signin-unconfigured-note');
             const configured = window.RMDAuth && window.RMDAuth.isConfigured();
             note.classList.toggle('hidden', !!configured);
+            document.getElementById('signin-checkout-note')
+                .classList.toggle('hidden', !(opts && opts.checkout));
+            // A plain "Sign in" must never inherit an earlier, abandoned €24 tap.
+            if (!(opts && opts.checkout) && window.RMDCheckout) window.RMDCheckout.clear();
+            // Google refuses OAuth inside Instagram/Facebook WebViews
+            // (403 disallowed_useragent): offer email/password only there.
+            const inApp = !!(window.RMDCheckout && window.RMDCheckout.inAppBrowser());
+            document.getElementById('google-signin-btn').classList.toggle('hidden', inApp);
+            document.querySelector('#signin-modal .rmd-divider').classList.toggle('hidden', inApp);
             document.getElementById('signin-modal').classList.remove('hidden');
         };
 
         window.closeSignInModal = function () {
             document.getElementById('signin-modal').classList.add('hidden');
+        };
+
+        // The visitor closed the sign-in modal themselves: an abandoned €24
+        // tap must not open checkout on some later sign-in.
+        window.dismissSignInModal = function () {
+            window.RMDCheckout && window.RMDCheckout.clear();
+            window.closeSignInModal();
         };
 
         // trigger/reason feed paywall_viewed/paywall_closed; internal closes
@@ -3528,7 +3548,7 @@
                 overlay.addEventListener('click', (e) => {
                     if (e.target !== overlay) return;
                     if (id === 'upgrade-modal') closeUpgradeModal('backdrop');
-                    else overlay.classList.add('hidden');
+                    else dismissSignInModal();
                 });
             });
 
@@ -3599,6 +3619,7 @@
             // Sign-in modal success: identify by the stored subscriber id (never
             // the email) + mirror the scorecard's signup_completed.
             function trackAuth(method, cred) {
+                if (!cred) return; // null = page is redirecting to Google; tracked on return
                 window.rmdAnalytics && window.rmdAnalytics.identifyStored();
                 window.rmdAnalytics && window.rmdAnalytics.capture('signup_completed', {
                     surface: 'app', method,
@@ -3606,7 +3627,10 @@
                 });
             }
 
-            window.RMDAuth.onChange(({ user, paid }) => {
+            // Came back from a Google redirect that a €24 tap started?
+            const backFromCheckoutRedirect = !!(window.RMDCheckout && window.RMDCheckout.urlHasIntent());
+
+            window.RMDAuth.onChange(({ user, paid, ready }) => {
                 signinBtn.classList.toggle('hidden', !!user);
                 emailEl.classList.toggle('hidden', !user);
                 emailEl.textContent = user ? (user.email || 'Account') : '';
@@ -3615,7 +3639,48 @@
                 signoutBtn.classList.toggle('hidden', !user);
                 updateLockBadges(!paid);
                 if (user) closeSignInModal();
+                if (user) resumePendingCheckout(paid);
+                // Redirect sign-in backed out of (no error, no user): drop the
+                // intent so a later, unrelated sign-in can't open Stripe.
+                if (ready && !user && backFromCheckoutRedirect && window.RMDCheckout.peek()) {
+                    window.RMDCheckout.clear();
+                    showToast('Sign-in did not finish — tap Upgrade to try again.');
+                }
             });
+
+            // Back from a Google redirect sign-in.
+            window.RMDAuth.redirectResult().then((res) => {
+                if (res && res.error) {
+                    window.rmdAnalytics && window.rmdAnalytics.capture('signup_failed', {
+                        surface: 'app', method: 'google', redirect: true, code: res.error.code || null,
+                    });
+                    if (window.RMDCheckout && window.RMDCheckout.peek()) {
+                        window.RMDCheckout.clear();
+                        showToast('Sign-in did not finish — tap Upgrade to try again.');
+                    }
+                } else if (res) {
+                    trackAuth('google', res);
+                }
+            });
+
+            // A €24 tap that had to sign in first (modal, popup, or a full-page
+            // Google redirect): the first signed-in auth event continues straight
+            // into checkout. consume() is read-once, so this fires at most once.
+            function resumePendingCheckout(paid) {
+                const C = window.RMDCheckout;
+                const intent = C && C.peek();
+                if (!intent || (intent.surface && intent.surface !== 'app')) return;
+                C.consume();
+                if (paid) {
+                    showToast('You already have full access — happy practicing!');
+                    return;
+                }
+                showToast('Opening secure checkout…');
+                // Deferred: onChange can fire synchronously during setup,
+                // before oneTapUpgrade below is defined.
+                setTimeout(() => window.oneTapUpgrade(upgradeBtn, intent.via || 'upgrade_modal',
+                    { afterSignIn: true, resumed: true }), 0);
+            }
 
             signoutBtn.addEventListener('click', () => window.RMDAuth.signOut());
 
@@ -3664,28 +3729,54 @@
             // Upgrade modal action
             const checkoutBtn = document.getElementById('upgrade-checkout-btn');
             const upgradeError = document.getElementById('upgrade-error');
-            checkoutBtn.addEventListener('click', async () => {
+
+            // THE €24 tap (upgrade modal + header button): one tap → Stripe.
+            // Signed in → create the session and navigate (same tab, so it
+            // works in Instagram/Facebook WebViews). Signed out → remember the
+            // intent, sign in, and resumePendingCheckout() continues by itself.
+            window.oneTapUpgrade = async function (btn, via, opts) {
+                const C = window.RMDCheckout;
+                opts = opts || {};
+                // The header button skips the modal; keep paywall_viewed →
+                // checkout_opened conversion comparable for that trigger.
+                if (via === 'header_button' && !opts.resumed && window.rmdAnalytics) {
+                    window.rmdAnalytics.capture('paywall_viewed', { surface: 'app', trigger: 'header_button', one_tap: true });
+                }
+                upgradeError.classList.add('hidden');
                 if (!window.RMDAuth.getUser()) {
+                    C && C.save({ surface: 'app', via });
                     closeUpgradeModal();
-                    showSignInModal();
+                    showSignInModal({ checkout: true });
                     return;
                 }
-                checkoutBtn.disabled = true;
-                checkoutBtn.textContent = 'Redirecting…';
+                const restore = C ? C.busy(btn) : function () {};
                 try {
-                    await window.RMDAuth.startCheckout();
-                    if (window.RMDAuth.isPaid()) {
+                    const outcome = await window.RMDAuth.startCheckout({
+                        via, afterSignIn: !!opts.afterSignIn, resumed: !!opts.resumed,
+                    });
+                    // 'redirected': leave the button busy — the page is going
+                    // to Stripe (pageshow/timeout in checkout-flow.js recover it).
+                    if (outcome === 'already_paid') {
+                        restore();
                         closeUpgradeModal();
                         showToast('You already have full access — happy practicing!');
                     }
                 } catch (err) {
-                    upgradeError.textContent = (err && err.message) || String(err);
-                    upgradeError.classList.remove('hidden');
-                } finally {
-                    checkoutBtn.disabled = false;
-                    checkoutBtn.textContent = 'Unlock with Stripe';
+                    restore();
+                    window.rmdAnalytics && window.rmdAnalytics.capture('checkout_failed', {
+                        surface: 'app', via, code: (err && err.code) || null,
+                    });
+                    const msg = C ? C.friendlyError(err) : ((err && err.message) || String(err));
+                    if (document.getElementById('upgrade-modal').classList.contains('hidden')) {
+                        showToast(msg);
+                    } else {
+                        upgradeError.textContent = msg;
+                        upgradeError.classList.remove('hidden');
+                    }
                 }
-            });
+            };
+
+            checkoutBtn.addEventListener('click', () => window.oneTapUpgrade(checkoutBtn, 'upgrade_modal'));
         })();
     </script>
     <script type="module">
